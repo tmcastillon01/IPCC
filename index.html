@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="robots" content="noindex, nofollow" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#002147" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23002147'/%3E%3Crect y='54' width='64' height='6' fill='%23ab7d2c'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='30' fill='white' text-anchor='middle'%3ETC%3C/text%3E%3C/svg%3E" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Timothy Earl Mateo Castillon – Communication Officer Application, IPCC WGI Technical Support Unit</title>
   <meta name="description" content="Communications, digital content and knowledge management professional with 5+ years across the UN system. Applying for the Communication Officer role in the IPCC Working Group I Technical Support Unit (Gif-sur-Yvette, France). Includes two writing samples prepared for this application." />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
@@ -51,14 +49,18 @@
       text-transform: uppercase;
       color: var(--sage);
     }
-    .nav-links { display: flex; gap: clamp(1rem, 1.8vw, 2rem); list-style: none; }
+    .nav-links { display: flex; gap: clamp(0.9rem, 1.4vw, 1.7rem); list-style: none; margin: 0 auto; padding: 0 1.5rem; }
+    .nav-logo, .nav-cta, .nav-links a { white-space: nowrap; }
+    .nav-logo { flex-shrink: 0; }
+    .nav-cta { flex-shrink: 0; }
+    @media (min-width: 1181px) { .nav-links .nav-extra { display: none; } }
     .nav-links a {
-      font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase;
+      font-size: 0.76rem; letter-spacing: 0.05em; text-transform: uppercase;
       color: var(--muted); transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--sage); }
     .nav-cta {
-      font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase;
+      font-size: 0.76rem; letter-spacing: 0.05em; text-transform: uppercase;
       padding: 0.45rem 1.1rem;
       border: 1px solid var(--sage); border-radius: var(--radius);
       color: var(--sage); transition: background 0.2s, color 0.2s;
@@ -90,11 +92,13 @@
     }
     .hero-name {
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(2.4rem, 5vw, 4rem);
-      line-height: 1.08; color: var(--white);
+      font-size: clamp(1.45rem, 2.8vw, 2.4rem);
+      line-height: 1.12; color: var(--white);
       margin-bottom: 1.4rem;
     }
     .hero-name em { font-style: italic; color: var(--gold); }
+    .hero-name .ln { display: block; white-space: nowrap; }
+    @media (max-width: 480px) { .hero-name .ln { white-space: normal; } }
     .hero-lead {
       font-size: 1.05rem; color: rgba(255,255,255,0.78); max-width: 48ch;
       margin-bottom: 2.2rem; line-height: 1.75;
@@ -425,130 +429,70 @@
       .hero-card { max-width: 400px; margin: 0 auto; }
       .about-grid { grid-template-columns: 1fr; }
       .skills-domains { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    @media (max-width: 1180px) {
+      nav { justify-content: space-between; }
       .nav-toggle { display: flex; }
       .nav-links {
-        display: flex; flex-direction: column; gap: 0; position: fixed;
+        display: flex; flex-direction: column; gap: 0; position: fixed; margin: 0; padding: 0;
         top: var(--nav-h); left: 0; right: 0; background: var(--white);
         border-bottom: 1px solid var(--border);
         max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
       }
-      .nav-links.open { max-height: 400px; }
+      .nav-links.open { max-height: 80vh; overflow-y: auto; }
       .nav-links li { border-top: 1px solid var(--border); }
       .nav-links a { display: block; padding: 1rem 5vw; }
       .nav-cta { display: none; }
     }
 
+
+    /* ─── CAMPAIGN CARDS ─────────────────────────────────────── */
+    .camp-list { display: flex; flex-direction: column; gap: 1.6rem; }
+    .camp {
+      display: grid; grid-template-columns: 320px 1fr;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 12px; overflow: hidden;
+      box-shadow: 0 6px 24px rgba(0,33,71,0.06);
+    }
+    .camp-side { background: var(--sage); color: var(--white); padding: 2rem 1.8rem; }
+    .camp-num {
+      font-family: 'Space Mono', monospace; font-size: 2.4rem; font-weight: 700;
+      color: var(--gold); line-height: 1; margin-bottom: 0.9rem;
+    }
+    .camp-title { font-family: 'DM Serif Display', serif; font-size: 1.3rem; line-height: 1.25; margin-bottom: 0.9rem; }
+    .camp-title a { text-decoration: underline; text-underline-offset: 3px; }
+    .camp-role {
+      display: inline-block; font-size: 0.74rem; letter-spacing: 0.03em;
+      padding: 0.3rem 0.7rem; border-radius: 999px;
+      background: rgba(255,255,255,0.12); margin-bottom: 1.1rem;
+    }
+    .camp-obj { font-size: 0.85rem; line-height: 1.6; color: rgba(255,255,255,0.78); }
+    .camp-obj b { display: block; font-family: 'Space Mono', monospace; font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; font-weight: 400; }
+    .camp-main { padding: 1.8rem 2rem; display: flex; flex-direction: column; gap: 1.3rem; }
+    .camp-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 0.8rem; }
+    .camp-stat { background: var(--sage-lt); border-radius: var(--radius); padding: 0.9rem 1rem; }
+    .camp-stat-num { font-family: 'Space Mono', monospace; font-size: 1.45rem; font-weight: 700; color: var(--sage); line-height: 1.1; }
+    .camp-stat-lbl { font-size: 0.74rem; color: var(--muted); line-height: 1.35; margin-top: 0.3rem; }
+    .camp-row { display: grid; grid-template-columns: 88px 1fr; gap: 0.8rem; align-items: start; }
+    .camp-lbl { font-family: 'Space Mono', monospace; font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); padding-top: 0.25rem; }
+    .camp-text { font-size: 0.86rem; color: var(--ink); line-height: 1.55; }
+    .camp-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .camp-chip { font-size: 0.74rem; padding: 0.22rem 0.65rem; border: 1px solid var(--border); border-radius: 999px; color: var(--sage); background: var(--fog); }
+    .camp-ul { list-style: none; padding: 0; }
+    .camp-ul li { font-size: 0.85rem; color: var(--muted); padding: 0.15rem 0 0.15rem 1.1rem; position: relative; line-height: 1.5; }
+    .camp-ul li::before { content: '→'; position: absolute; left: 0; color: var(--sage); font-size: 0.78rem; }
+    .camp-note { font-size: 0.78rem; color: var(--muted); font-style: italic; }
+    @media (max-width: 900px) {
+      .camp { grid-template-columns: 1fr; }
+      .camp-main { padding: 1.4rem; }
+      .camp-row { grid-template-columns: 1fr; gap: 0.3rem; }
+    }
+
     /* Role fit: 3 cards per row */
     #rolefit .pub-grid { grid-template-columns: repeat(3, 1fr); }
     @media (max-width: 900px) { #rolefit .pub-grid { grid-template-columns: 1fr; } }
-
-    /* ─── GCF-inspired comms layer ───────────────────────────── */
-    #home { background: linear-gradient(135deg, #001a38 0%, #002147 55%, #0a2f5c 100%); }
-    #home .hero-eyebrow, .hero-name em, .cert-badge-provider, footer span { color: #e0b665; }
-    #home .btn-primary, #home .btn-download { background: #e0b665; color: #1a1203; font-weight: 600; }
-    .section-title::after { content: ''; display: block; width: 44px; height: 3px; background: var(--gold); margin-top: 0.7rem; border-radius: 2px; }
-    #contact .section-title::after { margin-left: auto; margin-right: auto; }
-    .section-eyebrow, .hero-eyebrow, .tl-period, .edu-year { font-family: 'Inter', sans-serif; font-weight: 600; }
-    .stat-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--border);
-      border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 2.4rem; }
-    .stat-strip > div { background: var(--white); padding: 1.1rem 1.2rem; }
-    .stat-strip .n { font-family: 'DM Serif Display', serif; font-size: 1.9rem; color: var(--sage); line-height: 1.1; }
-    .stat-strip .l { font-size: 0.74rem; color: var(--muted); line-height: 1.35; margin-top: 0.25rem; }
-    .filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.6rem; }
-    .filters button { font: inherit; font-size: 0.8rem; padding: 0.4rem 0.95rem; border-radius: 999px; cursor: pointer;
-      border: 1px solid var(--border); background: var(--white); color: var(--muted); transition: all 0.2s; }
-    .filters button:hover { border-color: var(--sage); color: var(--sage); }
-    .filters button.on { background: var(--sage); border-color: var(--sage); color: var(--white); }
-    .work-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.3rem; }
-    .work-card { background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--gold);
-      border-radius: var(--radius); padding: 1.5rem 1.6rem; display: flex; flex-direction: column; gap: 0.7rem; }
-    .work-card[hidden] { display: none; }
-    .work-top { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; }
-    .work-tag { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); }
-    .work-when { font-size: 0.72rem; color: var(--muted); white-space: nowrap; }
-    .work-title { font-family: 'DM Serif Display', serif; font-size: 1.2rem; line-height: 1.25; color: var(--ink); }
-    .work-org { font-size: 0.8rem; color: var(--sage); font-weight: 600; margin-top: -0.4rem; }
-    .work-row { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
-    .work-row b { color: var(--ink); font-weight: 600; }
-    .work-card ul { list-style: none; }
-    .work-card li { font-size: 0.82rem; color: var(--muted); line-height: 1.55; padding: 0.15rem 0 0.15rem 1rem; position: relative; }
-    .work-card li::before { content: ''; position: absolute; left: 0; top: 0.65rem; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
-    .work-result { margin-top: auto; padding-top: 0.8rem; border-top: 1px solid var(--border); font-size: 0.82rem; color: var(--ink); }
-    .work-note { font-size: 0.76rem; color: var(--muted); font-style: italic; }
-    @media (max-width: 420px) { .work-grid { grid-template-columns: 1fr; } }
-    .ico { margin-right: 0.45em; font-style: normal; }
-    .filters .ico { margin-right: 0.3em; }
-
-    /* ─── Brand layer ────────────────────────────────────────── */
-    .nav-logo { display: flex; align-items: center; gap: 0.7rem; font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: 0.1em; }
-    .nav-logo .mono { width: 32px; height: 32px; display: grid; place-items: center; background: var(--sage); color: var(--white);
-      border-bottom: 3px solid var(--gold); border-radius: 6px; font-family: 'DM Serif Display', serif; font-size: 0.95rem; letter-spacing: 0.02em; }
-    .hero-brand { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.6rem; }
-    .hero-brand::before { content: ''; width: 44px; height: 3px; background: var(--gold); border-radius: 2px; }
-    .hero-brand span { font-family: 'DM Serif Display', serif; font-size: 1.25rem; color: var(--white); letter-spacing: 0.01em; }
-    .hero-brand small { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-lt); }
-    .brand-band { background: var(--white); padding: 4.5rem 5vw; border-bottom: 1px solid var(--border); }
-    .band-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.9rem, 3.6vw, 2.9rem); line-height: 1.15; color: var(--sage); max-width: 22ch; margin-bottom: 2.4rem; }
-    .band-title em { color: var(--gold); }
-    .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
-    .pillar { border-top: 3px solid var(--sage); padding-top: 1.1rem; }
-    .pillar .no { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--gold); }
-    .pillar h3 { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--ink); margin: 0.2rem 0 0.5rem; }
-    .pillar p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
-    .pillar .proof { margin-top: 0.8rem; font-size: 0.78rem; font-weight: 600; color: var(--sage); }
-    footer .tag { display: block; margin-bottom: 0.5rem; font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.05rem; color: rgba(255,255,255,0.8); letter-spacing: 0; }
-    @media (max-width: 900px) { .pillars { grid-template-columns: 1fr; gap: 1.8rem; } }
-
-    /* ─── Compact layout ─────────────────────────────────────── */
-    section { padding: 4rem 5vw; }
-    .section-sub { margin-bottom: 2rem; }
-    .brand-band { padding: 3rem 5vw; }
-    .band-title { margin-bottom: 1.6rem; }
-    .about-body p { margin-bottom: 0.9rem; }
-    .tl-entry { margin-bottom: 2rem; }
-    #home { min-height: 0; padding-top: calc(var(--nav-h) + 3rem); padding-bottom: 3.5rem; }
-    .fold { margin-top: 0.5rem; }
-    .fold > summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1.6rem;
-      padding: 0.55rem 1.2rem; border: 1px solid var(--sage); border-radius: var(--radius); color: var(--sage); font-size: 0.85rem; font-weight: 600; }
-    .fold > summary::-webkit-details-marker { display: none; }
-    .fold > summary::after { content: '＋'; }
-    .fold[open] > summary::after { content: '－'; }
-    .fold > summary:hover { background: var(--sage); color: var(--white); }
-    .more-btn { display: block; margin: 1.6rem auto 0; font: inherit; font-size: 0.85rem; font-weight: 600; padding: 0.55rem 1.4rem;
-      border: 1px solid var(--sage); border-radius: var(--radius); background: none; color: var(--sage); cursor: pointer; }
-    .more-btn:hover { background: var(--sage); color: var(--white); }
-    .more-btn[hidden] { display: none; }
-    .band-title { margin: 3rem 0 1.4rem; font-size: clamp(1.5rem, 2.8vw, 2.1rem); }
-    .pillar { background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--sage); border-radius: var(--radius); padding: 1.4rem 1.5rem; }
-    .pillars { gap: 1.3rem; }
-    .p-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem; }
-    .p-ico { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: var(--sage-lt); font-size: 1.15rem; }
-    .p-stat { font-family: 'DM Serif Display', serif; font-size: 2.3rem; line-height: 1; color: var(--gold); }
-    .org-list { display: flex; flex-direction: column; gap: 1.2rem; }
-    .org-card { display: grid; grid-template-columns: 240px 1fr; gap: 2rem; background: var(--white); border: 1px solid var(--border);
-      border-left: 3px solid var(--sage); border-radius: var(--radius); padding: 1.6rem 1.8rem; }
-    .org-name { font-family: 'DM Serif Display', serif; font-size: 1.15rem; line-height: 1.25; color: var(--sage); margin-bottom: 0.3rem; }
-    .org-meta { font-size: 0.8rem; color: var(--muted); }
-    .org-span { margin-top: 0.5rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; color: var(--gold); }
-    .role + .role { margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid var(--border); }
-    .role-head { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
-    .role-title { font-weight: 600; font-size: 1rem; color: var(--ink); }
-    .role-when { font-size: 0.75rem; color: var(--muted); white-space: nowrap; }
-    .more > summary { cursor: pointer; list-style: none; font-size: 0.8rem; font-weight: 600; color: var(--sage); padding: 0.2rem 0 0.2rem 1.2rem; }
-    .more > summary::-webkit-details-marker { display: none; }
-    .more > summary::before { content: '＋'; margin-right: 0.4rem; }
-    .more[open] > summary::before { content: '－'; }
-    @media (max-width: 800px) { .org-card { grid-template-columns: 1fr; gap: 1rem; } }
-    #home { position: relative; }
-    .scroll-cue { position: absolute; left: 50%; bottom: 1rem; transform: translateX(-50%); width: 36px; height: 36px; display: grid; place-items: center;
-      border: 1px solid rgba(255,255,255,0.35); border-radius: 50%; color: rgba(255,255,255,0.7); font-size: 1rem; line-height: 1;
-      transition: opacity 0.4s, border-color 0.2s, color 0.2s; animation: cue 3s ease-in-out infinite; }
-    .scroll-cue:hover { color: var(--white); border-color: var(--white); }
-    .scroll-cue.gone { opacity: 0; pointer-events: none; }
-    @keyframes cue { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 5px); } }
-    @media (prefers-reduced-motion: reduce) { .scroll-cue { animation: none; } }
-    @media (max-width: 900px) { .scroll-cue { display: none; } }
-  /* ─── SAMPLE WORK BOX (IPCC) ─────────────────────────────── */
+  
+    /* ─── SAMPLE WORK BOX (IPCC) ─────────────────────────────── */
     .sample-box {
       display: block; background: var(--sage); color: var(--white);
       border-radius: 12px; padding: 2.4rem 2.4rem 2rem;
@@ -584,119 +528,217 @@
     .sample-box:hover .sample-cta { gap: 1rem; }
     .sample-why { font-size: 0.88rem; color: var(--muted); max-width: 70ch; margin-top: 1.6rem; line-height: 1.75; }
     @media (max-width: 800px) { .sample-cols { grid-template-columns: 1fr; } .sample-box { padding: 1.8rem 1.4rem 1.6rem; } }
+
+    /* ─── EDUCATION / CERT ADDITIONS ─────────────────────────── */
+    .title-rule::after { content: ''; display: block; width: 56px; height: 3px; background: var(--gold); margin-top: 1rem; border-radius: 2px; }
+    .cred-toggle {
+      display: inline-flex; align-items: center; gap: 0.6rem; margin: 1.8rem 0 0.6rem;
+      padding: 0.75rem 1.3rem; min-height: 44px;
+      background: transparent; color: var(--sage); border: 1px solid var(--sage); border-radius: var(--radius);
+      font-family: inherit; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: background 0.2s, color 0.2s;
+    }
+    .cred-toggle:hover { background: var(--sage); color: var(--white); }
+    .cred-more[hidden] { display: none; }
+    .cred-more { margin-top: 2rem; }
+
+    /* ─── MOBILE / TABLET HARDENING ──────────────────────────── */
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    html, body { max-width: 100%; overflow-x: clip; }
+    img, svg, video { max-width: 100%; height: auto; }
+    nav { padding-left: max(5vw, env(safe-area-inset-left)); padding-right: max(5vw, env(safe-area-inset-right)); }
+    footer { padding-bottom: calc(2rem + env(safe-area-inset-bottom)); }
+    .pub-grid, .fw-grid, .edu-grid, .cert-list-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); }
+    .cert-badge-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); }
+    .lang-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 180px), 1fr)); }
+    #rolefit .pub-grid { grid-template-columns: repeat(3, 1fr); }
+    .contact-chip, .meta-value, .camp-text, .tl-ul li, .edu-note, .pub-title { overflow-wrap: anywhere; }
+    .skill-tag, .camp-chip { max-width: 100%; white-space: normal; }
+    .nav-links a, .nav-toggle, .btn-primary, .btn-outline, .btn-download { min-height: 44px; }
+    .btn-primary, .btn-outline, .btn-download { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; }
+
+    @media (max-width: 1024px) {
+      #rolefit .pub-grid { grid-template-columns: repeat(2, 1fr); }
+      .camp { grid-template-columns: 1fr; }
+      .camp-side { padding: 1.8rem; }
+    }
+    @media (max-width: 900px) {
+      #home { padding-top: calc(var(--nav-h) + 2.5rem); padding-bottom: 3.5rem; gap: 2.2rem; min-height: auto; }
+      #rolefit .pub-grid { grid-template-columns: 1fr; }
+      .about-grid { gap: 2rem; }
+      .timeline { padding-left: 1.6rem; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 3.6rem 5vw; }
+      .section-title { font-size: clamp(1.7rem, 7vw, 2.1rem); }
+      .section-sub { margin-bottom: 2rem; }
+      .hero-name { font-size: clamp(1.9rem, 8.2vw, 2.4rem); line-height: 1.18; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .hero-actions a { width: 100%; }
+      .hero-card { padding: 1.6rem 1.2rem; }
+      .hero-stats { gap: 0.4rem; }
+      .stat-num { font-size: 1.15rem; }
+      .stat-lbl { font-size: 0.66rem; }
+      .camp-stats { grid-template-columns: 1fr 1fr; }
+      .camp-side, .camp-main { padding: 1.4rem 1.2rem; }
+      .contact-links { flex-direction: column; align-items: stretch; }
+      .contact-chip { justify-content: center; text-align: center; }
+      .cred-toggle { width: 100%; justify-content: center; }
+      .sample-cta { width: 100%; justify-content: center; }
+      .sample-title { font-size: 1.2rem; }
+      .tl-role { font-size: 1rem; }
+    }
+
+    /* ─── PROJECT FILTER CHIPS ───────────────────────────────── */
+    .filter-bar { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0 0 1.8rem; }
+    .filter-chip {
+      font-family: inherit; font-size: 0.9rem; color: var(--sage); background: var(--white);
+      border: 1px solid var(--border); border-radius: 999px; padding: 0.55rem 1.1rem; min-height: 44px;
+      cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .filter-chip:hover { border-color: var(--sage); }
+    .filter-chip.active { background: var(--sage); color: var(--white); border-color: var(--sage); }
+    .camp[hidden] { display: none; }
   </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#home"><span class="mono">TC</span>Timothy Castillon</a>
+  <span class="nav-logo">Timothy Castillon</span>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li><li><a href="#rolefit">Role Fit</a></li><li><a href="#samples">Sample Work</a></li><li><a href="#work">Projects</a></li>
-    <li><a href="#experience">Experience</a></li><li><a href="#portfolio">Portfolio</a></li><li><a href="#education">Education</a></li><li><a href="#contact">Contact</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#rolefit">Role Fit</a></li>
+    <li><a href="#samples">Sample Work</a></li>
+    <li><a href="#campaigns">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#education">Education</a></li>
+    <li class="nav-extra"><a href="#certifications">Certifications</a></li>
+    <li class="nav-extra"><a href="#languages">Languages</a></li>
+    <li class="nav-extra"><a href="#contact">Contact</a></li>
   </ul>
   <a class="nav-cta" href="mailto:timothyearlmateocastillon@gmail.com">Get In Touch</a>
-  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
 <!-- HERO -->
 <section id="home">
   <div class="hero-text">
-    <p class="hero-eyebrow">Philippines-based · Ready to relocate to Gif-sur-Yvette and/or work remotely</p>
-    <h1 class="hero-name">Turning complex material into clear visuals, short texts, <em>and sessions people follow</em></h1>
-    <p class="hero-lead">Communications, digital content and knowledge management professional with 5+ years across the UN system, including WMO, which co-established the IPCC, and UNHCR. Master’s in African Studies with a climate and resilience focus. I am applying for the Communication Officer role in the IPCC WGI Technical Support Unit, with two writing samples prepared for it.</p>
+    <p class="hero-eyebrow">Based in the Philippines · Ready to relocate to Gif-sur-Yvette, France</p>
+    <h1 class="hero-name">
+      <span class="ln">Turn complex material into</span>
+      <span class="ln">clear visuals, short texts,</span>
+      <span class="ln"><em>and sessions people follow.</em></span>
+    </h1>
+    <p class="hero-lead">
+      Communications, digital content and knowledge management professional with 5+ years across the UN system, including WMO, which co-established the IPCC, and UNHCR. Master’s in African Studies with a climate and resilience focus. Applying for the Communication Officer role in the IPCC WGI Technical Support Unit, with two writing samples prepared for it.
+    </p>
     <div class="hero-actions">
       <a class="btn-download" href="Castillon_CV_IPCC.pdf" download>⬇ Download CV</a>
       <a class="btn-primary" href="#samples">Read My Sample Work</a>
       <a class="btn-outline" href="#rolefit">Fit for the Role</a>
-      <a class="btn-outline" href="https://tmcastillon01.github.io/PhotoPortfolio" target="_blank" rel="noopener noreferrer">📷 Visual Ethnography</a>
+      <a class="btn-outline" href="https://tmcastillon01.github.io/PhotoPortfolio/index.html#journal" target="_blank" rel="noopener noreferrer">📷 Visual Ethnography</a>
       <a class="btn-outline" href="#contact">Get In Touch</a>
     </div>
   </div>
+
   <div class="hero-card">
     <div class="hero-avatar"><img src="my_picture.png" alt="Timothy Earl Mateo Castillon"></div>
     <p class="hero-card-name">Timothy Earl Mateo Castillon</p>
     <p class="hero-card-role">Communications · Digital Content · Knowledge Management</p>
     <div class="badge-row">
-      <span class="badge">✍️ Plain-Language Writing</span><span class="badge">🎨 Visual &amp; Multimedia</span><span class="badge">📱 Digital &amp; Social</span><span class="badge">🎤 Events &amp; Training</span><span class="badge">🌍 Climate &amp; Resilience Background</span>
+      <span class="badge">Plain-Language Writing</span>
+      <span class="badge">Visual &amp; Multimedia Production</span>
+      <span class="badge">Digital Platforms &amp; Audience Growth</span>
+      <span class="badge">Events &amp; Training</span>
+      <span class="badge">Climate &amp; Resilience Background</span>
     </div>
     <div class="hero-stats">
       <div><div class="stat-num">109.7%</div><div class="stat-lbl">Organic LinkedIn follower growth, UNHCR GPC</div></div>
-      <div><div class="stat-num">300+</div><div class="stat-lbl">Materials uploaded to the GPC website</div></div>
+      <div><div class="stat-num">80%+</div><div class="stat-lbl">Staff reach, WMO intranet adoption campaign</div></div>
       <div><div class="stat-num">2</div><div class="stat-lbl">Writing samples prepared for this role</div></div>
     </div>
   </div>
-  <a class="scroll-cue" id="scrollCue" href="#about" aria-label="Scroll down for more">↓</a>
 </section>
+
 <!-- ABOUT -->
 <section id="about" class="reveal">
-  <p class="section-eyebrow"><span class="ico">👤</span>Background</p>
+  <p class="section-eyebrow">🧭 Background</p>
   <h2 class="section-title">About Me</h2>
   <p class="section-sub">Climate science only changes decisions when people can understand it, trust it and use it. That is the gap I want to work on.</p>
   <div class="about-grid">
     <div class="about-body">
-      <p>In March 2025, I walked up to Vinicunca in the Peruvian Andes. What stayed with me was the people working the trail, leading their horses and alpacas past bare rock beneath snow-capped peaks. I photographed and wrote about it for my personal project and came home with questions I could not answer: what the science says about the glaciers above that trail, and what it means for the families who live there. I went to the IPCC Sixth Assessment Report for answers, and that became the basis for the two writing samples on this page.</p>
-      <p>My communications experience is in design, digital channels and events, at WMO (which co-established the IPCC), UNHCR and the Local Government Academy. I have not run press conferences, handled media requests, placed stories or led climate science media relations, and my French is at A2 level. I would learn the media side from the TSU and the IPCC Communications Action Team, and from the start I can contribute what I do well: turning complex material into clear visuals, short texts and sessions people can follow.</p>
+      <p>
+        In 2025, while travelling in South America, I walked up to Vinicunca in the Peruvian Andes. What stayed with me was the people working the trail, leading their horses and alpacas past bare rock beneath snow-capped peaks. I photographed and wrote about it for my personal project and came home with questions I could not answer: what the science says about the retreat of the ice, and what it means for the families who live there. I went to the IPCC Sixth Assessment Report for answers, and that became the basis for the two writing samples below.
+      </p>
+      <p>
+        My background is in design, digital strategy, workflow engineering and event execution, at WMO (which co-established the IPCC), UNHCR and the Local Government Academy. I am eager to add media engagement alongside the TSU and the IPCC Communications Action Team, and ready to start with what I already do well: turning complex material into clear visuals, short texts and sessions people can follow.
+      </p>
     </div>
     <div class="about-meta">
-      <div class="meta-item"><div class="meta-label">Target Role</div><div class="meta-value">Communication Officer — IPCC Working Group I Technical Support Unit, Gif-sur-Yvette (Paris area), France</div></div>
-      <div class="meta-item"><div class="meta-label">Contract</div><div class="meta-value">Fixed term with Université Paris-Saclay until end of 2028, with possible extension</div></div>
-      <div class="meta-item"><div class="meta-label">Availability</div><div class="meta-value">Ready to relocate to Gif-sur-Yvette and/or work remotely</div></div>
-    </div>
+      <div class="meta-item"><div class="meta-label">🎯 Target Role</div><div class="meta-value">Communication Officer — IPCC Working Group I Technical Support Unit, Gif-sur-Yvette (Paris area), France</div></div>
+      <div class="meta-item"><div class="meta-label">📄 Contract</div><div class="meta-value">Fixed term with Université Paris-Saclay until end of 2028, with possible extension</div></div>
+      <div class="meta-item"><div class="meta-label">🌍 Availability</div><div class="meta-value">Ready to relocate to France and to travel internationally</div></div>
+          </div>
   </div>
 </section>
+
 <!-- ROLE FIT -->
 <section id="rolefit" class="reveal">
-  <p class="section-eyebrow"><span class="ico">🎯</span>Fit for the Role</p>
+  <p class="section-eyebrow">🎯 Fit for the Role</p>
   <h2 class="section-title">Mapped to the Communication Officer Role</h2>
   <p class="section-sub">How my experience lines up with the main areas of the WGI TSU posting, including where I have gaps.</p>
   <div class="pub-grid">
     <div class="pub-card">
-      <div class="pub-title"><span class="ico">🔬</span>Translating climate science</div>
+      <div class="pub-title">🔬 Translating climate science</div>
       <div class="pub-venue">Explainer sample · climate-focused master’s</div>
       <div class="pub-scope">I wrote a plain-language explainer of AR6 WGI glacier findings that keeps WGI (physical science) separate from WGII (impacts). My master’s had a climate and resilience focus, with fieldwork in Kenya, and I completed UNFCCC/UNDP training on Article 6.2. I am not a climate scientist.</div>
     </div>
     <div class="pub-card">
-      <div class="pub-title"><span class="ico">🎨</span>Multimedia resources</div>
+      <div class="pub-title">🎨 Multimedia resources</div>
       <div class="pub-venue">UNHCR GPC · Adobe Creative Cloud · Canva · Videoscribe</div>
       <div class="pub-scope">Reports, guidance, toolkits and newsletters laid out and produced; 30+ banners; 4 campaign videos edited. Graphic, written and video formats. No audio production.</div>
     </div>
     <div class="pub-card">
-      <div class="pub-title"><span class="ico">📱</span>Social media and audience</div>
+      <div class="pub-title">📱 Social media and audience</div>
       <div class="pub-venue">LinkedIn · X/Twitter</div>
       <div class="pub-scope">Organic LinkedIn followers +109.7% and X/Twitter +652 in six months; planned multi-channel editorial calendars. My channels are LinkedIn and X/Twitter; the posting also names Bluesky.</div>
     </div>
     <div class="pub-card">
-      <div class="pub-title"><span class="ico">🎤</span>Events, training and engagement</div>
+      <div class="pub-title">🎤 Events, training and engagement</div>
       <div class="pub-venue">Webinars · staff training · UN and government partners</div>
       <div class="pub-scope">Technical support for all GPC webinars and events, a moderated session at the Global Protection Forum, an online series for local officials with 3–4 live sessions a week, and WMO staff training and adoption campaigns.</div>
     </div>
     <div class="pub-card">
-      <div class="pub-title"><span class="ico">🤝</span>International teams</div>
+      <div class="pub-title">🤝 International teams</div>
       <div class="pub-venue">WMO · UNHCR · executive boards</div>
       <div class="pub-scope">Worked with UN agencies, government agencies, executive boards and project teams across countries, and reported outcomes to executive boards. I did not work on IPCC assessments at WMO.</div>
     </div>
     <div class="pub-card">
-      <div class="pub-title"><span class="ico">🧩</span>Where I would be learning</div>
+      <div class="pub-title">🧩 Where I would be learning</div>
       <div class="pub-venue">Stated plainly</div>
       <div class="pub-scope">Press engagement (press conferences, incoming media requests, story placement, interview booking), press releases beyond my mock sample, media training for authors, the IPCC assessment process, and French (currently A2). I have not led climate-science communications for two years or more.</div>
     </div>
   </div>
 </section>
+
 <!-- SAMPLE WORK -->
 <section id="samples" class="reveal">
-  <p class="section-eyebrow"><span class="ico">✍️</span>Sample Work</p>
+  <p class="section-eyebrow">✍️ Sample Work</p>
   <h2 class="section-title">Writing Samples for This Application</h2>
   <p class="section-sub">Two pieces written for this role, based on a published WGI finding. Click the box to open both.</p>
   <a class="sample-box" href="Castillon_Sample_Works_IPCC.pdf" target="_blank" rel="noopener">
     <div class="sample-flag">Writing samples only · not official IPCC documents</div>
     <div class="sample-cols">
       <div class="sample-col">
-        <div class="sample-kind">Sample 1 · Explainer</div>
+        <div class="sample-kind">📝 Sample 1 · Explainer</div>
         <div class="sample-title">The Ice Above the Trail</div>
         <p class="sample-desc">For general readers and web audiences. Opens at the Vinicunca trail, explains the melt using IPCC terms, and separates Working Group I (physical science) from Working Group II (impacts). Sources cited.</p>
       </div>
       <div class="sample-col">
-        <div class="sample-kind">Sample 2 · Mock Press Release</div>
+        <div class="sample-kind">📰 Sample 2 · Mock Press Release</div>
         <div class="sample-title">What the IPCC says about the vanishing ice of the tropical Andes</div>
         <p class="sample-desc">For journalists and news desks. A short wire-style release with notes to editors. The spokesperson quote is a placeholder.</p>
       </div>
@@ -704,52 +746,191 @@
     <span class="sample-cta">Open the sample works (PDF) <span aria-hidden="true">→</span></span>
   </a>
 </section>
-<!-- WORK -->
-<section id="work" class="reveal">
-  <p class="section-eyebrow"><span class="ico">📣</span>Projects &amp; Examples</p>
+
+<!-- CAMPAIGNS -->
+<section id="campaigns" class="reveal">
+  <p class="section-eyebrow">🚀 Projects &amp; Examples</p>
   <h2 class="section-title">Communications Projects</h2>
-  <p class="section-sub">Selected examples with my role, audience, tools and results. Outcomes are mostly audience growth, reach and participation. None of them is press or media-relations work.</p>
-  <div class="stat-strip" id="statStrip"></div>
-  <div class="filters" id="workFilters" role="group" aria-label="Filter communication work"></div>
-  <div class="work-grid" id="workGrid"></div>
+  <p class="section-sub">Four examples with my role, audience, tools and results. Outcomes are mostly audience growth, reach and participation. None of them is press or media-relations work.</p>
+  <div class="filter-bar" role="group" aria-label="Filter projects">
+    <button type="button" class="filter-chip active" data-filter="all" aria-pressed="true">All</button>
+    <button type="button" class="filter-chip" data-filter="web" aria-pressed="false">🌐 Web</button>
+    <button type="button" class="filter-chip" data-filter="design" aria-pressed="false">🎨 Publications &amp; design</button>
+    <button type="button" class="filter-chip" data-filter="digital" aria-pressed="false">📱 Digital &amp; social</button>
+    <button type="button" class="filter-chip" data-filter="events" aria-pressed="false">🎤 Events &amp; training</button>
+    <button type="button" class="filter-chip" data-filter="analytics" aria-pressed="false">📊 Analytics</button>
+  </div>
+  <div class="camp-list">
+    <article class="camp" data-tags="digital web">
+      <div class="camp-side">
+        <div class="camp-num">01</div>
+        <h3 class="camp-title">📱 UNHCR Global Protection Cluster: Social Media Growth and Digital Platform</h3>
+        <div class="camp-role">Communications &amp; Advocacy Intern · Sep 2022 – May 2023</div>
+        <p class="camp-obj"><b>Objective</b>Expand the reach of protection information among humanitarian actors working in conflict-affected operations.</p>
+      </div>
+      <div class="camp-main">
+        <div class="camp-stats"><div class="camp-stat"><div class="camp-stat-num">109.7%</div><div class="camp-stat-lbl">LinkedIn organic follower growth in 6 months</div></div><div class="camp-stat"><div class="camp-stat-num">+652</div><div class="camp-stat-lbl">new X/Twitter followers in 6 months</div></div><div class="camp-stat"><div class="camp-stat-num">124,373</div><div class="camp-stat-lbl">tweet engagements</div></div></div>
+        <div class="camp-row"><div class="camp-lbl">Audience</div><div class="camp-text">Protection actors across 15 global operations, humanitarian partners and the wider public</div></div>
+        <div class="camp-row"><div class="camp-lbl">Channels &amp; tools</div><div class="camp-chips"><span class="camp-chip">LinkedIn</span><span class="camp-chip">X/Twitter</span><span class="camp-chip">Mailchimp</span><span class="camp-chip">Trello</span><span class="camp-chip">Drupal website</span></div></div>
+        <div class="camp-row"><div class="camp-lbl">What I did</div><ul class="camp-ul"><li>Grew organic LinkedIn followers and X/Twitter followers over six months</li><li>Integrated a Trello board into the 2023 social media plan</li><li>Designed and sent the GPC’s Mailchimp newsletters</li><li>Decision-owner for the public Drupal website: uploaded 300+ materials and kept the 15 Areas of Focus pages updated</li></ul></div>
+        <p class="camp-note">Organic audience growth and engagement. This is social and digital work, not press or media-relations work.</p>
+      </div>
+    </article>
+    <article class="camp" data-tags="design web">
+      <div class="camp-side">
+        <div class="camp-num">02</div>
+        <h3 class="camp-title">🎨 UNHCR Global Protection Cluster: Publications and Visual Production</h3>
+        <div class="camp-role">Communications &amp; Advocacy Intern · Sep 2022 – May 2023</div>
+        <p class="camp-obj"><b>Objective</b>Turn technical protection content written by specialists into reports, toolkits and visuals that readers can use.</p>
+      </div>
+      <div class="camp-main">
+        <div class="camp-stats"><div class="camp-stat"><div class="camp-stat-num">30+</div><div class="camp-stat-lbl">banners made</div></div><div class="camp-stat"><div class="camp-stat-num">4</div><div class="camp-stat-lbl">campaign videos edited</div></div><div class="camp-stat"><div class="camp-stat-num">3</div><div class="camp-stat-lbl">Human Rights Engagement newsletters</div></div></div>
+        <div class="camp-row"><div class="camp-lbl">Audience</div><div class="camp-text">Humanitarian actors and protection practitioners across 15 global operations</div></div>
+        <div class="camp-row"><div class="camp-lbl">Channels &amp; tools</div><div class="camp-chips"><span class="camp-chip">Adobe Creative Cloud</span><span class="camp-chip">Canva</span><span class="camp-chip">Refugee Media library</span><span class="camp-chip">Drupal</span></div></div>
+        <div class="camp-row"><div class="camp-lbl">What I did</div><ul class="camp-ul"><li>Handled layout, formatting and photo selection for GPC reports, guidance and toolkits, working from content written by protection officers</li><li>Made 30+ banners and edited 4 campaign videos</li><li>Built and archived the Global Protection Forum pages for 2018–2023</li></ul></div>
+        <p class="camp-note">I design and package content; the protection content itself was written by protection officers.</p>
+      </div>
+    </article>
+    <article class="camp" data-tags="events analytics">
+      <div class="camp-side">
+        <div class="camp-num">03</div>
+        <h3 class="camp-title">📣 World Meteorological Organization: Intranet Adoption and Community Engagement</h3>
+        <div class="camp-role">KIM Intern, then Support Officer · May 2023 – Oct 2024</div>
+        <p class="camp-obj"><b>Objective</b>Move staff onto a new intranet and revive internal knowledge-sharing networks.</p>
+      </div>
+      <div class="camp-main">
+        <div class="camp-stats"><div class="camp-stat"><div class="camp-stat-num">80%+</div><div class="camp-stat-lbl">staff reach</div></div><div class="camp-stat"><div class="camp-stat-num">+20%</div><div class="camp-stat-lbl">participation across the networks</div></div><div class="camp-stat"><div class="camp-stat-num">↓</div><div class="camp-stat-lbl">IT support tickets (no figure tracked)</div></div></div>
+        <div class="camp-row"><div class="camp-lbl">Audience</div><div class="camp-text">WMO staff, segmented by department, and members of 12 Communities of Practice; outcomes reported to executive boards</div></div>
+        <div class="camp-row"><div class="camp-lbl">Channels &amp; tools</div><div class="camp-chips"><span class="camp-chip">Segmented Mailchimp emails</span><span class="camp-chip">Multi-platform training sessions</span><span class="camp-chip">Self-service guidance</span><span class="camp-chip">Engagement analytics</span></div></div>
+        <div class="camp-row"><div class="camp-lbl">What I did</div><ul class="camp-ul"><li>Co-led the staff adoption campaign and training for a full intranet migration</li><li>Audited engagement across 12 Communities of Practice, retired inactive networks and launched priority thematic groups</li><li>Reported outcomes to executive boards</li></ul></div>
+        <p class="camp-note">Internal change communications; measured in reach and participation.</p>
+      </div>
+    </article>
+    <article class="camp" data-tags="events">
+      <div class="camp-side">
+        <div class="camp-num">04</div>
+        <h3 class="camp-title">🎤 Local Government Academy: “L!stong Ugnayan” Online Discussion Series</h3>
+        <div class="camp-role">Project Officer · Nov 2019 – Sep 2020</div>
+        <p class="camp-obj"><b>Objective</b>Keep local government officials informed on how national agencies were handling the COVID-19 response as it changed quickly.</p>
+      </div>
+      <div class="camp-main">
+        <div class="camp-stats"><div class="camp-stat"><div class="camp-stat-num">3–4</div><div class="camp-stat-lbl">live sessions a week</div></div><div class="camp-stat"><div class="camp-stat-num">Mar–Aug</div><div class="camp-stat-lbl">2020, about six months</div></div><div class="camp-stat"><div class="camp-stat-num">5</div><div class="camp-stat-lbl">national asynchronous online programmes</div></div></div>
+        <div class="camp-row"><div class="camp-lbl">Audience</div><div class="camp-text">Local government officials nationwide; resource speakers from national agencies and partners</div></div>
+        <div class="camp-row"><div class="camp-lbl">Channels &amp; tools</div><div class="camp-chips"><span class="camp-chip">Live virtual sessions</span><span class="camp-chip">Online learning platforms</span><span class="camp-chip">Partner agency networks</span></div></div>
+        <div class="camp-row"><div class="camp-lbl">What I did</div><ul class="camp-ul"><li>Planned topics and schedules and coordinated resource speakers and partners</li><li>Hosted live sessions with Q&amp;A and reported on participant feedback</li><li>Designed and delivered 5 asynchronous online programmes for newly elected officials</li></ul></div>
+        
+      </div>
+    </article>
+  </div>
 </section>
 
 <!-- EXPERIENCE -->
 <section id="experience" class="reveal">
-  <p class="section-eyebrow"><span class="ico">💼</span>Career</p>
+  <p class="section-eyebrow">💼 Career</p>
   <h2 class="section-title">Professional Experience</h2>
   <p class="section-sub">Communications, digital platforms, events and knowledge management.</p>
-  <div class="org-list">
-    <article class="org-card">
-      <div class="org-side"><h3 class="org-name">Multiple International Development Clients</h3><div class="org-meta">Remote</div><div class="org-span">Feb 2025 – present</div></div>
-      <div class="org-roles"><div class="role"><div class="role-head"><span class="role-title">Independent Consultant – Communications &amp; Knowledge Management</span><span class="role-when">February 2025 – Present</span></div><ul class="tl-ul"><li>Execute digital content strategies, editorial scheduling and multi-channel dissemination for humanitarian and protection initiatives, including a six-month social media calendar built around humanitarian and protection awareness days.</li><li>Design and maintain visual branding assets, digital toolkits and reporting workflows for international stakeholders.</li></ul><details class="more"><summary>More</summary><ul class="tl-ul"><li>Build and manage websites and knowledge systems (Drupal, SharePoint, HTML/CSS).</li><li>Built two automated reporting systems using Microsoft Forms, Power Automate and Power BI, including a donor-reporting dashboard embedded in a client’s website.</li></ul></details></div></div>
-    </article>
-    <article class="org-card">
-      <div class="org-side"><h3 class="org-name">World Meteorological Organization (WMO)</h3><div class="org-meta">Geneva, Switzerland</div><div class="org-span">May 2023 – Oct 2024</div></div>
-      <div class="org-roles"><div class="role"><div class="role-head"><span class="role-title">Knowledge and Information Management Support Officer (P1)</span><span class="role-when">November 2023 – October 2024</span></div><ul class="tl-ul"><li>Co-led the staff adoption campaign and training for a full intranet migration, using segmented Mailchimp emails and multi-platform training sessions, which reduced IT support tickets.</li><li>Used participation data to review the Community-of-Practice networks, retiring 3 and launching 3, while sustaining participation at around 20% of staff (about 310 worldwide).</li></ul><details class="more"><summary>More</summary><ul class="tl-ul"><li>Kept 22 WMO Hub information pages updated with 13 content editors, ran short training sessions for the editors, and supported the Knowledge Management year-end video (Videoscribe).</li><li>Administered SharePoint and the intranet, built a SharePoint list monitoring 100+ projects for Programme Managers, and reported outcomes to executive boards.</li></ul></details></div><div class="role"><div class="role-head"><span class="role-title">Knowledge and Information Management Intern</span><span class="role-when">May 2023 – November 2023</span></div><ul class="tl-ul"><li>Supported the migration of institutional documents during the intranet redesign, including categorization and quality checks.</li><li>Helped establish the Community-of-Practice networks and produced analytics reports on their activity, setting a baseline participation rate of 20%.</li></ul><details class="more"><summary>More</summary><ul class="tl-ul"><li>Co-led two staff training sessions with my supervisor on Microsoft folder ownership and knowledge management practices.</li></ul></details></div></div>
-    </article>
-    <article class="org-card">
-      <div class="org-side"><h3 class="org-name">United Nations High Commissioner for Refugees (UNHCR)</h3><div class="org-meta">Geneva, Switzerland</div><div class="org-span">Sep 2022 – May 2023</div></div>
-      <div class="org-roles"><div class="role"><div class="role-head"><span class="role-title">Communications and Advocacy Intern – Global Protection Cluster (GPC)</span><span class="role-when">September 2022 – May 2023</span></div><ul class="tl-ul"><li>Designated by my supervisor as decision-owner for the GPC’s public Drupal website: uploaded 300+ materials, kept the 15 Areas of Focus pages updated, and built and archived the Global Protection Forum pages for 2018–2023, serving 15 global operations including conflict-affected contexts.</li><li>Handled the design and production of GPC publications (reports, guidance, toolkits, 3 Human Rights Engagement newsletters): layout, formatting and photo selection from UNHCR’s Refugee Media library, working from content written by protection officers. Made 30+ banners and edited 4 campaign videos (Adobe Creative Cloud, Canva).</li></ul><details class="more"><summary>More</summary><ul class="tl-ul"><li>Grew organic LinkedIn followers by 109.7% and X/Twitter followers by 652 in 6 months (124,373 tweet engagements); integrated a Trello board into the 2023 social media plan; designed and sent the GPC’s Mailchimp newsletters.</li><li>Provided technical support for all GPC Zoom and Teams webinars and in-person events, including the Humanitarian Networks and Partnerships Weeks (April 2023), and moderated a session at the Global Protection Forum.</li></ul></details></div></div>
-    </article>
-    <article class="org-card">
-      <div class="org-side"><h3 class="org-name">Local Government Academy (LGA)</h3><div class="org-meta">Manila, Philippines</div><div class="org-span">Jun 2018 – Sep 2020</div></div>
-      <div class="org-roles"><div class="role"><div class="role-head"><span class="role-title">Project Officer</span><span class="role-when">November 2019 – September 2020</span></div><ul class="tl-ul"><li>Led “L!stong Ugnayan,” an online discussion series for local government officials nationwide on how national agencies were handling the COVID-19 response (March to August 2020, 3 to 4 sessions per week): planned topics and schedules, coordinated resource speakers and partners, hosted live sessions with Q&amp;A and reported on participant feedback.</li><li>Designed and delivered 5 national asynchronous online training programmes for newly elected officials, in partnership with government agencies, development organizations and academia.</li></ul><details class="more"><summary>More</summary><ul class="tl-ul"><li>Produced analytical reports for national stakeholders on international benchmarking and government scholarships for officials studying abroad, using participation and outcome data to recommend programme improvements.</li></ul></details></div><div class="role"><div class="role-head"><span class="role-title">Project Assistant</span><span class="role-when">June 2018 – August 2019</span></div><ul class="tl-ul"><li>Researched and documented 50+ governance initiatives from uncatalogued data into a structured digital knowledge base (the “Innovative Solutions Bank”).</li><li>Supported the delivery of three national training programmes for local government personnel.</li></ul></div></div>
-    </article>
-    <article class="org-card">
-      <div class="org-side"><h3 class="org-name">University of the Philippines Diliman</h3><div class="org-meta">Quezon City, Philippines</div><div class="org-span">Aug 2015 – Jul 2017</div></div>
-      <div class="org-roles"><div class="role"><div class="role-head"><span class="role-title">Student Assistantship, NCPAG Library</span><span class="role-when">August 2015 – July 2017</span></div><ul class="tl-ul"><li>Maintained academic and archival records and supported 20+ academic programmes and events, reducing request turnaround time by 10%.</li></ul></div></div>
-    </article>
+
+  <div class="timeline">
+    <div class="tl-entry">
+      <div class="tl-dot"></div>
+      <div class="tl-period">February 2025 – Present</div>
+      <div class="tl-role">Independent Consultant – Communications &amp; Knowledge Management</div>
+      <div class="tl-org">Self-employed</div>
+      <div class="tl-loc">Multiple International Development Clients (Remote)</div>
+      <ul class="tl-ul">
+        <li>Execute digital content strategies, editorial scheduling and multi-channel dissemination for humanitarian and protection initiatives, including a six-month social media calendar built around humanitarian and protection awareness days.</li>
+        <li>Design and maintain visual branding assets, digital toolkits and reporting workflows for international stakeholders.</li>
+        <li>Build and manage websites and knowledge systems (Drupal, SharePoint, HTML/CSS).</li>
+        <li>Built two automated reporting systems using Microsoft Forms, Power Automate and Power BI, including a donor-reporting dashboard embedded in a client’s website.</li>
+      </ul>
+    </div>
+
+    <div class="tl-entry">
+      <div class="tl-dot"></div>
+      <div class="tl-period">November 2023 – October 2024</div>
+      <div class="tl-role">Knowledge and Information Management Support Officer (P1)</div>
+      <div class="tl-org">World Meteorological Organization (WMO)</div>
+      <div class="tl-loc">Geneva, Switzerland</div>
+      <ul class="tl-ul">
+        <li>Co-led the staff adoption campaign and training for a full intranet migration using segmented Mailchimp emails and multi-platform training sessions: 80%+ staff reach and fewer IT support tickets through clear self-service guidance.</li>
+        <li>Audited engagement across 12 Communities of Practice, retired inactive networks and launched priority thematic groups; participation across the networks increased by 20%. Reported outcomes to executive boards.</li>
+        <li>Replaced fragmented Excel tracking with a SharePoint list covering 100+ projects. Tested versions with lead Programme Managers to find workflow bottlenecks and, from their input, automated metadata tagging to reduce manual entry.</li>
+        <li>Tested new Microsoft tools for WMO’s systems: prototyped against business needs, piloted with primary users, revised from feedback, then opened to wider testing before rollout. Administered SharePoint and the intranet platforms.</li>
+      </ul>
+    </div>
+
+    <div class="tl-entry">
+      <div class="tl-dot"></div>
+      <div class="tl-period">May 2023 – November 2023</div>
+      <div class="tl-role">Knowledge and Information Management Intern</div>
+      <div class="tl-org">World Meteorological Organization (WMO)</div>
+      <div class="tl-loc">Geneva, Switzerland</div>
+      <ul class="tl-ul">
+        <li>Supported the migration of institutional documents during the intranet redesign, including categorization and quality checks.</li>
+        <li>Helped establish the 5 Community-of-Practice networks and produced analytics reports on their activity.</li>
+        <li>Co-led two staff training sessions with my supervisor on Microsoft folder ownership and knowledge management practices.</li>
+      </ul>
+    </div>
+
+    <div class="tl-entry">
+      <div class="tl-dot"></div>
+      <div class="tl-period">September 2022 – May 2023</div>
+      <div class="tl-role">Communications and Advocacy Intern – Global Protection Cluster (GPC)</div>
+      <div class="tl-org">United Nations High Commissioner for Refugees (UNHCR)</div>
+      <div class="tl-loc">Geneva, Switzerland</div>
+      <ul class="tl-ul">
+        <li>Designated by my supervisor as decision-owner for the GPC’s public Drupal website: uploaded 300+ materials, kept the 15 Areas of Focus pages updated, and built and archived the Global Protection Forum pages for 2018–2023, serving 15 global operations including conflict-affected contexts.</li>
+        <li>Handled the design and production of GPC publications (reports, guidance, toolkits, 3 Human Rights Engagement newsletters): layout, formatting and photo selection from UNHCR’s Refugee Media library, working from content written by protection officers. Made 30+ banners and edited 4 campaign videos (Adobe Creative Cloud, Canva).</li>
+        <li>Grew organic LinkedIn followers by 109.7% and X/Twitter followers by 652 in 6 months (124,373 tweet engagements); integrated a Trello board into the 2023 social media plan; designed and sent the GPC’s Mailchimp newsletters.</li>
+        <li>Provided technical support for all GPC Zoom and Teams webinars and in-person events, including the Humanitarian Networks and Partnerships Weeks (April 2023), and moderated a session at the Global Protection Forum.</li>
+      </ul>
+    </div>
+
+    <div class="tl-entry">
+      <div class="tl-dot"></div>
+      <div class="tl-period">November 2019 – September 2020</div>
+      <div class="tl-role">Project Officer</div>
+      <div class="tl-org">Local Government Academy (LGA)</div>
+      <div class="tl-loc">Manila, Philippines</div>
+      <ul class="tl-ul">
+        <li>Led “L!stong Ugnayan,” an online discussion series for local government officials nationwide on how national agencies were handling the COVID-19 response (March to August 2020, 3 to 4 sessions per week): planned topics and schedules, coordinated resource speakers and partners, hosted live sessions with Q&amp;A and reported on participant feedback.</li>
+        <li>Designed and delivered 5 national asynchronous online training programmes for newly elected officials, in partnership with government agencies, development organizations and academia.</li>
+        <li>Produced analytical reports for national stakeholders on international benchmarking and government scholarships for officials studying abroad, using participation and outcome data to recommend programme improvements.</li>
+      </ul>
+    </div>
+
+    <div class="tl-entry">
+      <div class="tl-dot"></div>
+      <div class="tl-period">June 2018 – August 2019</div>
+      <div class="tl-role">Project Assistant</div>
+      <div class="tl-org">Local Government Academy (LGA)</div>
+      <div class="tl-loc">Manila, Philippines</div>
+      <ul class="tl-ul">
+        <li>Researched and documented 50+ governance initiatives from uncatalogued data into a structured digital knowledge base (the “Innovative Solutions Bank”).</li>
+        <li>Supported the delivery of three national training programmes for local government personnel.</li>
+      </ul>
+    </div>
+
+    <div class="tl-entry">
+      <div class="tl-dot"></div>
+      <div class="tl-period">August 2015 – July 2017</div>
+      <div class="tl-role">Student Assistantship, NCPAG Library</div>
+      <div class="tl-org">University of the Philippines Diliman</div>
+      <div class="tl-loc">Quezon City, Philippines</div>
+      <ul class="tl-ul">
+        <li>Maintained academic and archival records and supported 20+ academic programmes and events, reducing request turnaround time by 10%.</li>
+      </ul>
+    </div>
   </div>
 </section>
 
 <!-- PORTFOLIO -->
 <section id="portfolio" class="reveal">
-  <p class="section-eyebrow"><span class="ico">📚</span>Research &amp; Communication Record</p>
+  <p class="section-eyebrow">🔬 Research &amp; Communication Record</p>
   <h2 class="section-title">Portfolio &amp; Publications</h2>
   <p class="section-sub">Climate and resilience research, and the platforms and reports I helped produce at UNHCR.</p>
 
-  <h3 class="cert-subhead">Peer-Reviewed &amp; Scientific Research</h3>
+  <h3 class="cert-subhead">📚 Peer-Reviewed &amp; Scientific Research</h3>
   <div class="pub-grid">
     <div class="pub-card">
       <div class="pub-title"><a href="https://repositorio-aberto.up.pt/handle/10216/147750" target="_blank" rel="noopener">Urban Risk Management and Building Resilience: Effective Disaster Risk Management Strategies in Narok County, Kenya</a></div>
@@ -768,7 +949,7 @@
     </div>
   </div>
 
-  <h3 class="cert-subhead">Communication Products & Platforms</h3>
+  <h3 class="cert-subhead">🖥️ Communication Products &amp; Platforms</h3>
   <div class="fw-grid">
     <div class="fw-card">
       <div class="fw-title"><a href="https://globalprotectioncluster.org/" target="_blank" rel="noopener">UNHCR Global Protection Cluster Public Website</a></div>
@@ -782,14 +963,14 @@
       <div class="fw-impact">Built and archived the Forum pages for 2018–2023.</div>
     </div>
     <div class="fw-card">
-      <div class="fw-title"><a href="https://tmcastillon01.github.io/PhotoPortfolio" target="_blank" rel="noopener">Personal Web Platform &amp; Data Portfolio</a></div>
+      <div class="fw-title"><a href="https://timothycastillon.com" target="_blank" rel="noopener">Personal Web Platform &amp; Data Portfolio</a></div>
       <div class="fw-org">Self-built · timothycastillon.com</div>
       <div class="fw-impact">Sole designer and developer of a data-centric site combining climate-migration research, JSON datasets and documentary field photography.</div>
       <div class="skill-tags"><span class="skill-tag">HTML/CSS</span><span class="skill-tag">JavaScript</span><span class="skill-tag">GitHub Pages</span></div>
     </div>
   </div>
 
-  <h3 class="cert-subhead">Reports</h3>
+  <h3 class="cert-subhead">📑 Reports</h3>
   <div class="kp-list">
     <div class="kp-item">
       <div class="kp-title">GPC Annual Report 2022</div>
@@ -801,48 +982,156 @@
     </div>
   </div>
 </section>
+
 <!-- EDUCATION -->
 <section id="education" class="reveal">
-  <p class="section-eyebrow"><span class="ico">🎓</span>Academic Background</p>
-  <h2 class="section-title">Education &amp; Credentials</h2>
+  <p class="section-eyebrow">🎓 Academic Background</p>
+  <h2 class="section-title title-rule">Education</h2>
+  <p class="section-sub">A foundation in public policy, climate resilience and data science, built across three continents.</p>
   <div class="edu-grid">
     <div class="edu-card">
       <div class="edu-year">2020 – 2022</div>
       <div class="edu-degree">M.A., EMJMD — European Interdisciplinary Master in African Studies (Climate &amp; Resilience Focus)</div>
       <div class="edu-school">University of Bordeaux Montaigne · University of Porto · University of Bayreuth</div>
-      <div class="edu-note">Mention Très Bien · Fieldwork in Narok and Nairobi, Kenya</div>
+      <div class="edu-note">Mention Très Bien · Fieldwork in Narok and Nairobi, Kenya · Thesis: Urban Risk Management and Building Resilience</div>
     </div>
     <div class="edu-card">
       <div class="edu-year">2013 – 2019</div>
       <div class="edu-degree">B.A., Public Administration</div>
       <div class="edu-school">University of the Philippines – Diliman</div>
-      <div class="edu-note">Exchanges: Japan (2018), Italy (2017–2018), Singapore (2017), Indonesia (2016)</div>
+      <div class="edu-note">Quezon City, Philippines</div>
     </div>
     <div class="edu-card">
       <div class="edu-year">2025 – Present</div>
       <div class="edu-degree">Further Studies</div>
       <div class="edu-school">Harvard Extension School · DataCamp</div>
-      <div class="edu-note">Advanced Professional Qualification in Data Science (Dec 2025 –) · DataCamp Engineering Scholar (Feb 2026 –)</div>
+      <div class="edu-note"><strong>Advanced Professional Qualification, Data Science</strong> (Dec 2025 – present, remote)<br><strong>DataCamp Engineering Scholar</strong> (Feb 2026 – present)</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">International Academic Experience</div>
+      <div class="edu-degree">Exchange &amp; Training Programmes</div>
+      <div class="edu-school">Japan · Italy · Singapore · Indonesia</div>
+      <div class="edu-note">Ferris University &amp; Yokohama National University, Japan (2018); University of Trento, Italy (2017–2018); Singapore Management University, Southeast Asian Global Leaders Program (2017); Universitas Airlangga, Indonesia (2016).</div>
     </div>
   </div>
-  <h3 class="cert-subhead">Selected Certifications</h3>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" class="reveal">
+  <p class="section-eyebrow">🏅 Credentials</p>
+  <h2 class="section-title title-rule">Certifications</h2>
+  <p class="section-sub">Verified credentials in project management, climate policy, data analytics and data governance, alongside UN-system compliance training.</p>
+
+  <h3 class="cert-subhead">🧭 Programme &amp; Sector</h3>
+  <div class="cert-list-grid">
+    <div class="cert-list-card">
+      <div class="cert-list-title">Google Project Management: Professional Certificate</div>
+      <div class="cert-list-issuer">Google · via Coursera (7 courses)</div>
+      <div class="cert-list-date">Completed Aug 8, 2025</div>
+      <a class="cert-list-verify" href="https://coursera.org/verify/professional-cert/61M3CD7NHHTW" target="_blank" rel="noopener">Verify credential →</a>
+    </div>
+    <div class="cert-list-card">
+      <div class="cert-list-title">Operationalizing Article 6.2 of the Paris Agreement</div>
+      <div class="cert-list-issuer">UN Climate Change Regional Collaboration Centres · UNDP</div>
+      <div class="cert-list-date">Completed Jul 30, 2025</div>
+    </div>
+    <div class="cert-list-card">
+      <div class="cert-list-title">Technical Project Management (TPM) in WASH Emergencies</div>
+      <div class="cert-list-issuer">Oxfam · via DisasterReady</div>
+      <div class="cert-list-date">Completed Aug 2, 2025</div>
+    </div>
+    <div class="cert-list-card">
+      <div class="cert-list-title">Project Management Essentials Certificate</div>
+      <div class="cert-list-issuer">DisasterReady · Cornerstone OnDemand Foundation</div>
+      <div class="cert-list-date">Completed Aug 1, 2025</div>
+    </div>
+    <div class="cert-list-card">
+      <div class="cert-list-title">MEAL Essentials Certificate</div>
+      <div class="cert-list-issuer">DisasterReady · Cornerstone OnDemand Foundation</div>
+      <div class="cert-list-date">Completed Aug 9, 2025</div>
+    </div>
+    <div class="cert-list-card">
+      <div class="cert-list-title">Grant Seeking Essentials Certificate Program</div>
+      <div class="cert-list-issuer">DisasterReady · Cornerstone OnDemand Foundation</div>
+      <div class="cert-list-date">Completed Aug 10, 2025</div>
+    </div>
+    <div class="cert-list-card">
+      <div class="cert-list-title">Introduction to Cognitive Project Management in AI (CPMAI)™</div>
+      <div class="cert-list-issuer">Project Management Institute (PMI)</div>
+      <div class="cert-list-date">Completed Aug 5, 2025</div>
+    </div>
+    <div class="cert-list-card">
+      <div class="cert-list-title">Practical Application of Generative AI for Project Managers</div>
+      <div class="cert-list-issuer">Project Management Institute (PMI)</div>
+      <div class="cert-list-date">Completed Aug 12, 2025</div>
+    </div>
+  </div>
+
+  <button class="cred-toggle" id="credToggle" type="button" aria-expanded="false" aria-controls="credMore">
+    <span class="cred-toggle-label">Show all credentials</span> <span class="cred-toggle-icon" aria-hidden="true">+</span>
+  </button>
+
+  <div id="credMore" class="cred-more" hidden>
+    <h3 class="cert-subhead">📊 Data &amp; Analytics</h3>
+  <div class="cert-badge-grid">
+    <div class="cert-badge-card">
+      <div class="cert-badge-visual">
+        <div class="cert-badge-ring">🎖️</div>
+        <div class="cert-badge-provider">DataCamp</div>
+        <div class="cert-badge-name">Associate Data Analyst</div>
+      </div>
+      <div class="cert-badge-title">Associate Data Analyst</div>
+      <div class="cert-badge-meta">Certified and Valid to 01/07/2028</div>
+      <div class="cert-badge-id">DAA0012314347133</div>
+    </div>
+    <div class="cert-badge-card">
+      <div class="cert-badge-visual">
+        <div class="cert-badge-ring">SQL</div>
+        <div class="cert-badge-provider">DataCamp</div>
+        <div class="cert-badge-name">SQL Associate</div>
+      </div>
+      <div class="cert-badge-title">SQL Associate</div>
+      <div class="cert-badge-meta">Certified and Valid to 06/07/2028</div>
+      <div class="cert-badge-id">SQA0012539546442</div>
+    </div>
+    <div class="cert-badge-card">
+      <div class="cert-badge-visual">
+        <div class="cert-badge-ring">AI</div>
+        <div class="cert-badge-provider">DataCamp</div>
+        <div class="cert-badge-name">AI Fundamentals</div>
+      </div>
+      <div class="cert-badge-title">AI Fundamentals</div>
+      <div class="cert-badge-meta">Certified Jul 7, 2026</div>
+      <div class="cert-badge-id">AIF0025601443549</div>
+    </div>
+    <div class="cert-badge-card">
+      <div class="cert-badge-visual">
+        <div class="cert-badge-ring">DG</div>
+        <div class="cert-badge-provider">DataCamp</div>
+        <div class="cert-badge-name">Data Governance Fundamentals</div>
+      </div>
+      <div class="cert-badge-title">Data Governance Fundamentals</div>
+      <div class="cert-badge-meta">Certified Jul 8, 2026</div>
+      <div class="cert-badge-id">DG0020408954566</div>
+    </div>
+  </div>
+  <p style="font-size:0.85rem;color:var(--muted);margin-bottom:2.4rem;">Also certified: <strong style="color:var(--ink);">Python Data Associate</strong> (DataCamp).</p>
+
+    <h3 class="cert-subhead">🛡️ UN Learning &amp; Compliance</h3>
   <div class="skill-tags" style="gap:0.6rem;">
-    <span class="skill-tag">Article 6.2 of the Paris Agreement (UNFCCC/UNDP)</span>
-    <span class="skill-tag">Google Project Management Professional Certificate</span>
-    <span class="skill-tag">MEAL Essentials</span>
-    <span class="skill-tag">TPM in WASH Emergencies</span>
-    <span class="skill-tag">Grant Seeking Essentials</span>
-    <span class="skill-tag">Associate Data Analyst</span>
-    <span class="skill-tag">SQL Associate</span>
-    <span class="skill-tag">Python Data Associate</span>
-    <span class="skill-tag">Data Governance Fundamentals</span>
-    <span class="skill-tag">AI Fundamentals</span>
-    <span class="skill-tag">CPMAI™</span>
+    <span class="skill-tag">BSAFE (UNDSS)</span>
+    <span class="skill-tag">Protection Fundamentals</span>
+    <span class="skill-tag">Prevention of Sexual Exploitation & Abuse (PSEA)</span>
+    <span class="skill-tag">Prevention of Harassment & Abuse of Authority</span>
+    <span class="skill-tag">Fundamentals of Fraud & Corruption Awareness</span>
+    <span class="skill-tag">Information Security Awareness</span>
+  </div>
   </div>
 </section>
+
 <!-- LANGUAGES -->
 <section id="languages" class="reveal">
-  <p class="section-eyebrow"><span class="ico">🌍</span>Communication</p>
+  <p class="section-eyebrow">🌍 Communication</p>
   <h2 class="section-title">Languages</h2>
   
   <div class="lang-grid">
@@ -880,12 +1169,13 @@
     </div>
   </div>
 </section>
+
 <!-- CONTACT -->
 <section id="contact" class="reveal">
-  <p class="section-eyebrow"><span class="ico">💬</span>Let's Connect</p>
+  <p class="section-eyebrow">✉️ Let's Connect</p>
   <h2 class="section-title">Get In Touch</h2>
   <p class="section-sub" style="margin: 0 auto 0; text-align:center;">
-    Ready to relocate to Gif-sur-Yvette and/or work remotely. Contact details for two referees are included with my application.
+    Ready to relocate to France and to travel internationally. Contact details for two referees are included with my application.
   </p>
   <div class="contact-links">
     <a class="contact-chip" href="mailto:timothyearlmateocastillon@gmail.com"><span>✉️</span> timothyearlmateocastillon@gmail.com</a>
@@ -897,12 +1187,11 @@
     <a class="btn-download" href="Castillon_Cover_Letter_IPCC.pdf" download>⬇ Cover Letter (PDF)</a>
   </div>
 </section>
+
 <footer>
-  <span class="tag">Evidence people can understand, trust and use.</span>
   <p>© 2026 <span>Timothy Earl Mateo Castillon</span>. All rights reserved.</p>
 </footer>
 
-<script type="application/json" id="work-data">{"stats": [["109.7%", "LinkedIn organic follower growth in 6 months"], ["652", "new X/Twitter followers in 6 months"], ["124,373", "tweet engagements"], ["300+", "materials uploaded to the GPC website"], ["30+", "banners made; 4 campaign videos edited"], ["3–4", "live sessions a week for about six months, LGA"]], "tags": ["Web", "Publications & design", "Digital & social", "Events & training", "Analytics"], "items": [{"tag": "Digital & social", "title": "Organic LinkedIn and X/Twitter growth", "org": "UNHCR Global Protection Cluster", "when": "Sep 2022 – May 2023", "role": "Communications and Advocacy Intern", "aud": "Protection actors across 15 global operations, humanitarian partners, the public", "tools": "LinkedIn · X/Twitter · Mailchimp · Trello", "did": ["Grew organic followers over six months", "Integrated a Trello board into the 2023 social media plan", "Designed and sent the GPC’s Mailchimp newsletters"], "res": "LinkedIn followers +109.7%, X/Twitter +652 and 124,373 tweet engagements in six months, all organic.", "note": "Organic social and digital work, not press or media-relations work."}, {"tag": "Publications & design", "title": "GPC reports, toolkits and newsletters", "org": "UNHCR Global Protection Cluster", "when": "Sep 2022 – May 2023", "role": "Design and production, working from content written by protection officers", "aud": "Protection officers and humanitarian actors worldwide", "tools": "Adobe Creative Cloud · Canva · UNHCR Refugee Media library", "did": ["Handled layout, formatting and photo selection for reports, guidance, toolkits and 3 Human Rights Engagement newsletters", "Made 30+ banners for webinars and sessions", "Edited 4 campaign videos"], "res": "Publications, banners and videos produced for GPC webinars, sessions and campaigns.", "note": "The written content came from protection officers."}, {"tag": "Web", "title": "GPC public website", "org": "UNHCR Global Protection Cluster", "when": "Sep 2022 – May 2023", "role": "Decision-owner, with a part-time IT colleague and minimal day-to-day supervision", "aud": "Protection actors across 15 global operations, humanitarian partners, the public", "tools": "Drupal CMS", "did": ["Uploaded 300+ materials and kept the 15 Areas of Focus pages updated", "Built and archived the Global Protection Forum pages for 2018–2023"], "res": "One public hub for 15 field operations to find and share protection information.", "note": null}, {"tag": "Events & training", "title": "GPC webinars and Global Protection Forum", "org": "UNHCR Global Protection Cluster", "when": "Sep 2022 – May 2023", "role": "Technical and communication support", "aud": "Protection and humanitarian actors worldwide", "tools": "Zoom · Microsoft Teams · banners", "did": ["Gave technical support for all GPC Zoom and Teams webinars and in-person events", "Supported the Humanitarian Networks and Partnerships Weeks (April 2023)", "Moderated a session at the Global Protection Forum"], "res": "Supported delivery of every GPC webinar and event in my time there.", "note": null}, {"tag": "Events & training", "title": "“L!stong Ugnayan” online discussion series", "org": "Local Government Academy, Manila", "when": "Mar – Aug 2020", "role": "Project Officer, leading the series", "aud": "Local government officials nationwide; resource speakers from national agencies", "tools": "Live virtual sessions · online learning platforms", "did": ["Planned topics and schedules and coordinated resource speakers and partners", "Hosted live sessions with Q&A and reported on participant feedback", "Designed and delivered 5 asynchronous online programmes for newly elected officials"], "res": "3 to 4 live sessions a week for about six months on the national COVID-19 response.", "note": null}, {"tag": "Events & training", "title": "Intranet adoption campaign and training", "org": "World Meteorological Organization", "when": "Nov 2023 – Oct 2024", "role": "Support Officer, co-leading with colleagues", "aud": "WMO staff, segmented by department; 13 WMO Hub content editors", "tools": "Segmented Mailchimp emails · training sessions · SharePoint", "did": ["Co-led the campaign and training for a full intranet migration", "Kept 22 WMO Hub information pages updated with 13 content editors and ran short training sessions for them", "Supported the Knowledge Management year-end video (Videoscribe)"], "res": "Staff moved onto the new intranet, with fewer IT support tickets.", "note": "Internal change communications."}, {"tag": "Analytics", "title": "Communities of Practice review", "org": "World Meteorological Organization", "when": "May 2023 – Oct 2024", "role": "Intern, then Support Officer", "aud": "WMO staff and members of the Communities of Practice; executive boards", "tools": "Participation analytics · SharePoint", "did": ["As an intern, helped establish the networks and set a baseline participation rate of 20%", "As officer, used participation data to retire 3 communities and launch 3", "Reported outcomes to executive boards"], "res": "Participation sustained at around 20% of staff (about 310 worldwide) through the restructuring.", "note": null}, {"tag": "Analytics", "title": "Automated reporting systems", "org": "Independent consulting, humanitarian and protection sector", "when": "Feb 2025 – present", "role": "Independent Consultant", "aud": "Client teams and donors", "tools": "Microsoft Forms · Power Automate · Power BI", "did": ["Built two automated reporting systems", "Embedded a donor-reporting dashboard in a client’s website"], "res": "Two working reporting systems, one with a donor-reporting dashboard embedded in a client’s website.", "note": null}, {"tag": "Digital & social", "title": "Six-month social media calendar", "org": "Independent consulting, humanitarian and protection sector", "when": "Feb 2025 – present", "role": "Independent Consultant", "aud": "Humanitarian and protection audiences", "tools": "Trello", "did": ["Wrote and scheduled a six-month calendar built around humanitarian and protection awareness days"], "res": "A planned six-month content calendar in use for a client.", "note": null}]}</script>
 <script>
   // Mobile nav toggle
   const navToggle = document.getElementById('navToggle');
@@ -917,10 +1206,6 @@
     navToggle.classList.remove('open');
     navToggle.setAttribute('aria-expanded', 'false');
   }));
-
-  // Hide the scroll cue once the page is scrolled
-  const cue = document.getElementById('scrollCue');
-  window.addEventListener('scroll', () => cue.classList.toggle('gone', window.scrollY > 80), { passive: true });
 
   // Scroll-reveal
   const revealEls = document.querySelectorAll('.reveal');
@@ -946,42 +1231,28 @@
   }, { rootMargin: '-45% 0px -50% 0px' });
   sections.forEach(s => navObserver.observe(s));
 
-  // Communication work (rendered from JSON)
-  (function () {
-    const d = JSON.parse(document.getElementById('work-data').textContent);
-    const ic = {'Web':'🌐','Publications & design':'🎨','Digital & social':'📱','Events & training':'🎤','Analytics':'📊'};
-    const esc = t => String(t).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
-    document.getElementById('statStrip').innerHTML = d.stats.map(x => `<div><div class="n">${esc(x[0])}</div><div class="l">${esc(x[1])}</div></div>`).join('');
-    const grid = document.getElementById('workGrid'), bar = document.getElementById('workFilters');
-    grid.innerHTML = d.items.map(i => `<article class="work-card" data-tag="${esc(i.tag)}">
-      <div class="work-top"><span class="work-tag"><span class="ico">${ic[i.tag] || ''}</span>${esc(i.tag)}</span><span class="work-when">${esc(i.when)}</span></div>
-      <h3 class="work-title">${esc(i.title)}</h3><div class="work-org">${esc(i.org)}</div>
-      <div class="work-row"><b>Role:</b> ${esc(i.role)}</div>
-      <div class="work-row"><b>Audience:</b> ${esc(i.aud)}</div>
-      <div class="work-row"><b>Tools:</b> ${esc(i.tools)}</div>
-      <ul>${i.did.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
-      <div class="work-result"><b>Result:</b> ${esc(i.res)}${i.note ? `<div class="work-note">${esc(i.note)}</div>` : ''}</div>
-    </article>`).join('');
-    const cards = [...grid.querySelectorAll('.work-card')], LIMIT = 6;
-    let cur = 'All', all = false;
-    const more = document.createElement('button'); more.type = 'button'; more.className = 'more-btn';
-    grid.after(more);
-    const apply = () => {
-      cards.forEach((c, i) => { c.hidden = cur === 'All' ? (!all && i >= LIMIT) : c.dataset.tag !== cur; });
-      more.hidden = cur !== 'All' || cards.length <= LIMIT;
-      more.textContent = all ? 'Show fewer' : 'Show all ' + cards.length + ' examples';
-    };
-    more.addEventListener('click', () => { all = !all; apply(); });
-    ['All'].concat(d.tags).forEach((t, k) => {
-      const b = document.createElement('button'); b.type = 'button';
-      b.innerHTML = (ic[t] ? '<span class="ico">' + ic[t] + '</span>' : '') + esc(t); if (!k) b.className = 'on';
-      b.addEventListener('click', () => {
-        cur = t; bar.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); apply();
-      });
-      bar.appendChild(b);
+  // Credentials toggle
+  const credToggle = document.getElementById('credToggle');
+  const credMore = document.getElementById('credMore');
+  if (credToggle && credMore) {
+    credToggle.addEventListener('click', () => {
+      const open = credMore.hasAttribute('hidden');
+      if (open) credMore.removeAttribute('hidden'); else credMore.setAttribute('hidden', '');
+      credToggle.setAttribute('aria-expanded', open);
+      credToggle.querySelector('.cred-toggle-label').textContent = open ? 'Show fewer credentials' : 'Show all credentials';
+      credToggle.querySelector('.cred-toggle-icon').textContent = open ? '–' : '+';
     });
-    apply();
-  })();
+  }
+
+  // Project filter
+  const chips = document.querySelectorAll('.filter-chip');
+  const camps = document.querySelectorAll('.camp[data-tags]');
+  chips.forEach(chip => chip.addEventListener('click', () => {
+    const f = chip.dataset.filter;
+    chips.forEach(c => { const on = c === chip; c.classList.toggle('active', on); c.setAttribute('aria-pressed', on); });
+    camps.forEach(c => { c.hidden = !(f === 'all' || c.dataset.tags.split(' ').includes(f)); });
+  }));
 </script>
+
 </body>
 </html>
