@@ -609,6 +609,56 @@
     .filter-chip:hover { border-color: var(--sage); }
     .filter-chip.active { background: var(--sage); color: var(--white); border-color: var(--sage); }
     .camp[hidden] { display: none; }
+
+    /* ─── Compact work + experience (ported from GCF layout) ─── */
+    .stat-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--border);
+      border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 2.4rem; }
+    .stat-strip > div { background: var(--white); padding: 1.1rem 1.2rem; }
+    .stat-strip .n { font-family: 'DM Serif Display', serif; font-size: 1.9rem; color: var(--sage); line-height: 1.1; }
+    .stat-strip .l { font-size: 0.74rem; color: var(--muted); line-height: 1.35; margin-top: 0.25rem; }
+    .filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.6rem; }
+    .filters button { font: inherit; font-size: 0.8rem; padding: 0.4rem 0.95rem; border-radius: 999px; cursor: pointer;
+      border: 1px solid var(--border); background: var(--white); color: var(--muted); transition: all 0.2s; }
+    .filters button:hover { border-color: var(--sage); color: var(--sage); }
+    .filters button.on { background: var(--sage); border-color: var(--sage); color: var(--white); }
+    .work-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.3rem; }
+    .work-card { background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--gold);
+      border-radius: var(--radius); padding: 1.5rem 1.6rem; display: flex; flex-direction: column; gap: 0.7rem; }
+    .work-card[hidden] { display: none; }
+    .work-top { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; }
+    .work-tag { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); }
+    .work-when { font-size: 0.72rem; color: var(--muted); white-space: nowrap; }
+    .work-title { font-family: 'DM Serif Display', serif; font-size: 1.2rem; line-height: 1.25; color: var(--ink); }
+    .work-org { font-size: 0.8rem; color: var(--sage); font-weight: 600; margin-top: -0.4rem; }
+    .work-row { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+    .work-row b { color: var(--ink); font-weight: 600; }
+    .work-card ul { list-style: none; }
+    .work-card li { font-size: 0.82rem; color: var(--muted); line-height: 1.55; padding: 0.15rem 0 0.15rem 1rem; position: relative; }
+    .work-card li::before { content: ''; position: absolute; left: 0; top: 0.65rem; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
+    .work-result { margin-top: auto; padding-top: 0.8rem; border-top: 1px solid var(--border); font-size: 0.82rem; color: var(--ink); }
+    .work-note { font-size: 0.76rem; color: var(--muted); font-style: italic; }
+    @media (max-width: 420px) { .work-grid { grid-template-columns: 1fr; } }
+    .ico { margin-right: 0.45em; font-style: normal; }
+    .filters .ico { margin-right: 0.3em; }
+    .more-btn { display: block; margin: 1.6rem auto 0; font: inherit; font-size: 0.85rem; font-weight: 600; padding: 0.55rem 1.4rem;
+      border: 1px solid var(--sage); border-radius: var(--radius); background: none; color: var(--sage); cursor: pointer; }
+    .more-btn:hover { background: var(--sage); color: var(--white); }
+    .more-btn[hidden] { display: none; }
+    .org-list { display: flex; flex-direction: column; gap: 1.2rem; }
+    .org-card { display: grid; grid-template-columns: 240px 1fr; gap: 2rem; background: var(--white); border: 1px solid var(--border);
+      border-left: 3px solid var(--sage); border-radius: var(--radius); padding: 1.6rem 1.8rem; }
+    .org-name { font-family: 'DM Serif Display', serif; font-size: 1.15rem; line-height: 1.25; color: var(--sage); margin-bottom: 0.3rem; }
+    .org-meta { font-size: 0.8rem; color: var(--muted); }
+    .org-span { margin-top: 0.5rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; color: var(--gold); }
+    .role + .role { margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid var(--border); }
+    .role-head { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+    .role-title { font-weight: 600; font-size: 1rem; color: var(--ink); }
+    .role-when { font-size: 0.75rem; color: var(--muted); white-space: nowrap; }
+    .more > summary { cursor: pointer; list-style: none; font-size: 0.8rem; font-weight: 600; color: var(--sage); padding: 0.2rem 0 0.2rem 1.2rem; }
+    .more > summary::-webkit-details-marker { display: none; }
+    .more > summary::before { content: '＋'; margin-right: 0.4rem; }
+    .more[open] > summary::before { content: '－'; }
+    @media (max-width: 800px) { .org-card { grid-template-columns: 1fr; gap: 1rem; } }
   </style>
 </head>
 <body>
@@ -620,7 +670,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#rolefit">Role Fit</a></li>
     <li><a href="#samples">Sample Work</a></li>
-    <li><a href="#campaigns">Projects</a></li>
+    <li><a href="#work">Work</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#portfolio">Portfolio</a></li>
     <li><a href="#education">Education</a></li>
@@ -759,179 +809,73 @@
 </section>
 
 <!-- CAMPAIGNS -->
-<section id="campaigns" class="reveal">
-  <p class="section-eyebrow">🚀 Projects &amp; Examples</p>
-  <h2 class="section-title">Communications Projects</h2>
-  <p class="section-sub">Four examples with my role, audience, tools and results. Outcomes are mostly audience growth, reach and participation. None of them is press or media-relations work.</p>
-  <div class="filter-bar" role="group" aria-label="Filter projects">
-    <button type="button" class="filter-chip active" data-filter="all" aria-pressed="true">All</button>
-    <button type="button" class="filter-chip" data-filter="web" aria-pressed="false">🌐 Web</button>
-    <button type="button" class="filter-chip" data-filter="design" aria-pressed="false">🎨 Publications &amp; design</button>
-    <button type="button" class="filter-chip" data-filter="digital" aria-pressed="false">📱 Digital &amp; social</button>
-    <button type="button" class="filter-chip" data-filter="events" aria-pressed="false">🎤 Events &amp; training</button>
-    <button type="button" class="filter-chip" data-filter="analytics" aria-pressed="false">📊 Analytics</button>
-  </div>
-  <div class="camp-list">
-    <article class="camp" data-tags="digital web">
-      <div class="camp-side">
-        <div class="camp-num">01</div>
-        <h3 class="camp-title">📱 UNHCR Global Protection Cluster: Social Media Growth and Digital Platform</h3>
-        <div class="camp-role">Communications &amp; Advocacy Intern · Sep 2022 – May 2023</div>
-        <p class="camp-obj"><b>Objective</b>Expand the reach of protection information among humanitarian actors working in conflict-affected operations.</p>
-      </div>
-      <div class="camp-main">
-        <div class="camp-stats"><div class="camp-stat"><div class="camp-stat-num">109.7%</div><div class="camp-stat-lbl">LinkedIn organic follower growth in 6 months</div></div><div class="camp-stat"><div class="camp-stat-num">+652</div><div class="camp-stat-lbl">new X/Twitter followers in 6 months</div></div><div class="camp-stat"><div class="camp-stat-num">124,373</div><div class="camp-stat-lbl">tweet engagements</div></div></div>
-        <div class="camp-row"><div class="camp-lbl">Audience</div><div class="camp-text">Protection actors across 15 global operations, humanitarian partners and the wider public</div></div>
-        <div class="camp-row"><div class="camp-lbl">Channels &amp; tools</div><div class="camp-chips"><span class="camp-chip">LinkedIn</span><span class="camp-chip">X/Twitter</span><span class="camp-chip">Mailchimp</span><span class="camp-chip">Trello</span><span class="camp-chip">Drupal website</span></div></div>
-        <div class="camp-row"><div class="camp-lbl">What I did</div><ul class="camp-ul"><li>Grew organic LinkedIn followers and X/Twitter followers over six months</li><li>Integrated a Trello board into the 2023 social media plan</li><li>Designed and sent the GPC’s Mailchimp newsletters</li><li>Decision-owner for the public Drupal website: uploaded 300+ materials and kept the 15 Areas of Focus pages updated</li></ul></div>
-        <p class="camp-note">Organic audience growth and engagement. This is social and digital work, not press or media-relations work.</p>
-      </div>
-    </article>
-    <article class="camp" data-tags="design web">
-      <div class="camp-side">
-        <div class="camp-num">02</div>
-        <h3 class="camp-title">🎨 UNHCR Global Protection Cluster: Publications and Visual Production</h3>
-        <div class="camp-role">Communications &amp; Advocacy Intern · Sep 2022 – May 2023</div>
-        <p class="camp-obj"><b>Objective</b>Turn technical protection content written by specialists into reports, toolkits and visuals that readers can use.</p>
-      </div>
-      <div class="camp-main">
-        <div class="camp-stats"><div class="camp-stat"><div class="camp-stat-num">30+</div><div class="camp-stat-lbl">banners made</div></div><div class="camp-stat"><div class="camp-stat-num">4</div><div class="camp-stat-lbl">campaign videos edited</div></div><div class="camp-stat"><div class="camp-stat-num">3</div><div class="camp-stat-lbl">Human Rights Engagement newsletters</div></div></div>
-        <div class="camp-row"><div class="camp-lbl">Audience</div><div class="camp-text">Humanitarian actors and protection practitioners across 15 global operations</div></div>
-        <div class="camp-row"><div class="camp-lbl">Channels &amp; tools</div><div class="camp-chips"><span class="camp-chip">Adobe Creative Cloud</span><span class="camp-chip">Canva</span><span class="camp-chip">Refugee Media library</span><span class="camp-chip">Drupal</span></div></div>
-        <div class="camp-row"><div class="camp-lbl">What I did</div><ul class="camp-ul"><li>Handled layout, formatting and photo selection for GPC reports, guidance and toolkits, working from content written by protection officers</li><li>Made 30+ banners and edited 4 campaign videos</li><li>Built and archived the Global Protection Forum pages for 2018–2023</li></ul></div>
-        <p class="camp-note">I design and package content; the protection content itself was written by protection officers.</p>
-      </div>
-    </article>
-    <article class="camp" data-tags="events analytics">
-      <div class="camp-side">
-        <div class="camp-num">03</div>
-        <h3 class="camp-title">📣 World Meteorological Organization: Intranet Adoption and Community Engagement</h3>
-        <div class="camp-role">KIM Intern, then Support Officer · May 2023 – Oct 2024</div>
-        <p class="camp-obj"><b>Objective</b>Move staff onto a new intranet and revive internal knowledge-sharing networks.</p>
-      </div>
-      <div class="camp-main">
-        <div class="camp-stats"><div class="camp-stat"><div class="camp-stat-num">80%+</div><div class="camp-stat-lbl">staff reach</div></div><div class="camp-stat"><div class="camp-stat-num">+20%</div><div class="camp-stat-lbl">participation across the networks</div></div><div class="camp-stat"><div class="camp-stat-num">↓</div><div class="camp-stat-lbl">IT support tickets (no figure tracked)</div></div></div>
-        <div class="camp-row"><div class="camp-lbl">Audience</div><div class="camp-text">WMO staff, segmented by department, and members of 12 Communities of Practice; outcomes reported to executive boards</div></div>
-        <div class="camp-row"><div class="camp-lbl">Channels &amp; tools</div><div class="camp-chips"><span class="camp-chip">Segmented Mailchimp emails</span><span class="camp-chip">Multi-platform training sessions</span><span class="camp-chip">Self-service guidance</span><span class="camp-chip">Engagement analytics</span></div></div>
-        <div class="camp-row"><div class="camp-lbl">What I did</div><ul class="camp-ul"><li>Co-led the staff adoption campaign and training for a full intranet migration</li><li>Audited engagement across 12 Communities of Practice, retired inactive networks and launched priority thematic groups</li><li>Reported outcomes to executive boards</li></ul></div>
-        <p class="camp-note">Internal change communications; measured in reach and participation.</p>
-      </div>
-    </article>
-    <article class="camp" data-tags="events">
-      <div class="camp-side">
-        <div class="camp-num">04</div>
-        <h3 class="camp-title">🎤 Local Government Academy: “L!stong Ugnayan” Online Discussion Series</h3>
-        <div class="camp-role">Project Officer · Nov 2019 – Sep 2020</div>
-        <p class="camp-obj"><b>Objective</b>Keep local government officials informed on how national agencies were handling the COVID-19 response as it changed quickly.</p>
-      </div>
-      <div class="camp-main">
-        <div class="camp-stats"><div class="camp-stat"><div class="camp-stat-num">3–4</div><div class="camp-stat-lbl">live sessions a week</div></div><div class="camp-stat"><div class="camp-stat-num">Mar–Aug</div><div class="camp-stat-lbl">2020, about six months</div></div><div class="camp-stat"><div class="camp-stat-num">5</div><div class="camp-stat-lbl">national asynchronous online programmes</div></div></div>
-        <div class="camp-row"><div class="camp-lbl">Audience</div><div class="camp-text">Local government officials nationwide; resource speakers from national agencies and partners</div></div>
-        <div class="camp-row"><div class="camp-lbl">Channels &amp; tools</div><div class="camp-chips"><span class="camp-chip">Live virtual sessions</span><span class="camp-chip">Online learning platforms</span><span class="camp-chip">Partner agency networks</span></div></div>
-        <div class="camp-row"><div class="camp-lbl">What I did</div><ul class="camp-ul"><li>Planned topics and schedules and coordinated resource speakers and partners</li><li>Hosted live sessions with Q&amp;A and reported on participant feedback</li><li>Designed and delivered 5 asynchronous online programmes for newly elected officials</li></ul></div>
-        
-      </div>
-    </article>
-  </div>
+<section id="work" class="reveal">
+  <p class="section-eyebrow"><span class="ico">📣</span>Communication Work</p>
+  <h2 class="section-title">Campaigns, Products &amp; Platforms</h2>
+  <p class="section-sub">Selected examples with my role, audience, tools and results. My outcomes are mostly reach, adoption and participation, not revenue, and I say so where it matters. None of it is press or media-relations work.</p>
+  <div class="stat-strip" id="statStrip"></div>
+  <div class="filters" id="workFilters" role="group" aria-label="Filter communication work"></div>
+  <div class="work-grid" id="workGrid"></div>
 </section>
 
 <!-- EXPERIENCE -->
 <section id="experience" class="reveal">
-  <p class="section-eyebrow">💼 Career</p>
+  <p class="section-eyebrow"><span class="ico">💼</span>Career</p>
   <h2 class="section-title">Professional Experience</h2>
-  <p class="section-sub">Communications, digital platforms, events and knowledge management.</p>
+  <p class="section-sub">Communications, web content, knowledge management and stakeholder engagement across international organizations.</p>
 
-  <div class="timeline">
-    <div class="tl-entry">
-      <div class="tl-dot"></div>
-      <div class="tl-period">February 2025 – Present</div>
-      <div class="tl-role">Independent Consultant – Communications &amp; Knowledge Management</div>
-      <div class="tl-org">Self-employed</div>
-      <div class="tl-loc">Multiple International Development Clients (Remote)</div>
-      <ul class="tl-ul">
-        <li>Execute digital content strategies, editorial scheduling and multi-channel dissemination for humanitarian and protection initiatives, including a six-month social media calendar built around humanitarian and protection awareness days.</li>
-        <li>Design and maintain visual branding assets, digital toolkits and reporting workflows for international stakeholders.</li>
-        <li>Build and manage websites and knowledge systems (Drupal, SharePoint, HTML/CSS).</li>
-        <li>Built two automated reporting systems using Microsoft Forms, Power Automate and Power BI, including a donor-reporting dashboard embedded in a client’s website.</li>
-      </ul>
-    </div>
-
-    <div class="tl-entry">
-      <div class="tl-dot"></div>
-      <div class="tl-period">November 2023 – October 2024</div>
-      <div class="tl-role">Knowledge and Information Management Support Officer (P1)</div>
-      <div class="tl-org">World Meteorological Organization (WMO)</div>
-      <div class="tl-loc">Geneva, Switzerland</div>
-      <ul class="tl-ul">
-        <li>Co-led the staff adoption campaign and training for a full intranet migration using segmented Mailchimp emails and multi-platform training sessions: 80%+ staff reach and fewer IT support tickets through clear self-service guidance.</li>
-        <li>Audited engagement across 12 Communities of Practice, retired inactive networks and launched priority thematic groups; participation across the networks increased by 20%. Reported outcomes to executive boards.</li>
-        <li>Replaced fragmented Excel tracking with a SharePoint list covering 100+ projects. Tested versions with lead Programme Managers to find workflow bottlenecks and, from their input, automated metadata tagging to reduce manual entry.</li>
-        <li>Tested new Microsoft tools for WMO’s systems: prototyped against business needs, piloted with primary users, revised from feedback, then opened to wider testing before rollout. Administered SharePoint and the intranet platforms.</li>
-      </ul>
-    </div>
-
-    <div class="tl-entry">
-      <div class="tl-dot"></div>
-      <div class="tl-period">May 2023 – November 2023</div>
-      <div class="tl-role">Knowledge and Information Management Intern</div>
-      <div class="tl-org">World Meteorological Organization (WMO)</div>
-      <div class="tl-loc">Geneva, Switzerland</div>
-      <ul class="tl-ul">
-        <li>Supported the migration of institutional documents during the intranet redesign, including categorization and quality checks.</li>
-        <li>Helped establish the 5 Community-of-Practice networks and produced analytics reports on their activity.</li>
-        <li>Co-led two staff training sessions with my supervisor on Microsoft folder ownership and knowledge management practices.</li>
-      </ul>
-    </div>
-
-    <div class="tl-entry">
-      <div class="tl-dot"></div>
-      <div class="tl-period">September 2022 – May 2023</div>
-      <div class="tl-role">Communications and Advocacy Intern – Global Protection Cluster (GPC)</div>
-      <div class="tl-org">United Nations High Commissioner for Refugees (UNHCR)</div>
-      <div class="tl-loc">Geneva, Switzerland</div>
-      <ul class="tl-ul">
-        <li>Designated by my supervisor as decision-owner for the GPC’s public Drupal website: uploaded 300+ materials, kept the 15 Areas of Focus pages updated, and built and archived the Global Protection Forum pages for 2018–2023, serving 15 global operations including conflict-affected contexts.</li>
-        <li>Handled the design and production of GPC publications (reports, guidance, toolkits, 3 Human Rights Engagement newsletters): layout, formatting and photo selection from UNHCR’s Refugee Media library, working from content written by protection officers. Made 30+ banners and edited 4 campaign videos (Adobe Creative Cloud, Canva).</li>
-        <li>Grew organic LinkedIn followers by 109.7% and X/Twitter followers by 652 in 6 months (124,373 tweet engagements); integrated a Trello board into the 2023 social media plan; designed and sent the GPC’s Mailchimp newsletters.</li>
-        <li>Provided technical support for all GPC Zoom and Teams webinars and in-person events, including the Humanitarian Networks and Partnerships Weeks (April 2023), and moderated a session at the Global Protection Forum.</li>
-      </ul>
-    </div>
-
-    <div class="tl-entry">
-      <div class="tl-dot"></div>
-      <div class="tl-period">November 2019 – September 2020</div>
-      <div class="tl-role">Project Officer</div>
-      <div class="tl-org">Local Government Academy (LGA)</div>
-      <div class="tl-loc">Manila, Philippines</div>
-      <ul class="tl-ul">
-        <li>Led “L!stong Ugnayan,” an online discussion series for local government officials nationwide on how national agencies were handling the COVID-19 response (March to August 2020, 3 to 4 sessions per week): planned topics and schedules, coordinated resource speakers and partners, hosted live sessions with Q&amp;A and reported on participant feedback.</li>
-        <li>Designed and delivered 5 national asynchronous online training programmes for newly elected officials, in partnership with government agencies, development organizations and academia.</li>
-        <li>Produced analytical reports for national stakeholders on international benchmarking and government scholarships for officials studying abroad, using participation and outcome data to recommend programme improvements.</li>
-      </ul>
-    </div>
-
-    <div class="tl-entry">
-      <div class="tl-dot"></div>
-      <div class="tl-period">June 2018 – August 2019</div>
-      <div class="tl-role">Project Assistant</div>
-      <div class="tl-org">Local Government Academy (LGA)</div>
-      <div class="tl-loc">Manila, Philippines</div>
-      <ul class="tl-ul">
-        <li>Researched and documented 50+ governance initiatives from uncatalogued data into a structured digital knowledge base (the “Innovative Solutions Bank”).</li>
-        <li>Supported the delivery of three national training programmes for local government personnel.</li>
-      </ul>
-    </div>
-
-    <div class="tl-entry">
-      <div class="tl-dot"></div>
-      <div class="tl-period">August 2015 – July 2017</div>
-      <div class="tl-role">Student Assistantship, NCPAG Library</div>
-      <div class="tl-org">University of the Philippines Diliman</div>
-      <div class="tl-loc">Quezon City, Philippines</div>
-      <ul class="tl-ul">
-        <li>Maintained academic and archival records and supported 20+ academic programmes and events, reducing request turnaround time by 10%.</li>
-      </ul>
-    </div>
+  <div class="org-list">
+    <article class="org-card">
+      <div class="org-side"><h3 class="org-name">Multiple International Development Clients</h3><div class="org-meta">Remote</div><div class="org-span">Feb 2025 – present</div></div>
+      <div class="org-roles">
+        <div class="role"><div class="role-head"><span class="role-title">Independent Consultant – Communications &amp; Knowledge Management</span><span class="role-when">February 2025 – Present</span></div>
+          <ul class="tl-ul"><li>Execute digital content strategies, editorial scheduling and multi-channel dissemination for humanitarian and protection initiatives, including a six-month social media calendar built around humanitarian and protection awareness days.</li><li>Design and maintain visual branding assets, digital toolkits and reporting workflows for international stakeholders.</li></ul>
+          <details class="more"><summary>More</summary><ul class="tl-ul"><li>Build and manage websites and knowledge systems (Drupal, SharePoint, HTML/CSS).</li><li>Built two automated reporting systems using Microsoft Forms, Power Automate and Power BI, including a donor-reporting dashboard embedded in a client’s website.</li></ul></details>
+        </div>
+      </div>
+    </article>
+    <article class="org-card">
+      <div class="org-side"><h3 class="org-name">World Meteorological Organization (WMO)</h3><div class="org-meta">Geneva, Switzerland</div><div class="org-span">May 2023 – Oct 2024</div></div>
+      <div class="org-roles">
+        <div class="role"><div class="role-head"><span class="role-title">Knowledge and Information Management Support Officer (P1)</span><span class="role-when">November 2023 – October 2024</span></div>
+          <ul class="tl-ul"><li>Co-led the staff adoption campaign and training for a full intranet migration using segmented Mailchimp emails and multi-platform training sessions: 80%+ staff reach and fewer IT support tickets through clear self-service guidance.</li><li>Audited engagement across 12 Communities of Practice, retired inactive networks and launched priority thematic groups; participation across the networks increased by 20%. Reported outcomes to executive boards.</li></ul>
+          <details class="more"><summary>More</summary><ul class="tl-ul"><li>Administered SharePoint and the intranet platforms. Replaced fragmented Excel tracking with a SharePoint list covering 100+ projects, and automated metadata tagging to reduce manual entry with lead Programme Managers.</li><li>Tested new Microsoft tools for WMO’s systems: prototyped against business needs, piloted with primary users, revised from feedback, then opened to wider testing before rollout.</li><li>Produced infographic-style visuals and reviewed and edited documents in Word using Track Changes and comments.</li></ul></details>
+        </div>
+        <div class="role"><div class="role-head"><span class="role-title">Knowledge and Information Management Intern</span><span class="role-when">May 2023 – November 2023</span></div>
+          <ul class="tl-ul"><li>Supported the migration of institutional documents during the intranet redesign, including categorization and quality checks.</li><li>Helped establish the 5 Community-of-Practice networks and produced analytics reports on their activity.</li></ul>
+          <details class="more"><summary>More</summary><ul class="tl-ul"><li>Co-led staff training sessions with my supervisor on Microsoft folder ownership and knowledge management practices.</li></ul></details>
+        </div>
+      </div>
+    </article>
+    <article class="org-card">
+      <div class="org-side"><h3 class="org-name">United Nations High Commissioner for Refugees (UNHCR)</h3><div class="org-meta">Geneva, Switzerland</div><div class="org-span">Sep 2022 – May 2023</div></div>
+      <div class="org-roles">
+        <div class="role"><div class="role-head"><span class="role-title">Communications and Advocacy Intern – Global Protection Cluster (GPC)</span><span class="role-when">September 2022 – May 2023</span></div>
+          <ul class="tl-ul"><li>Designated by my supervisor as decision-owner for the GPC’s public Drupal website: uploaded 300+ materials, kept the 15 Areas of Focus pages updated, and built and archived the Global Protection Forum pages for 2018–2023, serving 15 global operations including conflict-affected contexts.</li><li>Handled the design and production of GPC publications (reports, guidance, toolkits, 3 Human Rights Engagement newsletters): layout, formatting and photo selection from UNHCR’s Refugee Media library, working from content written by protection officers. Made 30+ banners and edited 4 campaign videos (Adobe Creative Cloud, Canva).</li></ul>
+          <details class="more"><summary>More</summary><ul class="tl-ul"><li>Grew organic LinkedIn followers by 109.7% and X/Twitter followers by 652 in 6 months (124,373 tweet engagements); integrated a Trello board into the 2023 social media plan; designed and sent the GPC’s Mailchimp newsletters.</li><li>Provided technical support for all GPC Zoom and Teams webinars and in-person events, including the Humanitarian Networks and Partnerships Weeks (April 2023), and moderated a session at the Global Protection Forum.</li></ul></details>
+        </div>
+      </div>
+    </article>
+    <article class="org-card">
+      <div class="org-side"><h3 class="org-name">Local Government Academy (LGA)</h3><div class="org-meta">Manila, Philippines</div><div class="org-span">Jun 2018 – Sep 2020</div></div>
+      <div class="org-roles">
+        <div class="role"><div class="role-head"><span class="role-title">Project Officer</span><span class="role-when">November 2019 – September 2020</span></div>
+          <ul class="tl-ul"><li>Led “L!stong Ugnayan,” an online discussion series for local government officials nationwide on how national agencies were handling the COVID-19 response (March to August 2020, 3 to 4 sessions per week): planned topics and schedules, coordinated resource speakers and partners, hosted live sessions with Q&amp;A and reported on participant feedback.</li><li>Designed and delivered 5 national asynchronous online training programmes for newly elected officials, in partnership with government agencies, development organizations and academia.</li></ul>
+          <details class="more"><summary>More</summary><ul class="tl-ul"><li>Produced analytical reports for national stakeholders on international benchmarking and government scholarships for officials studying abroad, using participation and outcome data to recommend programme improvements.</li></ul></details>
+        </div>
+        <div class="role"><div class="role-head"><span class="role-title">Project Assistant</span><span class="role-when">June 2018 – August 2019</span></div>
+          <ul class="tl-ul"><li>Researched and documented 50+ governance initiatives from uncatalogued data into a structured digital knowledge base (the “Innovative Solutions Bank”).</li><li>Supported the delivery of three national training programmes for local government personnel.</li></ul>
+        </div>
+      </div>
+    </article>
+    <article class="org-card">
+      <div class="org-side"><h3 class="org-name">University of the Philippines Diliman</h3><div class="org-meta">Quezon City, Philippines</div><div class="org-span">Aug 2015 – Jul 2017</div></div>
+      <div class="org-roles">
+        <div class="role"><div class="role-head"><span class="role-title">Student Assistantship, NCPAG Library</span><span class="role-when">August 2015 – July 2017</span></div>
+          <ul class="tl-ul"><li>Maintained academic and archival records and supported 20+ academic programmes and events, reducing request turnaround time by 10%.</li></ul>
+        </div>
+      </div>
+    </article>
   </div>
 </section>
 
@@ -1255,15 +1199,44 @@
     });
   }
 
-  // Project filter
-  const chips = document.querySelectorAll('.filter-chip');
-  const camps = document.querySelectorAll('.camp[data-tags]');
-  chips.forEach(chip => chip.addEventListener('click', () => {
-    const f = chip.dataset.filter;
-    chips.forEach(c => { const on = c === chip; c.classList.toggle('active', on); c.setAttribute('aria-pressed', on); });
-    camps.forEach(c => { c.hidden = !(f === 'all' || c.dataset.tags.split(' ').includes(f)); });
-  }));
+  // Communication work (rendered from JSON)
+  (function () {
+    const d = JSON.parse(document.getElementById('work-data').textContent);
+    const ic = {'Web':'🌐','Publications & design':'🎨','Digital & social':'📱','Events & training':'🎤','Analytics':'📊'};
+    const esc = t => String(t).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+    document.getElementById('statStrip').innerHTML = d.stats.map(x => `<div><div class="n">${esc(x[0])}</div><div class="l">${esc(x[1])}</div></div>`).join('');
+    const grid = document.getElementById('workGrid'), bar = document.getElementById('workFilters');
+    grid.innerHTML = d.items.map(i => `<article class="work-card" data-tag="${esc(i.tag)}">
+      <div class="work-top"><span class="work-tag"><span class="ico">${ic[i.tag] || ''}</span>${esc(i.tag)}</span><span class="work-when">${esc(i.when)}</span></div>
+      <h3 class="work-title">${esc(i.title)}</h3><div class="work-org">${esc(i.org)}</div>
+      <div class="work-row"><b>Role:</b> ${esc(i.role)}</div>
+      <div class="work-row"><b>Audience:</b> ${esc(i.aud)}</div>
+      <div class="work-row"><b>Tools:</b> ${esc(i.tools)}</div>
+      <ul>${i.did.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+      <div class="work-result"><b>Result:</b> ${esc(i.res)}${i.note ? `<div class="work-note">${esc(i.note)}</div>` : ''}</div>
+    </article>`).join('');
+    const cards = [...grid.querySelectorAll('.work-card')], LIMIT = 6;
+    let cur = 'All', all = false;
+    const more = document.createElement('button'); more.type = 'button'; more.className = 'more-btn';
+    grid.after(more);
+    const apply = () => {
+      cards.forEach((c, i) => { c.hidden = cur === 'All' ? (!all && i >= LIMIT) : c.dataset.tag !== cur; });
+      more.hidden = cur !== 'All' || cards.length <= LIMIT;
+      more.textContent = all ? 'Show fewer' : 'Show all ' + cards.length + ' examples';
+    };
+    more.addEventListener('click', () => { all = !all; apply(); });
+    ['All'].concat(d.tags).forEach((t, k) => {
+      const b = document.createElement('button'); b.type = 'button';
+      b.innerHTML = (ic[t] ? '<span class="ico">' + ic[t] + '</span>' : '') + esc(t); if (!k) b.className = 'on';
+      b.addEventListener('click', () => {
+        cur = t; bar.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); apply();
+      });
+      bar.appendChild(b);
+    });
+    apply();
+  })();
 </script>
 
+<script type="application/json" id="work-data">{"stats": [["109.7%", "LinkedIn organic follower growth in 6 months"], ["652", "new X/Twitter followers in 6 months"], ["124,373", "tweet engagements"], ["300+", "materials uploaded to the GPC website"], ["30+", "banners made; 4 campaign videos edited"], ["80%+", "staff reached by the WMO adoption campaign"], ["+20%", "participation across 12 Communities of Practice"]], "tags": ["Web", "Publications & design", "Digital & social", "Events & training", "Analytics"], "items": [{"tag": "Web", "title": "GPC public website and knowledge platform", "org": "UNHCR Global Protection Cluster", "when": "Sep 2022 – May 2023", "role": "Decision-owner, with a part-time IT colleague and minimal day-to-day supervision", "aud": "Protection actors across 15 global operations, humanitarian partners, the public", "tools": "Drupal CMS", "did": ["Uploaded 300+ materials and kept the 15 Areas of Focus pages updated", "Updated the Protection Risk pages quarterly", "Built and archived the Global Protection Forum pages for 2018–2023"], "res": "One public hub for 15 field operations to find and share protection information.", "note": null}, {"tag": "Publications & design", "title": "GPC reports, toolkits and newsletters", "org": "UNHCR Global Protection Cluster", "when": "Sep 2022 – May 2023", "role": "Design and production, working from content written by protection officers", "aud": "Protection officers and humanitarian actors worldwide", "tools": "Word (Track Changes, comments) · Adobe Creative Cloud · Canva", "did": ["Laid out and formatted reports, guidance and toolkits, and selected photos from UNHCR’s Refugee Media library", "Designed and sent 3 Human Rights Engagement newsletters in Mailchimp", "Made 30+ banners and infographic-style visuals; edited 4 campaign videos"], "res": "Publication-ready products for 20+ advocacy campaigns.", "note": "Samples: GPC Annual Report; Global Protection Thematic Forum Report. The writing was by protection officers and team members."}, {"tag": "Digital & social", "title": "GPC social media growth", "org": "UNHCR Global Protection Cluster", "when": "6 months, 2022–23", "role": "Managed channels and the 2023 social media plan", "aud": "Protection actors, humanitarian partners, the public", "tools": "LinkedIn · X/Twitter · Trello · Mailchimp", "did": ["Planned posts with a Trello board built into the 2023 social media plan", "Promoted webinars and sessions with banners and email"], "res": "LinkedIn organic followers +109.7%, X/Twitter +652, 124,373 tweet engagements.", "note": null}, {"tag": "Events & training", "title": "GPC webinars, forum and event support", "org": "UNHCR Global Protection Cluster", "when": "Sep 2022 – May 2023", "role": "Technical and communication support; session moderator", "aud": "Protection and humanitarian actors worldwide", "tools": "Zoom · Microsoft Teams · in-person events", "did": ["Provided technical support for all GPC Zoom and Teams webinars", "Supported the Humanitarian Networks and Partnerships Weeks (April 2023)", "Moderated a session at the Global Protection Forum"], "res": "Reliable online and in-person sessions for the protection community.", "note": null}, {"tag": "Digital & social", "title": "Intranet adoption and engagement campaign", "org": "World Meteorological Organization", "when": "2023 – 2024", "role": "Co-lead for staff adoption and training", "aud": "All WMO headquarters and regional staff, segmented by department and role", "tools": "Segmented Mailchimp emails · SharePoint · training webinars", "did": ["Tailored emails and tiered training to each department’s workflow", "Put self-service guidance in place before launch"], "res": "80%+ staff reach (attendance and portal logins) and fewer IT support tickets; no ticket figure was tracked.", "note": null}, {"tag": "Analytics", "title": "Communities of Practice audit", "org": "World Meteorological Organization", "when": "2023 – 2024", "role": "Led the audit and reported to executive boards", "aud": "Members of 12 Communities of Practice; executive boards", "tools": "SharePoint analytics · participation tracking", "did": ["Audited engagement across 12 networks", "Retired inactive networks and launched priority thematic groups"], "res": "Participation across the networks up 20%, against a baseline set during my internship.", "note": null}, {"tag": "Events & training", "title": "“L!stong Ugnayan” online series", "org": "Local Government Academy, Manila", "when": "Mar – Aug 2020", "role": "Project Officer; planned, coordinated and hosted", "aud": "Local government officials nationwide; partners across national agencies", "tools": "Live virtual sessions · partner networks", "did": ["Planned topics and schedules; coordinated resource speakers and partners", "Hosted live sessions with Q&A and reported participant feedback"], "res": "3 to 4 sessions a week for about six months; 10,000+ cumulative attendances (not unique individuals).", "note": null}, {"tag": "Analytics", "title": "Automated reporting systems", "org": "Independent consultancy", "when": "Feb 2025 – present", "role": "Designer and builder", "aud": "International development clients and their donors", "tools": "Microsoft Forms · Power Automate · Power BI", "did": ["Built two automated reporting systems", "Embedded a donor-reporting dashboard in a client’s website", "Built a six-month social media calendar around awareness days"], "res": "Reporting that clients can update and share without manual compilation; no time-saved figure was tracked.", "note": null}, {"tag": "Publications & design", "title": "field/notes", "org": "Personal documentary project", "when": "Ongoing", "role": "Sole writer, photographer and developer", "aud": "Development professionals and hiring panels", "tools": "Photography · field writing · HTML/CSS/JavaScript · GitHub Pages", "did": ["Documents places and the people who live and work in them, including hopeful stories from hard situations", "Coded the site by hand, without commercial templates"], "res": "A self-directed visual storytelling project at timothycastillon.com; no audience metrics.", "note": null}]}</script>
 </body>
 </html>
