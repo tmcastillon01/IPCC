@@ -3,345 +3,1629 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>UNEP Emissions Gap Report 2026: The Point of Return</title>
+  <title>UNEP Emissions Gap Report 2026 — The Point of Return</title>
+  <!-- Load Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Load Chart.js for crisp scientific data visualizations -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <!-- Google Fonts: same type system as the main portfolio (DM Serif Display, Inter, Space Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['Space Mono', 'monospace'],
+            serif: ['DM Serif Display', 'Georgia', 'serif'],
+          },
+          colors: {
+            oxford: '#002147',
+            oxforddeep: '#001733',
+            oxfordcard: '#062d5c',
+            oxfordsurface: '#0a376e',
+            glacier: '#38bdf8',
+            glacierdim: '#0284c7',
+            overshoot: '#fb7185',
+            amberheat: '#f59e0b',
+            emeraldclean: '#34d399',
+          },
+        },
+      },
+    };
+  </script>
+
   <style>
-:root {
-  --oxford-blue: #002147;
-  --oxford-dark: #00152e;
-  --warm-brass: #c59b27;
-  --brass-light: #e2be56;
-  --bg-light: #f7f8fa;
-  --text-dark: #1e242b;
-  --text-muted: #55606e;
-  --border-color: #dde2e8;
-  --white: #ffffff;
-}
+    /* Custom scientific & editorial styling anchored in Oxford Blue (#002147) */
+    /* ── Shared site tokens & nav (same as the main portfolio) ── */
+    :root { --sage:#002147; --gold:#ab7d2c; --gold-lt:#e2c68c; --muted:#656b76; --border:#e1ddd4; --radius:8px; --nav-h:64px; }
+    body { padding-top: var(--nav-h); }
+    .site-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-h);
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0 5vw;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { display: inline-flex; align-items: center; gap: 0.75rem; font-family: 'Space Mono', monospace; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); white-space: nowrap; }
+    .nav-mark { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; flex-shrink: 0; background: var(--sage); color: #fff; border-radius: 9px; box-shadow: 0 3px 0 var(--gold); font-family: 'DM Serif Display', Georgia, serif; font-size: 1.15rem; font-weight: 700; line-height: 1; margin-bottom: 3px; }
+    .nav-cta { flex-shrink: 0; white-space: nowrap; font-size: 0.76rem; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.45rem 1.1rem; border: 1px solid var(--sage); border-radius: var(--radius); color: var(--sage); transition: background 0.2s, color 0.2s; }
+    .nav-cta:hover { background: var(--sage); color: #fff; }
+    @media (max-width: 700px) { .nav-logo span:last-child { display: none; } }
+    /* headings use the site serif */
+    h1, h2 { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400 !important; letter-spacing: 0; }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+    :root {
+      --bg-canvas: #002147;
+      --bg-surface: rgba(6, 45, 92, 0.86);
+      --border-subtle: rgba(186, 230, 253, 0.2);
+      --glacier-glow: rgba(56, 189, 248, 0.18);
+      --overshoot-glow: rgba(251, 113, 133, 0.18);
+    }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background-color: var(--bg-light);
-  color: var(--text-dark);
-  line-height: 1.6;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-header {
-  background: linear-gradient(135deg, var(--oxford-dark) 0%, var(--oxford-blue) 100%);
-  color: var(--white);
-  padding: 1.25rem 2rem;
-  border-bottom: 4px solid var(--warm-brass);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-canvas);
+      color: #f8fafc;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      overflow-x: hidden;
+    }
 
-.nav-container {
-  max-width: 1120px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
+    /* Oxford Blue (#002147) atmospheric field with subtle climate signal gradients */
+    .atmospheric-bg {
+      background-color: #002147;
+      background-image:
+        linear-gradient(to right, rgba(186, 230, 253, 0.045) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(186, 230, 253, 0.045) 1px, transparent 1px);
+      background-size: 48px 48px, 48px 48px;
+    }
 
-.brand {
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  color: var(--white);
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
+    .glass-panel {
+      background: rgba(6, 45, 92, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(186, 230, 253, 0.22);
+      border-radius: 1rem;
+    }
 
-.brand span.accent {
-  color: var(--brass-light);
-}
+    .glass-subpanel {
+      background: rgba(10, 55, 110, 0.78);
+      border: 1px solid rgba(186, 230, 253, 0.16);
+      border-radius: 0.875rem;
+    }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
+    /* Smooth slide entry animation */
+    @keyframes slideReveal {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-nav a {
-  color: #e6ecf2;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
-  padding-bottom: 0.2rem;
-  border-bottom: 2px solid transparent;
-  transition: color 0.2s, border-color 0.2s;
-}
+    .slide-enter {
+      animation: slideReveal 0.32s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
 
-nav a:hover, nav a.active {
-  color: var(--brass-light);
-  border-bottom-color: var(--warm-brass);
-}
+    /* Custom subtle scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.6);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(100, 116, 139, 0.45);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(148, 163, 184, 0.7);
+    }
 
-.hero {
-  background: var(--oxford-blue);
-  color: var(--white);
-  padding: 3.5rem 2rem;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.hero-inner {
-  max-width: 1120px;
-  margin: 0 auto;
-}
-
-.eyebrow {
-  display: inline-block;
-  color: var(--brass-light);
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 0.75rem;
-}
-
-.hero h1 {
-  font-size: 2.35rem;
-  line-height: 1.2;
-  margin-bottom: 1rem;
-  max-width: 820px;
-}
-
-.hero p {
-  color: #d6e0eb;
-  font-size: 1.08rem;
-  max-width: 740px;
-  margin-bottom: 1.5rem;
-}
-
-.btn {
-  display: inline-block;
-  background-color: var(--warm-brass);
-  color: var(--oxford-dark);
-  font-weight: 700;
-  text-decoration: none;
-  padding: 0.7rem 1.35rem;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  transition: background-color 0.2s, transform 0.15s;
-}
-
-.btn:hover {
-  background-color: var(--brass-light);
-  transform: translateY(-1px);
-}
-
-.btn-outline {
-  background-color: transparent;
-  color: var(--white);
-  border: 1.5px solid var(--warm-brass);
-  margin-left: 0.75rem;
-}
-
-.btn-outline:hover {
-  background-color: rgba(197, 155, 39, 0.15);
-  color: var(--brass-light);
-}
-
-main {
-  max-width: 1120px;
-  margin: 2.5rem auto;
-  padding: 0 2rem;
-}
-
-.section-header {
-  margin-bottom: 1.5rem;
-  border-left: 4px solid var(--warm-brass);
-  padding-left: 0.9rem;
-}
-
-.section-header h2 {
-  color: var(--oxford-blue);
-  font-size: 1.5rem;
-}
-
-.section-header p {
-  color: var(--text-muted);
-  font-size: 0.98rem;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
-}
-
-.card {
-  background: var(--white);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 33, 71, 0.04);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.card-tag {
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--warm-brass);
-  margin-bottom: 0.5rem;
-}
-
-.card h3 {
-  color: var(--oxford-blue);
-  font-size: 1.2rem;
-  margin-bottom: 0.6rem;
-}
-
-.card p {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  margin-bottom: 1.25rem;
-}
-
-.card-link {
-  color: var(--oxford-blue);
-  font-weight: 700;
-  text-decoration: none;
-  font-size: 0.92rem;
-  border-bottom: 2px solid var(--warm-brass);
-  align-self: flex-start;
-  padding-bottom: 0.15rem;
-}
-
-.card-link:hover {
-  color: #003b7a;
-}
-
-.sample-box {
-  background: var(--white);
-  border: 1px solid var(--border-color);
-  border-top: 4px solid var(--oxford-blue);
-  border-radius: 8px;
-  padding: 1.75rem;
-  margin-bottom: 2rem;
-}
-
-.sample-box h3 {
-  color: var(--oxford-blue);
-  margin-bottom: 0.5rem;
-}
-
-.sample-meta {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-bottom: 1rem;
-  font-style: italic;
-}
-
-footer {
-  background: var(--oxford-dark);
-  color: #b8c5d4;
-  text-align: center;
-  padding: 1.75rem 2rem;
-  margin-top: 3.5rem;
-  font-size: 0.9rem;
-  border-top: 3px solid var(--warm-brass);
-}
-
-footer a {
-  color: var(--brass-light);
-  text-decoration: none;
-}
-
-.stat-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.stat-card {
-  background: var(--white);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 1.25rem;
-  text-align: center;
-}
-
-.stat-num {
-  font-size: 1.75rem;
-  font-weight: 800;
-  color: var(--oxford-blue);
-}
-
-.stat-label {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-</style>
+    /* Chart wrapper sizing */
+    .chart-container {
+      position: relative;
+      width: 100%;
+      height: 290px;
+    }
+    @media (min-width: 768px) {
+      .chart-container {
+        height: 325px;
+      }
+    }
+  </style>
 </head>
-<body>
-  <header>
-  <div class="nav-container">
-    <a href="index.html" class="brand">PORTFOLIO <span class="accent">//</span> ARCHIVE</a>
-    <nav>
-      <ul>
-        <li><a href="index.html">Portfolio Home</a></li><li><a href="science-comms.html">Science Comms Hub</a></li><li><a href="ipcc-wgi-observatory.html">IPCC WGI Observatory</a></li><li><a href="unep_emissions_gap_report_2026_the_point_of_return.html" class="active">UNEP Emissions Gap 2026</a></li>
-      </ul>
-    </nav>
+<body class="atmospheric-bg min-h-screen flex flex-col selection:bg-sky-500/30 selection:text-sky-200">
+
+  <nav class="site-nav">
+    <a class="nav-logo" href="index.html" aria-label="Timothy Castillon – main portfolio"><span class="nav-mark" aria-hidden="true">TC</span><span>Timothy Castillon</span></a>
+    <a class="nav-cta" href="science-comms.html">← Sample Work</a>
+  </nav>
+
+  <!-- Top Progress Bar -->
+  <div class="w-full h-1 bg-[#001733] sticky top-[64px] z-40">
+    <div id="progressBar" class="h-full bg-[#ab7d2c] transition-all duration-300 ease-out" style="width: 14.28%;"></div>
   </div>
-</header>
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="eyebrow">Mitigation Synthesis &bull; 2026 Edition</div>
-      <h1>UNEP Emissions Gap Report 2026: The Point of Return</h1>
-      <p>Synthesizing near-term mitigation gaps, Nationally Determined Contribution (NDC) implementation, and structural turning points.</p>
-      <a href="science-comms.html" class="btn">Back to Science Comms Hub</a>
-      <a href="ipcc-wgi-observatory.html" class="btn btn-outline">View IPCC WGI Observatory</a>
-    </div>
-  </section>
-  <main>
-    <div class="section-header">
-      <h2>Core Themes: The Point of Return</h2>
-      <p>Structured briefing sections linking policy ambition with real-world implementation.</p>
-    </div>
-    <div class="grid">
-      <div class="card">
-        <div>
-          <div class="card-tag">Trajectory &amp; Ambition</div>
-          <h3>Closing the Mitigation Gap</h3>
-          <p>Evaluates where current policies and pledges stand relative to cost-effective pathways that keep long-term temperature overshoot as low as possible.</p>
+
+  <!-- Header & Slide Switcher -->
+  <header class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-3 flex flex-col gap-3">
+    <div class="flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <!-- Custom SVG Emblem: Overshoot & Return Curve on Oxford Blue -->
+        <div class="w-10 h-10 rounded-xl bg-[#001733] border border-sky-300/35 flex items-center justify-center shadow-lg shadow-black/40 shrink-0" aria-hidden="true">
+          <svg class="w-6 h-6" viewBox="0 0 32 32" fill="none">
+            <line x1="3" y1="19" x2="29" y2="19" stroke="#38bdf8" stroke-width="1.4" stroke-dasharray="2.5 2.5" opacity="0.75" />
+            <path d="M4 25 C10 24, 13 8, 18 8 C22 8, 24 19, 28 19.5" stroke="#fb7185" stroke-width="2.4" stroke-linecap="round" />
+            <circle cx="18" cy="8" r="2.5" fill="#f59e0b" />
+          </svg>
         </div>
-        <a href="science-comms.html" class="card-link">Explore Communications Notes &rarr;</a>
-      </div>
-      <div class="card">
         <div>
-          <div class="card-tag">Execution</div>
-          <h3>From Targets to Delivery</h3>
-          <p>Highlights sector-level deployment, finance mobilization, and institutional accountability needed to turn commitments into measurable reductions.</p>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="font-mono text-xs uppercase tracking-widest text-[#e2c68c] font-semibold">UNEP Emissions Gap Report 2026</span>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-200 border border-rose-400/35">17th Edition</span>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-sky-400/15 text-sky-200 border border-sky-300/30">Oxford Blue · Science × Art × Media</span>
+          </div>
+          <p class="text-xs sm:text-sm text-sky-100/80">The Point of Return — Urgent emissions cuts needed to come back from overshoot of 1.5°C</p>
         </div>
-        <a href="index.html" class="card-link">Return to Portfolio Home &rarr;</a>
+      </div>
+
+      <!-- Slide Counter & Speaker Notes Toggle -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button
+          id="toggleNotesBtn"
+          type="button"
+          class="px-3 py-2 rounded-xl text-xs sm:text-sm font-medium bg-[#0a376e] hover:bg-[#0e4587] text-white border border-sky-200/25 transition flex items-center gap-2 cursor-pointer"
+          aria-pressed="false"
+        >
+          <svg class="w-4 h-4 text-sky-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          <span>Notes & Takeaways</span>
+        </button>
+
+        <div class="px-3 py-2 rounded-xl bg-[#001733] border border-sky-200/20 font-mono text-xs sm:text-sm text-sky-100">
+          Slide <span id="slideNumDisplay" class="text-sky-300 font-bold">1</span> / <span id="slideTotalDisplay">7</span>
+        </div>
       </div>
     </div>
+
+    <!-- Interactive Slide Switcher Strip (7 Slides) -->
+    <nav aria-label="Slide switcher" class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1">
+      <button type="button" data-slide-index="0" class="slide-tab px-3 py-1.5 rounded-xl text-xs font-medium whitespace-nowrap transition cursor-pointer border"></button>
+      <button type="button" data-slide-index="1" class="slide-tab px-3 py-1.5 rounded-xl text-xs font-medium whitespace-nowrap transition cursor-pointer border"></button>
+      <button type="button" data-slide-index="2" class="slide-tab px-3 py-1.5 rounded-xl text-xs font-medium whitespace-nowrap transition cursor-pointer border"></button>
+      <button type="button" data-slide-index="3" class="slide-tab px-3 py-1.5 rounded-xl text-xs font-medium whitespace-nowrap transition cursor-pointer border"></button>
+      <button type="button" data-slide-index="4" class="slide-tab px-3 py-1.5 rounded-xl text-xs font-medium whitespace-nowrap transition cursor-pointer border"></button>
+      <button type="button" data-slide-index="5" class="slide-tab px-3 py-1.5 rounded-xl text-xs font-medium whitespace-nowrap transition cursor-pointer border"></button>
+      <button type="button" data-slide-index="6" class="slide-tab px-3 py-1.5 rounded-xl text-xs font-medium whitespace-nowrap transition cursor-pointer border"></button>
+    </nav>
+  </header>
+
+  <!-- Main Stage -->
+  <main id="slideStage" class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-col justify-between">
+    <div id="slideViewport" class="glass-panel p-5 sm:p-7 lg:p-8 shadow-2xl shadow-black/45 slide-enter">
+      <!-- Dynamic Slide Content Injected Here -->
+    </div>
+
+    <!-- Collapsible Speaker & Key Takeaway Drawer -->
+    <section id="notesDrawer" class="hidden mt-4 glass-panel p-4 sm:p-5 border-sky-300/35 slide-enter" aria-label="Speaker and key takeaway notes">
+      <div class="flex flex-col md:flex-row md:items-start justify-between gap-4">
+        <div class="space-y-2 flex-1">
+          <div class="flex items-center gap-2">
+            <span class="inline-block w-2 h-2 rounded-full bg-sky-300"></span>
+            <h3 class="text-xs font-mono uppercase tracking-wider text-sky-300 font-semibold">Key Takeaway</h3>
+          </div>
+          <p id="takeawayText" class="text-sm sm:text-base text-white font-medium leading-relaxed"></p>
+          <div class="pt-1">
+            <h4 class="text-xs font-mono uppercase tracking-wider text-amber-300 font-semibold mb-1">Speaker Note</h4>
+            <p id="speakerNoteText" class="text-xs sm:text-sm text-sky-100/85 leading-relaxed"></p>
+          </div>
+        </div>
+        <button
+          id="closeNotesBtn"
+          type="button"
+          class="self-end md:self-start px-3 py-1.5 rounded-lg text-xs text-sky-200 hover:text-white bg-[#001733] hover:bg-[#0a376e] border border-sky-200/20 transition cursor-pointer"
+        >
+          Hide Notes
+        </button>
+      </div>
+    </section>
   </main>
-  <footer>
-  <p>Updated Portfolio Package &bull; Styled in Oxford Blue &amp; Warm Brass &bull; Ready for GitHub Pages</p>
-  <p style="margin-top: 0.4rem;">
-    <a href="index.html">Home</a> &middot;
-    <a href="science-comms.html">Science Comms Hub</a> &middot;
-    <a href="ipcc-wgi-observatory.html">IPCC WGI Observatory</a> &middot;
-    <a href="unep_emissions_gap_report_2026_the_point_of_return.html">UNEP Emissions Gap 2026</a>
-  </p>
-</footer>
+
+  <!-- Footer Navigation Controls -->
+  <footer class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 pb-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+    <p class="text-xs text-sky-100/75 text-center sm:text-left">
+      Navigate with <span class="font-mono text-white bg-[#001733] px-1.5 py-0.5 rounded border border-sky-200/25">←</span> <span class="font-mono text-white bg-[#001733] px-1.5 py-0.5 rounded border border-sky-200/25">→</span> keys, swipe on touchscreens, or use the buttons.
+    </p>
+
+    <div class="flex items-center gap-3">
+      <button
+        id="prevBtn"
+        type="button"
+        class="px-4 py-2.5 rounded-xl text-sm font-semibold bg-[#0a376e] hover:bg-[#0e4587] disabled:opacity-35 disabled:pointer-events-none text-white border border-sky-200/25 transition flex items-center gap-2 cursor-pointer"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+        <span>Previous</span>
+      </button>
+
+      <button
+        id="nextBtn"
+        type="button"
+        class="px-5 py-2.5 rounded-xl text-sm font-semibold bg-[#ab7d2c] hover:bg-[#c4953f] disabled:opacity-35 disabled:pointer-events-none text-white shadow-lg shadow-black/30 transition flex items-center gap-2 cursor-pointer"
+      >
+        <span>Next Slide</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  </footer>
+
+  <!-- Toast / Status Banner (replaces alert/confirm cleanly) -->
+  <div id="statusToast" class="fixed bottom-20 right-5 z-50 hidden max-w-sm px-4 py-3 rounded-xl bg-[#001733]/95 border border-sky-300/40 text-xs text-white shadow-xl"></div>
+
+  <script>
+    /**
+     * UNEP Emissions Gap Report 2026: "The Point of Return"
+     * Interactive Presentation Engine & Data Visualizations
+     * Anchored on Oxford Blue (#002147) with Science × Art × Media Philosophy & ICC / IPCC Color Standards.
+     */
+
+    const SLIDE_META = [
+      { shortTitle: '01 · Point of Return', badge: 'Headline Shift' },
+      { shortTitle: '02 · 2025 Snapshot', badge: '58.4 GtCO₂e' },
+      { shortTitle: '03 · NDCs 3.0 & Gaps', badge: '124 New NDCs' },
+      { shortTitle: '04 · Trajectories & Delay', badge: 'Cost of Delay' },
+      { shortTitle: '05 · GST Scorecard', badge: '2035 & 2040' },
+      { shortTitle: '06 · What Works', badge: 'Policy Evidence' },
+      { shortTitle: '07 · Science × Art × Media', badge: 'ICC & Visual Craft' },
+    ];
+
+    const SLIDE_NOTES = [
+      {
+        takeaway: 'Limiting warming to 1.5°C with no or limited overshoot (<0.1°C) is no longer possible; exceedance is now unavoidable. Minimizing peak warming and returning to ≤1.5°C by 2100 via the lowest possible overshoot pathway (~1.7–1.8°C peak, ~50% return chance) requires ~320 GtCO₂ of net carbon dioxide removal over the century.',
+        speaker: 'Emphasize that overshoot is a scientific reality rather than a license to give up. Anchored on Oxford Blue (#002147), our visual framing pairs cool glacial cyan with measured crimson-amber overshoot signals so urgency feels clear and grounded rather than sensationalized.'
+      },
+      {
+        takeaway: 'Global GHG emissions in 2025 reached 58.4 GtCO₂e (±5.5), virtually unchanged (-0.1 GtCO₂e, within uncertainty) from the revised 2024 estimate of 58.5 GtCO₂e. While growth slowed from 1.7%/yr (1990–2016) to 0.8%/yr (2016–2025), fossil CO₂ (~40 GtCO₂e, 68% share), F-gases (+8.6%), and N₂O (+1.2%) kept rising, offset by lower LULUCF emissions (~4.1 GtCO₂e, down ~0.5 GtCO₂e on lower wildfires).',
+        speaker: 'Point out the contrast between apparent near-term plateauing in total GHG and continued upward pressure across major gases and economies: G20 (excluding AU) represents 76% of global emissions (+0.7% in 2025), the US rose by +132.5 MtCO₂e, and 124 countries increased emissions over the last decade versus 63 decreasing.'
+      },
+      {
+        takeaway: 'By Sept 1, 2026, 124 Parties submitted new NDCs (~76% of global emissions, up from 57 covering 63% in 2025), bringing active NDCs to 167 (~83%). Full NDC implementation cuts emissions 5–8% by 2030 (55 GtCO₂e unconditional / 53 GtCO₂e conditional) and 11–15% by 2035 (52 / 49 GtCO₂e) vs 2025, leaving a 2035 gap to lowest 1.5°C overshoot of 16 GtCO₂e (conditional) or 19 GtCO₂e (unconditional), and 22 GtCO₂e under current policies.',
+        speaker: 'Highlight a crucial analytical nuance: the apparent narrowing of the 2030 implementation gap (2 GtCO₂e unconditional / 4 GtCO₂e conditional) largely reflects US withdrawal from the Paris Agreement and historical emissions harmonization rather than stronger underlying policy action. Meanwhile, the 2035 conditional gap to below 2°C is 5 GtCO₂e.'
+      },
+      {
+        takeaway: 'Continuing current policies puts warming at ~2.8°C (66% chance) by 2100—compared with 2.7°C (unconditional NDCs), 2.6°C (conditional NDCs), and 2.1°C (conditional NDCs + all net-zero pledges, still ~0.25°C higher peak than lowest 1.5°C overshoot). Every 5 years at current emissions adds ~200 GtCO₂ and ~0.1°C more peak warming. Lowest overshoot demands cuts of 18% by 2030, 45% by 2035, and 69% by 2040 vs 2025 (~5.7%/yr average cut 2025–2035), reaching net-zero CO₂ around 2050.',
+        speaker: 'Use the interactive delay & trajectory toggle to show how inaction compounds. Even all net-zero pledges paired with conditional NDCs stop around 2.1°C—underscoring why near-term 2030 and 2035 steep reductions (~5.7%/yr) and ~2050 net-zero CO₂ are non-negotiable for returning to 1.5°C.'
+      },
+      {
+        takeaway: 'Clean technologies have surged since 2015: renewable power capacity grew 3x faster than 2015 projections, solar PV 7x faster, EVs reached ~25% of passenger car sales in 2025, and renewables passed coal in global electricity generation (33.8% vs 33.0%). Yet absolute energy CO₂, road transport, and non-CO₂/methane emissions are trending upward, fossil subsidies reached ~$920B in 2024 (up from ~$660B in 2018), and deforestation decline needs >10x acceleration to hit zero by 2030.',
+        speaker: 'Stress the tension between exponential clean-tech deployment and sluggish fossil phase-out plus land/methane gaps. Use this moment to spotlight post-2030 milestones for 2035/2040 and the COP 31 Presidency proposal for 35% electrification by 2035.'
+      },
+      {
+        takeaway: 'Empirical evidence shows policy matters: 63 major structural emission shifts (>5–13% below counterfactual) coincided with policy adoption or strengthening, and a meta-analysis of 220 causal policy evaluations found electricity policies averaged ~9% reductions and economic instruments 5–13%. Impact depends on design, sequencing, enforcement, and coherent policy mixes—paired with stronger evaluation capacity, especially in developing economies.',
+        speaker: 'Close on actionable governance: well-crafted regulations, carbon pricing/economic instruments, and targeted incentives deliver measurable cuts when sequenced coherently without conflicting subsidies—and building independent ex-post evaluation capacity in developing economies is vital to scale what works.'
+      },
+      {
+        takeaway: 'Bridging climate science, art, and media turns complex carbon math into shared public clarity: Science supplies rigorous baselines, carbon budgets, and trajectory physics; minimalist climate Art (inspired by warming stripes and visual storytelling) sparks immediate human resonance; and Media & visual systems—calibrated with ICC color profile consistency and IPCC perceptually uniform/diverging palettes on Oxford Blue (#002147)—preserve accuracy without rainbow distortion.',
+        speaker: 'Note that "IICC" can refer either to International Color Consortium (ICC) color management and perceptual accuracy across displays, print, and broadcast media, or to climate visual standards aligned with IPCC perceptually uniform/diverging palettes. Anchoring on Oxford Blue (#002147) with cool-to-warm signal accents keeps charts color-blind safe, legible, and free of rainbow distortion.'
+      }
+    ];
+
+    const appState = {
+      currentSlide: 0,
+      notesOpen: false,
+      slide1Mode: 'overshoot',    // 'overshoot' | 'cdr'
+      slide2View: 'gases',        // 'gases' | 'countries'
+      slide3Focus: '2035',        // '2030' | '2035'
+      slide4DelayYears: 0,        // 0, 5, 10 years delay
+      slide5View: 'momentum',     // 'momentum' | 'headwinds'
+      slide6Sector: 'all',        // 'all' | 'power' | 'pricing'
+      slide7Pillar: 'triad',      // 'triad' | 'icc-ipcc' | 'stripes'
+    };
+
+    let activeChart = null;
+
+    function destroyActiveChart() {
+      if (activeChart) {
+        activeChart.destroy();
+        activeChart = null;
+      }
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('statusToast');
+      toast.textContent = msg;
+      toast.classList.remove('hidden');
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 2800);
+    }
+
+    /* =========================================================================
+       SLIDE RENDERERS (7 Slides on Oxford Blue #002147)
+       ========================================================================= */
+
+    function renderSlide1() {
+      const isCdrMode = appState.slide1Mode === 'cdr';
+
+      return `
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+          <!-- Left Editorial Column -->
+          <div class="lg:col-span-7 space-y-5">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/20 border border-rose-400/40 text-rose-200 text-xs font-mono uppercase tracking-wider">
+              <span class="w-2 h-2 rounded-full bg-rose-400 animate-pulse"></span>
+              The Point of Return · 1.5°C Overshoot Reality
+            </div>
+
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.1] text-white">
+              Exceedance of 1.5°C is now unavoidable.
+              <span class="block italic text-[#ab7d2c] mt-1">
+                Coming back is what defines the century.
+              </span>
+            </h1>
+
+            <p class="text-sm sm:text-base text-sky-100/90 leading-relaxed max-w-2xl">
+              Limiting warming to <strong class="text-white">1.5°C with no or limited overshoot (&lt;0.1°C) is no longer possible</strong>. Because exceedance cannot be avoided, minimizing peak warming and returning to <strong class="text-sky-300">&le;1.5°C by 2100</strong> is now the central scientific and policy imperative—communicated here with scientific precision, visual artistry, and Oxford Blue clarity.
+            </p>
+
+            <!-- Interactive Mode Toggle -->
+            <div class="flex flex-wrap items-center gap-2 pt-1">
+              <button
+                type="button"
+                onclick="setSlide1Mode('overshoot')"
+                class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition cursor-pointer border ${
+                  !isCdrMode
+                    ? 'bg-[#ab7d2c]/35 text-white border-[#e2c68c] shadow-sm shadow-sky-950/50'
+                    : 'bg-[#001733]/80 text-sky-200/75 border-sky-200/15 hover:text-white'
+                }"
+              >
+                Lowest Overshoot Trajectory
+              </button>
+              <button
+                type="button"
+                onclick="setSlide1Mode('cdr')"
+                class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition cursor-pointer border ${
+                  isCdrMode
+                    ? 'bg-amber-400/25 text-amber-200 border-amber-300 shadow-sm shadow-amber-950/50'
+                    : 'bg-[#001733]/80 text-sky-200/75 border-sky-200/15 hover:text-white'
+                }"
+              >
+                Net CDR &amp; Return Mechanics (~320 GtCO₂)
+              </button>
+            </div>
+
+            <!-- Key Metrics Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+              <div class="glass-subpanel p-4">
+                <div class="font-mono text-xs text-rose-300 uppercase tracking-wider">Peak Warming</div>
+                <div class="font-mono text-2xl sm:text-3xl font-bold text-white mt-1">1.7–1.8°C</div>
+                <p class="text-xs text-sky-100/75 mt-1">66% likelihood in new lowest possible 1.5°C overshoot pathway</p>
+              </div>
+              <div class="glass-subpanel p-4">
+                <div class="font-mono text-xs text-sky-300 uppercase tracking-wider">2100 Return</div>
+                <div class="font-mono text-2xl sm:text-3xl font-bold text-white mt-1">&le;1.5°C</div>
+                <p class="text-xs text-sky-100/75 mt-1">~50% chance of returning by 2100 with rapid near-term cuts</p>
+              </div>
+              <div class="glass-subpanel p-4">
+                <div class="font-mono text-xs text-amber-300 uppercase tracking-wider">Century Net CDR</div>
+                <div class="font-mono text-2xl sm:text-3xl font-bold text-white mt-1">~320 GtCO₂</div>
+                <p class="text-xs text-sky-100/75 mt-1">Net carbon dioxide removal required over the 21st century</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Custom SVG Overshoot & Return Schematic -->
+          <div class="lg:col-span-5">
+            <div class="glass-subpanel p-4 sm:p-5">
+              <div class="flex items-center justify-between mb-3">
+                <span class="font-mono text-xs uppercase tracking-wider text-sky-200/80">
+                  ${isCdrMode ? 'Schematic · Overshoot Peak & Net CDR Pullback' : 'Schematic · No/Limited vs. Lowest Overshoot'}
+                </span>
+                <span class="font-mono text-xs px-2 py-0.5 rounded bg-sky-400/20 text-sky-200">2020 → 2100</span>
+              </div>
+
+              <!-- Crisp Custom SVG Diagram on Deep Oxford Navy -->
+              <svg viewBox="0 0 440 270" class="w-full h-auto rounded-lg bg-[#001733] border border-sky-200/20" role="img" aria-label="Temperature overshoot and return schematic">
+                <line x1="48" y1="52" x2="412" y2="52" stroke="rgba(251,113,133,0.3)" stroke-dasharray="4 4" />
+                <text x="10" y="56" fill="#fda4af" font-size="10" font-family="Space Mono">1.8°C</text>
+
+                <line x1="48" y1="92" x2="412" y2="92" stroke="rgba(245,158,11,0.3)" stroke-dasharray="4 4" />
+                <text x="10" y="96" fill="#fcd34d" font-size="10" font-family="Space Mono">1.7°C</text>
+
+                <line x1="48" y1="158" x2="412" y2="158" stroke="#38bdf8" stroke-width="1.6" stroke-dasharray="6 4" />
+                <text x="54" y="150" fill="#bae6fd" font-size="10.5" font-weight="600" font-family="Space Mono">1.5°C RETURN TARGET</text>
+
+                <line x1="48" y1="226" x2="412" y2="226" stroke="rgba(186,230,253,0.25)" />
+                <text x="48" y="244" fill="#bae6fd" font-size="10" font-family="Space Mono">2020</text>
+                <text x="155" y="244" fill="#bae6fd" font-size="10" font-family="Space Mono">~2040s Peak</text>
+                <text x="382" y="244" fill="#bae6fd" font-size="10" font-family="Space Mono">2100</text>
+
+                <path
+                  d="M 48 185 Q 95 164, 130 156"
+                  fill="none"
+                  stroke="#93c5fd"
+                  stroke-width="2"
+                  stroke-dasharray="3 3"
+                  opacity="0.7"
+                />
+                <text x="64" y="206" fill="#bae6fd" font-size="9.5" font-family="Inter">&lt;0.1°C overshoot no longer feasible</text>
+
+                <path
+                  d="M 118 158 C 145 72, 175 64, 205 72 C 265 92, 330 144, 392 159 L 392 158 Z"
+                  fill="rgba(251, 113, 133, 0.2)"
+                />
+
+                <path
+                  d="M 48 185 C 95 166, 132 142, 165 78 C 185 56, 205 66, 232 86 C 285 124, 340 152, 392 160"
+                  fill="none"
+                  stroke="${isCdrMode ? '#fbbf24' : '#fb7185'}"
+                  stroke-width="3.2"
+                  stroke-linecap="round"
+                />
+
+                <circle cx="178" cy="67" r="5" fill="#fb7185" stroke="#002147" stroke-width="2" />
+                <text x="188" y="64" fill="#ffe4e6" font-size="10" font-weight="600" font-family="Space Mono">1.7–1.8°C (66%)</text>
+
+                <path
+                  d="M 255 102 L 255 148"
+                  stroke="${isCdrMode ? '#fbbf24' : '#38bdf8'}"
+                  stroke-width="2"
+                />
+                <rect x="266" y="106" width="136" height="36" rx="6" fill="#002147" stroke="rgba(186, 230, 253, 0.4)" />
+                <text x="274" y="121" fill="#ffffff" font-size="9.5" font-weight="600" font-family="Space Mono">~320 GtCO₂ Net CDR</text>
+                <text x="274" y="134" fill="#bae6fd" font-size="8.8" font-family="Inter">Drives return to &le;1.5°C by 2100</text>
+              </svg>
+
+              <p class="text-xs text-sky-100/80 mt-3 leading-relaxed">
+                ${
+                  isCdrMode
+                    ? 'Bringing warming back down after an overshoot peak requires steep gross emission reductions plus roughly ~320 GtCO₂ of net carbon dioxide removal over the century (~50% likelihood of reaching ≤1.5°C by 2100).'
+                    : 'Because pathways limiting warming to 1.5°C with no or limited overshoot (<0.1°C) are out of reach, minimizing peak magnitude (1.7–1.8°C, 66% chance) and duration before 2100 is critical.'
+                }
+              </p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderSlide2() {
+      const isGases = appState.slide2View === 'gases';
+
+      return `
+        <div class="space-y-6">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-sky-200/15 pb-4">
+            <div>
+              <span class="font-mono text-xs uppercase tracking-widest text-[#e2c68c] font-semibold">2025 Emissions Snapshot</span>
+              <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">
+                58.4 GtCO₂e (±5.5): Near-flat total, diverging drivers
+              </h2>
+              <p class="text-xs sm:text-sm text-sky-100/80 mt-1">
+                2025 emissions (-0.1 GtCO₂e vs. revised 2024 of 58.5 GtCO₂e) sit within uncertainty; 2016–2025 averaged <strong class="text-white">+0.8%/yr</strong> vs. <strong class="text-white">+1.7%/yr</strong> in 1990–2016.
+              </p>
+            </div>
+
+            <div class="flex items-center gap-2 shrink-0">
+              <button
+                type="button"
+                onclick="setSlide2View('gases')"
+                class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition cursor-pointer border ${
+                  isGases
+                    ? 'bg-[#ab7d2c]/35 text-white border-[#e2c68c]'
+                    : 'bg-[#001733]/80 text-sky-200/75 border-sky-200/15 hover:text-white'
+                }"
+              >
+                Gases &amp; LULUCF
+              </button>
+              <button
+                type="button"
+                onclick="setSlide2View('countries')"
+                class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition cursor-pointer border ${
+                  !isGases
+                    ? 'bg-amber-400/25 text-amber-200 border-amber-300'
+                    : 'bg-[#001733]/80 text-sky-200/75 border-sky-200/15 hover:text-white'
+                }"
+              >
+                G20 &amp; Country Trends
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            <div class="lg:col-span-7 glass-subpanel p-4 sm:p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-semibold text-white">
+                  ${isGases ? '2025 Emissions Composition & Key Gas Shifts' : 'Country & Decade Trajectory Signals'}
+                </h3>
+                <span class="font-mono text-xs text-sky-200/80">UNEP EGR 2026</span>
+              </div>
+              <div class="chart-container">
+                <canvas id="slide2Chart"></canvas>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 space-y-3">
+              <div class="glass-subpanel p-4 border-l-4 border-l-rose-400">
+                <div class="flex items-baseline justify-between">
+                  <span class="text-xs font-mono uppercase text-rose-300">Fossil CO₂ Share</span>
+                  <span class="font-mono text-xl font-bold text-white">~40 GtCO₂e (68%)</span>
+                </div>
+                <p class="text-xs text-sky-100/85 mt-1">
+                  Fossil CO₂, fluorinated gases (<strong class="text-rose-300">+8.6%</strong>), and nitrous oxide (<strong class="text-amber-300">+1.2%</strong>) continued to rise in 2025.
+                </p>
+              </div>
+
+              <div class="glass-subpanel p-4 border-l-4 border-l-emerald-400">
+                <div class="flex items-baseline justify-between">
+                  <span class="text-xs font-mono uppercase text-emerald-300">LULUCF CO₂</span>
+                  <span class="font-mono text-xl font-bold text-white">~4.1 GtCO₂e</span>
+                </div>
+                <p class="text-xs text-sky-100/85 mt-1">
+                  Dropped by <strong class="text-emerald-300">~0.5 GtCO₂e</strong> from 2024, driven mainly by lower wildfire and biomass burning emissions.
+                </p>
+              </div>
+
+              <div class="glass-subpanel p-4 border-l-4 border-l-sky-300">
+                <div class="flex items-baseline justify-between">
+                  <span class="text-xs font-mono uppercase text-sky-300">G20 (excl. AU) &amp; US</span>
+                  <span class="font-mono text-xl font-bold text-white">76% Share</span>
+                </div>
+                <p class="text-xs text-sky-100/85 mt-1">
+                  G20 (excl. AU) rose <strong class="text-sky-300">+0.7%</strong> in 2025; US emissions rose <strong class="text-amber-300">+132.5 MtCO₂e</strong>. Over the past decade, <strong class="text-rose-300">124 countries</strong> increased emissions vs. <strong class="text-emerald-300">63 decreasing</strong>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderSlide3() {
+      const is2035 = appState.slide3Focus === '2035';
+
+      return `
+        <div class="space-y-6">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-sky-200/15 pb-4">
+            <div>
+              <span class="font-mono text-xs uppercase tracking-widest text-[#e2c68c] font-semibold">NDCs 3.0 &amp; Implementation Gaps</span>
+              <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">
+                124 new NDCs by Sept 1, 2026 — yet wide 2035 gaps remain
+              </h2>
+              <p class="text-xs sm:text-sm text-sky-100/80 mt-1">
+                124 Parties submitted new NDCs (~76% of emissions, up from 57 covering 63% in 2025); 167 active NDCs cover ~83%.
+              </p>
+            </div>
+
+            <div class="flex items-center gap-2 shrink-0">
+              <button
+                type="button"
+                onclick="setSlide3Focus('2030')"
+                class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition cursor-pointer border ${
+                  !is2035
+                    ? 'bg-[#ab7d2c]/35 text-white border-[#e2c68c]'
+                    : 'bg-[#001733]/80 text-sky-200/75 border-sky-200/15 hover:text-white'
+                }"
+              >
+                2030 Horizon
+              </button>
+              <button
+                type="button"
+                onclick="setSlide3Focus('2035')"
+                class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition cursor-pointer border ${
+                  is2035
+                    ? 'bg-rose-500/25 text-rose-200 border-rose-300'
+                    : 'bg-[#001733]/80 text-sky-200/75 border-sky-200/15 hover:text-white'
+                }"
+              >
+                2035 Horizon &amp; Gaps
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            <div class="lg:col-span-7 glass-subpanel p-4 sm:p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-semibold text-white">
+                  Projected Global Emissions &amp; Gaps (GtCO₂e)
+                </h3>
+                <span class="font-mono text-xs text-amber-300">Baseline 2025: 58.4 GtCO₂e</span>
+              </div>
+              <div class="chart-container">
+                <canvas id="slide3Chart"></canvas>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 space-y-3">
+              <div class="glass-subpanel p-4">
+                <div class="text-xs font-mono uppercase text-sky-300">Full New NDC Implementation</div>
+                <div class="mt-2 grid grid-cols-2 gap-3 font-mono">
+                  <div class="bg-[#001733] p-2.5 rounded-lg border border-sky-200/15">
+                    <div class="text-[11px] text-sky-200/70">2030 (5–8% cut)</div>
+                    <div class="text-sm font-bold text-white mt-0.5">55 Uncond / 53 Cond</div>
+                  </div>
+                  <div class="bg-[#001733] p-2.5 rounded-lg border border-sky-200/15">
+                    <div class="text-[11px] text-sky-200/70">2035 (11–15% cut)</div>
+                    <div class="text-sm font-bold text-white mt-0.5">52 Uncond / 49 Cond</div>
+                  </div>
+                </div>
+                <p class="text-xs text-sky-100/80 mt-2">
+                  Current policies sit at <strong class="text-white">57 GtCO₂e</strong> (2030) and <strong class="text-white">55 GtCO₂e</strong> (2035).
+                </p>
+              </div>
+
+              <div class="glass-subpanel p-4 border border-rose-400/35 bg-[#001733]/90">
+                <div class="text-xs font-mono uppercase text-rose-300 font-semibold">2035 Emissions Gaps</div>
+                <ul class="mt-2 space-y-1.5 text-xs sm:text-sm text-white font-mono">
+                  <li class="flex justify-between"><span>To Lowest 1.5°C (Cond.):</span><strong class="text-rose-300">16 GtCO₂e</strong></li>
+                  <li class="flex justify-between"><span>To Lowest 1.5°C (Uncond.):</span><strong class="text-rose-300">19 GtCO₂e</strong></li>
+                  <li class="flex justify-between"><span>To Lowest 1.5°C (Curr. Pol.):</span><strong class="text-rose-400">22 GtCO₂e</strong></li>
+                  <li class="flex justify-between"><span>To Below 2°C (Cond.):</span><strong class="text-amber-300">5 GtCO₂e</strong></li>
+                </ul>
+              </div>
+
+              <div class="glass-subpanel p-3.5 text-xs text-sky-100/90 leading-relaxed">
+                <strong class="text-amber-300 font-mono">2030 Gap Caveat:</strong> Apparent narrowing of the 2030 implementation gap (<strong class="text-white">2 GtCO₂e</strong> unconditional / <strong class="text-white">4 GtCO₂e</strong> conditional) largely reflects <strong class="text-white">US withdrawal from the Paris Agreement</strong> and <strong class="text-white">historical emissions harmonization</strong> rather than stronger policy action.
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderSlide4() {
+      const delay = appState.slide4DelayYears;
+      const addedGt = (delay / 5) * 200;
+      const addedPeak = ((delay / 5) * 0.1).toFixed(1);
+
+      return `
+        <div class="space-y-6">
+          <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 border-b border-sky-200/15 pb-4">
+            <div>
+              <span class="font-mono text-xs uppercase tracking-widest text-rose-300 font-semibold">Temperature Trajectories &amp; Cost of Delay</span>
+              <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">
+                Every 5 years of delay adds ~200 GtCO₂ and ~0.1°C peak warming
+              </h2>
+              <p class="text-xs sm:text-sm text-sky-100/80 mt-1">
+                Lowest 1.5°C overshoot requires cuts of <strong class="text-sky-300">18% by 2030</strong>, <strong class="text-sky-300">45% by 2035</strong>, and <strong class="text-sky-300">69% by 2040</strong> vs. 2025 (~5.7%/yr avg cut 2025–2035; net-zero CO₂ ~2050).
+              </p>
+            </div>
+
+            <div class="flex items-center gap-2 shrink-0">
+              <span class="text-xs font-mono text-sky-200/80">Action Delay:</span>
+              ${[0, 5, 10].map((yr) => `
+                <button
+                  type="button"
+                  onclick="setSlide4Delay(${yr})"
+                  class="px-3 py-1.5 rounded-xl text-xs font-mono font-semibold transition cursor-pointer border ${
+                    delay === yr
+                      ? 'bg-rose-500/30 text-white border-rose-300'
+                      : 'bg-[#001733]/80 text-sky-200/75 border-sky-200/15 hover:text-white'
+                  }"
+                >
+                  ${yr === 0 ? 'Immediate' : `+${yr} Yrs`}
+                </button>
+              `).join('')}
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            <div class="lg:col-span-7 glass-subpanel p-4 sm:p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-semibold text-white">
+                  2100 Warming Projections (66% Chance) vs. Net-Zero Pledges
+                </h3>
+                <span class="font-mono text-xs text-rose-300">
+                  ${delay === 0 ? 'Baseline Assessment' : `+${addedGt} GtCO₂ · +${addedPeak}°C Peak Penalty`}
+                </span>
+              </div>
+              <div class="chart-container">
+                <canvas id="slide4Chart"></canvas>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 space-y-3">
+              <div class="glass-subpanel p-4">
+                <div class="text-xs font-mono uppercase text-sky-200/80 mb-2.5">Projected 2100 Temperature Outcomes</div>
+                <div class="space-y-2 text-xs sm:text-sm font-mono">
+                  <div class="flex justify-between items-center p-2 rounded-lg bg-[#001733] border border-rose-400/30">
+                    <span class="text-white">Current Policies (66%)</span>
+                    <span class="text-rose-300 font-bold">~2.8°C</span>
+                  </div>
+                  <div class="flex justify-between items-center p-2 rounded-lg bg-[#001733] border border-sky-200/15">
+                    <span class="text-white">Unconditional NDCs</span>
+                    <span class="text-amber-300 font-bold">~2.7°C</span>
+                  </div>
+                  <div class="flex justify-between items-center p-2 rounded-lg bg-[#001733] border border-sky-200/15">
+                    <span class="text-white">Conditional NDCs</span>
+                    <span class="text-amber-300 font-bold">~2.6°C</span>
+                  </div>
+                  <div class="flex justify-between items-center p-2 rounded-lg bg-[#001733] border border-sky-300/35">
+                    <span class="text-white">Cond. NDCs + All Net-Zero</span>
+                    <span class="text-sky-300 font-bold">~2.1°C</span>
+                  </div>
+                </div>
+                <p class="text-xs text-sky-100/80 mt-2">
+                  Conditional NDCs + all net-zero pledges still leave peak warming <strong class="text-white">~0.25°C higher</strong> than the lowest 1.5°C overshoot pathway.
+                </p>
+              </div>
+
+              <div class="glass-subpanel p-4 border-l-4 border-l-sky-300">
+                <div class="text-xs font-mono uppercase text-sky-300">Required Pace for Lowest 1.5°C Overshoot</div>
+                <div class="grid grid-cols-3 gap-2 mt-2 text-center font-mono">
+                  <div class="bg-[#001733] p-2 rounded-lg">
+                    <div class="text-lg font-bold text-white">-18%</div>
+                    <div class="text-[10px] text-sky-200/75">by 2030</div>
+                  </div>
+                  <div class="bg-[#001733] p-2 rounded-lg">
+                    <div class="text-lg font-bold text-sky-300">-45%</div>
+                    <div class="text-[10px] text-sky-200/75">by 2035</div>
+                  </div>
+                  <div class="bg-[#001733] p-2 rounded-lg">
+                    <div class="text-lg font-bold text-emerald-300">-69%</div>
+                    <div class="text-[10px] text-sky-200/75">by 2040</div>
+                  </div>
+                </div>
+                <p class="text-xs text-sky-100/80 mt-2">
+                  Equals <strong class="text-white">~5.7%/yr</strong> average reduction (2025–2035) and <strong class="text-white">net-zero CO₂ around 2050</strong>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderSlide5() {
+      const isMomentum = appState.slide5View === 'momentum';
+
+      return `
+        <div class="space-y-6">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-sky-200/15 pb-4">
+            <div>
+              <span class="font-mono text-xs uppercase tracking-widest text-emerald-300 font-semibold">First Global Stocktake (GST) Scorecard &amp; Milestones</span>
+              <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">
+                Clean tech surges ahead, while fossil &amp; land headwinds persist
+              </h2>
+              <p class="text-xs sm:text-sm text-sky-100/80 mt-1">
+                Highlights post-2030 milestones (2035/2040) and the <strong class="text-sky-300">COP 31 Presidency proposal for 35% electrification by 2035</strong>.
+              </p>
+            </div>
+
+            <div class="flex items-center gap-2 shrink-0">
+              <button
+                type="button"
+                onclick="setSlide5View('momentum')"
+                class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition cursor-pointer border ${
+                  isMomentum
+                    ? 'bg-emerald-400/25 text-emerald-200 border-emerald-300'
+                    : 'bg-[#001733]/80 text-sky-200/75 border-sky-200/15 hover:text-white'
+                }"
+              >
+                Clean Tech &amp; Power Mix
+              </button>
+              <button
+                type="button"
+                onclick="setSlide5View('headwinds')"
+                class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition cursor-pointer border ${
+                  !isMomentum
+                    ? 'bg-rose-500/25 text-rose-200 border-rose-300'
+                    : 'bg-[#001733]/80 text-sky-200/75 border-sky-200/15 hover:text-white'
+                }"
+              >
+                Subsidies, Forests &amp; Milestones
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            <div class="lg:col-span-7 glass-subpanel p-4 sm:p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-semibold text-white">
+                  ${isMomentum ? '2025 Global Electricity Generation Share & Clean Tech Acceleration' : 'Fossil Subsidies Surge & Deforestation Acceleration Gap'}
+                </h3>
+                <span class="font-mono text-xs text-emerald-300">GST Scorecard</span>
+              </div>
+              <div class="chart-container">
+                <canvas id="slide5Chart"></canvas>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 space-y-3">
+              <div class="glass-subpanel p-4">
+                <div class="text-xs font-mono uppercase text-emerald-300">Where Momentum Is Strong</div>
+                <ul class="mt-2 space-y-1.5 text-xs sm:text-sm text-sky-100/90">
+                  <li>• Renewable power capacity grew <strong class="text-emerald-300">3x faster</strong> than 2015 projections; solar PV <strong class="text-emerald-300">7x faster</strong>.</li>
+                  <li>• EVs reached <strong class="text-sky-300">~25%</strong> of global passenger car sales in 2025.</li>
+                  <li>• Renewables surpassed coal in electricity generation in 2025 (<strong class="text-emerald-300">33.8%</strong> vs. <strong class="text-white">33.0%</strong>).</li>
+                </ul>
+              </div>
+
+              <div class="glass-subpanel p-4 border border-rose-400/35">
+                <div class="text-xs font-mono uppercase text-rose-300">Where Action Lags</div>
+                <ul class="mt-2 space-y-1.5 text-xs sm:text-sm text-sky-100/90">
+                  <li>• Absolute <strong class="text-rose-300">energy CO₂</strong>, <strong class="text-rose-300">road transport</strong>, and <strong class="text-amber-300">non-CO₂ / methane</strong> emissions are moving in the wrong direction.</li>
+                  <li>• Fossil fuel subsidies hit <strong class="text-rose-300">~$920B in 2024</strong> (up from <strong class="text-white">~$660B in 2018</strong>).</li>
+                  <li>• Deforestation decline requires <strong class="text-amber-300">&gt;10x acceleration</strong> to reach zero by 2030.</li>
+                </ul>
+              </div>
+
+              <div class="glass-subpanel p-3.5 bg-[#001733] border border-sky-300/30 text-xs text-white">
+                <span class="font-mono text-sky-300 font-semibold">Post-2030 &amp; COP 31:</span> Report elevates <strong class="text-white">2035 and 2040 milestones</strong> and notes the <strong class="text-sky-300">COP 31 Presidency proposal for 35% electrification by 2035</strong>.
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderSlide6() {
+      const sector = appState.slide6Sector;
+
+      return `
+        <div class="space-y-6">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-sky-200/15 pb-4">
+            <div>
+              <span class="font-mono text-xs uppercase tracking-widest text-[#e2c68c] font-semibold">What Works in Climate Policy</span>
+              <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">
+                Causal evidence shows policy design, sequencing &amp; coherence drive cuts
+              </h2>
+              <p class="text-xs sm:text-sm text-sky-100/80 mt-1">
+                <strong class="text-white">63 major structural emission shifts</strong> (&gt;5–13% below counterfactual) coincided with policy adoption/strengthening, backed by a meta-analysis of <strong class="text-sky-300">220 causal policy evaluations</strong>.
+              </p>
+            </div>
+
+            <div class="flex items-center gap-2 shrink-0 flex-wrap">
+              ${[
+                { id: 'all', label: 'All Evidence' },
+                { id: 'power', label: 'Electricity (~9%)' },
+                { id: 'pricing', label: 'Economic (5–13%)' },
+              ].map((tab) => `
+                <button
+                  type="button"
+                  onclick="setSlide6Sector('${tab.id}')"
+                  class="px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition cursor-pointer border ${
+                    sector === tab.id
+                      ? 'bg-[#ab7d2c]/35 text-white border-[#e2c68c]'
+                      : 'bg-[#001733]/80 text-sky-200/75 border-sky-200/15 hover:text-white'
+                  }"
+                >
+                  ${tab.label}
+                </button>
+              `).join('')}
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            <div class="lg:col-span-7 glass-subpanel p-4 sm:p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-semibold text-white">
+                  Empirical Emission Reduction Benchmarks Across Policy Evidence
+                </h3>
+                <span class="font-mono text-xs text-sky-300">220 Causal Evaluations</span>
+              </div>
+              <div class="chart-container">
+                <canvas id="slide6Chart"></canvas>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 space-y-3">
+              <div class="glass-subpanel p-4">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-mono uppercase text-sky-300">Structural Shifts &amp; Meta-Analysis</span>
+                  <span class="font-mono text-sm font-bold text-white">63 Shifts / 220 Studies</span>
+                </div>
+                <p class="text-xs sm:text-sm text-sky-100/90 mt-2 leading-relaxed">
+                  Electricity sector policies averaged <strong class="text-emerald-300">~9% emission reductions</strong>, while economic instruments delivered <strong class="text-sky-300">5–13% reductions</strong> across evaluated interventions.
+                </p>
+              </div>
+
+              <div class="glass-subpanel p-4">
+                <div class="text-xs font-mono uppercase text-amber-300 mb-2">How to Maximize Effectiveness</div>
+                <ul class="space-y-2 text-xs sm:text-sm text-sky-100/90">
+                  <li>• <strong class="text-white">Policy design, sequencing &amp; enforcement:</strong> Timing, clear rules, and compliance turn paper targets into real cuts.</li>
+                  <li>• <strong class="text-white">Coherent policy mixes:</strong> Pair pricing with targeted regulation or incentives where appropriate—and avoid conflicting overlapping measures.</li>
+                  <li>• <strong class="text-white">Evaluation capacity:</strong> Build domestic ex-post evaluation capability, especially in <strong class="text-sky-300">developing economies</strong>.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    /* New Slide 7: Philosophy & Visual Craft — Bridging Climate Science, Art & Media */
+    function renderSlide7() {
+      const pillar = appState.slide7Pillar;
+
+      return `
+        <div class="space-y-6">
+          <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 border-b border-sky-200/15 pb-4">
+            <div>
+              <span class="font-mono text-xs uppercase tracking-widest text-[#e2c68c] font-semibold">Philosophy &amp; Visual Craft</span>
+              <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">
+                Bridging Climate Science, Art &amp; Media on Oxford Blue
+              </h2>
+              <p class="text-xs sm:text-sm text-sky-100/85 mt-1 max-w-3xl">
+                Turning gigatonnes and overshoot physics into clear, human-centered visual communication—anchored by <strong class="text-white">Oxford Blue (#002147)</strong>, <strong class="text-sky-300">ICC</strong> color profile consistency, and <strong class="text-amber-300">IPCC</strong> perceptually uniform/diverging palettes without rainbow distortion.
+              </p>
+            </div>
+
+            <div class="flex items-center gap-2 shrink-0 flex-wrap">
+              <button
+                type="button"
+                onclick="setSlide7Pillar('triad')"
+                class="px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition cursor-pointer border ${
+                  pillar === 'triad'
+                    ? 'bg-[#ab7d2c]/35 text-white border-[#e2c68c]'
+                    : 'bg-[#001733]/80 text-sky-200/75 border-sky-200/15 hover:text-white'
+                }"
+              >
+                Science × Art × Media
+              </button>
+              <button
+                type="button"
+                onclick="setSlide7Pillar('icc-ipcc')"
+                class="px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition cursor-pointer border ${
+                  pillar === 'icc-ipcc'
+                    ? 'bg-amber-400/25 text-amber-200 border-amber-300'
+                    : 'bg-[#001733]/80 text-sky-200/75 border-sky-200/15 hover:text-white'
+                }"
+              >
+                ICC &amp; IPCC Color Standards
+              </button>
+              <button
+                type="button"
+                onclick="setSlide7Pillar('stripes')"
+                class="px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition cursor-pointer border ${
+                  pillar === 'stripes'
+                    ? 'bg-rose-500/25 text-rose-200 border-rose-300'
+                    : 'bg-[#001733]/80 text-sky-200/75 border-sky-200/15 hover:text-white'
+                }"
+              >
+                Minimalist Art &amp; Contrast
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            <!-- Left 7 Columns: Triad & Visual System Breakdown -->
+            <div class="lg:col-span-7 space-y-4">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <div class="glass-subpanel p-4 border-t-4 border-t-sky-400">
+                  <div class="font-mono text-xs uppercase text-sky-300 font-semibold">01 · Climate Science</div>
+                  <h3 class="text-sm font-bold text-white mt-1">Rigor &amp; Truth</h3>
+                  <p class="text-xs text-sky-100/85 mt-1.5 leading-relaxed">
+                    Establishes 58.4 GtCO₂e baselines, 1.7–1.8°C overshoot peaks, ~320 GtCO₂ net CDR, and 2035/2040 gaps without softening uncertainty or delay penalties.
+                  </p>
+                </div>
+
+                <div class="glass-subpanel p-4 border-t-4 border-t-rose-400">
+                  <div class="font-mono text-xs uppercase text-rose-300 font-semibold">02 · Minimalist Art</div>
+                  <h3 class="text-sm font-bold text-white mt-1">Felt Human Scale</h3>
+                  <p class="text-xs text-sky-100/85 mt-1.5 leading-relaxed">
+                    Draws inspiration from warming stripes and clean visual storytelling so abstract gigatonnes and overshoot curves register immediately at human scale.
+                  </p>
+                </div>
+
+                <div class="glass-subpanel p-4 border-t-4 border-t-amber-300">
+                  <div class="font-mono text-xs uppercase text-amber-300 font-semibold">03 · Media &amp; Systems</div>
+                  <h3 class="text-sm font-bold text-white mt-1">Accessible Clarity</h3>
+                  <p class="text-xs text-sky-100/85 mt-1.5 leading-relaxed">
+                    Carries briefings, journalism, and interactive decks across screens with high contrast, clear hierarchy, and zero sensationalist distortion.
+                  </p>
+                </div>
+              </div>
+
+              <!-- ICC & IPCC Color Standard Box -->
+              <div class="glass-subpanel p-4 sm:p-5 bg-[#001733]/90">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <span class="font-mono text-xs uppercase tracking-wider text-amber-300 font-semibold">
+                    Color Governance · ICC Precision &amp; IPCC Perceptual Uniformity
+                  </span>
+                  <span class="font-mono text-xs text-sky-200/80">No Rainbow Distortion</span>
+                </div>
+                <p class="text-xs sm:text-sm text-sky-100/90 leading-relaxed">
+                  In cross-media production, <strong class="text-white">IICC</strong> can refer to <strong class="text-sky-300">International Color Consortium (ICC)</strong> color profile accuracy across monitors, projection, and print, or to climate visual standards aligned with <strong class="text-amber-300">IPCC perceptually uniform/diverging palettes</strong>. Pairing <strong class="text-white">Oxford Blue (#002147)</strong> as a calm, authoritative canvas with cool glacial cyan and measured warming amber/crimson keeps thresholds color-blind safe and emotionally resonant.
+                </p>
+              </div>
+            </div>
+
+            <!-- Right 5 Columns: Live Oxford Blue Swatch & Minimalist Stripe/Overshoot Strip -->
+            <div class="lg:col-span-5 glass-subpanel p-4 sm:p-5 space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-xs uppercase tracking-wider text-sky-200/85">
+                  Visual Palette &amp; Overshoot Stripe Motif
+                </span>
+                <span class="font-mono text-xs px-2 py-0.5 rounded bg-[#001733] text-sky-300 border border-sky-200/20">#002147</span>
+              </div>
+
+              <!-- Minimalist Climate-to-Overshoot Stripe Band (inspired by warming stripes & return path) -->
+              <div class="rounded-xl overflow-hidden border border-sky-200/25 bg-[#001733] p-3">
+                <div class="text-[11px] font-mono text-sky-200/80 mb-2 flex justify-between">
+                  <span>1850s Cool/Baseline</span>
+                  <span>Peak Overshoot (1.7–1.8°C)</span>
+                  <span>2100 Return (&le;1.5°C)</span>
+                </div>
+                <div class="grid grid-cols-12 h-10 rounded-md overflow-hidden" role="img" aria-label="Minimalist climate trajectory stripe motif">
+                  <div class="bg-[#0284c7]"></div>
+                  <div class="bg-[#0ea5e9]"></div>
+                  <div class="bg-[#38bdf8]"></div>
+                  <div class="bg-[#7dd3fc]"></div>
+                  <div class="bg-[#fde047]"></div>
+                  <div class="bg-[#fbbf24]"></div>
+                  <div class="bg-[#fb923c]"></div>
+                  <div class="bg-[#fb7185]"></div>
+                  <div class="bg-[#f43f5e]"></div>
+                  <div class="bg-[#fb923c]"></div>
+                  <div class="bg-[#38bdf8]"></div>
+                  <div class="bg-[#34d399]"></div>
+                </div>
+                <p class="text-[11px] text-sky-100/75 mt-2">
+                  Sequential/diverging cool-to-warm encoding avoids rainbow hue cliffs and highlights the return arc toward &le;1.5°C by 2100.
+                </p>
+              </div>
+
+              <!-- Core Swatch Chips -->
+              <div class="grid grid-cols-2 gap-2.5 text-xs font-mono">
+                <div class="p-2.5 rounded-lg bg-[#002147] border border-sky-200/25 flex items-center gap-2.5">
+                  <span class="w-5 h-5 rounded-md bg-[#002147] border border-white/60 shrink-0"></span>
+                  <div>
+                    <div class="text-white font-semibold">Oxford Blue</div>
+                    <div class="text-[10px] text-sky-200/70">#002147 · RGB 0,33,71</div>
+                  </div>
+                </div>
+                <div class="p-2.5 rounded-lg bg-[#001733] border border-sky-200/20 flex items-center gap-2.5">
+                  <span class="w-5 h-5 rounded-md bg-[#38bdf8] shrink-0"></span>
+                  <div>
+                    <div class="text-white font-semibold">Glacial Cyan</div>
+                    <div class="text-[10px] text-sky-200/70">#38BDF8 · Target/Clean</div>
+                  </div>
+                </div>
+                <div class="p-2.5 rounded-lg bg-[#001733] border border-sky-200/20 flex items-center gap-2.5">
+                  <span class="w-5 h-5 rounded-md bg-[#fb7185] shrink-0"></span>
+                  <div>
+                    <div class="text-white font-semibold">Overshoot Rose</div>
+                    <div class="text-[10px] text-sky-200/70">#FB7185 · Gap/Peak</div>
+                  </div>
+                </div>
+                <div class="p-2.5 rounded-lg bg-[#001733] border border-sky-200/20 flex items-center gap-2.5">
+                  <span class="w-5 h-5 rounded-md bg-[#fbbf24] shrink-0"></span>
+                  <div>
+                    <div class="text-white font-semibold">Signal Amber</div>
+                    <div class="text-[10px] text-sky-200/70">#FBBF24 · CDR/Caution</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    /* =========================================================================
+       CHART.JS INITIALIZATION PER SLIDE (High Contrast on Oxford Blue)
+       ========================================================================= */
+
+    function initChartForSlide(index) {
+      destroyActiveChart();
+      Chart.defaults.color = '#e0f2fe';
+      Chart.defaults.borderColor = 'rgba(186, 230, 253, 0.16)';
+      Chart.defaults.font.family = 'Inter, system-ui, sans-serif';
+
+      if (index === 1) {
+        const ctx = document.getElementById('slide2Chart');
+        if (!ctx) return;
+
+        if (appState.slide2View === 'gases') {
+          activeChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: ['Total 2024 (Rev.)', 'Total 2025', 'Fossil CO₂ (2025)', 'LULUCF CO₂ (2025)', 'F-Gases Growth', 'N₂O Growth'],
+              datasets: [{
+                label: 'GtCO₂e (Levels) / % Change (Rates)',
+                data: [58.5, 58.4, 40.0, 4.1, 8.6, 1.2],
+                backgroundColor: [
+                  'rgba(186, 230, 253, 0.55)',
+                  'rgba(56, 189, 248, 0.85)',
+                  'rgba(251, 113, 133, 0.85)',
+                  'rgba(52, 211, 153, 0.82)',
+                  'rgba(251, 191, 36, 0.85)',
+                  'rgba(253, 224, 71, 0.78)',
+                ],
+                borderRadius: 8,
+              }],
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                legend: { display: false },
+                tooltip: {
+                  callbacks: {
+                    label: (c) => {
+                      const idx = c.dataIndex;
+                      if (idx <= 3) return `${c.parsed.y} GtCO₂e`;
+                      return `${c.parsed.y}% in 2025`;
+                    },
+                  },
+                },
+              },
+              scales: {
+                y: {
+                  beginAtZero: true,
+                  grid: { color: 'rgba(186, 230, 253, 0.12)' },
+                },
+              },
+            },
+          });
+        } else {
+          activeChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: [
+                '1990–2016 Avg Growth (%/yr)',
+                '2016–2025 Avg Growth (%/yr)',
+                'G20 (excl. AU) 2025 Change (%)',
+                'Countries Increasing (10-yr)',
+                'Countries Decreasing (10-yr)',
+              ],
+              datasets: [{
+                label: 'Indicator Value',
+                data: [1.7, 0.8, 0.7, 124, 63],
+                backgroundColor: [
+                  'rgba(251, 113, 133, 0.82)',
+                  'rgba(56, 189, 248, 0.82)',
+                  'rgba(251, 191, 36, 0.85)',
+                  'rgba(251, 113, 133, 0.75)',
+                  'rgba(52, 211, 153, 0.82)',
+                ],
+                borderRadius: 8,
+              }],
+            },
+            options: {
+              indexAxis: 'y',
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: { legend: { display: false } },
+              scales: {
+                x: { grid: { color: 'rgba(186, 230, 253, 0.12)' } },
+              },
+            },
+          });
+        }
+      }
+
+      if (index === 2) {
+        const ctx = document.getElementById('slide3Chart');
+        if (!ctx) return;
+
+        activeChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: [
+              '2025 Actual',
+              '2030 Current Pol.',
+              '2030 NDCs (Uncond.)',
+              '2030 NDCs (Cond.)',
+              '2035 Current Pol.',
+              '2035 NDCs (Uncond.)',
+              '2035 NDCs (Cond.)',
+            ],
+            datasets: [{
+              label: 'Emissions (GtCO₂e)',
+              data: [58.4, 57, 55, 53, 55, 52, 49],
+              backgroundColor: [
+                'rgba(56, 189, 248, 0.88)',
+                'rgba(251, 113, 133, 0.7)',
+                'rgba(251, 191, 36, 0.72)',
+                'rgba(253, 224, 71, 0.8)',
+                'rgba(251, 113, 133, 0.88)',
+                'rgba(251, 191, 36, 0.88)',
+                'rgba(52, 211, 153, 0.85)',
+              ],
+              borderRadius: 8,
+            }],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                callbacks: {
+                  label: (c) => `${c.parsed.y} GtCO₂e`,
+                },
+              },
+            },
+            scales: {
+              y: {
+                min: 30,
+                max: 65,
+                grid: { color: 'rgba(186, 230, 253, 0.12)' },
+                title: { display: true, text: 'GtCO₂e', color: '#bae6fd' },
+              },
+            },
+          },
+        });
+      }
+
+      if (index === 3) {
+        const ctx = document.getElementById('slide4Chart');
+        if (!ctx) return;
+
+        const penalty = Number(((appState.slide4DelayYears / 5) * 0.1).toFixed(2));
+
+        activeChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: [
+              'Current Policies (66%)',
+              'Unconditional NDCs',
+              'Conditional NDCs',
+              'Cond. NDCs + All Net-Zero',
+              'Lowest 1.5°C Overshoot Peak',
+            ],
+            datasets: [{
+              label: 'Projected Warming (°C)',
+              data: [
+                Number((2.8 + penalty).toFixed(2)),
+                Number((2.7 + penalty).toFixed(2)),
+                Number((2.6 + penalty).toFixed(2)),
+                Number((2.1 + penalty).toFixed(2)),
+                Number((1.75 + penalty).toFixed(2)),
+              ],
+              backgroundColor: [
+                'rgba(251, 113, 133, 0.88)',
+                'rgba(251, 191, 36, 0.85)',
+                'rgba(253, 224, 71, 0.82)',
+                'rgba(56, 189, 248, 0.85)',
+                'rgba(52, 211, 153, 0.88)',
+              ],
+              borderRadius: 8,
+            }],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                callbacks: {
+                  label: (c) => `${c.parsed.y}°C`,
+                },
+              },
+            },
+            scales: {
+              y: {
+                min: 1.0,
+                max: 3.4,
+                grid: { color: 'rgba(186, 230, 253, 0.12)' },
+                title: { display: true, text: 'Global Warming (°C)', color: '#bae6fd' },
+              },
+            },
+          },
+        });
+      }
+
+      if (index === 4) {
+        const ctx = document.getElementById('slide5Chart');
+        if (!ctx) return;
+
+        if (appState.slide5View === 'momentum') {
+          activeChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: [
+                'Renewables Elec. Share (2025)',
+                'Coal Elec. Share (2025)',
+                'EV Share of Car Sales (2025)',
+                'COP 31 Electrification Target (2035)',
+              ],
+              datasets: [{
+                label: 'Share (%)',
+                data: [33.8, 33.0, 25.0, 35.0],
+                backgroundColor: [
+                  'rgba(52, 211, 153, 0.88)',
+                  'rgba(186, 230, 253, 0.55)',
+                  'rgba(56, 189, 248, 0.88)',
+                  'rgba(251, 191, 36, 0.88)',
+                ],
+                borderRadius: 8,
+              }],
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                legend: { display: false },
+                tooltip: {
+                  callbacks: { label: (c) => `${c.parsed.y}%` },
+                },
+              },
+              scales: {
+                y: {
+                  beginAtZero: true,
+                  max: 45,
+                  grid: { color: 'rgba(186, 230, 253, 0.12)' },
+                  title: { display: true, text: 'Percentage (%)', color: '#bae6fd' },
+                },
+              },
+            },
+          });
+        } else {
+          activeChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: [
+                'Fossil Subsidies 2018 ($B)',
+                'Fossil Subsidies 2024 ($B)',
+                'Deforestation Cut Speedup Needed (x)',
+              ],
+              datasets: [{
+                label: 'Magnitude',
+                data: [660, 920, 10],
+                backgroundColor: [
+                  'rgba(186, 230, 253, 0.6)',
+                  'rgba(251, 113, 133, 0.88)',
+                  'rgba(251, 191, 36, 0.88)',
+                ],
+                borderRadius: 8,
+              }],
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                legend: { display: false },
+                tooltip: {
+                  callbacks: {
+                    label: (c) => c.dataIndex === 2 ? `>${c.parsed.y}x acceleration required` : `~$${c.parsed.y}B`,
+                  },
+                },
+              },
+              scales: {
+                y: {
+                  beginAtZero: true,
+                  grid: { color: 'rgba(186, 230, 253, 0.12)' },
+                },
+              },
+            },
+          });
+        }
+      }
+
+      if (index === 5) {
+        const ctx = document.getElementById('slide6Chart');
+        if (!ctx) return;
+
+        const allData = [9, 9, 13];
+        const powerData = [9, 0, 0];
+        const pricingData = [0, 0, 13];
+
+        const datasetValues =
+          appState.slide6Sector === 'power'
+            ? powerData
+            : appState.slide6Sector === 'pricing'
+              ? pricingData
+              : allData;
+
+        activeChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: [
+              'Electricity Sector Policies (Avg Cut)',
+              'Structural Shifts Floor (>5% Cut)',
+              'Economic Instruments (Upper Band)',
+            ],
+            datasets: [{
+              label: 'Reported Reduction Benchmark (%)',
+              data: datasetValues,
+              backgroundColor: [
+                'rgba(52, 211, 153, 0.88)',
+                'rgba(56, 189, 248, 0.85)',
+                'rgba(251, 191, 36, 0.88)',
+              ],
+              borderRadius: 8,
+            }],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                callbacks: {
+                  label: (c) => `${c.parsed.y}% reduction benchmark`,
+                },
+              },
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                max: 16,
+                grid: { color: 'rgba(186, 230, 253, 0.12)' },
+                title: { display: true, text: 'Emission Reduction (%)', color: '#bae6fd' },
+              },
+            },
+          },
+        });
+      }
+    }
+
+    /* =========================================================================
+       NAVIGATION, STATE HANDLERS & UI SYNC
+       ========================================================================= */
+
+    const RENDERERS = [
+      renderSlide1,
+      renderSlide2,
+      renderSlide3,
+      renderSlide4,
+      renderSlide5,
+      renderSlide6,
+      renderSlide7,
+    ];
+
+    function renderPresentation() {
+      try {
+        const idx = appState.currentSlide;
+        const viewport = document.getElementById('slideViewport');
+        viewport.classList.remove('slide-enter');
+        void viewport.offsetWidth;
+        viewport.innerHTML = RENDERERS[idx]();
+        viewport.classList.add('slide-enter');
+
+        const pct = ((idx + 1) / RENDERERS.length) * 100;
+        document.getElementById('progressBar').style.width = `${pct}%`;
+        document.getElementById('slideNumDisplay').textContent = String(idx + 1);
+        document.getElementById('slideTotalDisplay').textContent = String(RENDERERS.length);
+
+        document.getElementById('prevBtn').disabled = idx === 0;
+        document.getElementById('nextBtn').disabled = idx === RENDERERS.length - 1;
+
+        const tabs = document.querySelectorAll('.slide-tab');
+        tabs.forEach((tab, tIdx) => {
+          const meta = SLIDE_META[tIdx];
+          tab.textContent = meta.shortTitle;
+          if (tIdx === idx) {
+            tab.className = 'slide-tab px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition cursor-pointer border bg-[#ab7d2c]/35 text-white border-[#e2c68c] shadow-sm shadow-sky-950/50';
+          } else {
+            tab.className = 'slide-tab px-3 py-1.5 rounded-xl text-xs font-medium whitespace-nowrap transition cursor-pointer border bg-[#001733]/80 text-sky-200/75 border-sky-200/15 hover:text-white hover:border-sky-200/35';
+          }
+        });
+
+        const note = SLIDE_NOTES[idx];
+        document.getElementById('takeawayText').textContent = note.takeaway;
+        document.getElementById('speakerNoteText').textContent = note.speaker;
+
+        initChartForSlide(idx);
+      } catch (err) {
+        console.error('Failed to render slide:', err);
+        showToast('Unable to display slide cleanly. Please try switching slides.');
+      }
+    }
+
+    function goToSlide(index) {
+      const clamped = Math.max(0, Math.min(RENDERERS.length - 1, index));
+      if (clamped !== appState.currentSlide) {
+        appState.currentSlide = clamped;
+        renderPresentation();
+      }
+    }
+
+    function setSlide1Mode(mode) {
+      appState.slide1Mode = mode;
+      renderPresentation();
+    }
+
+    function setSlide2View(view) {
+      appState.slide2View = view;
+      renderPresentation();
+    }
+
+    function setSlide3Focus(focus) {
+      appState.slide3Focus = focus;
+      renderPresentation();
+    }
+
+    function setSlide4Delay(years) {
+      appState.slide4DelayYears = years;
+      renderPresentation();
+    }
+
+    function setSlide5View(view) {
+      appState.slide5View = view;
+      renderPresentation();
+    }
+
+    function setSlide6Sector(sector) {
+      appState.slide6Sector = sector;
+      renderPresentation();
+    }
+
+    function setSlide7Pillar(pillar) {
+      appState.slide7Pillar = pillar;
+      renderPresentation();
+    }
+
+    function toggleNotesDrawer(forceState) {
+      appState.notesOpen = typeof forceState === 'boolean' ? forceState : !appState.notesOpen;
+      const drawer = document.getElementById('notesDrawer');
+      const btn = document.getElementById('toggleNotesBtn');
+      drawer.classList.toggle('hidden', !appState.notesOpen);
+      btn.setAttribute('aria-pressed', String(appState.notesOpen));
+    }
+
+    // Event Listeners
+    document.getElementById('prevBtn').addEventListener('click', () => goToSlide(appState.currentSlide - 1));
+    document.getElementById('nextBtn').addEventListener('click', () => goToSlide(appState.currentSlide + 1));
+    document.getElementById('toggleNotesBtn').addEventListener('click', () => toggleNotesDrawer());
+    document.getElementById('closeNotesBtn').addEventListener('click', () => toggleNotesDrawer(false));
+
+    document.querySelectorAll('.slide-tab').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const idx = Number(btn.getAttribute('data-slide-index'));
+        goToSlide(idx);
+      });
+    });
+
+    // Keyboard Arrow Navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+        e.preventDefault();
+        goToSlide(appState.currentSlide + 1);
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        goToSlide(appState.currentSlide - 1);
+      }
+    });
+
+    // Touch Swipe Gesture Support
+    let touchStartX = 0;
+    let touchStartY = 0;
+    const stageEl = document.getElementById('slideStage');
+
+    stageEl.addEventListener('touchstart', (e) => {
+      if (e.touches && e.touches.length === 1) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }
+    }, { passive: true });
+
+    stageEl.addEventListener('touchend', (e) => {
+      if (!e.changedTouches || e.changedTouches.length === 0) return;
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      // Horizontal swipe threshold > 55px and predominantly horizontal
+      if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+        if (dx < 0) {
+          goToSlide(appState.currentSlide + 1);
+        } else {
+          goToSlide(appState.currentSlide - 1);
+        }
+      }
+    }, { passive: true });
+
+    // Initial Render on DOM Ready
+    window.addEventListener('DOMContentLoaded', () => {
+      renderPresentation();
+    });
+  </script>
 </body>
 </html>
