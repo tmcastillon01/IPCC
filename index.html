@@ -5,7 +5,7 @@
   <meta name="robots" content="noindex, nofollow" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Timothy Earl Mateo Castillon – Communication Officer Application, IPCC WGI Technical Support Unit</title>
-  <meta name="description" content="Communications, digital content and knowledge management professional with 5+ years across the UN system. Applying for the Communication Officer role in the IPCC Working Group I Technical Support Unit (Gif-sur-Yvette, France)." />
+  <meta name="description" content="Communications, digital content and knowledge management professional with 5+ years across the UN system. Applying for the Communication Officer role in the IPCC Working Group I Technical Support Unit (Gif-sur-Yvette, France). Includes two writing samples prepared for this application." />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -22,109 +22,164 @@
       --nav-h:   64px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
-    body { background: var(--fog); color: var(--ink); font-family: 'Inter', sans-serif; line-height: 1.65; overflow-x: clip; }
-    img  { display: block; max-width: 100%; height: auto; }
-    a    { color: inherit; text-decoration: none; }
+    html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; max-width: 100%; overflow-x: clip; }
+    body { background: var(--fog); color: var(--ink); font-family: 'Inter', sans-serif; line-height: 1.65; max-width: 100%; overflow-x: clip; }
+    img, svg, video { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      height: var(--nav-h);
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-h);
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 5vw;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+      padding: 0 max(5vw, env(safe-area-inset-left)) 0 max(5vw, env(safe-area-inset-right));
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
     }
     .nav-logo {
-      display: inline-flex; align-items: center; gap: 0.75rem;
-      font-family: 'Space Mono', monospace; font-size: 0.8rem;
-      letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); white-space: nowrap;
+      display: inline-flex; align-items: center; gap: 0.75rem; flex-shrink: 0; white-space: nowrap;
+      font-family: 'Space Mono', monospace; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage);
     }
     .nav-mark {
       display: inline-flex; align-items: center; justify-content: center;
-      width: 34px; height: 34px; flex-shrink: 0;
-      background: var(--sage); color: var(--white);
-      border-radius: 9px; box-shadow: 0 3px 0 var(--gold);
-      font-family: 'DM Serif Display', Georgia, serif; font-size: 1.15rem; font-weight: 700;
+      width: 34px; height: 34px; flex-shrink: 0; background: var(--sage); color: var(--white);
+      border-radius: 9px; box-shadow: 0 3px 0 var(--gold); font-family: 'DM Serif Display', Georgia, serif; font-size: 1.15rem; font-weight: 700;
     }
     .nav-links { display: flex; gap: clamp(0.9rem, 1.4vw, 1.7rem); list-style: none; margin: 0 auto; padding: 0 1.5rem; }
     .nav-links a { font-size: 0.76rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
     .nav-links a:hover { color: var(--sage); }
     .nav-cta {
-      font-size: 0.76rem; letter-spacing: 0.05em; text-transform: uppercase;
-      padding: 0.45rem 1.1rem; border: 1px solid var(--sage); border-radius: var(--radius);
-      color: var(--sage); white-space: nowrap;
+      font-size: 0.76rem; letter-spacing: 0.05em; text-transform: uppercase; flex-shrink: 0; white-space: nowrap;
+      padding: 0.45rem 1.1rem; border: 1px solid var(--sage); border-radius: var(--radius); color: var(--sage);
     }
     .nav-cta:hover { background: var(--sage); color: var(--white); }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 0.4rem; min-height: 44px; }
+    .nav-toggle span { width: 22px; height: 2px; background: var(--sage); }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.in-view { opacity: 1; transform: translateY(0); }
     #home {
-      min-height: 100vh; padding: calc(var(--nav-h) + 4rem) 5vw 4rem;
-      display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; align-items: center;
-      background: var(--sage);
+      min-height: 100vh; padding: calc(var(--nav-h) + 4.5rem) 5vw 4.5rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; background: var(--sage);
     }
-    .hero-eyebrow {
-      font-family: 'Space Mono', monospace; font-size: 0.75rem;
-      letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
-    }
-    .hero-name {
-      font-family: 'DM Serif Display', serif; font-size: clamp(1.35rem, 2.5vw, 2.45rem);
-      line-height: 1.14; color: var(--white); margin-bottom: 1.3rem;
-    }
+    .hero-eyebrow { font-family: 'Space Mono', monospace; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+    .hero-name { font-family: 'DM Serif Display', serif; font-size: clamp(1.2rem, 2.4vw, 2.4rem); line-height: 1.12; color: var(--white); margin-bottom: 1.4rem; }
     .hero-name em { font-style: italic; color: var(--gold); }
-    .hero-lead {
-      font-size: 1rem; color: rgba(255,255,255,0.82); max-width: 54ch;
-      margin-bottom: 2rem; line-height: 1.75;
+    .hero-name .ln { display: block; white-space: nowrap; }
+    @media (max-width: 900px) { .hero-name { font-size: clamp(1rem, 5vw, 2.4rem); } }
+    .hero-lead { font-size: 1.05rem; color: rgba(255,255,255,0.78); max-width: 48ch; margin-bottom: 2.2rem; line-height: 1.75; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary, .btn-outline, .btn-download {
+      padding: 0.75rem 1.5rem; border-radius: var(--radius); font-size: 0.88rem; letter-spacing: 0.04em;
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; min-height: 44px;
     }
-    .hero-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; }
-    .btn-primary {
-      padding: 0.75rem 1.5rem; background: var(--gold); color: var(--white);
-      border-radius: var(--radius); font-size: 0.88rem; letter-spacing: 0.03em;
-      display: inline-flex; align-items: center; gap: 0.45rem;
+    .btn-primary, .btn-download { background: var(--gold); color: var(--white); }
+    .btn-primary:hover, .btn-download:hover { opacity: 0.88; }
+    .btn-outline { border: 1px solid rgba(255,255,255,0.55); color: var(--white); }
+    .btn-outline:hover { background: var(--white); color: var(--sage); border-color: var(--white); }
+    .hero-notice {
+      display: flex; align-items: center; gap: 0.6rem; max-width: 100%; margin-top: 1.6rem;
+      padding: 0.5rem 0.8rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px; color: rgba(255,255,255,0.68); font-size: 0.78rem; line-height: 1.45;
     }
-    .btn-outline {
-      padding: 0.75rem 1.5rem; border: 1px solid rgba(255,255,255,0.55); color: var(--white);
-      border-radius: var(--radius); font-size: 0.88rem; letter-spacing: 0.03em;
-      display: inline-flex; align-items: center; gap: 0.45rem;
-    }
-    .btn-outline:hover { background: var(--white); color: var(--sage); }
+    .hero-notice-icon, .hero-notice-arrow { color: var(--gold); flex-shrink: 0; }
+    .hero-notice-arrow { margin-left: auto; }
     .hero-card {
       background: var(--white); border: 1px solid var(--border); border-radius: 12px;
-      padding: 2rem; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+      padding: 2.4rem 2rem; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.18);
     }
     .hero-avatar {
-      width: 128px; height: 128px; border-radius: 50%; background: var(--sage-lt);
-      display: flex; align-items: center; justify-content: center; margin: 0 auto 1.1rem;
-      font-family: 'DM Serif Display', serif; font-size: 2.2rem; color: var(--sage);
+      width: 160px; height: 160px; border-radius: 50%; background: var(--sage-lt);
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 1.3rem;
+      font-family: 'DM Serif Display', serif; font-size: 2.6rem; color: var(--sage);
       border: 3px solid var(--sage); overflow: hidden;
     }
-    .hero-card-name { font-family: 'DM Serif Display', serif; font-size: 1.25rem; margin-bottom: 0.25rem; }
-    .hero-card-role { font-size: 0.8rem; color: var(--muted); margin-bottom: 1.2rem; }
-    .hero-stats { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid var(--border); padding-top: 1.1rem; gap: 0.5rem; }
-    .stat-num { font-family: 'Space Mono', monospace; font-size: 1.35rem; color: var(--sage); font-weight: 700; }
-    .stat-lbl { font-size: 0.7rem; color: var(--muted); line-height: 1.3; }
-    section { padding: 4.5rem 5vw; }
-    .section-eyebrow { font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.5rem; }
-    .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.7rem, 2.8vw, 2.3rem); margin-bottom: 0.7rem; color: var(--ink); }
-    .section-sub { color: var(--muted); font-size: 0.98rem; max-width: 60ch; margin-bottom: 2rem; }
+    .hero-card-name { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin-bottom: 0.3rem; }
+    .hero-card-role { font-size: 0.82rem; color: var(--muted); margin-bottom: 1.4rem; }
+    .badge-row { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-bottom: 1.4rem; }
+    .badge { font-size: 0.72rem; padding: 0.28rem 0.7rem; background: var(--sage-lt); color: var(--sage); border-radius: 999px; }
+    .hero-stats { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid var(--border); padding-top: 1.3rem; gap: 0.5rem; }
+    .stat-num { font-family: 'Space Mono', monospace; font-size: 1.45rem; color: var(--sage); font-weight: 700; }
+    .stat-lbl { font-size: 0.72rem; color: var(--muted); line-height: 1.3; }
+    section { padding: 5.5rem 5vw; }
+    section:nth-child(even) { background: var(--sage-lt); }
+    .section-eyebrow { font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.6rem; }
+    .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); margin-bottom: 0.8rem; color: var(--ink); }
+    .title-rule::after { content: ''; display: block; width: 56px; height: 3px; background: var(--gold); margin-top: 1rem; border-radius: 2px; }
+    .section-sub { color: var(--muted); font-size: 1rem; max-width: 58ch; margin-bottom: 2.8rem; }
+    .about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: start; }
+    .about-body p { color: var(--muted); margin-bottom: 1.2rem; }
+    .about-meta { display: flex; flex-direction: column; gap: 1.2rem; }
+    .meta-item { border-left: 3px solid var(--sage); padding-left: 1rem; }
+    .meta-label { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage); }
+    .meta-value { font-size: 0.95rem; color: var(--ink); overflow-wrap: anywhere; }
+    .pub-grid, .fw-grid, .edu-grid, .cert-list-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr)); gap: 1.3rem; margin-bottom: 2rem; }
+    #rolefit .pub-grid { grid-template-columns: repeat(3, 1fr); }
+    .pub-card, .fw-card, .edu-card, .cert-list-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; }
+    .fw-card { border-left: 3px solid var(--gold); }
+    .cert-list-card { border-left: 3px solid var(--sage); }
+    .pub-title, .fw-title, .edu-degree, .cert-list-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.35rem; color: var(--ink); overflow-wrap: anywhere; }
+    .pub-venue, .fw-org, .edu-school, .cert-list-issuer { font-family: 'DM Serif Display', serif; color: var(--sage); font-size: 0.92rem; margin-bottom: 0.5rem; }
+    .pub-scope, .fw-impact, .edu-note, .cert-list-date { font-size: 0.84rem; color: var(--muted); line-height: 1.6; overflow-wrap: anywhere; }
+    .edu-year, .cert-list-date { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--gold); margin-bottom: 0.4rem; }
     .sample-box {
       display: block; background: var(--sage); color: var(--white); border-radius: 12px;
-      padding: 2rem; border: 1px solid rgba(255,255,255,0.12); position: relative; overflow: hidden;
+      padding: 2.2rem; border: 1px solid rgba(255,255,255,0.12); position: relative; overflow: hidden;
     }
     .sample-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: var(--gold); }
     .sample-flag { font-family: 'Space Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #e2c68c; margin-bottom: 1rem; }
-    .sample-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem; }
-    .sample-col { border-top: 1px solid rgba(255,255,255,0.2); padding-top: 0.9rem; }
-    .sample-kind { font-family: 'Space Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: #e2c68c; margin-bottom: 0.35rem; }
-    .sample-title { font-family: 'DM Serif Display', serif; font-size: 1.25rem; line-height: 1.3; margin-bottom: 0.45rem; }
-    .sample-desc { font-size: 0.85rem; color: rgba(255,255,255,0.8); line-height: 1.65; }
-    .sample-cta {
-      display: inline-flex; align-items: center; gap: 0.55rem; background: var(--gold); color: var(--white);
-      padding: 0.7rem 1.4rem; border-radius: var(--radius); font-size: 0.86rem;
-    }
-    footer { background: var(--sage); color: rgba(255,255,255,0.65); text-align: center; padding: 2rem 5vw; font-size: 0.8rem; }
+    .sample-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 1.6rem; }
+    .sample-col { border-top: 1px solid rgba(255,255,255,0.22); padding-top: 1rem; }
+    .sample-kind { font-family: 'Space Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: #e2c68c; margin-bottom: 0.4rem; }
+    .sample-title { font-family: 'DM Serif Display', serif; font-size: 1.3rem; line-height: 1.3; margin-bottom: 0.5rem; }
+    .sample-desc { font-size: 0.86rem; color: rgba(255,255,255,0.8); line-height: 1.65; }
+    .sample-cta { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--gold); color: var(--white); padding: 0.75rem 1.5rem; border-radius: var(--radius); font-size: 0.88rem; }
+    .stat-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 2rem; }
+    .stat-strip > div { background: var(--white); padding: 1.1rem 1.2rem; }
+    .stat-strip .n { font-family: 'DM Serif Display', serif; font-size: 1.9rem; color: var(--sage); line-height: 1.1; }
+    .stat-strip .l { font-size: 0.74rem; color: var(--muted); margin-top: 0.25rem; }
+    .filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .filters button { font: inherit; font-size: 0.8rem; padding: 0.45rem 0.95rem; border-radius: 999px; cursor: pointer; border: 1px solid var(--border); background: var(--white); color: var(--muted); }
+    .filters button.on { background: var(--sage); border-color: var(--sage); color: var(--white); }
+    .work-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 1.2rem; }
+    .work-card { background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--gold); border-radius: var(--radius); padding: 1.4rem; display: flex; flex-direction: column; gap: 0.6rem; }
+    .work-card[hidden] { display: none; }
+    .work-top { display: flex; justify-content: space-between; gap: 0.8rem; font-size: 0.72rem; }
+    .work-tag { font-weight: 600; text-transform: uppercase; color: var(--gold); }
+    .work-when { color: var(--muted); }
+    .work-title { font-family: 'DM Serif Display', serif; font-size: 1.18rem; color: var(--ink); }
+    .work-org { font-size: 0.8rem; color: var(--sage); font-weight: 600; }
+    .work-row { font-size: 0.82rem; color: var(--muted); }
+    .work-row b { color: var(--ink); }
+    .work-card ul { list-style: none; }
+    .work-card li { font-size: 0.82rem; color: var(--muted); padding: 0.15rem 0 0.15rem 1rem; position: relative; }
+    .work-card li::before { content: '→'; position: absolute; left: 0; color: var(--sage); }
+    .work-result { margin-top: auto; padding-top: 0.7rem; border-top: 1px solid var(--border); font-size: 0.82rem; }
+    .org-list { display: flex; flex-direction: column; gap: 1.2rem; }
+    .org-card { display: grid; grid-template-columns: 240px 1fr; gap: 2rem; background: var(--white); border: 1px solid var(--border); border-left: 3px solid var(--sage); border-radius: var(--radius); padding: 1.6rem 1.8rem; }
+    .org-name { font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: var(--sage); margin-bottom: 0.3rem; }
+    .org-meta { font-size: 0.8rem; color: var(--muted); }
+    .org-span { margin-top: 0.4rem; font-size: 0.75rem; font-weight: 600; color: var(--gold); }
+    .role + .role { margin-top: 1.2rem; padding-top: 1.1rem; border-top: 1px solid var(--border); }
+    .role-head { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+    .role-title { font-weight: 600; font-size: 0.98rem; }
+    .role-when { font-size: 0.75rem; color: var(--muted); }
+    .tl-ul { list-style: none; }
+    .tl-ul li { font-size: 0.88rem; color: var(--muted); padding: 0.25rem 0 0.25rem 1.1rem; position: relative; }
+    .tl-ul li::before { content: '→'; position: absolute; left: 0; color: var(--sage); }
+    .lang-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); gap: 1rem; }
+    .lang-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.2rem; display: flex; align-items: center; gap: 1rem; }
+    .lang-flag { font-size: 1.7rem; }
+    .lang-name { font-weight: 600; font-size: 0.95rem; }
+    .lang-level { font-size: 0.78rem; color: var(--muted); }
+    .lang-bar { height: 4px; background: var(--border); border-radius: 2px; margin-top: 0.4rem; overflow: hidden; }
+    .lang-fill { height: 100%; background: var(--sage); }
+    #contact { text-align: center; }
+    .contact-links { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; margin-top: 2rem; }
+    .contact-chip { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.7rem 1.3rem; border: 1px solid var(--border); border-radius: var(--radius); font-size: 0.88rem; color: var(--muted); background: var(--white); overflow-wrap: anywhere; }
+    footer { background: var(--sage); color: rgba(255,255,255,0.65); text-align: center; padding: 2rem 5vw calc(2rem + env(safe-area-inset-bottom)); font-size: 0.8rem; }
     footer span { color: var(--gold); }
-    @media (max-width: 900px) {
-      #home { grid-template-columns: 1fr; padding-top: calc(var(--nav-h) + 2.5rem); }
+    @media (max-width: 1024px) { #rolefit .pub-grid { grid-template-columns: repeat(2, 1fr); } .org-card { grid-template-columns: 1fr; gap: 1rem; } }
+    @media (max-width: 900px) { #home { grid-template-columns: 1fr; padding-top: calc(var(--nav-h) + 2.5rem); } .about-grid { grid-template-columns: 1fr; } #rolefit .pub-grid { grid-template-columns: 1fr; } .sample-cols { grid-template-columns: 1fr; } }
+    @media (max-width: 1180px) {
+      .nav-toggle { display: flex; }
       .nav-links { display: none; }
+      .nav-cta { display: none; }
     }
   </style>
 </head>
@@ -132,67 +187,259 @@
   <nav>
     <a class="nav-logo" href="index.html"><span class="nav-mark" aria-hidden="true">TC</span><span>Timothy Castillon</span></a>
     <ul class="nav-links">
-      <li><a href="#home">Overview</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#rolefit">Role Fit</a></li>
+      <li><a href="#samples">Sample Work</a></li>
       <li><a href="science-comms.html">HTML Outputs</a></li>
-      <li><a href="#samples">Writing Samples</a></li>
-      <li><a href="mailto:timothyearlmateocastillon@gmail.com">Contact</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#languages">Languages</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
     <a class="nav-cta" href="science-comms.html">HTML Outputs →</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </nav>
 
   <section id="home">
     <div>
-      <p class="hero-eyebrow">Based in the Philippines · Open to France relocation and/or remote work</p>
+      <p class="hero-eyebrow">Based in the Philippines · Open to France relocation and/or work remotely</p>
       <h1 class="hero-name">
-        Climate science only changes decisions when digital systems help people <em>understand it, trust it, and use it.</em>
+        <span class="ln">Climate science only changes decisions</span>
+        <span class="ln">when digital systems help people</span>
+        <span class="ln"><em>understand it, trust it, and use it.</em></span>
       </h1>
       <p class="hero-lead">
-        Communications, digital content, and knowledge management professional with 5+ years across the UN system and development organizations. Master’s in African Studies with a climate and resilience focus, applying for the Communication Officer role in the IPCC WGI Technical Support Unit.
+        Communications, digital content, and knowledge management professional with 5+ years across the UN system and development organizations. Master’s in African Studies with a climate and resilience focus. Applying for the Communication Officer role in the IPCC WGI TSU, leveraging digital transformation as a root for scalable, data-driven science communications. This means moving beyond static reports to build dynamic, accessible knowledge ecosystems for global audiences.
       </p>
       <div class="hero-actions">
-        <a class="btn-primary" href="science-comms.html">🌐 Interactive Science Outputs</a>
-        <a class="btn-outline" href="#samples">📄 Writing Samples</a>
+        <a class="btn-primary" href="science-comms.html">🌐 Interactive HTML Outputs</a>
+        <a class="btn-download" href="Castillon_CV_IPCC.pdf" target="_blank" rel="noopener">⬇ Download CV</a>
+        <a class="btn-outline" href="#samples">Read My Sample Work</a>
+        <a class="btn-outline" href="#rolefit">Fit for the Role</a>
         <a class="btn-outline" href="https://tmcastillon01.github.io/PhotoPortfolio/" target="_blank" rel="noopener noreferrer">📷 Visual Ethnography</a>
-        <a class="btn-outline" href="mailto:timothyearlmateocastillon@gmail.com">✉️ Get In Touch</a>
+        <a class="btn-outline" href="#contact">Get In Touch</a>
       </div>
+      <a class="hero-notice" href="#contact">
+        <span class="hero-notice-icon">📎</span>
+        <span>Supplementary documents relevant to my application (CV, Letter of Motivation, References) are available at the bottom of this page.</span>
+        <span class="hero-notice-arrow">↓</span>
+      </a>
     </div>
 
     <div class="hero-card">
       <div class="hero-avatar">TC</div>
       <p class="hero-card-name">Timothy Earl Mateo Castillon</p>
       <p class="hero-card-role">Communications · Digital Transformation · Knowledge Management</p>
+      <div class="badge-row">
+        <span class="badge">✍️ Plain-Language Writing</span>
+        <span class="badge">🎨 Visual &amp; Multimedia Production</span>
+        <span class="badge">📱 Digital Platforms &amp; Audience Growth</span>
+        <span class="badge">🎤 Events &amp; Training</span>
+        <span class="badge">🌍 Climate &amp; Resilience Background</span>
+        <span class="badge">🤖 Digital Transformation</span>
+      </div>
       <div class="hero-stats">
-        <div><div class="stat-num">109.7%</div><div class="stat-lbl">LinkedIn growth, UNHCR GPC</div></div>
-        <div><div class="stat-num">80%+</div><div class="stat-lbl">WMO intranet adoption reach</div></div>
-        <div><div class="stat-num">300+</div><div class="stat-lbl">Assets structured on Drupal</div></div>
+        <div><div class="stat-num">109.7%</div><div class="stat-lbl">Organic LinkedIn follower growth, UNHCR GPC</div></div>
+        <div><div class="stat-num">80%+</div><div class="stat-lbl">Staff reach, WMO intranet adoption campaign</div></div>
+        <div><div class="stat-num">300+</div><div class="stat-lbl">Digital assets migrated, tagged with metadata, &amp; structured on Drupal CMS</div></div>
       </div>
     </div>
   </section>
 
-  <section id="samples">
-    <p class="section-eyebrow">✍️ Sample Work &amp; Interactive HTML</p>
-    <h2 class="section-title">Application Comms Material</h2>
-    <p class="section-sub">Access your interactive HTML science communications hub or open your written samples.</p>
+  <section id="about" class="reveal">
+    <p class="section-eyebrow">🧭 Background</p>
+    <h2 class="section-title">About Me</h2>
+    <p class="section-sub">Climate science only changes decisions when people can understand it, trust it and use it. That is the gap I want to work on.</p>
+    <div class="about-grid">
+      <div class="about-body">
+        <p>In 2025, while walking up to Vinicunca in the Peruvian Andes, what stayed with me was not the mountain’s famous colors, but the families leading horses and alpacas past bare rock beneath retreating ice. I photographed their work and came home asking what the physical science says about that retreat, and why those answers are so hard for ordinary people to access. That experience crystallized the exact communication gap I want to help close.</p>
+        <p>Bridging that gap requires more than traditional outreach; it requires digital transformation. Across the WMO, UNHCR, and the Local Government Academy, I have built the digital workflows, metadata systems, and visual strategies that turn dense institutional knowledge into accessible public tools. Joining the WGI TSU, I am eager to expand my global media relations alongside the IPCC Communications Action Team while immediately delivering what I do best: transforming complex science into clear visuals, structured digital assets, and engaging sessions people can actually use.</p>
+      </div>
+      <div class="about-meta">
+        <div class="meta-item"><div class="meta-label">🎯 Target Role</div><div class="meta-value">Communication Officer — IPCC Working Group I Technical Support Unit, Gif-sur-Yvette, France</div></div>
+        <div class="meta-item"><div class="meta-label">📄 Contract</div><div class="meta-value">Fixed term with Université Paris-Saclay until end of 2028</div></div>
+        <div class="meta-item"><div class="meta-label">🌍 Availability</div><div class="meta-value">December 2026. Ready to relocate to France and/or work remotely and to travel internationally</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rolefit" class="reveal">
+    <p class="section-eyebrow">🎯 Fit for the Role</p>
+    <h2 class="section-title">Mapped to the Communication Officer Role</h2>
+    <p class="section-sub">How my experience lines up with the main areas of the WGI TSU posting, including where I have gaps.</p>
+    <div class="pub-grid">
+      <div class="pub-card"><div class="pub-title">🎨 Multimedia resources</div><div class="pub-venue">UNHCR GPC · Adobe Creative Cloud · Canva · Videoscribe</div><div class="pub-scope">Reports, guidance, toolkits and newsletters laid out and produced; 30+ banners; 4 campaign videos edited. Graphic, written and video formats.</div></div>
+      <div class="pub-card"><div class="pub-title">📱 Social media and audience</div><div class="pub-venue">LinkedIn · X/Twitter</div><div class="pub-scope">Organic LinkedIn followers +109.7% and X/Twitter +652 in six months; planned multi-channel editorial calendars.</div></div>
+      <div class="pub-card"><div class="pub-title">🎤 Events, training and engagement</div><div class="pub-venue">Webinars · staff training · UN and government partners</div><div class="pub-scope">Technical support for all GPC webinars and events, a moderated session at the Global Protection Forum, an online series for local officials with 3–4 live sessions a week, and WMO staff training.</div></div>
+      <div class="pub-card"><div class="pub-title">🤝 International teams</div><div class="pub-venue">WMO · UNHCR · executive boards</div><div class="pub-scope">Worked with UN agencies, government agencies, executive boards and project teams across countries, and reported outcomes to executive boards.</div></div>
+      <div class="pub-card"><div class="pub-title">🔬 Translating climate science</div><div class="pub-venue">Explainer sample · climate-focused master’s</div><div class="pub-scope">Plain-language explainer of AR6 WGI glacier findings separating WGI (physical science) from WGII (impacts); Master’s with climate and resilience focus and fieldwork in Kenya; UNFCCC/UNDP Article 6.2 training.</div></div>
+      <div class="pub-card"><div class="pub-title">🧩 Where I would be learning</div><div class="pub-venue">Stated plainly</div><div class="pub-scope">Press engagement, incoming media requests, story placement, interview booking, media training for authors, IPCC assessment process, and French (currently A2).</div></div>
+    </div>
+  </section>
+
+  <section id="samples" class="reveal">
+    <p class="section-eyebrow">✍️ Sample Work</p>
+    <h2 class="section-title">Writing Samples &amp; Interactive HTML</h2>
+    <p class="section-sub">Open your interactive HTML outputs hub or view your written samples.</p>
     <a class="sample-box" href="science-comms.html">
-      <div class="sample-flag">HTML Portfolio Hub · science-comms.html</div>
+      <div class="sample-flag">Interactive HTML Portfolio Hub · science-comms.html</div>
       <div class="sample-cols">
         <div class="sample-col">
-          <div class="sample-kind">Output 01 · IPCC WGI Observatory</div>
-          <div class="sample-title">The Physical Science Basis</div>
-          <p class="sample-desc">Interactive observatory linking AR6 physical science outputs and AR7 milestones (ipcc-wgi-observatory.html).</p>
+          <div class="sample-kind">🌐 Interactive Output 01</div>
+          <div class="sample-title">IPCC Working Group I: The Physical Science Basis</div>
+          <p class="sample-desc">Interactive observatory (ipcc-wgi-observatory.html) exploring Earth’s energy imbalance, carbon sinks, SSP warming pathways, and AR7 milestones.</p>
         </div>
         <div class="sample-col">
-          <div class="sample-kind">Output 02 · Emissions Gap Deck</div>
-          <div class="sample-title">The Point of Return</div>
-          <p class="sample-desc">Interactive 7-slide presentation on 1.5°C overshoot, 2025 emissions, NDCs 3.0, and visual craft (unep_emissions_gap_report_2026_the_point_of_return.html).</p>
+          <div class="sample-kind">🌐 Interactive Output 02</div>
+          <div class="sample-title">UNEP Emissions Gap Report 2026: The Point of Return</div>
+          <p class="sample-desc">Interactive presentation (unep_emissions_gap_report_2026_the_point_of_return.html) covering 1.5°C overshoot, 2025 emissions, NDCs 3.0, and visual craft.</p>
         </div>
       </div>
-      <span class="sample-cta">Open HTML Outputs Hub →</span>
+      <span class="sample-cta">Open Interactive HTML Outputs Hub →</span>
     </a>
+  </section>
+
+  <section id="work" class="reveal">
+    <p class="section-eyebrow">📣 Communication Work</p>
+    <h2 class="section-title">Campaigns, Products &amp; Platforms</h2>
+    <p class="section-sub">Selected examples with my role, audience, tools and results.</p>
+    <div class="stat-strip" id="statStrip"></div>
+    <div class="filters" id="workFilters" role="group" aria-label="Filter communication work"></div>
+    <div class="work-grid" id="workGrid"></div>
+  </section>
+
+  <section id="experience" class="reveal">
+    <p class="section-eyebrow">💼 Career</p>
+    <h2 class="section-title">Professional Experience</h2>
+    <p class="section-sub">Communications, web content, knowledge management and stakeholder engagement across international organizations.</p>
+    <div class="org-list">
+      <article class="org-card">
+        <div><h3 class="org-name">Multiple International Development Clients</h3><div class="org-meta">Remote</div><div class="org-span">Feb 2025 – present</div></div>
+        <div>
+          <div class="role"><div class="role-head"><span class="role-title">Independent Consultant – Communications &amp; Knowledge Management</span><span class="role-when">February 2025 – Present</span></div>
+            <ul class="tl-ul"><li>Execute digital content strategies, editorial scheduling and multi-channel dissemination for humanitarian and protection initiatives.</li><li>Design and maintain visual branding assets, digital toolkits and reporting workflows for international stakeholders.</li></ul>
+          </div>
+        </div>
+      </article>
+      <article class="org-card">
+        <div><h3 class="org-name">World Meteorological Organization (WMO)</h3><div class="org-meta">Geneva, Switzerland</div><div class="org-span">May 2023 – Oct 2024</div></div>
+        <div>
+          <div class="role"><div class="role-head"><span class="role-title">Knowledge and Information Management Support Officer (P1)</span><span class="role-when">November 2023 – October 2024</span></div>
+            <ul class="tl-ul"><li>Co-led the staff adoption campaign and training for a full intranet migration (80%+ staff reach).</li><li>Audited engagement across 12 Communities of Practice, increasing participation by 20% and reporting to executive boards.</li></ul>
+          </div>
+          <div class="role"><div class="role-head"><span class="role-title">Knowledge and Information Management Intern</span><span class="role-when">May 2023 – November 2023</span></div>
+            <ul class="tl-ul"><li>Supported institutional document migration, categorization, and Community of Practice analytics.</li></ul>
+          </div>
+        </div>
+      </article>
+      <article class="org-card">
+        <div><h3 class="org-name">United Nations High Commissioner for Refugees (UNHCR)</h3><div class="org-meta">Geneva, Switzerland</div><div class="org-span">Sep 2022 – May 2023</div></div>
+        <div>
+          <div class="role"><div class="role-head"><span class="role-title">Communications and Advocacy Intern – Global Protection Cluster (GPC)</span><span class="role-when">September 2022 – May 2023</span></div>
+            <ul class="tl-ul"><li>Decision-owner for the GPC public Drupal website: 300+ materials uploaded, 15 Areas of Focus updated, and Forum pages archived (2018–2023).</li><li>Laid out reports, toolkits, newsletters, 30+ banners, and edited 4 campaign videos; grew organic LinkedIn followers +109.7% and X/Twitter +652 in 6 months.</li></ul>
+          </div>
+        </div>
+      </article>
+      <article class="org-card">
+        <div><h3 class="org-name">Local Government Academy (LGA)</h3><div class="org-meta">Manila, Philippines</div><div class="org-span">Jun 2018 – Sep 2020</div></div>
+        <div>
+          <div class="role"><div class="role-head"><span class="role-title">Project Officer</span><span class="role-when">November 2019 – September 2020</span></div>
+            <ul class="tl-ul"><li>Led “L!stong Ugnayan,” a live virtual series for local government officials nationwide (3–4 sessions/week, 10,000+ cumulative attendances).</li></ul>
+          </div>
+          <div class="role"><div class="role-head"><span class="role-title">Project Assistant</span><span class="role-when">June 2018 – August 2019</span></div>
+            <ul class="tl-ul"><li>Documented 50+ governance initiatives into the “Innovative Solutions Bank” digital knowledge base.</li></ul>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="education" class="reveal">
+    <p class="section-eyebrow">🎓 Academic Background</p>
+    <h2 class="section-title title-rule">Education</h2>
+    <div class="edu-grid">
+      <div class="edu-card"><div class="edu-year">2020 – 2022</div><div class="edu-degree">M.A., EMJMD — European Interdisciplinary Master in African Studies (Climate &amp; Resilience Focus)</div><div class="edu-school">University of Bordeaux Montaigne · University of Porto · University of Bayreuth</div><div class="edu-note">Mention Très Bien · Fieldwork in Narok and Nairobi, Kenya</div></div>
+      <div class="edu-card"><div class="edu-year">2013 – 2019</div><div class="edu-degree">B.A., Public Administration</div><div class="edu-school">University of the Philippines – Diliman</div><div class="edu-note">Quezon City, Philippines</div></div>
+      <div class="edu-card"><div class="edu-year">2025 – Present</div><div class="edu-degree">Further Studies</div><div class="edu-school">Harvard Extension School · DataCamp</div><div class="edu-note">Advanced Professional Qualification, Data Science · DataCamp Engineering Scholar</div></div>
+    </div>
+  </section>
+
+  <section id="certifications" class="reveal">
+    <p class="section-eyebrow">🏅 Credentials</p>
+    <h2 class="section-title title-rule">Certifications</h2>
+    <div class="cert-list-grid">
+      <div class="cert-list-card"><div class="cert-list-title">Google Project Management: Professional Certificate</div><div class="cert-list-issuer">Google · via Coursera</div><div class="cert-list-date">Aug 2025</div></div>
+      <div class="cert-list-card"><div class="cert-list-title">Operationalizing Article 6.2 of the Paris Agreement</div><div class="cert-list-issuer">UN Climate Change RCC · UNDP</div><div class="cert-list-date">Jul 2025</div></div>
+      <div class="cert-list-card"><div class="cert-list-title">Associate Data Analyst · SQL Associate · Python Data Associate</div><div class="cert-list-issuer">DataCamp</div><div class="cert-list-date">2025–2026</div></div>
+    </div>
+  </section>
+
+  <section id="languages" class="reveal">
+    <p class="section-eyebrow">🌍 Communication</p>
+    <h2 class="section-title">Languages</h2>
+    <div class="lang-grid">
+      <div class="lang-card"><div class="lang-flag">🇵🇭</div><div><div class="lang-name">Filipino</div><div class="lang-level">Native · C2</div><div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div></div></div>
+      <div class="lang-card"><div class="lang-flag">🇺🇸</div><div><div class="lang-name">English</div><div class="lang-level">Native · C2</div><div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div></div></div>
+      <div class="lang-card"><div class="lang-flag">🇫🇷</div><div><div class="lang-name">French</div><div class="lang-level">Basic · A2</div><div class="lang-bar"><div class="lang-fill" style="width:40%"></div></div></div></div>
+      <div class="lang-card"><div class="lang-flag">🇵🇹</div><div><div class="lang-name">Portuguese</div><div class="lang-level">Basic · A1</div><div class="lang-bar"><div class="lang-fill" style="width:25%"></div></div></div></div>
+    </div>
+  </section>
+
+  <section id="contact" class="reveal">
+    <p class="section-eyebrow">✉️ Let's Connect</p>
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="contact-links">
+      <a class="contact-chip" href="mailto:timothyearlmateocastillon@gmail.com"><span>✉️</span> timothyearlmateocastillon@gmail.com</a>
+      <a class="contact-chip" href="tel:+639618238674"><span>📞</span> +63 961 823 8674</a>
+      <a class="contact-chip" href="science-comms.html"><span>🌐</span> Interactive HTML Outputs</a>
+    </div>
+    <div style="margin-top:2rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a class="btn-download" href="Castillon_CV_IPCC.pdf" target="_blank" rel="noopener">⬇ Download CV (PDF)</a>
+      <a class="btn-download" href="Castillon_Cover_Letter_IPCC.pdf" target="_blank" rel="noopener">⬇ Letter of Motivation (PDF)</a>
+      <a class="btn-download" href="Castillon_References_IPCC.pdf" target="_blank" rel="noopener">📄 References (PDF)</a>
+    </div>
   </section>
 
   <footer>
     <p>© 2026 <span>Timothy Earl Mateo Castillon</span>. All rights reserved.</p>
   </footer>
+
+  <script type="application/json" id="work-data">{"stats": [["109.7%", "LinkedIn organic follower growth in 6 months"], ["652", "new X/Twitter followers in 6 months"], ["300+", "materials uploaded to the GPC website"], ["80%+", "staff reached by the WMO adoption campaign"], ["+20%", "participation across 12 Communities of Practice"]], "tags": ["Web", "Publications & design", "Digital & social", "Events & training"], "items": [{"tag": "Web", "title": "GPC public website and knowledge platform", "org": "UNHCR Global Protection Cluster", "when": "Sep 2022 – May 2023", "role": "Decision-owner", "aud": "Protection actors across 15 global operations", "tools": "Drupal CMS", "did": ["Uploaded 300+ materials and kept 15 Areas of Focus pages updated", "Built and archived Global Protection Forum pages (2018–2023)"], "res": "Centralized public knowledge hub."}, {"tag": "Publications & design", "title": "GPC reports, toolkits and newsletters", "org": "UNHCR Global Protection Cluster", "when": "Sep 2022 – May 2023", "role": "Design and production", "aud": "Protection officers and humanitarian actors", "tools": "Adobe Creative Cloud · Canva · Mailchimp", "did": ["Formatted reports, guidance, toolkits, 3 newsletters, 30+ banners, and 4 campaign videos"], "res": "Publication-ready advocacy products."}, {"tag": "Digital & social", "title": "GPC social media growth & WMO intranet adoption", "org": "UNHCR GPC & WMO", "when": "2022 – 2024", "role": "Channel & adoption lead", "aud": "Global audiences & WMO staff", "tools": "LinkedIn · X/Twitter · SharePoint · Mailchimp", "did": ["Grew LinkedIn +109.7% and X/Twitter +652 in 6 months; co-led WMO intranet campaign reaching 80%+ staff"], "res": "Measurable digital reach and adoption."}, {"tag": "Events & training", "title": "GPC webinars & “L!stong Ugnayan” series", "org": "UNHCR GPC & Local Government Academy", "when": "2020 – 2023", "role": "Moderator, host & technical lead", "aud": "Local officials & humanitarian partners", "tools": "Zoom · Teams · live virtual sessions", "did": ["Supported GPC webinars/Forum and hosted “L!stong Ugnayan” (3–4 sessions/week, 10,000+ cumulative attendances)"], "res": "High-participation virtual engagement."}]}</script>
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('in-view'); revealObserver.unobserve(entry.target); }
+      });
+    }, { threshold: 0.08 });
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    (function () {
+      const d = JSON.parse(document.getElementById('work-data').textContent);
+      const esc = t => String(t).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+      document.getElementById('statStrip').innerHTML = d.stats.map(x => `<div><div class="n">${esc(x[0])}</div><div class="l">${esc(x[1])}</div></div>`).join('');
+      const grid = document.getElementById('workGrid'), bar = document.getElementById('workFilters');
+      grid.innerHTML = d.items.map(i => `<article class="work-card" data-tag="${esc(i.tag)}">
+        <div class="work-top"><span class="work-tag">${esc(i.tag)}</span><span class="work-when">${esc(i.when)}</span></div>
+        <h3 class="work-title">${esc(i.title)}</h3><div class="work-org">${esc(i.org)}</div>
+        <div class="work-row"><b>Role:</b> ${esc(i.role)}</div>
+        <div class="work-row"><b>Audience:</b> ${esc(i.aud)}</div>
+        <div class="work-row"><b>Tools:</b> ${esc(i.tools)}</div>
+        <ul>${i.did.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+        <div class="work-result"><b>Result:</b> ${esc(i.res)}</div>
+      </article>`).join('');
+      const cards = [...grid.querySelectorAll('.work-card')];
+      ['All'].concat(d.tags).forEach((t, k) => {
+        const b = document.createElement('button'); b.type = 'button'; b.textContent = t; if (!k) b.className = 'on';
+        b.addEventListener('click', () => {
+          bar.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b));
+          cards.forEach(c => { c.hidden = t !== 'All' && c.dataset.tag !== t; });
+        });
+        bar.appendChild(b);
+      });
+    })();
+  </script>
 </body>
 </html>
