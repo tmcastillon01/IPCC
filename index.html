@@ -27,7 +27,7 @@
 
     /* ─── RESET ──────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; font-size: 16px; }
+    html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
     body { background: var(--fog); color: var(--ink); font-family: 'Inter', sans-serif; line-height: 1.65; }
     img  { display: block; max-width: 100%; }
     a    { color: inherit; text-decoration: none; }
@@ -101,15 +101,33 @@
       font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase;
       color: var(--gold); margin-bottom: 1rem;
     }
+    .hero-text { min-width: 0; }
+    .hero-notice {
+      display: flex; align-items: center; gap: 0.6rem;
+      max-width: 100%;
+      margin-top: 1.6rem;
+      padding: 0.5rem 0.8rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 0.78rem; line-height: 1.45;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .hero-notice:hover { background: rgba(255, 255, 255, 0.07); border-color: rgba(165, 126, 58, 0.5); color: rgba(255, 255, 255, 0.85); }
+    .hero-notice-icon, .hero-notice-arrow { color: var(--gold); opacity: 0.8; flex-shrink: 0; }
+    .hero-notice-arrow { margin-left: auto; }
     .hero-name {
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(1.45rem, 2.8vw, 2.4rem);
+      font-size: clamp(1.2rem, 2.4vw, 2.4rem);
       line-height: 1.12; color: var(--white);
       margin-bottom: 1.4rem;
     }
     .hero-name em { font-style: italic; color: var(--gold); }
     .hero-name .ln { display: block; white-space: nowrap; }
-    @media (max-width: 480px) { .hero-name .ln { white-space: normal; } }
+    @media (max-width: 900px) {
+      .hero-name { font-size: clamp(1rem, 5vw, 2.4rem); }
+    }
     .hero-lead {
       font-size: 1.05rem; color: rgba(255,255,255,0.78); max-width: 48ch;
       margin-bottom: 2.2rem; line-height: 1.75;
@@ -456,7 +474,6 @@
       .nav-cta { display: none; }
     }
 
-
     /* ─── CAMPAIGN CARDS ─────────────────────────────────────── */
     .camp-list { display: flex; flex-direction: column; gap: 1.6rem; }
     .camp {
@@ -502,7 +519,7 @@
     /* Role fit: 3 cards per row */
     #rolefit .pub-grid { grid-template-columns: repeat(3, 1fr); }
     @media (max-width: 900px) { #rolefit .pub-grid { grid-template-columns: 1fr; } }
-  
+
     /* ─── SAMPLE WORK BOX (IPCC) ─────────────────────────────── */
     .sample-box {
       display: block; background: var(--sage); color: var(--white);
@@ -582,7 +599,7 @@
       section { padding: 3.6rem 5vw; }
       .section-title { font-size: clamp(1.7rem, 7vw, 2.1rem); }
       .section-sub { margin-bottom: 2rem; }
-      .hero-name { font-size: clamp(1.9rem, 8.2vw, 2.4rem); line-height: 1.18; }
+      .hero-name { line-height: 1.18; }
       .hero-actions { flex-direction: column; align-items: stretch; }
       .hero-actions a { width: 100%; }
       .hero-card { padding: 1.6rem 1.2rem; }
@@ -687,39 +704,46 @@
 <!-- HERO -->
 <section id="home">
   <div class="hero-text">
-    <p class="hero-eyebrow">Based in the Philippines · Ready to relocate to France and/or work remotely</p>
+    <p class="hero-eyebrow">Based in the Philippines · Open to France relocation and/or work remotely</p>
     <h1 class="hero-name">
-      <span class="ln">Turn complex material into</span>
-      <span class="ln">clear visuals, short texts,</span>
-      <span class="ln"><em>and sessions people follow.</em></span>
+      <span class="ln">Climate science only changes decisions</span>
+      <span class="ln">when digital systems help people</span>
+      <span class="ln"><em>understand it, trust it, and use it.</em></span>
     </h1>
     <p class="hero-lead">
-      Communications, digital content and knowledge management professional with 5+ years across the UN system, including WMO, which co-established the IPCC, and UNHCR. Master’s in African Studies with a climate and resilience focus. Applying for the Communication Officer role in the IPCC WGI Technical Support Unit, with two writing samples prepared for it.
+      Communications, digital content, and knowledge management professional with 5+ years across the UN system and development organizations. Master’s in African Studies with a climate and resilience focus. Applying for the Communication Officer role in the IPCC WGI TSU, leveraging digital transformation as a root for scalable, data-driven science communications. This means moving beyond static reports to build dynamic, accessible knowledge ecosystems for global audiences.
     </p>
     <div class="hero-actions">
-      <a class="btn-download" href="Castillon_CV_IPCC.pdf" download>⬇ Download CV</a>
-      <a class="btn-primary" href="#samples">Read My Sample Work</a>
+      <a class="btn-primary" href="Castillon_SampleWorks_IPCC.pdf" target="_blank" rel="noopener">📄 Portfolio Sample</a>
+      <a class="btn-download" href="Castillon_CV_IPCC.pdf" target="_blank" rel="noopener">⬇ Download CV</a>
+      <a class="btn-outline" href="#samples">Read My Sample Work</a>
       <a class="btn-outline" href="#rolefit">Fit for the Role</a>
-      <a class="btn-outline" href="https://tmcastillon01.github.io/PhotoPortfolio/index.html#journal" target="_blank" rel="noopener noreferrer">📷 Visual Ethnography</a>
+      <a class="btn-outline" href="https://tmcastillon01.github.io/PhotoPortfolio/" target="_blank" rel="noopener noreferrer">📷 Visual Ethnography</a>
       <a class="btn-outline" href="#contact">Get In Touch</a>
     </div>
+    <a class="hero-notice" href="#contact">
+      <span class="hero-notice-icon">📎</span>
+      <span>Supplementary documents relevant to my application (CV, Letter of Motivation, References) are available at the bottom of this page.</span>
+      <span class="hero-notice-arrow">↓</span>
+    </a>
   </div>
 
   <div class="hero-card">
     <div class="hero-avatar"><img src="my_picture.png" alt="Timothy Earl Mateo Castillon"></div>
     <p class="hero-card-name">Timothy Earl Mateo Castillon</p>
-    <p class="hero-card-role">Communications · Digital Content · Knowledge Management</p>
+    <p class="hero-card-role">Communications · Digital Transformation · Knowledge Management</p>
     <div class="badge-row">
       <span class="badge">✍️ Plain-Language Writing</span>
       <span class="badge">🎨 Visual &amp; Multimedia Production</span>
       <span class="badge">📱 Digital Platforms &amp; Audience Growth</span>
       <span class="badge">🎤 Events &amp; Training</span>
       <span class="badge">🌍 Climate &amp; Resilience Background</span>
+      <span class="badge">🤖 Digital Transformation</span> 
     </div>
     <div class="hero-stats">
       <div><div class="stat-num">109.7%</div><div class="stat-lbl">Organic LinkedIn follower growth, UNHCR GPC</div></div>
       <div><div class="stat-num">80%+</div><div class="stat-lbl">Staff reach, WMO intranet adoption campaign</div></div>
-      <div><div class="stat-num">2</div><div class="stat-lbl">Writing samples prepared for this role</div></div>
+      <div><div class="stat-num">300+</div><div class="stat-lbl">Digital assets migrated, tagged with metadata, &amp; structured on Drupal CMS</div></div>
     </div>
   </div>
 </section>
@@ -732,15 +756,15 @@
   <div class="about-grid">
     <div class="about-body">
       <p>
-        In 2025, while travelling in South America, I walked up to Vinicunca in the Peruvian Andes. What stayed with me was the people working the trail, leading their horses and alpacas past bare rock beneath snow-capped peaks. I photographed and wrote about it for my personal project and came home with questions I could not answer: what the science says about the retreat of the ice, and what it means for the families who live there. I went to the IPCC Sixth Assessment Report for answers, and that became the basis for the two writing samples below.
+       In 2025, while walking up to Vinicunca in the Peruvian Andes, what stayed with me was not the mountain’s famous colors, but the families leading horses and alpacas past bare rock beneath retreating ice. I photographed their work and came home asking what the physical science says about that retreat, and why those answers are so hard for ordinary people to access. That experience crystallized the exact communication gap I want to help close.
       </p>
       <p>
-        My background is in design, digital strategy, workflow engineering and event execution, at WMO (which co-established the IPCC), UNHCR and the Local Government Academy. I am eager to add media engagement alongside the TSU and the IPCC Communications Action Team, and ready to start with what I already do well: turning complex material into clear visuals, short texts and sessions people can follow.
+        Bridging that gap requires more than traditional outreach; it requires digital transformation. Across the WMO, UNHCR, and the Local Government Academy, I have built the digital workflows, metadata systems, and visual strategies that turn dense institutional knowledge into accessible public tools. Joining the WGI TSU, I am eager to expand my global media relations alongside the IPCC Communications Action Team while immediately delivering what I do best: transforming complex science into clear visuals, structured digital assets, and engaging sessions people can actually use.
       </p>
     </div>
     <div class="about-meta">
-      <div class="meta-item"><div class="meta-label">🎯 Target Role</div><div class="meta-value">Communication Officer — IPCC Working Group I Technical Support Unit, Gif-sur-Yvette (Paris area), France</div></div>
-      <div class="meta-item"><div class="meta-label">📄 Contract</div><div class="meta-value">Fixed term with Université Paris-Saclay until end of 2028, with possible extension</div></div>
+      <div class="meta-item"><div class="meta-label">🎯 Target Role</div><div class="meta-value">Communication Officer — IPCC Working Group I Technical Support Unit, Gif-sur-Yvette, France</div></div>
+      <div class="meta-item"><div class="meta-label">📄 Contract</div><div class="meta-value">Fixed term with Université Paris-Saclay until end of 2028</div></div>
       <div class="meta-item"><div class="meta-label">🌍 Availability</div><div class="meta-value">December 2026. Ready to relocate to France and/or work remotely and to travel internationally</div></div>
           </div>
   </div>
@@ -753,19 +777,14 @@
   <p class="section-sub">How my experience lines up with the main areas of the WGI TSU posting, including where I have gaps.</p>
   <div class="pub-grid">
     <div class="pub-card">
-      <div class="pub-title">🔬 Translating climate science</div>
-      <div class="pub-venue">Explainer sample · climate-focused master’s</div>
-      <div class="pub-scope">I wrote a plain-language explainer of AR6 WGI glacier findings that keeps WGI (physical science) separate from WGII (impacts). My master’s had a climate and resilience focus, with fieldwork in Kenya, and I completed UNFCCC/UNDP training on Article 6.2. I am not a climate scientist.</div>
-    </div>
-    <div class="pub-card">
       <div class="pub-title">🎨 Multimedia resources</div>
       <div class="pub-venue">UNHCR GPC · Adobe Creative Cloud · Canva · Videoscribe</div>
-      <div class="pub-scope">Reports, guidance, toolkits and newsletters laid out and produced; 30+ banners; 4 campaign videos edited. Graphic, written and video formats. No audio production.</div>
+      <div class="pub-scope">Reports, guidance, toolkits and newsletters laid out and produced; 30+ banners; 4 campaign videos edited. Graphic, written and video formats.</div>
     </div>
     <div class="pub-card">
       <div class="pub-title">📱 Social media and audience</div>
       <div class="pub-venue">LinkedIn · X/Twitter</div>
-      <div class="pub-scope">Organic LinkedIn followers +109.7% and X/Twitter +652 in six months; planned multi-channel editorial calendars. My channels are LinkedIn and X/Twitter; the posting also names Bluesky.</div>
+      <div class="pub-scope">Organic LinkedIn followers +109.7% and X/Twitter +652 in six months; planned multi-channel editorial calendars. My channels are LinkedIn and X/Twitter, and I maintain a personal portfolio site. </div>
     </div>
     <div class="pub-card">
       <div class="pub-title">🎤 Events, training and engagement</div>
@@ -775,12 +794,17 @@
     <div class="pub-card">
       <div class="pub-title">🤝 International teams</div>
       <div class="pub-venue">WMO · UNHCR · executive boards</div>
-      <div class="pub-scope">Worked with UN agencies, government agencies, executive boards and project teams across countries, and reported outcomes to executive boards. I did not work on IPCC assessments at WMO.</div>
+      <div class="pub-scope">Worked with UN agencies, government agencies, executive boards and project teams across countries, and reported outcomes to executive boards.</div>
+    </div>
+      <div class="pub-card">
+      <div class="pub-title">🔬 Translating climate science</div>
+      <div class="pub-venue">Explainer sample · climate-focused master’s</div>
+      <div class="pub-scope">I wrote a plain-language explainer of AR6 WGI glacier findings that keeps WGI (physical science) separate from WGII (impacts). My master’s had a climate and resilience focus, with fieldwork in Kenya, and I completed UNFCCC/UNDP training on Article 6.2.</div>
     </div>
     <div class="pub-card">
       <div class="pub-title">🧩 Where I would be learning</div>
       <div class="pub-venue">Stated plainly</div>
-      <div class="pub-scope">Press engagement (press conferences, incoming media requests, story placement, interview booking), press releases beyond my mock sample, media training for authors, the IPCC assessment process, and French (currently A2). I have not led climate-science communications for two years or more.</div>
+      <div class="pub-scope">Press engagement (press conferences, incoming media requests, story placement, interview booking), press releases beyond my mock sample, media training for authors, the IPCC assessment process, and French (currently A2).</div>
     </div>
   </div>
 </section>
@@ -1076,9 +1100,9 @@
   <div class="skill-tags" style="gap:0.6rem;">
     <span class="skill-tag">BSAFE (UNDSS)</span>
     <span class="skill-tag">Protection Fundamentals</span>
-    <span class="skill-tag">Prevention of Sexual Exploitation & Abuse (PSEA)</span>
-    <span class="skill-tag">Prevention of Harassment & Abuse of Authority</span>
-    <span class="skill-tag">Fundamentals of Fraud & Corruption Awareness</span>
+    <span class="skill-tag">Prevention of Sexual Exploitation &amp; Abuse (PSEA)</span>
+    <span class="skill-tag">Prevention of Harassment &amp; Abuse of Authority</span>
+    <span class="skill-tag">Fundamentals of Fraud &amp; Corruption Awareness</span>
     <span class="skill-tag">Information Security Awareness</span>
   </div>
   </div>
@@ -1138,8 +1162,9 @@
     <a class="contact-chip" href="https://twitter.com/timothycastillon" target="_blank"><span>🐦</span> @timothycastillon</a>
   </div>
   <div style="margin-top:2rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-    <a class="btn-download" href="Castillon_CV_IPCC.pdf" download>⬇ Download CV (PDF)</a>
-    <a class="btn-download" href="Castillon_Cover_Letter_IPCC.pdf" download>⬇ Cover Letter (PDF)</a>
+    <a class="btn-download" href="Castillon_CV_IPCC.pdf" target="_blank" rel="noopener">⬇ Download CV (PDF)</a>
+    <a class="btn-download" href="Castillon_Cover_Letter_IPCC.pdf" target="_blank" rel="noopener">⬇ Letter of Motivation (PDF)</a>
+    <a class="btn-download" href="Castillon_References_IPCC.pdf" target="_blank" rel="noopener">📄 References (PDF)</a>
   </div>
 </section>
 
