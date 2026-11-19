@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Interactive HTML Outputs – Timothy Castillon | IPCC WGI Application</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink:     #0b1420;
+      --fog:     #f4f2ee;
+      --white:   #ffffff;
+      --sage:    #002147;
+      --sage-lt: #e9edf3;
+      --gold:    #ab7d2c;
+      --muted:   #656b76;
+      --border:  #e1ddd4;
+      --radius:  8px;
+      --nav-h:   64px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { background: var(--fog); color: var(--ink); font-family: 'Inter', sans-serif; line-height: 1.65; overflow-x: clip; }
+    a { color: inherit; text-decoration: none; }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-h);
+      display: flex; align-items: center; justify-content: space-between; padding: 0 5vw;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      font-family: 'Space Mono', monospace; font-size: 0.8rem;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); white-space: nowrap;
+    }
+    .nav-mark {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 34px; height: 34px; flex-shrink: 0;
+      background: var(--sage); color: var(--white); border-radius: 9px;
+      box-shadow: 0 3px 0 var(--gold); font-family: 'DM Serif Display', Georgia, serif; font-size: 1.15rem; font-weight: 700;
+    }
+    .nav-cta {
+      font-size: 0.76rem; letter-spacing: 0.05em; text-transform: uppercase;
+      padding: 0.45rem 1.1rem; border: 1px solid var(--sage); border-radius: var(--radius); color: var(--sage);
+    }
+    .nav-cta:hover { background: var(--sage); color: var(--white); }
+    .hero {
+      padding: calc(var(--nav-h) + 3.5rem) 5vw 3rem; background: var(--sage); color: var(--white);
+    }
+    .eyebrow {
+      font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 0.7rem;
+    }
+    h1 {
+      font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 3.6vw, 3rem);
+      line-height: 1.12; margin-bottom: 0.8rem;
+    }
+    h1 em { font-style: italic; color: var(--gold); }
+    .lead { color: rgba(255,255,255,0.8); max-width: 60ch; font-size: 1rem; }
+    main { padding: 3.5rem 5vw 4.5rem; max-width: 1200px; margin: 0 auto; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .card {
+      background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--gold);
+      border-radius: var(--radius); padding: 1.8rem; display: flex; flex-direction: column; gap: 0.9rem;
+    }
+    .tag { font-family: 'Space Mono', monospace; font-size: 0.7rem; text-transform: uppercase; color: var(--gold); letter-spacing: 0.08em; }
+    .title { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--ink); line-height: 1.25; }
+    .desc { font-size: 0.9rem; color: var(--muted); line-height: 1.65; flex: 1; }
+    .file { font-family: 'Space Mono', monospace; font-size: 0.75rem; color: var(--sage); background: var(--sage-lt); padding: 0.35rem 0.6rem; border-radius: 4px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 0.72rem 1.25rem; background: var(--sage); color: var(--white);
+      border-radius: var(--radius); font-size: 0.86rem; font-weight: 500;
+    }
+    .btn:hover { background: var(--gold); }
+    footer { background: var(--sage); color: rgba(255,255,255,0.65); text-align: center; padding: 2rem 5vw; font-size: 0.8rem; }
+    footer span { color: var(--gold); }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="nav-logo" href="index.html"><span class="nav-mark" aria-hidden="true">TC</span><span>Timothy Castillon</span></a>
+    <a class="nav-cta" href="index.html">← Main Portfolio</a>
+  </nav>
+
+  <header class="hero">
+    <p class="eyebrow">Interactive HTML Outputs · IPCC WGI Application</p>
+    <h1>Sample Climate &amp; Science <em>Communications</em></h1>
+    <p class="lead">Standalone interactive HTML builds prepared for the Communication Officer role in the IPCC Working Group I Technical Support Unit.</p>
+  </header>
+
+  <main>
+    <div class="grid">
+      <article class="card">
+        <span class="tag">Output 01 · Interactive Observatory</span>
+        <h2 class="title">IPCC Working Group I: The Physical Science Basis</h2>
+        <p class="desc">Interactive planetary radiative spectrum exploring Earth’s energy imbalance (~435 ZJ), carbon sink partitioning, SSP warming pathways, and AR7 milestones.</p>
+        <div class="file">ipcc-wgi-observatory.html</div>
+        <a class="btn" href="ipcc-wgi-observatory.html">Open IPCC WGI Observatory →</a>
+      </article>
+
+      <article class="card">
+        <span class="tag">Output 02 · Interactive Slide Deck</span>
+        <h2 class="title">UNEP Emissions Gap Report 2026: The Point of Return</h2>
+        <p class="desc">Seven-slide interactive presentation examining 1.5°C overshoot, 2025 emissions (58.4 GtCO₂e), NDCs 3.0 gaps, cost of delay, and cross-media color craft.</p>
+        <div class="file">unep_emissions_gap_report_2026_the_point_of_return.html</div>
+        <a class="btn" href="unep_emissions_gap_report_2026_the_point_of_return.html">Open Emissions Gap Deck →</a>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 <span>Timothy Earl Mateo Castillon</span>. All rights reserved.</p>
+  </footer>
+</body>
+</html>

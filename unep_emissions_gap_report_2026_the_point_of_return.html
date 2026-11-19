@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UNEP Emissions Gap Report 2026 — The Point of Return</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body { margin: 0; background-color: #002147; color: #f8fafc; font-family: 'Inter', sans-serif; }
+    .glass-panel { background: rgba(6, 45, 92, 0.9); border: 1px solid rgba(186, 230, 253, 0.22); border-radius: 1rem; }
+  </style>
+</head>
+<body class="min-h-screen p-4 sm:p-8 max-w-6xl mx-auto space-y-6">
+  <div class="flex flex-wrap items-center justify-between gap-3">
+    <div>
+      <span class="font-mono text-xs uppercase tracking-widest text-sky-300">UNEP Emissions Gap Report 2026</span>
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-white">The Point of Return — 1.5°C Overshoot &amp; Return</h1>
+    </div>
+    <div class="flex gap-2">
+      <a href="science-comms.html" class="px-3.5 py-2 rounded-xl text-xs font-semibold bg-[#0a376e] text-white border border-sky-200/25">← HTML Outputs Hub</a>
+      <a href="index.html" class="px-3.5 py-2 rounded-xl text-xs font-semibold bg-[#001733] text-sky-200 border border-sky-200/20">Main Portfolio</a>
+    </div>
+  </div>
+
+  <div class="glass-panel p-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="p-4 rounded-xl bg-[#001733] border border-sky-200/15">
+      <div class="font-mono text-xs text-rose-300 uppercase">Overshoot Peak (66%)</div>
+      <div class="font-mono text-2xl font-bold text-white mt-1">1.7–1.8°C</div>
+      <p class="text-xs text-sky-100/80 mt-1">Returning to &le;1.5°C by 2100 (~50% chance) requires ~320 GtCO₂ net CDR.</p>
+    </div>
+    <div class="p-4 rounded-xl bg-[#001733] border border-sky-200/15">
+      <div class="font-mono text-xs text-sky-300 uppercase">2025 Global Emissions</div>
+      <div class="font-mono text-2xl font-bold text-white mt-1">58.4 GtCO₂e</div>
+      <p class="text-xs text-sky-100/80 mt-1">Nearly flat vs. revised 2024 (58.5 GtCO₂e); fossil CO₂ ~40 GtCO₂e (68%).</p>
+    </div>
+    <div class="p-4 rounded-xl bg-[#001733] border border-sky-200/15">
+      <div class="font-mono text-xs text-amber-300 uppercase">2035 Conditional Gap</div>
+      <div class="font-mono text-2xl font-bold text-white mt-1">16 GtCO₂e</div>
+      <p class="text-xs text-sky-100/80 mt-1">To lowest 1.5°C overshoot (19 GtCO₂e unconditional; 22 GtCO₂e current policies).</p>
+    </div>
+  </div>
+
+  <div class="glass-panel p-6">
+    <h2 class="text-sm font-semibold text-white mb-3">2025 Actual vs. 2030 &amp; 2035 Pathways (GtCO₂e)</h2>
+    <div class="h-72">
+      <canvas id="gapChart"></canvas>
+    </div>
+  </div>
+
+  <script>
+    new Chart(document.getElementById('gapChart'), {
+      type: 'bar',
+      data: {
+        labels: ['2025 Actual', '2030 Curr. Pol.', '2030 NDCs (Uncond.)', '2030 NDCs (Cond.)', '2035 Curr. Pol.', '2035 NDCs (Uncond.)', '2035 NDCs (Cond.)'],
+        datasets: [{
+          label: 'GtCO₂e',
+          data: [58.4, 57, 55, 53, 55, 52, 49],
+          backgroundColor: ['#38bdf8', '#fb7185', '#fbbf24', '#fde047', '#fb7185', '#fbbf24', '#34d399'],
+          borderRadius: 8
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: { min: 30, max: 65, ticks: { color: '#e0f2fe' }, grid: { color: 'rgba(186,230,253,0.12)' } },
+          x: { ticks: { color: '#e0f2fe' }, grid: { color: 'rgba(186,230,253,0.12)' } }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

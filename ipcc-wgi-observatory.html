@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IPCC Working Group I: The Physical Science Basis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-paper: #F7F5F0;
+      --ink-primary: #1C252C;
+      --ink-secondary: #4D5963;
+      --border-hairline: rgba(28, 37, 44, 0.14);
+      --beam-copper: #B5693A;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-paper); color: var(--ink-primary);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.5; overflow-x: hidden;
+    }
+    .top-bar {
+      max-width: 1320px; margin: 1.25rem auto 0; padding: 0 1.5rem;
+      display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;
+    }
+    @media (min-width: 768px) { .top-bar { padding: 0 3rem; } }
+    .back-link {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; text-decoration: none;
+      color: var(--ink-primary); background: #fff; border: 1px solid var(--border-hairline);
+      padding: 0.45rem 0.9rem; border-radius: 999px;
+    }
+    .page-shell { max-width: 1320px; margin: 0 auto; padding: 1.25rem 1.5rem 2.75rem; }
+    @media (min-width: 768px) { .page-shell { padding: 1.5rem 3rem 3.25rem; } }
+    .header-grid {
+      display: grid; grid-template-columns: 1fr; gap: 1.5rem;
+      padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-hairline);
+    }
+    @media (min-width: 1024px) { .header-grid { grid-template-columns: 1.05fr 1.15fr; gap: 2.5rem; } }
+    .eyebrow-tag {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-secondary); margin-bottom: 0.55rem;
+    }
+    .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background-color: var(--beam-copper); }
+    h1.main-title { font-family: 'Newsreader', Georgia, serif; font-size: clamp(2rem, 3.6vw, 3.15rem); font-weight: 500; line-height: 1.06; }
+    .subtitle { font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: clamp(1.08rem, 1.55vw, 1.38rem); color: var(--ink-secondary); margin-top: 0.5rem; }
+    .header-narrative { font-size: 0.84rem; color: #323E48; line-height: 1.58; }
+    .controls-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.85rem; margin-top: 1.1rem; }
+    .controls-left { display: flex; flex-wrap: wrap; align-items: center; gap: 0.55rem; }
+    .btn-synthesize {
+      appearance: none; background: #FFFFFF; color: var(--ink-primary);
+      border: 1px solid rgba(28, 37, 44, 0.28); border-radius: 999px;
+      padding: 0.52rem 1.15rem; font-family: 'Inter', sans-serif; font-size: 0.8rem; font-weight: 500; cursor: pointer;
+    }
+    .btn-synthesize.is-active { background: var(--ink-primary); color: var(--bg-paper); }
+    .ssp-filter-group {
+      display: inline-flex; flex-wrap: wrap; gap: 0.35rem;
+      background: rgba(28, 37, 44, 0.04); padding: 0.25rem; border-radius: 999px; border: 1px solid var(--border-hairline);
+    }
+    .ssp-pill {
+      appearance: none; background: transparent; border: none; border-radius: 999px;
+      padding: 0.3rem 0.68rem; font-family: 'JetBrains Mono', monospace; font-size: 0.69rem; color: var(--ink-secondary); cursor: pointer;
+    }
+    .ssp-pill.active { background: #FFFFFF; color: var(--ink-primary); font-weight: 600; }
+    .status-caption { font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 0.85rem; color: var(--ink-secondary); }
+    .observatory-stage { position: relative; width: 100%; margin: 0.85rem 0 1.25rem; border-radius: 16px; overflow: hidden; }
+    canvas#observatoryCanvas { display: block; width: 100%; height: auto; cursor: crosshair; touch-action: manipulation; }
+    .editorial-tooltip {
+      position: fixed; z-index: 50; pointer-events: none; opacity: 0;
+      background: rgba(28, 37, 44, 0.96); color: #F7F5F0; padding: 0.75rem 0.95rem;
+      border-radius: 10px; max-width: 295px; box-shadow: 0 12px 28px rgba(15, 22, 28, 0.22);
+    }
+    .editorial-tooltip.visible { opacity: 1; }
+    .tooltip-kicker { font-family: 'JetBrains Mono', monospace; font-size: 0.64rem; text-transform: uppercase; color: #E2A136; }
+    .tooltip-title { font-family: 'Newsreader', Georgia, serif; font-size: 1.02rem; color: #FFFFFF; }
+    .tooltip-metric { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: #D6E1E8; margin-top: 0.3rem; }
+    .tooltip-desc { font-size: 0.74rem; color: #B8C4CC; margin-top: 0.28rem; }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <a class="back-link" href="science-comms.html">← HTML Outputs Hub</a>
+    <a class="back-link" href="index.html">Main Portfolio</a>
+  </div>
+  <div class="page-shell">
+    <header class="header-grid">
+      <div>
+        <div class="eyebrow-tag"><span class="eyebrow-dot"></span><span>IPCC Working Group I · Technical Support Unit Observatory</span></div>
+        <h1 class="main-title">IPCC Working Group I:<br />The Physical Science Basis</h1>
+        <p class="subtitle">Synthesizing Earth System Energy, Carbon &amp; Warming Trajectories (AR6 Outputs &amp; AR7 Cycle)</p>
+      </div>
+      <div class="header-narrative">
+        <p>Each spectral prism represents 1% of Earth’s excess energy or anthropogenic CO₂ flux, or 0.1°C of projected surface warming.</p>
+        <div class="controls-bar">
+          <div class="controls-left">
+            <button id="synthesizeBtn" class="btn-synthesize" type="button">✦ Synthesize Earth System</button>
+            <div class="ssp-filter-group" role="group" aria-label="Highlight SSP Temperature Pathway">
+              <button class="ssp-pill active" data-ssp="all" type="button">All Scenarios</button>
+              <button class="ssp-pill" data-ssp="obs" type="button">Observed +1.09°C</button>
+              <button class="ssp-pill" data-ssp="ssp119" type="button">SSP1-1.9</button>
+              <button class="ssp-pill" data-ssp="ssp245" type="button">SSP2-4.5</button>
+              <button class="ssp-pill" data-ssp="ssp585" type="button">SSP5-8.5</button>
+            </div>
+          </div>
+          <span id="statusCaption" class="status-caption">Decomposed reservoirs · 296 spectral units</span>
+        </div>
+      </div>
+    </header>
+    <main class="observatory-stage">
+      <canvas id="observatoryCanvas"></canvas>
+    </main>
+  </div>
+  <div id="tooltip" class="editorial-tooltip" role="tooltip">
+    <div id="tooltipKicker" class="tooltip-kicker"></div>
+    <div id="tooltipTitle" class="tooltip-title"></div>
+    <div id="tooltipMetric" class="tooltip-metric"></div>
+    <div id="tooltipDesc" class="tooltip-desc"></div>
+  </div>
+  <script>
+    (function () {
+      const canvas = document.getElementById('observatoryCanvas');
+      const ctx = canvas.getContext('2d');
+      const synthesizeBtn = document.getElementById('synthesizeBtn');
+      const statusCaption = document.getElementById('statusCaption');
+      const sspPills = document.querySelectorAll('.ssp-pill');
+      const tooltipEl = document.getElementById('tooltip');
+      const tooltipKicker = document.getElementById('tooltipKicker');
+      const tooltipTitle = document.getElementById('tooltipTitle');
+      const tooltipMetric = document.getElementById('tooltipMetric');
+      const tooltipDesc = document.getElementById('tooltipDesc');
+      const LOGICAL_W = 1280, LOGICAL_H = 620;
+      let dpr = Math.min(window.devicePixelRatio || 1, 2);
+      let isSynthesized = false, synthProgress = 0, activeSspFilter = 'all', hoveredEntity = null, animTime = 0;
+
+      function resizeCanvas() {
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = LOGICAL_W * dpr;
+        canvas.height = LOGICAL_H * dpr;
+      }
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+
+      const PILLARS = [
+        {
+          id: 'energy', kicker: 'PILLAR I · WGI AR6 CH. 7', title: "Earth's Energy Imbalance",
+          cx: 320, cy: 250, coreRadius: 44, coreLabel: '~435 ZJ', coreSub: '1971–2018',
+          segments: [
+            { key: 'ocean', label: 'Ocean Warming (91%)', count: 91, color: '#1D5D8F', unit: '1% of energy gain', desc: 'Oceans absorbed 91% of excess heat (1971–2018).' },
+            { key: 'land', label: 'Land Warming (5%)', count: 5, color: '#2F7D63', unit: '1% of energy gain', desc: 'Land masses absorbed 5% of excess heat.' },
+            { key: 'ice', label: 'Cryosphere Ice Loss (3%)', count: 3, color: '#5FA8C8', unit: '1% of energy gain', desc: 'Melting ice absorbed 3% of heat gain.' },
+            { key: 'atmos', label: 'Atmosphere (1%)', count: 1, color: '#D9822B', unit: '1% of energy gain', desc: 'Atmosphere accounts for 1% of heat gain.' }
+          ]
+        },
+        {
+          id: 'carbon', kicker: 'PILLAR II · WGI AR6 CH. 5', title: 'Anthropogenic Carbon Sinks',
+          cx: 960, cy: 250, coreRadius: 40, coreLabel: '40 GtCO₂', coreSub: 'per year',
+          segments: [
+            { key: 'atmos', label: 'Atmosphere (46%)', count: 46, color: '#D9822B', unit: '1% of CO₂ flux', desc: '46% of emitted CO₂ remained in atmosphere (2010–2019).' },
+            { key: 'land', label: 'Land Sink (31%)', count: 31, color: '#2F7D63', unit: '1% of CO₂ flux', desc: 'Land ecosystems absorbed 31% of CO₂.' },
+            { key: 'ocean', label: 'Ocean Sink (23%)', count: 23, color: '#1D5D8F', unit: '1% of CO₂ flux', desc: 'Oceans absorbed 23% of anthropogenic CO₂.' }
+          ]
+        },
+        {
+          id: 'warming', kicker: 'PILLAR III · WGI AR6 SPM', title: 'Surface Temperature (2081–2100)',
+          cx: 640, cy: 445, coreRadius: 32, coreLabel: '1850–1900', coreSub: 'Baseline',
+          bands: [
+            { sspKey: 'obs', label: 'Observed (+1.09°C)', count: 11, radius: 52, color: '#435768', desc: 'Observed warming 2011–2020 vs. 1850–1900.' },
+            { sspKey: 'ssp119', label: 'SSP1-1.9 (+1.4°C)', count: 14, radius: 72, color: '#2B8A8E', desc: 'Very low emissions pathway.' },
+            { sspKey: 'ssp245', label: 'SSP2-4.5 (+2.7°C)', count: 27, radius: 92, color: '#D97B29', desc: 'Intermediate emissions pathway.' },
+            { sspKey: 'ssp585', label: 'SSP5-8.5 (+4.4°C)', count: 44, radius: 112, color: '#B8332A', desc: 'Very high emissions pathway.' }
+          ]
+        }
+      ];
+
+      const allPrisms = [];
+      [PILLARS[0], PILLARS[1]].forEach((pillar, pIdx) => {
+        const list = [];
+        pillar.segments.forEach(s => { for (let i = 0; i < s.count; i++) list.push(s); });
+        const counts = [24, 34, 42];
+        let cur = 0;
+        counts.forEach((cnt, rIdx) => {
+          const r = pillar.coreRadius + 20 + rIdx * 20;
+          for (let i = 0; i < cnt; i++) {
+            const seg = list[cur++];
+            const th = -Math.PI / 2 + (i * Math.PI * 2) / cnt;
+            const hx = pillar.cx + Math.cos(th) * r;
+            const hy = pillar.cy + Math.sin(th) * r;
+            const sr = pIdx === 0 ? 145 + rIdx * 15 : 195 + rIdx * 15;
+            const sx = 640 + Math.cos(th + pIdx * 0.15) * sr;
+            const sy = 315 + Math.sin(th + pIdx * 0.15) * sr;
+            allPrisms.push({ pillarId: pillar.id, sspKey: 'none', label: seg.label, color: seg.color, unit: seg.unit, desc: seg.desc, kicker: pillar.kicker, hx, hy, sx, sy, x: hx, y: hy, angle: th + Math.PI / 2 });
+          }
+        });
+      });
+
+      PILLARS[2].bands.forEach((band, bIdx) => {
+        for (let i = 0; i < band.count; i++) {
+          const th = -Math.PI / 2 + (i * Math.PI * 2) / band.count;
+          const hx = PILLARS[2].cx + Math.cos(th) * band.radius;
+          const hy = PILLARS[2].cy + Math.sin(th) * band.radius;
+          const sr = 58 + bIdx * 17;
+          const sx = 640 + Math.cos(th) * sr;
+          const sy = 315 + Math.sin(th) * sr;
+          allPrisms.push({ pillarId: 'warming', sspKey: band.sspKey, label: band.label, color: band.color, unit: '1 prism = +0.1°C warming', desc: band.desc, kicker: PILLARS[2].kicker, hx, hy, sx, sy, x: hx, y: hy, angle: th + Math.PI / 2 });
+        }
+      });
+
+      function render(ts) {
+        animTime = ts * 0.001;
+        synthProgress += ((isSynthesized ? 1 : 0) - synthProgress) * 0.08;
+        ctx.save();
+        ctx.scale(dpr, dpr);
+        ctx.clearRect(0, 0, LOGICAL_W, LOGICAL_H);
+
+        if (synthProgress < 0.99) {
+          ctx.save();
+          ctx.globalAlpha = 1 - synthProgress;
+          PILLARS.forEach(p => {
+            ctx.beginPath();
+            ctx.arc(p.cx, p.cy, p.coreRadius, 0, Math.PI * 2);
+            ctx.fillStyle = '#E2A136';
+            ctx.fill();
+            ctx.fillStyle = '#1C252C';
+            ctx.font = '600 12px "JetBrains Mono", monospace';
+            ctx.textAlign = 'center';
+            ctx.fillText(p.coreLabel, p.cx, p.cy - 2);
+            ctx.font = '500 9px "Inter", sans-serif';
+            ctx.fillText(p.coreSub, p.cx, p.cy + 11);
+            ctx.font = '500 15px "Newsreader", Georgia, serif';
+            ctx.fillText(p.title, p.cx, p.cy - p.coreRadius - 72);
+          });
+          ctx.restore();
+        } else {
+          ctx.save();
+          ctx.beginPath();
+          ctx.arc(640, 315, 40, 0, Math.PI * 2);
+          ctx.fillStyle = '#E2A136';
+          ctx.fill();
+          ctx.fillStyle = '#1C252C';
+          ctx.font = '600 11px "JetBrains Mono", monospace';
+          ctx.textAlign = 'center';
+          ctx.fillText('EARTH SYSTEM', 640, 318);
+          ctx.restore();
+        }
+
+        allPrisms.forEach((pr, idx) => {
+          const b = Math.sin(animTime * 1.4 + idx * 0.1) * 1.1;
+          pr.x = pr.hx + (pr.sx - pr.hx) * synthProgress + Math.cos(pr.angle - Math.PI / 2) * b;
+          pr.y = pr.hy + (pr.sy - pr.hy) * synthProgress + Math.sin(pr.angle - Math.PI / 2) * b;
+          let alpha = 1;
+          if (activeSspFilter !== 'all') {
+            alpha = pr.pillarId === 'warming' ? (pr.sspKey === activeSspFilter ? 1 : 0.16) : 0.25;
+          }
+          const isHov = hoveredEntity === pr;
+          ctx.save();
+          ctx.translate(pr.x, pr.y);
+          ctx.rotate(pr.angle);
+          ctx.scale(isHov ? 1.35 : 1, isHov ? 1.35 : 1);
+          ctx.globalAlpha = alpha;
+          ctx.beginPath();
+          ctx.moveTo(0, -9); ctx.lineTo(4.6, 1.5); ctx.lineTo(0, 6.8); ctx.lineTo(-4.6, 1.5);
+          ctx.closePath();
+          ctx.fillStyle = pr.color;
+          ctx.fill();
+          ctx.strokeStyle = isHov ? '#1C252C' : '#F7F5F0';
+          ctx.lineWidth = isHov ? 1.6 : 0.9;
+          ctx.stroke();
+          ctx.restore();
+        });
+
+        ctx.restore();
+        requestAnimationFrame(render);
+      }
+
+      canvas.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * LOGICAL_W;
+        const y = ((e.clientY - rect.top) / rect.height) * LOGICAL_H;
+        let hit = null, best = 13;
+        for (const pr of allPrisms) {
+          const d = Math.hypot(x - pr.x, y - pr.y);
+          if (d < best) { best = d; hit = pr; }
+        }
+        hoveredEntity = hit;
+        if (hit) {
+          tooltipKicker.textContent = hit.kicker;
+          tooltipTitle.textContent = hit.label;
+          tooltipMetric.textContent = hit.unit;
+          tooltipDesc.textContent = hit.desc;
+          tooltipEl.classList.add('visible');
+          tooltipEl.style.left = Math.min(window.innerWidth - 310, e.clientX + 14) + 'px';
+          tooltipEl.style.top = Math.min(window.innerHeight - 130, e.clientY + 14) + 'px';
+        } else {
+          tooltipEl.classList.remove('visible');
+        }
+      });
+
+      synthesizeBtn.addEventListener('click', () => {
+        isSynthesized = !isSynthesized;
+        synthesizeBtn.classList.toggle('is-active', isSynthesized);
+        synthesizeBtn.textContent = isSynthesized ? '↺ Decompose Reservoirs' : '✦ Synthesize Earth System';
+        statusCaption.textContent = isSynthesized ? 'Unified Earth System coupling · 296 spectral units' : 'Decomposed reservoirs · 296 spectral units';
+      });
+
+      sspPills.forEach(p => p.addEventListener('click', () => {
+        sspPills.forEach(x => x.classList.remove('active'));
+        p.classList.add('active');
+        activeSspFilter = p.dataset.ssp;
+      }));
+
+      requestAnimationFrame(render);
+    })();
+  </script>
+</body>
+</html>
