@@ -104,6 +104,21 @@
     .hero-text { min-width: 0; }
     /* Headline is ALWAYS 3 lines. Each line never wraps; the font size
        scales with the screen so the longest line always fits. */
+    .hero-notice {
+      display: flex; align-items: center; gap: 0.6rem;
+      max-width: 100%;
+      margin-bottom: 1.2rem;
+      padding: 0.5rem 0.8rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 0.78rem; line-height: 1.45;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .hero-notice:hover { background: rgba(255, 255, 255, 0.07); border-color: rgba(165, 126, 58, 0.5); color: rgba(255, 255, 255, 0.85); }
+    .hero-notice-icon, .hero-notice-arrow { color: var(--gold); opacity: 0.8; flex-shrink: 0; }
+    .hero-notice-arrow { margin-left: auto; }
     .hero-name {
       font-family: 'DM Serif Display', serif;
       /* 2-column layout (desktop): text column is ~45vw wide */
@@ -694,6 +709,11 @@
 <!-- HERO -->
 <section id="home">
   <div class="hero-text">
+    <a class="hero-notice" href="#contact">
+      <span class="hero-notice-icon">📎</span>
+      <span>Supplementary documents relevant to my application (CV, Letter of Motivation, References) are available at the bottom of this page.</span>
+      <span class="hero-notice-arrow">↓</span>
+    </a>
     <p class="hero-eyebrow">Based in the Philippines · Open to France relocation and/or work remotely</p>
     <h1 class="hero-name">
       <span class="ln">Climate science only changes decisions</span>
@@ -704,7 +724,7 @@
       Communications, digital content, and knowledge management professional with 5+ years across the UN system and development organizations. Master’s in African Studies with a climate and resilience focus. Applying for the Communication Officer role in the IPCC WGI TSU, leveraging digital transformation as a root for scalable, data-driven science communications. This means moving beyond static reports to build dynamic, accessible knowledge ecosystems for global audiences.
     </p>
     <div class="hero-actions">
-      <a class="btn-download" href="Castillon_CV_IPCC.pdf" download>⬇ Download CV (PDF)</a>
+      <a class="btn-download" href="Castillon_CV_IPCC.pdf" target="_blank" rel="noopener">⬇ Download CV</a>
       <a class="btn-primary" href="#samples">Read My Sample Work</a>
       <a class="btn-outline" href="#rolefit">Fit for the Role</a>
       <a class="btn-outline" href="https://tmcastillon01.github.io/PhotoPortfolio/" target="_blank" rel="noopener noreferrer">📷 Visual Ethnography</a>
@@ -1146,9 +1166,9 @@
     <a class="contact-chip" href="https://twitter.com/timothycastillon" target="_blank"><span>🐦</span> @timothycastillon</a>
   </div>
   <div style="margin-top:2rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-    <a class="btn-download" href="Castillon_CV_IPCC.pdf" download>⬇ Download CV (PDF)</a>
-    <a class="btn-download" href="Castillon_Cover_Letter_IPCC.pdf" download>⬇ Letter of Motivation (PDF)</a>
-    <a class="btn-download" href="Castillon_References_IPCC.pdf" download>⬇ Letter of Motivation (PDF)</a>
+    <a class="btn-download" href="Castillon_CV_IPCC.pdf" target="_blank" rel="noopener">⬇ Download CV (PDF)</a>
+    <a class="btn-download" href="Castillon_Cover_Letter_IPCC.pdf" target="_blank" rel="noopener">⬇ Letter of Motivation (PDF)</a>
+    <a class="btn-download" href="Castillon_References_IPCC.pdf" target="_blank" rel="noopener">📄 References (PDF)</a>
   </div>
 </section>
 
