@@ -491,6 +491,65 @@
     .atlas .src td:first-child { white-space: normal; }
     .atlas .src td { min-width: 150px; }
     @media (min-width: 900px) { .atlas-intro { grid-template-columns: 1.1fr 1fr; } }
+  
+.intro3{display:grid;gap:.7rem;margin-top:.2rem}
+.intro3 div{display:flex;gap:.7rem;align-items:flex-start;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:.7rem .9rem;font-size:.9rem}
+.intro3 i{flex:none;width:12px;height:12px;border-radius:50%;margin-top:.35rem}
+.intro3 b{display:block;font-weight:600}.intro3 span{color:#3b434d}
+.controls-bar{margin-top:1.4rem}
+.explain-row{display:grid;gap:.8rem;margin-top:.9rem}
+@media(min-width:800px){.explain-row{grid-template-columns:1fr 1fr}}
+.note{background:#fff;border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:var(--radius);padding:.8rem 1rem;font-size:.84rem;line-height:1.6;color:#3b434d}
+.note b{color:var(--ink-primary)}
+.keystrip{display:flex;flex-wrap:wrap;gap:.5rem 1.1rem;font-size:.78rem;color:#3b434d;align-items:center;margin:-.4rem 0 1rem}
+.keystrip span{display:inline-flex;align-items:center;gap:.35rem}.keystrip i{width:10px;height:14px;clip-path:polygon(50% 0,100% 65%,50% 100%,0 65%);display:inline-block}
+.infopanel{background:var(--sage);color:#fff;border-radius:12px;border-left:5px solid var(--gold);padding:1rem 1.2rem;margin-bottom:1.8rem;min-height:104px}
+.infopanel .k{font-family:'Space Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-lt)}
+.infopanel .t{font-family:'DM Serif Display',Georgia,serif;font-size:1.25rem;margin:.15rem 0}
+.infopanel .m{font-family:'Space Mono',monospace;font-size:.78rem;color:#d6e1e8}
+.infopanel .d{font-size:.84rem;color:rgba(255,255,255,.82);margin-top:.3rem;line-height:1.55}
+.observatory-stage{overflow-x:auto;margin-bottom:.9rem}canvas#observatoryCanvas{min-width:760px}
+.blk{border-top:1px solid var(--border-hairline);padding-top:1.4rem;margin-bottom:2rem}
+.blk h2{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(1.7rem,3vw,2.3rem);color:var(--sage);line-height:1.1}
+.blk .sub{color:var(--ink-secondary);margin:.4rem 0 1.2rem;font-size:1rem}
+.cards4{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.c4{background:#fff;border:1px solid var(--border);border-top:4px solid var(--gold);border-radius:var(--radius);padding:1.1rem 1.2rem;transition:transform .2s,box-shadow .2s}
+.c4:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,33,71,.1)}
+.c4 .n{width:34px;height:34px;border-radius:50%;background:var(--sage);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;margin-bottom:.6rem}
+.c4 h3{font-size:1.02rem;color:var(--sage);margin-bottom:.3rem}.c4 p{font-size:.88rem;color:#3b434d;line-height:1.6}
+.stats{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-top:1rem}
+.stat{background:linear-gradient(135deg,#fff 60%,#f6ecd6);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem 1.3rem;position:relative;overflow:hidden}
+.stat::after{content:'';position:absolute;left:0;bottom:0;height:4px;width:100%;background:var(--gold);transform-origin:left;transform:scaleX(0);transition:transform 1.4s ease}
+.stat.on::after{transform:scaleX(1)}
+.stat strong{display:block;font-family:'DM Serif Display',serif;font-weight:400;font-size:2.8rem;line-height:1;color:var(--gold)}
+.stat b{display:block;color:var(--sage);margin:.3rem 0 .15rem}.stat span{font-size:.84rem;color:#3b434d;line-height:1.5;display:block}
+.wgs{font-size:.84rem;color:var(--ink-secondary);margin-top:.9rem}
+.tl{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem 1.2rem;min-height:110px}
+.tl h3{font-size:1.3rem;color:var(--sage);margin-bottom:.2rem}.tl p{font-size:.88rem;color:#3b434d}
+.tl.dash{border:1.5px dashed var(--gold)}
+.atlas-btn{display:inline-block;margin-top:1.1rem;padding:.8rem 1.3rem;border:1.5px solid var(--sage);border-radius:var(--radius);font-weight:600;color:var(--sage);background:#fff;transition:all .2s}
+.atlas-btn:hover{background:var(--sage);color:#fff}
+.atlas-hint{font-size:.84rem;color:var(--ink-secondary);margin-top:.5rem}
+details.srcs{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.3rem;margin-bottom:2rem}
+details.srcs summary{cursor:pointer;font-weight:600;color:var(--sage);font-size:1.05rem;list-style:none}
+details.srcs summary::before{content:'▸ ';color:var(--gold)}details.srcs[open] summary::before{content:'▾ '}
+details.srcs ul{margin:.9rem 0 0 1.1rem;display:grid;gap:.5rem;font-size:.86rem;color:#3b434d;line-height:1.55}
+details.srcs a{color:var(--sage);text-decoration:underline;text-underline-offset:2px}
+
+  
+.oneline{font-size:1.05rem;line-height:1.6;color:var(--ink-primary);background:#fff;border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:var(--radius);padding:.9rem 1.1rem;margin:1.2rem 0 1rem}
+.ans3{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-bottom:.4rem}
+.ans{background:#fff;border:1px solid var(--border);border-top:4px solid var(--gold);border-radius:12px;padding:1.2rem 1.3rem}
+.ans .q{font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.ans .big{font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,9vw,3.2rem);line-height:1.05;color:var(--sage);margin:.3rem 0 .1rem}
+.ans .what{font-size:.95rem;color:#3b434d;margin-bottom:.8rem}
+.bar{display:flex;height:14px;border-radius:7px;overflow:hidden;gap:2px}.bar i{display:block}
+.bl{display:flex;flex-wrap:wrap;gap:.2rem .8rem;font-size:.74rem;color:#3b434d;margin-top:.5rem}
+.trow{display:grid;grid-template-columns:5.2rem 1fr 3rem;align-items:center;gap:.5rem;font-size:.76rem;margin-top:.35rem;width:100%;background:none;border:0;cursor:pointer;text-align:left;font-family:inherit;color:#3b434d;padding:.15rem 0}
+.trow span.b{display:block;height:12px;border-radius:6px}.trow:hover b{color:var(--sage)}
+.swipe{display:none;font-size:.78rem;color:var(--ink-secondary);margin:.3rem 0}
+@media(max-width:760px){.swipe{display:block}.controls-bar .ssp-filter-group{width:100%}}
+
   </style>
 
 <style id="tcx-process-css">
@@ -556,307 +615,130 @@
   <div class="page-shell">
     <header class="header-grid">
       <div>
-        <div class="eyebrow-tag">
-          <span class="eyebrow-dot"></span>
-          <span>IPCC Working Group I · Technical Support Unit Observatory</span>
-        </div>
-        <h1 class="main-title">IPCC Working Group I:<br />The Physical Science Basis</h1>
-        <p class="subtitle">Synthesizing Earth System Energy, Carbon &amp; Warming Trajectories (AR6 Outputs &amp; AR7 Cycle)</p>
+        <div class="eyebrow-tag"><span class="eyebrow-dot"></span><span>IPCC Working Group I · Independent communication sample</span></div>
+        <h1 class="main-title">The Physical Science<br />of Climate Change</h1>
+        <p class="subtitle">Three questions the IPCC’s Working Group I answers: where the heat goes, where our CO₂ goes, and how warm it gets.</p>
       </div>
-
       <div class="header-narrative">
-        <p class="plain-lead"><strong>In plain terms:</strong> three questions the IPCC answers about the physical climate. Where does the extra heat go? Where does our CO₂ go? How warm could it get? Each answer is drawn as a circle of small shapes you can count.</p>
-        <p>
-          Each <strong>planetary radiative lens</strong> encodes a foundational quantitative pillar of the IPCC Working Group I physical science assessment. Every individual spectral prism represents <strong>1% of Earth’s excess energy or anthropogenic CO₂ flux</strong>, or <strong>0.1°C of projected surface warming</strong>, while luminous radiative flux beams trace the physical coupling across reservoirs.
-        </p>
-        <div class="ar7-badge">
-          <strong>AR7 context:</strong> The WGI Technical Support Unit is hosted by Université Paris-Saclay. Lead Author Meetings so far: <em>Paris (Dec 2025, joint with WGII and WGIII)</em>, <em>Santiago (Apr 2026)</em> and <em>Arusha (Nov 2026)</em>. The Co-Chairs propose delivering the report in <em>2028</em>; the Panel has not yet agreed the date. The figures mapped below are AR6 outputs.
-        </div>
-
-        <p class="atlas-jump"><a href="#atlas">New: how to point people to the IPCC WGI Interactive Atlas ↓</a></p>
-
-        <div class="controls-bar">
-          <div class="controls-left">
-            <button id="synthesizeBtn" class="btn-synthesize" type="button" aria-pressed="false">
-              <span>✦ Synthesize Earth System</span>
-            </button>
-
-            <div class="ssp-filter-group" role="group" aria-label="Highlight SSP Temperature Pathway">
-              <button class="ssp-pill active" data-ssp="all" type="button">All Scenarios</button>
-              <button class="ssp-pill" data-ssp="obs" type="button">Observed +1.09°C</button>
-              <button class="ssp-pill" data-ssp="ssp119" type="button">SSP1-1.9</button>
-              <button class="ssp-pill" data-ssp="ssp245" type="button">SSP2-4.5</button>
-              <button class="ssp-pill" data-ssp="ssp585" type="button">SSP5-8.5</button>
-            </div>
-          </div>
-
-          <span id="statusCaption" class="status-caption">Decomposed reservoirs · 296 spectral units</span>
+        <p class="plain-lead"><strong>First time hearing about Working Group I?</strong> It is the part of the IPCC that explains the physical science. Here are the three answers. Each is drawn as a circle of small shapes you can count.</p>
+        <div class="intro3" style="margin-top:.8rem">
+          <div><i style="background:#1D5D8F"></i><p><b>1 · Where does the extra heat go?</b><span>Almost all of it, 91%, goes into the ocean.</span></p></div>
+          <div><i style="background:#D9822B"></i><p><b>2 · Where does our CO₂ go?</b><span>Nearly half stays in the air. The rest goes into land and sea.</span></p></div>
+          <div><i style="background:#B8332A"></i><p><b>3 · How warm could it get?</b><span>It depends on the emissions path we choose.</span></p></div>
         </div>
       </div>
     </header>
 
-    <main class="observatory-stage">
-      <canvas id="observatoryCanvas" role="img" aria-label="Interactive visualization of three IPCC AR6 findings: where Earth’s extra heat goes (91% ocean), where emitted CO₂ goes (46% stays in the air), and projected warming under three emissions pathways. A text summary follows below the chart."></canvas>
+    <p class="oneline"><strong>In one line:</strong> the ocean takes 91% of the extra heat, 46% of our CO₂ stays in the air, and by 2081–2100 the world is projected to be +1.4°C to +4.4°C warmer, depending on emissions.</p>
+    <div class="ans3">
+      <div class="ans"><div class="q">Question 1</div><h3 style="font-size:1.15rem;color:var(--sage)">Where does the heat go?</h3><div class="big">91%</div><div class="what">of the extra heat goes into the ocean.</div>
+        <div class="bar" role="img" aria-label="Ocean 91, land 5, ice 3, air 1 percent"><i style="width:91%;background:#1D5D8F"></i><i style="width:5%;background:#2F7D63"></i><i style="width:3%;background:#5FA8C8"></i><i style="width:1%;background:#D9822B"></i></div>
+        <div class="bl"><span>Ocean 91%</span><span>Land 5%</span><span>Ice 3%</span><span>Air 1%</span></div></div>
+      <div class="ans"><div class="q">Question 2</div><h3 style="font-size:1.15rem;color:var(--sage)">Where does our CO₂ go?</h3><div class="big">46%</div><div class="what">of the CO₂ we emit stays in the air.</div>
+        <div class="bar" role="img" aria-label="Air 46, land 31, ocean 23 percent"><i style="width:46%;background:#D9822B"></i><i style="width:31%;background:#2F7D63"></i><i style="width:23%;background:#1D5D8F"></i></div>
+        <div class="bl"><span>Air 46%</span><span>Land 31%</span><span>Ocean 23%</span></div></div>
+      <div class="ans"><div class="q">Question 3</div><h3 style="font-size:1.15rem;color:var(--sage)">How warm could it get?</h3><div class="big">+1.4 to +4.4°C</div><div class="what">by 2081–2100, depending on emissions. Tap one to highlight it below.</div>
+        <button class="trow" data-ssp="obs" type="button"><b>Observed</b><span class="b" style="width:25%;background:#435768"></span><b>+1.09°</b></button>
+        <button class="trow" data-ssp="ssp119" type="button"><b>Low</b><span class="b" style="width:32%;background:#2B8A8E"></span><b>+1.4°</b></button>
+        <button class="trow" data-ssp="ssp245" type="button"><b>Middle</b><span class="b" style="width:61%;background:#D97B29"></span><b>+2.7°</b></button>
+        <button class="trow" data-ssp="ssp585" type="button"><b>High</b><span class="b" style="width:100%;background:#B8332A"></span><b>+4.4°</b></button></div>
+    </div>
+
+    <div class="controls-bar">
+      <div class="controls-left">
+        <button id="synthesizeBtn" class="btn-synthesize" type="button" aria-pressed="false"><span>✦ Merge into one Earth system</span></button>
+        <div class="ssp-filter-group" role="group" aria-label="Highlight a warming pathway">
+          <button class="ssp-pill active" data-ssp="all" type="button">All pathways</button>
+          <button class="ssp-pill" data-ssp="obs" type="button">Observed +1.09°C</button>
+          <button class="ssp-pill" data-ssp="ssp119" type="button">Low · SSP1-1.9</button>
+          <button class="ssp-pill" data-ssp="ssp245" type="button">Middle · SSP2-4.5</button>
+          <button class="ssp-pill" data-ssp="ssp585" type="button">High · SSP5-8.5</button>
+        </div>
+      </div>
+      <span id="statusCaption" class="status-caption">Three separate circles · 296 shapes</span>
+    </div>
+
+    <div class="explain-row">
+      <div class="note" id="modeNote"><b>Separate view.</b> Each question has its own circle. Press <b>Merge</b> to pull all 296 shapes into one Earth system, so you can see how heat, carbon and warming connect.</div>
+      <div class="note" id="sspNote"><b>What is an SSP?</b> A Shared Socioeconomic Pathway is a story of how the world might develop: energy use, population and policy. The second number (1.9, 4.5, 8.5) is the heating effect in 2100, in watts per square metre. Low means a small push on the climate, high means a big one. Tap a pathway to isolate it.</div>
+    </div>
+
+    <p class="swipe">Swipe sideways to explore the full picture →</p>
+    <main class="observatory-stage" style="margin-top:1rem">
+      <canvas id="observatoryCanvas" role="img" aria-label="Interactive visualization of three IPCC AR6 findings: 91% of extra heat goes into the ocean, 46% of emitted CO₂ stays in the air, and projected warming under three emissions pathways ranges from +1.4°C to +4.4°C."></canvas>
     </main>
+    <div class="keystrip" aria-label="Key">
+      <span><i style="background:#1D5D8F"></i>Ocean</span><span><i style="background:#2F7D63"></i>Land</span><span><i style="background:#5FA8C8"></i>Ice</span><span><i style="background:#D9822B"></i>Air</span>
+      <span><i style="background:#B8332A"></i>Warming pathways</span>
+      <span>1 shape = 1% (heat, carbon) or 0.1°C (temperature)</span><span>🛰 Small satellites = tools, not data</span>
+    </div>
+    <div class="infopanel" id="infoPanel" aria-live="polite">
+      <div class="k" id="ipK">Hover or tap anything</div>
+      <div class="t" id="ipT">Try the big blue ring on the left</div>
+      <div class="m" id="ipM">Each shape opens its number here</div>
+      <div class="d" id="ipD">The details of whatever you point at stay here, which makes it easy to read on a phone.</div>
+    </div>
 
+    <div class="note" style="margin-bottom:2rem"><b>What this does not show.</b> Every number is a best estimate with a range: SSP2-4.5 is +2.7°C, very likely between +2.1°C and +3.5°C. These are global averages, so your region can differ a lot (the Atlas shows regions). The observed +1.09°C is measured for 2011–2020. The warming pathways are projections, not forecasts of which one we will follow.</div>
 
-    <section class="guide" aria-labelledby="guideHeading">
-      <div class="sec-head"><h2 id="guideHeading">How to read it</h2><span>four steps, about thirty seconds</span></div>
-      <div class="guide-grid">
-        <ol class="guide-steps">
-          <li><strong>Find the three lenses.</strong> Each large circle answers one question: where Earth’s extra heat goes (left), where our CO₂ goes (right), and how warm the planet gets (bottom).</li>
-          <li><strong>Count the prisms.</strong> Every small coloured shape is one unit. On the heat and carbon lenses one prism is 1% of the total, so 91 blue prisms means 91%. On the temperature lens one prism is 0.1°C.</li>
-          <li><strong>Match colour to place.</strong> Blue is ocean, green is land, pale blue is ice, orange is air. On the temperature lens, colour marks the emissions pathway, from teal (very low) to crimson (very high).</li>
-          <li><strong>Hover or tap for the evidence.</strong> Every prism, lens and probe opens a note with its number and where it comes from. Press <em>Synthesize Earth System</em> to merge the three lenses, and use the scenario buttons to isolate one warming pathway.</li>
-        </ol>
-        <aside class="takeaway" aria-label="Key takeaway">
-          <div class="takeaway-label"><i></i>Key takeaway</div>
-          <p class="takeaway-text">The ocean holds 91% of the extra heat, nearly half of our CO₂ stays in the air, and the emissions pathway we follow decides whether 2081–2100 sits near +1.4°C or +4.4°C.</p>
-          <div class="watch">
-            <h3>Read with care</h3>
-            <ul>
-              <li>The observed ring (+1.09°C) is measured data for 2011–2020. The other rings are projections for 2081–2100.</li>
-              <li>Every number is a best estimate with a range. SSP2-4.5, for example, is +2.7°C, very likely between +2.1°C and +3.5°C.</li>
-              <li>The centre circles show totals, not prisms. The heat total is about 435 ZJ, so 1% is roughly 4.35 ZJ.</li>
-              <li>The orbiting probes are context about the AR7 process and tools. They are not measurements.</li>
-            </ul>
-          </div>
-        </aside>
+    <section class="blk" aria-labelledby="h-made">
+      <h2 id="h-made">How a report gets made</h2>
+      <p class="sub">The IPCC does not run its own experiments. It is more like the world’s most careful editor.</p>
+      <div class="cards4">
+        <div class="c4"><div class="n">1</div><h3>Scientists publish</h3><p>Thousands of studies on oceans, ice, air and carbon.</p></div>
+        <div class="c4"><div class="n">2</div><h3>Authors weigh it up</h3><p>Experts from around the world read it all and judge how sure we can be.</p></div>
+        <div class="c4"><div class="n">3</div><h3>Reviewers check it</h3><p>Other experts and governments comment on every draft.</p></div>
+        <div class="c4"><div class="n">4</div><h3>Governments approve</h3><p>They agree the summary line by line, so everyone trusts it.</p></div>
       </div>
+      <div class="stats">
+        <div class="stat"><strong data-to="234">234</strong><b>authors</b><span>Scientists who wrote the AR6 physical science report.</span></div>
+        <div class="stat"><strong data-to="66">66</strong><b>countries</b><span>So no single country’s view dominates.</span></div>
+        <div class="stat"><strong data-to="14000" data-plus="1">14,000+</strong><b>studies assessed</b><span>Read and weighed before a sentence is final.</span></div>
+      </div>
+      <p class="wgs">Working Group I covers the physical science: what is changing, how fast, and why. Group II covers impacts and Group III covers solutions.</p>
     </section>
 
-    <section class="legend-section" aria-labelledby="legendHeading">
-      <div class="legend-header">
-        <h2 id="legendHeading">Legend</h2>
-        <span>how to read the observatory</span>
+    <section class="blk" aria-labelledby="h-now">
+      <h2 id="h-now">What is happening now</h2>
+      <p class="sub">A new report, AR7, is being written. The Working Group I team is hosted by Université Paris-Saclay. The numbers above are from the current report, AR6.</p>
+      <div class="cards4">
+        <div class="tl"><h3>Dec 2025</h3><p>Authors meet in Paris</p></div>
+        <div class="tl"><h3>Apr 2026</h3><p>Authors meet in Santiago</p></div>
+        <div class="tl"><h3>Nov 2026</h3><p>Authors meet in Arusha</p></div>
+        <div class="tl dash"><h3>2028?</h3><p>Proposed delivery. The Panel has not agreed the date yet.</p></div>
       </div>
-
-      <div class="legend-grid">
-        <div class="legend-col">
-          <div>
-            <div class="legend-col-title">Core aperture diameter</div>
-            <div class="legend-col-desc">proportional to physical reservoir magnitude or radiative forcing scale</div>
-          </div>
-          <div class="legend-graphic">
-            <svg width="205" height="76" viewBox="0 0 205 76" aria-hidden="true">
-              <circle cx="40" cy="38" r="32" fill="#e2c68c" fill-opacity="0.24" stroke="#ab7d2c" stroke-width="1.1" />
-              <circle cx="40" cy="46" r="24" fill="#e2c68c" fill-opacity="0.42" stroke="#ab7d2c" stroke-width="1.1" />
-              <circle cx="40" cy="53" r="17" fill="#e2c68c" fill-opacity="0.68" stroke="#ab7d2c" stroke-width="1.1" />
-
-              <line x1="40" y1="6" x2="94" y2="6" stroke="#5b626d" stroke-width="0.8" stroke-dasharray="2 2" />
-              <text x="98" y="10" font-family="Space Mono, monospace" font-size="9.5" fill="#0b1420">~435 ZJ Heat Gain</text>
-
-              <line x1="40" y1="22" x2="94" y2="22" stroke="#5b626d" stroke-width="0.8" stroke-dasharray="2 2" />
-              <text x="98" y="26" font-family="Space Mono, monospace" font-size="9.5" fill="#0b1420">40 GtCO₂/yr Flux</text>
-
-              <line x1="40" y1="36" x2="94" y2="36" stroke="#5b626d" stroke-width="0.8" stroke-dasharray="2 2" />
-              <text x="98" y="40" font-family="Space Mono, monospace" font-size="9.5" fill="#0b1420">+4.4°C Max Scale</text>
-            </svg>
-          </div>
+      <a class="atlas-btn" href="https://interactive-atlas.ipcc.ch/" target="_blank" rel="noopener">Explore your region in the IPCC Interactive Atlas →</a>
+      <p class="atlas-hint">Pick a place, pick a warming level, watch the map change. No climate science needed.</p>
+    <details class="srcs" style="margin-top:1.2rem">
+        <summary>How I would point different people to the Atlas</summary>
+        <div class="tbl-wrap"><table class="src">
+          <thead><tr><th>Who</th><th>Send them to</th><th>What the message does</th><th>Watch out for</th></tr></thead>
+          <tbody>
+            <tr><td>Scientists and data users</td><td>The Atlas, then its GitHub repository and the IPCC Data Distribution Centre.</td><td>Names the dataset, the region set (IPCC-WGI reference regions, v4) and the licence so they can reuse it at once.</td><td>Credit the data providers and say the data is CC BY 4.0.</td></tr>
+            <tr><td>Policy staff and observers</td><td>The Atlas, opened on a region they work on.</td><td>One sentence on what changes between two warming levels there. Says plainly this is physical science, not impacts.</td><td>Don’t turn a regional result into a local forecast or a recommendation.</td></tr>
+            <tr><td>Journalists and editors</td><td>The Atlas plus the IPCC copyright page.</td><td>Gives them something to explore and says early that exported figures belong to the IPCC.</td><td>Quote the warming level and scenario. Link back, don’t repost cropped images.</td></tr>
+            <tr><td>Public, students, teachers</td><td>The Atlas, from a post that starts with one place and one question.</td><td>Keeps the first click simple: choose a region, move the warming level, watch the map change.</td><td>Add one line on what a range means.</td></tr>
+          </tbody></table></div>
+        <div class="atlas-lines" style="margin-top:1rem">
+          <blockquote><small>Public post</small>Pick a place. Switch from +1.5°C to +3°C. Watch how the temperature map changes. Explore it in the IPCC WGI Interactive Atlas: [link]</blockquote>
+          <blockquote><small>Note to editors</small>The maps and data behind the Working Group I contribution to AR6 are open in the IPCC Interactive Atlas [link]. Exported figures are IPCC property; see ipcc.ch/copyright before reuse.</blockquote>
+          <blockquote><small>Technical readers</small>Monthly temperature and precipitation, averaged over the IPCC-WGI reference regions (v4), are in the Atlas GitHub repository under CC BY 4.0 [link].</blockquote>
         </div>
-
-        <div class="legend-col">
-          <div>
-            <div class="legend-col-title">Spectral prism unit</div>
-            <div class="legend-col-desc">discrete quantum of energy, carbon flux, or surface warming</div>
-          </div>
-          <div class="legend-graphic">
-            <svg width="175" height="64" viewBox="0 0 175 64" aria-hidden="true">
-              <polygon points="22,8 28,28 22,34 16,28" fill="#1D5D8F" stroke="#f4f2ee" stroke-width="1" />
-              <line x1="33" y1="21" x2="50" y2="21" stroke="#5b626d" stroke-width="0.8" />
-              <text x="54" y="19" font-family="Space Mono, monospace" font-size="9.5" fill="#0b1420">= 1% energy / CO₂</text>
-              <text x="54" y="32" font-family="Space Mono, monospace" font-size="9.5" fill="#5b626d">= 0.1°C warming</text>
-            </svg>
-          </div>
-        </div>
-
-        <div class="legend-col">
-          <div>
-            <div class="legend-col-title">Spectrum encoding</div>
-            <div class="legend-col-desc">Earth system sinks (Energy &amp; Carbon) and SSP warming pathways</div>
-          </div>
-          <div class="legend-graphic">
-            <div class="swatch-row">
-              <div class="swatch-item">
-                <svg width="16" height="24" viewBox="0 0 16 24"><polygon points="8,2 13,15 8,21 3,15" fill="#1D5D8F" /></svg>
-                <span class="swatch-label">Ocean</span>
-                <span class="swatch-sub">91% / 23%</span>
-              </div>
-              <div class="swatch-item">
-                <svg width="16" height="24" viewBox="0 0 16 24"><polygon points="8,2 13,15 8,21 3,15" fill="#2F7D63" /></svg>
-                <span class="swatch-label">Land</span>
-                <span class="swatch-sub">5% / 31%</span>
-              </div>
-              <div class="swatch-item">
-                <svg width="16" height="24" viewBox="0 0 16 24"><polygon points="8,2 13,15 8,21 3,15" fill="#5FA8C8" /></svg>
-                <span class="swatch-label">Ice</span>
-                <span class="swatch-sub">3% cryo</span>
-              </div>
-              <div class="swatch-item">
-                <svg width="16" height="24" viewBox="0 0 16 24"><polygon points="8,2 13,15 8,21 3,15" fill="#D9822B" /></svg>
-                <span class="swatch-label">Atmos.</span>
-                <span class="swatch-sub">1% / 46%</span>
-              </div>
-              <div class="swatch-item">
-                <svg width="16" height="24" viewBox="0 0 16 24"><polygon points="8,2 13,15 8,21 3,15" fill="#B8332A" /></svg>
-                <span class="swatch-label">SSP5-8.5</span>
-                <span class="swatch-sub">+4.4°C</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="legend-col">
-          <div>
-            <div class="legend-col-title">Orbital TSU probes</div>
-            <div class="legend-col-desc">6 key IPCC WGI TSU platforms &amp; AR7 assessment milestones</div>
-          </div>
-          <div class="legend-graphic">
-            <svg width="175" height="58" viewBox="0 0 175 58" aria-hidden="true">
-              <g transform="translate(28, 28) rotate(-25)">
-                <rect x="-15" y="-3.5" width="9" height="7" rx="1" fill="#1D5D8F" stroke="#0b1420" stroke-width="1" />
-                <rect x="6" y="-3.5" width="9" height="7" rx="1" fill="#1D5D8F" stroke="#0b1420" stroke-width="1" />
-                <circle cx="0" cy="0" r="4.2" fill="#e2c68c" stroke="#0b1420" stroke-width="1.1" />
-                <path d="M -3 6 Q 0 9 3 6" fill="none" stroke="#ab7d2c" stroke-width="1.1" />
-              </g>
-              <text x="54" y="25" font-family="Inter, sans-serif" font-size="10" font-weight="500" fill="#0b1420">AR7 LAMs &amp; Atlas</text>
-              <text x="54" y="38" font-family="Space Mono, monospace" font-size="9" fill="#5b626d">Hover to inspect</text>
-            </svg>
-          </div>
-        </div>
-
-        <div class="legend-col">
-          <div>
-            <div class="legend-col-title">Radiative flux beams</div>
-            <div class="legend-col-desc">links between lenses, each carrying a paraphrased AR6 finding</div>
-          </div>
-          <div class="legend-graphic">
-            <svg width="190" height="58" viewBox="0 0 190 58" aria-hidden="true">
-              <path d="M 8 40 Q 95 22 182 40" fill="none" stroke="#ab7d2c" stroke-width="7" opacity="0.14" stroke-linecap="round" />
-              <path d="M 8 40 Q 95 22 182 40" fill="none" stroke="#ab7d2c" stroke-width="1.3" stroke-dasharray="3 4" />
-              <text x="95" y="18" text-anchor="middle" font-family="DM Serif Display, Georgia, serif" font-style="italic" font-size="11" fill="#0b1420">headline finding</text>
-            </svg>
-          </div>
-        </div>
-      </div>
-
-      <footer class="colophon">
-        <span>Sources and limits are listed in the section below. Independent communication sample, not an official IPCC product.</span>
-        <span class="font-serif-editorial" style="font-style: italic;">Hover or tap any prism, lens or probe for its source.</span>
-      </footer>
+        <p class="atlas-hint">This page links to the Atlas and does not reproduce its maps. Warming levels describe what the data shows once a level is reached. They are not forecasts of when it will happen. The IPCC pages are the authority on licences.</p>
+      </details>
     </section>
 
-
-    <section class="atlas" id="atlas" aria-labelledby="atlasHeading">
-      <div class="sec-head"><h2 id="atlasHeading">The IPCC WGI Interactive Atlas</h2><span>how to point people to it, whoever they are</span></div>
-
-      <div class="atlas-intro">
-        <article class="card">
-          <h3>What it is</h3>
-          <p class="lead">Pick a place, pick a warming level from +1.5°C to +4°C, and see what the assessment’s data says changes.</p>
-          <p>The Atlas is the IPCC’s online tool for exploring the observed and projected climate information behind the Working Group I contribution to AR6. It handles both maps and time series, and it includes a regional synthesis for Climatic Impact-Drivers (CIDs). Its home page offers temperature and precipitation as the two starting variables.</p>
-          <p>It sits next to this observatory. The observatory gives you the three headline numbers. The Atlas lets you go and look at your own region.</p>
-        </article>
-        <article class="card">
-          <h3>Is it for everybody?</h3>
-          <p>It is open to anyone on the IPCC website. In practice it is built for people who already read maps, scenarios and uncertainty without effort. Scientists, analysts and technical staff can open it and start working.</p>
-          <p>Most other people need a guide: someone who says where to click first and what a number does and does not mean. That is the job of the link and the sentence around it, so the strategy below is about the front door, not the tool.</p>
-        </article>
-      </div>
-
-      <div class="about-grid">
-        <article class="card wide">
-          <h3>Four front doors, one tool</h3>
-          <div class="tbl-wrap">
-            <table class="src">
-              <thead><tr><th>Who</th><th>Where to send them</th><th>What the message does</th><th>Watch out for</th></tr></thead>
-              <tbody>
-                <tr><td>Scientists, authors, data users</td><td>The Atlas, then the Atlas GitHub repository and the IPCC Data Distribution Centre.</td><td>Names the dataset, the region set (IPCC-WGI reference regions, v4) and the licence, so they can reuse the data straight away.</td><td>Credit the data providers listed in the repository and say the data is CC BY 4.0.</td></tr>
-                <tr><td>Policy staff, observers, focal points</td><td>The Atlas, opened on a region they work on.</td><td>One sentence on what changes between two warming levels in that region. It says plainly that this is physical science, not an impacts assessment.</td><td>Don’t turn a regional result into a local forecast or a policy recommendation.</td></tr>
-                <tr><td>Journalists and editors</td><td>The Atlas, plus the IPCC copyright page.</td><td>Gives them something to explore and tells them early that exported figures belong to the IPCC.</td><td>Quote the warming level and scenario. Link back rather than repost cropped images.</td></tr>
-                <tr><td>General public, students, teachers</td><td>The Atlas, from a post or explainer that starts with one place and one question.</td><td>Keeps the first click simple: choose your region, move the warming level, watch the map change.</td><td>Don’t leave people alone with uncertainty. Add one line on what a range means.</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3>Links to use</h3>
-          <div class="atlas-links">
-            <a class="atlas-link" href="https://interactive-atlas.ipcc.ch/" target="_blank" rel="noopener"><b>Atlas</b><span>The interactive tool itself.</span><em>interactive-atlas.ipcc.ch</em></a>
-            <a class="atlas-link" href="https://github.com/IPCC-WG1/Atlas" target="_blank" rel="noopener"><b>Atlas on GitHub</b><span>Data sources, acknowledgements, regional dataset, error reports.</span><em>github.com/IPCC-WG1/Atlas</em></a>
-            <a class="atlas-link" href="https://www.ipcc-data.org/" target="_blank" rel="noopener"><b>IPCC Data Distribution Centre</b><span>Long-term home of the final gridded dataset.</span><em>ipcc-data.org</em></a>
-            <a class="atlas-link" href="https://www.ipcc.ch/copyright" target="_blank" rel="noopener"><b>IPCC copyright</b><span>Rules for reusing IPCC figures.</span><em>ipcc.ch/copyright</em></a>
-          </div>
-          <p class="atlas-note">Please check these links before sharing. The Atlas home page also carries its own “License, data and citation” page, which has the exact citation wording.</p>
-        </article>
-
-        <article class="card">
-          <h3>Link lines I would write</h3>
-          <div class="atlas-lines">
-            <blockquote><small>Public post</small>Pick a place. Switch from +1.5°C to +3°C. Watch how the temperature map changes. Explore it in the IPCC WGI Interactive Atlas: [link]</blockquote>
-            <blockquote><small>Note to editors</small>The maps and data behind the Working Group I contribution to AR6 are open in the IPCC Interactive Atlas [link]. Exported figures are IPCC property; see ipcc.ch/copyright before reuse.</blockquote>
-            <blockquote><small>Technical readers</small>Monthly temperature and precipitation, averaged over the IPCC-WGI reference regions (v4), are in the Atlas GitHub repository under CC BY 4.0 [link].</blockquote>
-          </div>
-        </article>
-
-        <article class="card wide">
-          <h3>Licence at a glance</h3>
-          <div class="tbl-wrap">
-            <table class="src">
-              <thead><tr><th>What</th><th>Licence</th><th>What it means in practice</th></tr></thead>
-              <tbody>
-                <tr><td>Figures exported from the Atlas (PNG, PDF)</td><td>Property of the IPCC, protected by intellectual property law.</td><td>Link to the Atlas instead of reposting. Check ipcc.ch/copyright before any reuse.</td></tr>
-                <tr><td>Data downloaded from the Atlas (NetCDF, GeoTIFF)</td><td>Creative Commons Attribution 4.0 International (CC BY 4.0), under the IPCC-DDC framework.</td><td>Reuse is allowed with credit.</td></tr>
-                <tr><td>Final harmonised monthly gridded dataset</td><td>CC BY 4.0. Preserved long term and openly available from the IPCC-DDC catalogue.</td><td>Reuse is allowed with credit.</td></tr>
-                <tr><td>Regionally aggregated dataset: monthly precipitation and near-surface temperature averaged over the IPCC-WGI reference regions (v4)</td><td>CC BY 4.0, available from the Atlas GitHub repository.</td><td>Reuse is allowed with credit.</td></tr>
-                <tr><td>Data sources and acknowledgements</td><td>Listed in the Atlas GitHub repository.</td><td>Credit the data providers named there.</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="src-note">This summary follows the Atlas licence text. The IPCC pages are the authority, and they win if anything here differs.</p>
-        </article>
-
-        <article class="card wide">
-          <h3>Read with care</h3>
-          <p>This page links to the Atlas. It does not reproduce Atlas maps or figures, and it does not use the IPCC logo. The Atlas shows physical climate information from Working Group I. Questions about impacts and adaptation belong to Working Group II, and questions about mitigation to Working Group III.</p>
-          <p>Warming levels (+1.5°C, +2°C, +3°C, +4°C) are not forecasts of when a level will be reached. They describe what the data shows once that level has been reached.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="about" aria-labelledby="aboutHeading">
-      <div class="sec-head"><h2 id="aboutHeading">Why it matters, and where it comes from</h2><span>every number can be traced</span></div>
-      <div class="about-grid">
-        <article class="card">
-          <h3>Why these three findings</h3>
-          <p>Working Group I assesses the physical science of climate change: what is happening, how fast, and why. These three findings answer the questions people ask first. Where is the heat? Where does our carbon end up? How much warming do different emissions choices lead to?</p>
-          <p>AR6 is the current published assessment. AR7 is being written now and will update these answers, which is why the observatory also shows the AR7 milestones.</p>
-        </article>
-        <article class="card">
-          <h3>What this page is, and is not</h3>
-          <p>It is an independent communication sample: an attempt to make three headline findings readable at a glance while keeping every number traceable.</p>
-          <p>It is not an official IPCC product and has not been reviewed by the IPCC. Figures are rounded to whole prisms. Follow the links below for full ranges and confidence levels.</p>
-        </article>
-        <article class="card wide">
-          <h3>Sources</h3>
-          <div class="tbl-wrap">
-            <table class="src">
-              <thead><tr><th>What you see</th><th>Value shown</th><th>Where it comes from (IPCC AR6 WGI)</th></tr></thead>
-              <tbody>
-                <tr><td>Heat lens</td><td>About 435 ZJ gained, 1971–2018 (282 ZJ in 1971–2006 plus 152 ZJ in 2006–2018). Split: 91% ocean, 5% land, 3% ice, 1% atmosphere.</td><td>Chapter 7, §7.2.2 and Table 7.1; Summary for Policymakers A.4.1. <a href="https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-7/" target="_blank" rel="noopener">Chapter 7</a></td></tr>
-                <tr><td>Carbon lens</td><td>Of 10.9 PgC per year (about 40 GtCO₂), 2010–2019: 46% stayed in the air, 31% went to land, 23% to the ocean.</td><td>Chapter 5, §5.2, Table 5.1. <a href="https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-5/" target="_blank" rel="noopener">Chapter 5</a></td></tr>
-                <tr><td>Observed warming</td><td>+1.09°C in 2011–2020 compared with 1850–1900.</td><td>Summary for Policymakers A.1.2. <a href="https://www.ipcc.ch/report/ar6/wg1/chapter/summary-for-policymakers" target="_blank" rel="noopener">Summary for Policymakers</a></td></tr>
-                <tr><td>Projected warming</td><td>Best estimates for 2081–2100: +1.4°C (SSP1-1.9), +2.7°C (SSP2-4.5), +4.4°C (SSP5-8.5), against 1850–1900.</td><td>Summary for Policymakers, Table SPM.1.</td></tr>
-                <tr><td>Beams</td><td>Three headline findings, paraphrased rather than quoted.</td><td>Summary for Policymakers D.1 and A.2.2; Chapter 9. <a href="https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-9/" target="_blank" rel="noopener">Chapter 9</a></td></tr>
-                <tr><td>AR7 probes</td><td>Lead Author Meeting dates and places, the expert review window, and the status of the timeline.</td><td><a href="https://www.ipcc.ch/report/seventh-assessment-report-working-group-i/" target="_blank" rel="noopener">IPCC: AR7 Working Group I</a> · <a href="https://www.ipcc.ch/2026/11/02/ipcc-ar7-wgi-lam3-arusha-tanzania/" target="_blank" rel="noopener">Arusha meeting</a> · <a href="https://www.ipcc.ch/2026/10/29/ipcc-65/" target="_blank" rel="noopener">IPCC-65</a></td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="src-note">AR7 details were checked against IPCC pages in November 2026 and may change. The 2028 date is the Co-Chairs’ proposal, and the Panel had not agreed it at IPCC-65.</p>
-        </article>
-      </div>
-    </section>
+    <details class="srcs">
+      <summary>Sources and checks</summary>
+      <ul>
+        <li>Heat: about 435 ZJ gained 1971–2018; 91% ocean, 5% land, 3% ice, 1% air. <a href="https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-7/" target="_blank" rel="noopener">AR6 Chapter 7</a></li>
+        <li>Carbon: 10.9 PgC a year (about 40 GtCO₂), 2010–2019; 46% air, 31% land, 23% ocean. <a href="https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-5/" target="_blank" rel="noopener">AR6 Chapter 5</a></li>
+        <li>Warming: +1.09°C in 2011–2020; 2081–2100 best estimates +1.4°C (SSP1-1.9), +2.7°C (SSP2-4.5), +4.4°C (SSP5-8.5). <a href="https://www.ipcc.ch/report/ar6/wg1/chapter/summary-for-policymakers" target="_blank" rel="noopener">Summary for Policymakers</a></li>
+        <li>Links between circles: paraphrased from SPM D.1 and A.2.2 and <a href="https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-9/" target="_blank" rel="noopener">Chapter 9</a>.</li>
+        <li>AR7 dates: <a href="https://www.ipcc.ch/report/seventh-assessment-report-working-group-i/" target="_blank" rel="noopener">IPCC AR7 WGI</a> · <a href="https://www.ipcc.ch/2026/11/02/ipcc-ar7-wgi-lam3-arusha-tanzania/" target="_blank" rel="noopener">Arusha meeting</a> · <a href="https://www.ipcc.ch/2026/10/29/ipcc-65/" target="_blank" rel="noopener">IPCC-65</a>. Checked November 2026 and may change.</li>
+        <li>Independent communication sample, not an IPCC product. Figures are rounded to whole shapes.</li>
+      </ul>
+    </details>
 
   </div>
 
@@ -920,9 +802,9 @@
       const PILLARS = [
         {
           id: 'energy',
-          kicker: 'PILLAR I · SPM A.4.1 & CH. 7',
-          title: "Earth's Energy Imbalance",
-          subtitle: '1971–2018 Total Heat Gain: ~435 ZJ (282 + 152)',
+          kicker: 'QUESTION 1 · SPM A.4.1 & CH. 7',
+          title: 'Where does the heat go?',
+          subtitle: 'Extra heat gained 1971–2018: about 435 ZJ',
           metricSummary: '91% Ocean · 5% Land · 3% Ice · 1% Atmosphere',
           description: 'Accumulated excess energy trapped in the climate system due to anthropogenic radiative forcing, dominated by ocean heat uptake.',
           cx: 330,
@@ -930,8 +812,8 @@
           coreRadius: 48,
           coreLabel: '~435 ZJ',
           coreSub: '1971–2018',
-          labelAlign: 'right',
-          labelOffset: { x: -158, y: -92 },
+          labelAlign: 'center',
+          labelOffset: { x: 0, y: -185 },
           rings: [
             {
               counts: [24, 34, 42],
@@ -946,9 +828,9 @@
         },
         {
           id: 'carbon',
-          kicker: 'PILLAR II · CH. 5 & TABLE 5.1',
-          title: 'Anthropogenic Carbon Partitioning',
-          subtitle: '2010–2019 Mean CO₂ Sink Share',
+          kicker: 'QUESTION 2 · CH. 5 & TABLE 5.1',
+          title: 'Where does our CO₂ go?',
+          subtitle: 'Where each year’s CO₂ ended up, 2010–2019',
           metricSummary: '46% Atmosphere · 31% Land · 23% Ocean',
           description: 'Partitioning of cumulative anthropogenic CO₂ emissions (~40 GtCO₂/yr) across natural land and ocean carbon sinks versus atmospheric accumulation.',
           cx: 950,
@@ -956,8 +838,8 @@
           coreRadius: 41,
           coreLabel: '40 GtCO₂',
           coreSub: 'per year',
-          labelAlign: 'left',
-          labelOffset: { x: 152, y: -88 },
+          labelAlign: 'center',
+          labelOffset: { x: 0, y: -195 },
           rings: [
             {
               counts: [24, 34, 42],
@@ -971,9 +853,9 @@
         },
         {
           id: 'warming',
-          kicker: 'PILLAR III · SPM A.1.2 & TABLE SPM.1',
-          title: 'Global Surface Temperature',
-          subtitle: 'vs. 1850–1900 · observed 2011–2020, projected 2081–2100 (1 prism = 0.1°C)',
+          kicker: 'QUESTION 3 · SPM A.1.2 & TABLE SPM.1',
+          title: 'How warm could it get?',
+          subtitle: 'Observed 2011–2020 and projected 2081–2100 · 1 shape = 0.1°C',
           metricSummary: 'Obs +1.09°C · SSP1-1.9 +1.4°C · SSP2-4.5 +2.7°C · SSP5-8.5 +4.4°C',
           description: 'Assessed best-estimate global surface temperature change relative to 1850–1900 across Shared Socioeconomic Pathways (SSPs).',
           cx: 640,
@@ -981,8 +863,8 @@
           coreRadius: 34,
           coreLabel: '1850–1900',
           coreSub: 'Baseline',
-          labelAlign: 'right',
-          labelOffset: { x: -165, y: 42 },
+          labelAlign: 'left',
+          labelOffset: { x: -600, y: 85 },
           isMultiBand: true,
           bands: [
             { sspKey: 'obs', label: 'Observed (2011–2020)', valueText: '+1.09°C', count: 11, radius: 56, color: '#435768', citation: 'WGI AR6 SPM.A.1.2: Global surface temperature was 1.09°C higher in 2011–2020 than 1850–1900.' },
@@ -1000,10 +882,6 @@
       ];
 
       const PROBES = [
-        { id: 'probe-paris', label: 'Dec 2025 · 1st LAM Paris', kicker: 'AR7 WGI MILESTONE #1', metric: 'Paris, France · 1–5 Dec 2025 · joint WGI, WGII, WGIII', desc: 'First Lead Author Meeting of the AR7 cycle, and the first ever held jointly by all three Working Groups.', baseX: 155, baseY: 120, orbitRx: 14, orbitRy: 9, speed: 0.55, phase: 0.2 },
-        { id: 'probe-santiago', label: 'Apr 2026 · 2nd LAM Santiago', kicker: 'AR7 WGI MILESTONE #2', metric: 'Santiago, Chile · 20–24 Apr 2026 · First Order Draft', desc: 'Second Lead Author Meeting, advancing the first draft. Expert review of the draft ran from 10 August to 2 October 2026.', baseX: 640, baseY: 66, orbitRx: 18, orbitRy: 8, speed: 0.48, phase: 1.7 },
-        { id: 'probe-arusha', label: 'Nov 2026 · 3rd LAM Arusha', kicker: 'AR7 WGI MILESTONE #3', metric: 'Arusha, Tanzania · 2–6 Nov 2026 · after First Order Draft review', desc: 'Third Lead Author Meeting, where authors work through the expert review comments on the First Order Draft.', baseX: 1125, baseY: 125, orbitRx: 14, orbitRy: 10, speed: 0.52, phase: 3.1 },
-        { id: 'probe-launch', label: '2028? · AR7 WGI (proposed)', kicker: 'AR7 WGI TIMELINE · NOT YET AGREED', metric: 'Co-Chairs propose 2028 · Panel has not agreed a date', desc: 'The Co-Chairs’ work plan foresees the three Working Group reports in 2028, but the Panel did not agree the timeline at IPCC-65 (Oct 2026). The AR7 Synthesis Report is due in 2029.', baseX: 1140, baseY: 465, orbitRx: 15, orbitRy: 11, speed: 0.44, phase: 4.4 },
         { id: 'probe-atlas', label: 'WGI Interactive Atlas', kicker: 'TSU DIGITAL INFRASTRUCTURE', metric: 'FAIR Data & Regional Synthesis Tool', desc: 'Interactive spatial and temporal synthesis of observed datasets and climate model projections curated by the WGI TSU.', baseX: 150, baseY: 460, orbitRx: 16, orbitRy: 10, speed: 0.5, phase: 5.2 },
         { id: 'probe-cmip', label: 'CMIP6 / CMIP7 Ensemble', kicker: 'EARTH SYSTEM MODELING', metric: 'Coupled Model Intercomparison Project', desc: 'Coordinated multi-model climate simulations. AR6 assessed equilibrium climate sensitivity at 3°C (likely 2.5–4°C) using several lines of evidence, not models alone.', baseX: 640, baseY: 282, orbitRx: 22, orbitRy: 11, speed: 0.6, phase: 2.4 }
       ];
@@ -1076,7 +954,7 @@
               sspKey: band.sspKey,
               label: `${band.label} (${band.valueText})`,
               color: band.color,
-              unitText: '1 spectral prism = +0.1°C surface warming vs. 1850–1900',
+              unitText: '1 shape = +0.1°C of surface warming vs. 1850–1900',
               citation: band.citation,
               kicker: tempPillar.kicker,
               hx, hy,
@@ -1382,15 +1260,15 @@
             ctx.stroke();
           });
 
-          drawPlanetaryCore(640, 340, 44, 'EARTH SYSTEM', 'Coupled Model', easeT);
+          drawPlanetaryCore(640, 340, 44, 'ONE EARTH', 'merged', easeT);
 
           ctx.font = '600 13px "Inter", sans-serif';
           ctx.fillStyle = '#0b1420';
           ctx.textAlign = 'left';
-          ctx.fillText('Coupled Energy–Carbon–Temperature Observatory', 60, 74);
+          ctx.fillText('Heat, carbon and warming, together', 60, 618);
           ctx.font = 'italic 400 13px "DM Serif Display", Georgia, serif';
           ctx.fillStyle = '#5b626d';
-          ctx.fillText('Inner rings: +0.1°C warming pathways · Middle rings: 435 ZJ heat uptake · Outer rings: CO₂ sink partitioning', 60, 94);
+          ctx.fillText('Inner rings: warming · Middle rings: heat · Outer rings: CO₂', 60, 638);
 
           ctx.restore();
         }
@@ -1498,6 +1376,12 @@
         };
       }
 
+      function showInfo(f) {
+        document.getElementById('ipK').textContent = f.kicker;
+        document.getElementById('ipT').textContent = f.title;
+        document.getElementById('ipM').textContent = f.metric;
+        document.getElementById('ipD').textContent = f.desc;
+      }
       function updateHover(clientX, clientY) {
         const pt = getLogicalCoords(clientX, clientY);
         let found = null;
@@ -1538,13 +1422,14 @@
             const midX = 0.25 * b.p0.x + 0.5 * b.p1.x + 0.25 * b.p2.x;
             const midY = 0.25 * b.p0.y + 0.5 * b.p1.y + 0.25 * b.p2.y;
             if (Math.hypot(pt.x - midX, pt.y - midY) < 42) {
-              found = { type: 'beam', data: b, kicker: 'IPCC WGI HEADLINE STATEMENT', title: b.quote, metric: 'Cross-Reservoir Physical Coupling', desc: b.citation };
+              found = { type: 'beam', data: b, kicker: 'HEADLINE FINDING', title: b.quote, metric: 'How the three answers connect', desc: b.citation };
               break;
             }
           }
         }
 
         hoveredEntity = found;
+        if (found) showInfo(found);
 
         if (found) {
           canvas.style.cursor = 'pointer';
@@ -1584,11 +1469,11 @@
         synthesizeBtn.setAttribute('aria-pressed', String(isSynthesized));
 
         if (isSynthesized) {
-          synthesizeBtn.innerHTML = '<span>↺ Decompose Reservoirs</span>';
-          statusCaption.textContent = 'Unified Earth System coupling · 296 spectral units';
+          synthesizeBtn.innerHTML = '<span>↺ Split back apart</span>';
+          statusCaption.textContent = 'One merged Earth system · 296 shapes';
         } else {
-          synthesizeBtn.innerHTML = '<span>✦ Synthesize Earth System</span>';
-          statusCaption.textContent = 'Decomposed reservoirs · 296 spectral units';
+          synthesizeBtn.innerHTML = '<span>✦ Merge into one Earth system</span>';
+          statusCaption.textContent = 'Three separate circles · 296 shapes';
         }
       });
 
@@ -1599,6 +1484,34 @@
           activeSspFilter = pill.dataset.ssp;
         });
       });
+
+      
+      const SSPN = {
+        all: '<b>What is an SSP?</b> A Shared Socioeconomic Pathway is a story of how the world might develop: energy use, population and policy. The second number (1.9, 4.5, 8.5) is the heating effect in 2100, in watts per square metre. Low means a small push on the climate, high means a big one. Tap a pathway to isolate it.',
+        obs: '<b>Observed, not a scenario.</b> Measured warming in 2011–2020 was +1.09°C compared with 1850–1900. This is the starting point for every pathway.',
+        ssp119: '<b>SSP1-1.9, very low emissions.</b> Rapid cuts and net zero around mid-century. Best estimate for 2081–2100: +1.4°C.',
+        ssp245: '<b>SSP2-4.5, middle road.</b> Emissions stay near today’s level, then slowly fall. Best estimate for 2081–2100: +2.7°C (very likely +2.1°C to +3.5°C).',
+        ssp585: '<b>SSP5-8.5, very high emissions.</b> Fossil fuel use keeps growing. Best estimate for 2081–2100: +4.4°C.'
+      };
+      sspPills.forEach((p) => p.addEventListener('click', () => { document.getElementById('sspNote').innerHTML = SSPN[p.dataset.ssp]; }));
+      synthesizeBtn.addEventListener('click', () => {
+        document.getElementById('modeNote').innerHTML = isSynthesized
+          ? '<b>Merged view.</b> All 296 shapes now orbit one Earth. Inner rings are warming, middle rings are heat, outer rings are CO₂. Hover to see which is which. Press the button again to split them apart.'
+          : '<b>Separate view.</b> Each question has its own circle. Press <b>Merge</b> to pull all 296 shapes into one Earth system, so you can see how heat, carbon and warming connect.';
+      });
+      const io = new IntersectionObserver((es) => es.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const el = e.target; el.parentElement.classList.add('on'); io.unobserve(el);
+        const to = +el.dataset.to, t0 = performance.now();
+        (function step(t) { const k = Math.min((t - t0) / 1400, 1); el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))).toLocaleString() + (k === 1 && el.dataset.plus ? '+' : ''); if (k < 1) requestAnimationFrame(step); })(t0);
+      }), { threshold: 0.5 });
+      document.querySelectorAll('.stat strong').forEach((s) => io.observe(s));
+
+      
+      document.querySelectorAll('.trow').forEach((r) => r.addEventListener('click', () => {
+        const p = document.querySelector('.ssp-pill[data-ssp="' + r.dataset.ssp + '"]'); if (p) p.click();
+        document.getElementById('observatoryCanvas').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }));
 
       requestAnimationFrame(render);
     })();
