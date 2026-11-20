@@ -2,11 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="robots" content="noindex, nofollow" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Social Media Package – Timothy Castillon | IPCC WGI Application</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-<link rel="icon" href="logo-mark.svg" type="image/svg+xml" />
 <style>
 :root{--ink:#0b1420;--fog:#f4f2ee;--white:#fff;--navy:#002147;--navy-lt:#e9edf3;--gold:#ab7d2c;--gold-lt:#e2c68c;--muted:#656b76;--border:#e1ddd4;--li:#0a66c2;--fb:#1877f2;--radius:8px;--nav-h:64px}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -69,40 +67,10 @@ td:first-child{font-weight:600;color:var(--navy);white-space:nowrap}
 .fb .tag{color:var(--fb)}
 .car{position:relative;background:#000;overflow:hidden}
 .track{display:flex;transition:transform .45s cubic-bezier(.4,.1,.2,1);touch-action:pan-y}
-.slide{flex:0 0 100%;aspect-ratio:4/5;container-type:inline-size;position:relative;color:#fff;padding:max(7.5%,1.3rem);display:flex;flex-direction:column;justify-content:flex-end;gap:.8rem;background:linear-gradient(160deg,#0b2a52,#001228);overflow:hidden;overflow:clip}
-.slide::before{content:'';position:absolute;left:0;right:0;top:0;height:2.4cqw;background:var(--gold)}
-.slide .src{font-family:'Space Mono',monospace;font-size:max(2.6cqw,.7rem);line-height:1.4;color:var(--gold-lt);opacity:.95}
-.slide .top{font-family:'Space Mono',monospace;font-size:max(3cqw,.74rem);line-height:1.4;letter-spacing:.05em;color:var(--gold-lt);margin-bottom:auto;padding-top:2cqw;padding-right:max(14cqw,3rem)}
-.slide h4{font-family:'DM Serif Display',serif;font-weight:400;font-size:max(7.6cqw,1.5rem);line-height:1.15}
-.slide p.b{font-size:max(3.8cqw,.94rem);line-height:1.45;color:rgba(255,255,255,.92)}
-.slide .q{font-family:'DM Serif Display',serif;font-style:italic;font-size:max(5cqw,1.05rem);line-height:1.3;color:var(--gold-lt)}
-.s1{background:linear-gradient(180deg,rgba(0,18,40,.15),rgba(0,18,40,.55) 55%,rgba(0,12,30,.95)),url(social-cover.png) center/cover,linear-gradient(160deg,#0b2a52,#001228)}
-.s1 h4{border-left:1.6cqw solid var(--gold-lt);padding-left:4cqw;font-weight:700;font-size:max(7cqw,1.45rem)}
-.swipe{font-family:'Space Mono',monospace;font-size:max(3cqw,.76rem);color:#fff;opacity:.9;animation:nudge 1.8s ease-in-out infinite}
-@keyframes nudge{50%{transform:translateX(1.5cqw)}}
-.big{font-family:'DM Serif Display',serif;font-size:19cqw;line-height:1;color:var(--gold-lt)}
-.bar{display:flex;height:max(11cqw,2.5rem);border-radius:2cqw;overflow:hidden;gap:.6cqw;background:rgba(255,255,255,.1)}
-.seg{width:0;border-radius:1cqw;display:flex;align-items:center;justify-content:center;font-size:max(3.2cqw,.8rem);font-weight:600;color:#001228;transition:width 1s cubic-bezier(.2,.8,.2,1),filter .2s;min-width:0;overflow:hidden}
-.slide.on .seg{width:var(--w)}
-.seg[aria-pressed=true]{filter:brightness(1.15);box-shadow:inset 0 0 0 .7cqw #fff}
-.read{min-height:max(13cqw,3rem);font-size:max(3.6cqw,.9rem);line-height:1.4;color:rgba(255,255,255,.95);border-left:1cqw solid var(--gold-lt);padding-left:3cqw}
-.chips{display:flex;flex-wrap:wrap;gap:max(2cqw,.4rem)}
-.chip{padding:max(1.4cqw,.3rem) max(3cqw,.75rem);min-height:2.4rem;line-height:1.2;border:.4cqw solid rgba(255,255,255,.55);border-radius:99px;font-size:max(3cqw,.85rem);color:#fff}
-.chip[aria-pressed=true]{background:var(--gold-lt);color:#001228;border-color:var(--gold-lt);font-weight:600}
-.therm{position:relative;height:5cqw;background:rgba(255,255,255,.22);border-radius:9cqw}
-.therm i{position:absolute;top:-2cqw;width:1cqw;height:9cqw;background:#fff;border-radius:1cqw;left:0;transition:left .6s cubic-bezier(.3,.9,.3,1)}
-.therm u{position:absolute;top:-2cqw;height:9cqw;width:.7cqw;background:#001228;box-shadow:0 0 0 .4cqw #fff}
-.scale{display:flex;justify-content:space-between;font-size:max(2.8cqw,.72rem);color:rgba(255,255,255,.85);margin-top:-1.5cqw;padding-top:.5rem}
-.acts{display:flex;flex-direction:column;gap:2.4cqw}
-.act{display:block;width:100%;text-align:left;padding:max(2.8cqw,.65rem) max(4cqw,.85rem);min-height:2.6rem;border-radius:2cqw;background:rgba(255,255,255,.08);border:.4cqw solid rgba(255,255,255,.3);font-size:max(3.6cqw,.9rem);line-height:1.35;color:#fff}
-.act span{display:none;margin-top:.45rem;color:var(--gold-lt);font-size:max(3.2cqw,.82rem);line-height:1.4}
-.act[aria-expanded=true]{background:rgba(226,198,140,.14);border-color:var(--gold-lt)}
-.act[aria-expanded=true] span{display:block}
 .nb{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.94);color:var(--navy);font-size:1.2rem;box-shadow:0 2px 8px rgba(0,0,0,.3);z-index:3}
 .nb[disabled]{opacity:0;pointer-events:none}
 .prev{left:10px}.next{right:10px}
 @media(hover:none),(max-width:600px){.nb{display:none}}
-@container (max-width:420px){.em2{display:none}}
 .dots{display:flex;justify-content:center;align-items:center;gap:.5rem;padding:.7rem;background:#fff}
 .dot{width:8px;height:8px;border-radius:50%;background:#c9ccd2;padding:0;transition:all .25s}
 .dot[aria-current=true]{background:var(--li);width:22px;border-radius:8px}
@@ -111,28 +79,15 @@ td:first-child{font-weight:600;color:var(--navy);white-space:nowrap}
 .stats{display:flex;justify-content:space-between;gap:.5rem;flex-wrap:wrap;padding:.6rem 1rem;font-size:.8rem;color:var(--muted);border-bottom:1px solid var(--border)}
 .acts-bar{display:flex;justify-content:space-between;padding:.2rem .4rem}
 .ab{display:flex;align-items:center;justify-content:center;flex:1 1 0;min-width:0;gap:.35rem;padding:.7rem .25rem;min-height:44px;font-size:.88rem;font-weight:600;color:#5d6470;border-radius:6px}
-.ab:hover{background:#f1f1f1}
-.ab.liked{color:var(--li)}.fb .ab.liked{color:var(--fb)}
-.ab.liked svg{animation:pop .35s}
-@keyframes pop{50%{transform:scale(1.4) rotate(-12deg)}}
 .ab svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8}
-.ab.liked svg{fill:currentColor}
 .xpost .ph{padding-bottom:0}
 .xpost .cap{font-size:1rem}
-.xcard{margin:0 1rem 1rem;border:1px solid var(--border);border-radius:14px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;background:linear-gradient(160deg,#0b2a52,#001228);color:#fff}
-.xcard div{padding:1.4rem 1rem;border-right:1px solid rgba(255,255,255,.18)}
-.xcard div:last-child{border:0}
-.xcard .big{font-size:2.8rem}
-.xcard small{display:block;font-size:.82rem;color:rgba(255,255,255,.9);line-height:1.4;margin-top:.3rem}
 .ctr{padding:0 1rem 1rem;font-family:'Space Mono',monospace;font-size:.76rem;gap:.5rem;flex-wrap:wrap;color:var(--muted);display:flex;justify-content:space-between}
 .side{position:sticky;top:calc(var(--nav-h) + 1.5rem)}
 .side h3{font-family:'DM Serif Display',serif;font-weight:400;font-size:1.5rem;margin-bottom:.6rem}
 .side p,.side li{font-size:.95rem;color:#2f3744}
 .side ul{padding-left:1.1rem;margin:.8rem 0 1.2rem;display:grid;gap:.5rem}
 .sw{display:inline-flex;align-items:center;gap:.6rem;min-height:44px;padding:.5rem 1.1rem;border-radius:var(--radius);background:var(--navy);color:#fff;font-size:.86rem;font-weight:500}
-.sw[aria-pressed=true]{background:var(--gold)}
-.anat [data-a]{outline:2px dashed var(--gold);outline-offset:3px;position:relative}
-.anat [data-a]::after{content:attr(data-a);position:absolute;right:6px;top:-11px;background:var(--gold);color:#fff;font-size:.66rem;line-height:1;padding:3px 7px;border-radius:4px;font-family:'Space Mono',monospace;z-index:5;white-space:nowrap}
 .note{margin-top:1.2rem;font-size:.8rem;color:var(--muted);border-top:1px solid var(--border);padding-top:.9rem}
 footer{background:var(--navy);color:rgba(255,255,255,.55);text-align:center;padding:2rem 5vw calc(2rem + env(safe-area-inset-bottom));font-size:.8rem}
 footer span{color:var(--gold)}
@@ -166,51 +121,77 @@ footer span{color:var(--gold)}
 .tp .b3::after{bottom:30%;height:30%;background:linear-gradient(var(--gold-lt),var(--gold-lt)) 0 0/60% 12px no-repeat;border:0}
 .tp .b4::after{height:34%;background:linear-gradient(#ffffff55,#ffffff55) 0 0/100% 5px no-repeat,linear-gradient(#ffffff55,#ffffff55) 0 10px/100% 5px no-repeat,linear-gradient(#ffffff55,#ffffff55) 0 20px/100% 5px no-repeat;border:0}
 .rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.2rem}
-.therm i{border:.5cqw solid #fff}
 
 .post{position:relative}
-.em2{position:absolute;top:17cqw;right:8cqw;font-size:9cqw;line-height:1;animation:bob 2.6s ease-in-out infinite;z-index:2}
-@keyframes bob{50%{transform:translateY(-1.4cqw) rotate(-5deg)}}
-.fly{position:absolute;pointer-events:none;font-size:1.4rem;animation:fly 1s ease-out forwards;z-index:9}
-@keyframes fly{to{transform:translateY(-110px) scale(1.5);opacity:0}}
-.reel{max-width:520px}
-.phone{position:relative;aspect-ratio:9/16;width:min(100%,340px);margin:0 auto;border-radius:24px;overflow:hidden;container-type:inline-size;background:#001228;color:#fff;border:6px solid #0b1420;box-shadow:0 14px 40px rgba(0,33,71,.3)}
-.rbars{position:absolute;top:3.5cqw;left:4cqw;right:4cqw;display:flex;gap:1.5cqw;z-index:5}
-.rbars i{flex:1;height:.9cqw;min-height:3px;background:rgba(255,255,255,.3);border-radius:3px;overflow:hidden}
-.rbars u{display:block;height:100%;width:0;background:#fff}
-.rhead{position:absolute;top:8cqw;left:4cqw;right:4cqw;z-index:5;display:flex;gap:2.5cqw;align-items:center;font-size:max(3.6cqw,.85rem);line-height:1.25}
-.rhead .av{width:max(9cqw,2.1rem);height:max(9cqw,2.1rem);font-size:max(3.4cqw,.8rem);flex-shrink:0}.rhead small{display:block;font-size:max(2.9cqw,.7rem);opacity:.9}
-.scene{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:3.5cqw;padding:22cqw 9cqw 16cqw;background:var(--bg,#0b2a52)}
-.scene .re{font-size:26cqw;line-height:1;animation:bob 2s ease-in-out infinite}
-.scene .rb{font-family:'DM Serif Display',serif;font-size:27cqw;line-height:1;color:var(--gold-lt)}
-.scene .rt2{font-family:'DM Serif Display',serif;font-size:max(8.4cqw,1.5rem);line-height:1.15}
-.scene .rs{font-size:max(4.2cqw,.95rem);color:rgba(255,255,255,.92);line-height:1.4}
-.scene>*{animation:rin .6s ease-out both}.scene>*:nth-child(2){animation-delay:.12s}.scene>*:nth-child(3){animation-delay:.24s}
-@keyframes rin{from{opacity:0;transform:translateY(5cqw)}}
-.sink{position:relative;height:30cqw;border:1.2cqw solid #fff;border-top:0;border-radius:0 0 6cqw 6cqw;overflow:hidden;background:rgba(255,255,255,.08)}
-.wat{position:absolute;left:0;right:0;bottom:0;height:8%;background:#6fb1dd;animation:fill 2.6s ease-out forwards}
-@keyframes fill{to{height:46%}}
-.rtap{position:absolute;top:14%;bottom:8%;width:38%;z-index:4;background:transparent}
-.rtap.l{left:0}.rtap.r{right:0}
-.rsrc{position:absolute;left:9cqw;right:9cqw;bottom:5cqw;font-family:'Space Mono',monospace;font-size:max(2.8cqw,.72rem);line-height:1.35;color:var(--gold-lt);z-index:5}
-.rctl{display:flex;gap:.7rem;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:1.1rem}
-.rt{font-size:.8rem;color:var(--muted)}
 
-.lg{--lb:#002147;--w1:#E2C68C;--w2:#fff;--w3:#AB7D2C;flex-shrink:0}
-.lg.dk{--lb:#fff;--w1:#AB7D2C;--w2:#002147;--w3:#AB7D2C}
-.logoblk{margin-bottom:2rem}
-.lgrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
-.lgcard{display:flex;align-items:center;gap:.9rem;padding:1.3rem;background:#fff;border:1px solid var(--border);border-radius:var(--radius);min-height:110px}
-.lgcard.nv{background:var(--navy);color:#fff;border-color:var(--navy)}
-.lgcard.nv small{color:rgba(255,255,255,.75)}
-.lgcard.sz{gap:1.1rem}
-.wm b{display:block;font-family:'DM Serif Display',serif;font-weight:400;font-size:1.5rem;line-height:1.1}
-.wm small,.sz small{display:block;font-size:.76rem;color:var(--muted)}
-.lgn{font-size:.82rem;color:#3d4450;margin-top:.9rem;max-width:80ch}
+
+.car img.si{flex:0 0 100%;width:100%;min-width:0;max-width:100%;height:auto;aspect-ratio:4/5;display:block;object-fit:cover}
+.pimg{display:block;width:100%;height:auto}
+.xpost .ximg{display:block;width:calc(100% - 2rem);margin:0 1rem 1rem;border:1px solid var(--border);border-radius:14px}
+.igbar{display:flex;gap:1.1rem;padding:.7rem 1rem .1rem}
+.igbar svg{width:26px;height:26px;fill:none;stroke:var(--ink);stroke-width:1.8}
+.iglikes{padding:.2rem 1rem;font-size:.88rem;font-weight:600}
+.ig .cap b{font-weight:600}
+.dl{display:flex;gap:.6rem;flex-wrap:wrap;margin:1rem 0 .4rem}
+.side h3{margin-top:0}
 </style>
+
+<style id="tcx-process-css">
+  .tcx { background:#f4f2ee; color:#0b1420; font-family:'Inter',system-ui,sans-serif; padding:3.5rem 5vw; border-top:1px solid #e1ddd4; line-height:1.65; position:relative; z-index:1; width:100%; }
+  .tcx *, .tcx *::before, .tcx *::after { box-sizing:border-box; }
+  .tcx-wrap { max-width:1200px; margin:0 auto; display:grid; gap:1.5rem; grid-template-columns:1.35fr 1fr; align-items:start; }
+  @media (max-width:860px){ .tcx-wrap{ grid-template-columns:1fr; } }
+  .tcx-k { font-family:'Space Mono',monospace; font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:#ab7d2c; margin-bottom:.5rem; }
+  .tcx-note { background:#fff; border:1px solid #e1ddd4; border-top:3px solid #ab7d2c; border-radius:8px; padding:1.6rem 1.7rem; }
+  .tcx-note h2 { font-family:'DM Serif Display',Georgia,serif; font-weight:400; font-size:1.5rem; line-height:1.25; margin-bottom:.9rem; color:#0b1420; }
+  .tcx-note ul { list-style:none; display:grid; gap:.75rem; }
+  .tcx-note li { position:relative; padding-left:1.4rem; font-size:.9rem; color:#3b434d; }
+  .tcx-note li::before { content:''; position:absolute; left:0; top:.6em; width:.5rem; height:.5rem; border-radius:50%; background:#ab7d2c; }
+  .tcx-disc { background:#002147; color:#fff; border-radius:12px; border-left:5px solid #ab7d2c; padding:1.6rem 1.7rem; box-shadow:0 16px 40px rgba(0,33,71,.18); }
+  .tcx-disc .tcx-k { color:#e2c68c; }
+  .tcx-disc p { font-size:.9rem; color:rgba(255,255,255,.88); }
+  .tcx-disc p + p { margin-top:.7rem; font-size:.82rem; color:rgba(255,255,255,.7); }
+</style>
+
+<meta name="robots" content="noindex, nofollow, noarchive" />
+<meta name="googlebot" content="noindex, nofollow" />
+<style id="tcx-protect-css">
+  html, body { -webkit-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; }
+  input, textarea, select, [contenteditable="true"] { -webkit-user-select: text; user-select: text; }
+  img { -webkit-user-drag: none; user-drag: none; }
+</style>
+<script id="tcx-protect-js">
+  /* Deterrence only. It stops casual saving and copying, not a determined person. */
+  (function () {
+    var msg = 'Application sample by Timothy Castillon. Source download is disabled.';
+    function toast() {
+      var t = document.getElementById('tcxToast');
+      if (!t) {
+        t = document.createElement('div');
+        t.id = 'tcxToast'; t.setAttribute('role', 'status');
+        t.style.cssText = 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:99999;background:#002147;color:#fff;font:500 13px/1.4 Inter,system-ui,sans-serif;padding:10px 16px;border-radius:8px;border-bottom:3px solid #ab7d2c;box-shadow:0 8px 24px rgba(0,0,0,.25);opacity:0;transition:opacity .2s;pointer-events:none;max-width:90vw;text-align:center';
+        document.body.appendChild(t);
+      }
+      t.textContent = msg; t.style.opacity = '1';
+      clearTimeout(t._h); t._h = setTimeout(function () { t.style.opacity = '0'; }, 2200);
+    }
+    document.addEventListener('contextmenu', function (e) { e.preventDefault(); toast(); });
+    document.addEventListener('dragstart', function (e) { if (e.target && e.target.tagName === 'IMG') e.preventDefault(); });
+    document.addEventListener('keydown', function (e) {
+      var k = (e.key || '').toLowerCase();
+      var mod = e.ctrlKey || e.metaKey;
+      var block =
+        e.key === 'F12' ||
+        (mod && e.shiftKey && (k === 'i' || k === 'j' || k === 'c')) ||   /* DevTools */
+        (e.metaKey && e.altKey && (k === 'i' || k === 'j' || k === 'c' || k === 'u')) || /* Mac DevTools / source (Option changes the key on some layouts) */
+        (mod && (k === 'u' || k === 's' || k === 'p'));                   /* view source, save, print */
+      if (block) { e.preventDefault(); toast(); }
+    });
+  })();
+</script>
+
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="lgm" viewBox="0 0 64 64"><path d="M14 6h36a8 8 0 0 1 8 8v24a8 8 0 0 1-8 8H31L19 58V46h-5a8 8 0 0 1-8-8V14a8 8 0 0 1 8-8z" fill="var(--lb)"/><path d="M14 19c6-5 10 5 18 0s12 5 18 0" fill="none" stroke="var(--w1)" stroke-width="3.2" stroke-linecap="round"/><path d="M14 28c6-5 10 5 18 0s12 5 18 0" fill="none" stroke="var(--w2)" stroke-width="3.2" stroke-linecap="round"/><path d="M14 37c6-5 10 5 18 0s12 5 18 0" fill="none" stroke="var(--w3)" stroke-width="3.2" stroke-linecap="round"/></symbol></svg>
 <nav>
   <a class="nav-logo" href="science-comms.html" aria-label="Back to sample work"><span class="mark" aria-hidden="true">TC</span><span>Timothy Castillon</span></a>
   <ul class="nav-links"><li><a href="#strategy">Strategy</a></li><li><a href="#review">Source review</a></li><li><a href="#posts">Post samples</a></li><li><a href="#brand">Branding</a></li></ul>
@@ -220,7 +201,7 @@ footer span{color:var(--gold)}
 <header class="hero">
   <p class="k">Output 03 · Social media package · IPCC WGI application</p>
   <h1>Climate science for people who never opened the report</h1>
-  <p class="l">A strategy and three working post mock-ups (LinkedIn carousel, Facebook, X) built from IPCC AR6 WGI baselines. Swipe, tap and expand them the way a reader would. Independent sample; not official IPCC material.</p>
+  <p class="l">A strategy and four ready-to-post samples, one approach per platform, built from IPCC AR6 WGI baselines. Independent sample; not official IPCC material.</p>
 </header>
 
 <section id="strategy"><div class="wrap">
@@ -233,12 +214,7 @@ footer span{color:var(--gold)}
     <div class="card"><h3>Hook in the first two lines</h3><p>Feeds fold long captions behind “…more”. Every caption opens with the finding and saves the explanation for the expand.</p></div>
     <div class="card"><h3>End on one question</h3><p>Each post closes with a single, jargon-free question. Comments show whether the translation worked.</p></div>
   </div>
-  <div class="fmt"><table>
-    <tr><th>Platform</th><th>Format</th><th>Job</th><th>What to watch</th></tr>
-    <tr><td>LinkedIn</td><td>5-slide carousel + conversational caption</td><td>Reach professionals and decision-makers; explain why long-term planning matters</td><td>Swipe-through rate, saves, comment quality</td></tr>
-    <tr><td>Facebook</td><td>Same carousel, And/But/Therefore caption</td><td>Reach parents and community groups where local impact is the hook</td><td>Shares into community groups, comments</td></tr>
-    <tr><td>X / Instagram</td><td>One stat card + short post</td><td>Fast, shareable takeaway; point back to the carousel</td><td>Reposts, replies, profile visits</td></tr>
-  </table></div>
+  <div class="fmt"><table><tr><th>Platform</th><th>Format</th><th>Job</th><th>What to watch</th></tr><tr><td>LinkedIn</td><td>5-card carousel (PDF) + conversational caption</td><td>Reach professionals and decision-makers; explain why long-term planning matters</td><td>Swipe-through rate, saves, comment quality</td></tr><tr><td>Facebook</td><td>One image + And/But/Therefore caption</td><td>One idea for parents and community groups, ending on a question that starts a conversation</td><td>Shares into community groups, comments</td></tr><tr><td>X</td><td>One stat card (16:9) + short post</td><td>A fast, shareable takeaway that points back to the carousel</td><td>Reposts, replies, profile visits</td></tr><tr><td>Instagram</td><td>One 4:5 illustration + caption</td><td>Make one concept easy to remember and save (weather vs climate)</td><td>Saves, shares, DMs</td></tr></table></div>
 </div></section>
 
 <section id="review" style="background:#fff"><div class="wrap">
@@ -263,7 +239,7 @@ footer span{color:var(--gold)}
     <article class="rv" data-k="keep"><span class="bd keep">Keep</span><h3>Colour that carries meaning</h3><p>No rainbow scales. Blue for ocean, green for land, and the official SSP colours for scenarios (now used on slide 4).</p><small>Style guide · Step 3</small></article>
     <article class="rv" data-k="keep"><span class="bd keep">Keep</span><h3>Plain labels, acronyms spelled out</h3><p>Say “carbon dioxide (CO₂)” once, avoid unexplained abbreviations, and show icons with text.</p><small>Style guide · Step 7</small></article>
 
-    <article class="rv" data-k="update"><span class="bd upd">Update</span><h3>Platform mix</h3><p>The guidance note names only Twitter and Facebook. The package now plans for LinkedIn, Facebook and X/Instagram with a format per platform. Short video is the next format to test.</p><small>Guidance note · p.2</small></article>
+    <article class="rv" data-k="update"><span class="bd upd">Update</span><h3>Platform mix</h3><p>The guidance note names only Twitter and Facebook. The package now plans for LinkedIn, Facebook, X and Instagram, with a different format and angle for each. Short video is the next format to test.</p><small>Guidance note · p.2</small></article>
     <article class="rv" data-k="update"><span class="bd upd">Update</span><h3>Evidence base is 2018 and UK/US-led</h3><p>The handbook says so itself. Treat its frames as hypotheses and test them with the audience you are actually writing for before scaling.</p><small>Handbook · p.4, p.12</small></article>
     <article class="rv" data-k="update"><span class="bd upd">Update</span><h3>Scepticism is no longer the only risk</h3><p>The handbook says not to worry unduly about scepticism. Comment sections now also carry misinformation, so each post needs a reply plan and a sources line.</p><small>Handbook · p.7 (a judgement call, not a quoted finding)</small></article>
     <article class="rv" data-k="update"><span class="bd upd">Update</span><h3>Report-figure rules, adapted for feeds</h3><p>The style guide targets printed figures: Arial, no bold, 9 or 11 pt, 9 or 18 cm wide, CMYK. Social cards need RGB, 4:5 format and larger type. This sample uses its own typefaces; an official WGI product would follow the guide's fonts.</p><small>Style guide · Steps 4, 6, 12</small></article>
@@ -272,34 +248,13 @@ footer span{color:var(--gold)}
     <article class="rv" data-k="add"><span class="bd add">Add</span><h3>Say in what capacity you speak</h3><p>Label personal views as personal and keep policy opinions out. Every post here is marked as an independent sample, not an IPCC product.</p><small>Guidance note · p.1; Handbook · Principle 1</small></article>
     <article class="rv" data-k="add"><span class="bd add">Add</span><h3>Cite published findings only</h3><p>Nothing from meetings or drafts. The cover previously cited a Lead Author Meeting as a source; it now cites AR6 chapters only.</p><small>Guidance note · p.1–2</small></article>
     <article class="rv" data-k="add"><span class="bd add">Add</span><h3>A human story and a “therefore”</h3><p>The Facebook caption now follows the handbook's And/But/Therefore template. Narrative should end on something people can do, or it feels overwhelming.</p><small>Handbook · Principle 4</small></article>
-    <article class="rv" data-k="add"><span class="bd add">Add</span><h3>Real people, local images</h3><p>The cliff cover is the classic landscape look. For live posts, pair findings with authentic local photos of people, per the Climate Visuals principles.</p><small>Handbook · Principle 6</small></article>
+    <article class="rv" data-k="add"><span class="bd add">Add</span><h3>Real people, local images</h3><p>These samples use graphics only. For live posts, pair findings with authentic local photos of people, per the Climate Visuals principles.</p><small>Handbook · Principle 6</small></article>
     <article class="rv" data-k="add"><span class="bd add">Add</span><h3>Test before you post</h3><p>Ask three people from the target audience what the main message is. If their answer differs from the intent, redraft. Use a fresh person each round.</p><small>Style guide · Step 10 (M.A.D.E.)</small></article>
-    <article class="rv" data-k="add"><span class="bd add">Add</span><h3>Standalone captions, controllable motion</h3><p>The first sentence works as the title, and the caption stays well under the guide's 250 words. Motion is triggered by the reader, and reduced-motion settings are respected.</p><small>Style guide · Steps 9, “Animate”</small></article>
+    <article class="rv" data-k="add"><span class="bd add">Add</span><h3>Standalone captions and images</h3><p>The first sentence works as the title, and each caption stays well under the guide's 250 words. Every image makes sense on its own, with no animation or tapping needed.</p><small>Style guide · Step 9</small></article>
   </div>
 </div></section>
 
-<section id="posts"><div class="wrap">
-  <p class="k2">Post samples</p>
-  <h2>Try the posts</h2>
-  <p class="sub">Swipe the carousel, tap the bars and chips, expand the caption, like the post. Switch platforms to see the same story re-cut.</p>
-  <div class="tabs" role="tablist" aria-label="Platform">
-    <button class="tab" role="tab" aria-selected="true" data-p="li">LinkedIn carousel</button>
-    <button class="tab" role="tab" aria-selected="false" data-p="fb">Facebook</button>
-    <button class="tab" role="tab" aria-selected="false" data-p="x">X / Instagram short post</button>
-    <button class="tab" role="tab" aria-selected="false" data-p="reel">Short video (reel)</button>
-  </div>
-
-  <div class="stage" id="stage">
-    <div>
-      <!-- LinkedIn -->
-      <div class="panel post" id="p-li">
-        <div class="ph" data-a="Author + role">
-          <div class="av" aria-hidden="true">TC</div>
-          <div class="who"><b>Timothy Castillon</b><small>Science communicator · independent sample, not speaking for the IPCC</small><small>1h · 🌐</small></div>
-          <span class="fol">+ Follow</span>
-        </div>
-        <div class="cap" data-a="Hook: first 2 lines">
-<span class="clip"><b>🌊 91% of the extra heat we've trapped is in the ocean, not the air.</b> Here's why that changes how we plan. <button class="moreb" data-more>…more</button></span><span class="more"><b>🌊 91% of the extra heat we've trapped is in the ocean, not the air.</b> Here's why that changes how we plan.
+<section id="posts"><div class="wrap"><p class="k2">Post samples</p><h2>One story, four ways</h2><p class="sub">Each platform gets its own format and angle. The image files are in the social-assets folder.</p><div class="tabs" role="tablist" aria-label="Platform" id="ptabs"><button class="tab" role="tab" aria-selected="true" data-p="li">LinkedIn</button><button class="tab" role="tab" aria-selected="false" data-p="fb">Facebook</button><button class="tab" role="tab" aria-selected="false" data-p="x">X</button><button class="tab" role="tab" aria-selected="false" data-p="ig">Instagram</button></div><div class="stage" id="stage"><div><div class="panel post" id="p-li"><div class="ph"><div class="av" aria-hidden="true">TC</div><div class="who"><b>Timothy Castillon</b><small>Science communicator · independent sample, not speaking for the IPCC</small><small>1h · 🌐</small></div><span class="fol">+ Follow</span></div><div class="cap"><span class="clip"><b>🌊 91% of the extra heat we've trapped is in the ocean, not the air.</b> Here's why that changes how we plan. <button class="moreb" data-more>…more</button></span><span class="more"><b>🌊 91% of the extra heat we've trapped is in the ocean, not the air.</b> Here's why that changes how we plan.
 
 You don't need a background in climate physics to see why this science matters in everyday life. You just need the right translation.
 
@@ -313,153 +268,33 @@ You don't need a background in climate physics to see why this science matters i
 
 <span class="tag">#ScienceCommunication #ClimateLiteracy #IPCC #ClimateExplainer</span>
 
-Independent science-communication sample based on IPCC AR6 WGI; not an official IPCC product.</span></div>
-        <div id="li-slot"></div>
-        <div class="stats"><span>👍❤️💡 <span data-likes="389">389</span></span><span>78 comments · 41 reposts</span></div>
-        <div class="acts-bar" data-a="CTA: invite comments">
-          <button class="ab" data-like><svg viewBox="0 0 24 24"><path d="M7 11v9H4v-9zM7 11l4-8c1.5 0 2.5 1 2.2 2.6L12.7 9H19a2 2 0 0 1 2 2.4l-1.3 7A2 2 0 0 1 17.7 20H7"/></svg>Like</button>
-          <button class="ab"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg>Comment</button>
-          <button class="ab"><svg viewBox="0 0 24 24"><path d="M4 12V9a3 3 0 0 1 3-3h11l-3-3M20 12v3a3 3 0 0 1-3 3H6l3 3"/></svg>Repost</button>
-          <button class="ab"><svg viewBox="0 0 24 24"><path d="M21 3 3 10l7 3 3 7z"/></svg>Send</button>
-        </div>
-      </div>
-
-      <!-- Facebook -->
-      <div class="panel post fb" id="p-fb" hidden>
-        <div class="ph">
-          <div class="av" aria-hidden="true">TC</div>
-          <div class="who"><b>Timothy Castillon</b><small>Just now · 🌐</small></div>
-        </div>
-        <div class="cap" data-a="And, But, Therefore story">
-The weather looks calm this week, and the planet is still warming. 🌊
+Independent science-communication sample based on IPCC AR6 WGI; not an official IPCC product.</span></div><div class="car" id="car" aria-roledescription="carousel" aria-label="LinkedIn carousel, 5 cards" tabindex="0"><div class="cnt" id="cnt">1 / 5</div><button class="nb prev" aria-label="Previous card">‹</button><button class="nb next" aria-label="Next card">›</button><div class="track" id="track"><img class="si" src="social-assets/linkedin-1.png" alt="Cover card: 91% of excess heat goes into the ocean. 46% of emitted CO2 stays in the air." width="1080" height="1350"><img class="si" src="social-assets/linkedin-2.png" alt="Bar showing where annual CO2 emissions go: 46% stays in the air, 31% is absorbed by land, 23% by the ocean." width="1080" height="1350" loading="lazy"><img class="si" src="social-assets/linkedin-3.png" alt="About 435 zettajoules of excess heat gained from 1971 to 2018: 91% went into the ocean, 5% land, 3% ice, 1% air." width="1080" height="1350" loading="lazy"><img class="si" src="social-assets/linkedin-4.png" alt="Bar chart of warming by 2081 to 2100 under five pathways, from 1.4 to 4.4 degrees Celsius, compared with 1.09 degrees today." width="1080" height="1350" loading="lazy"><img class="si" src="social-assets/linkedin-5.png" alt="Three practical ways to engage: spot weather versus climate, ask leaders how risk is planned, share a clear explainer." width="1080" height="1350" loading="lazy"></div></div><div class="dots" id="dots"></div><div class="stats"><span>👍❤️💡 389</span><span>78 comments · 41 reposts</span></div><div class="acts-bar"><span class="ab"><svg viewBox="0 0 24 24"><path d="M7 11v9H4v-9zM7 11l4-8c1.5 0 2.5 1 2.2 2.6L12.7 9H19a2 2 0 0 1 2 2.4l-1.3 7A2 2 0 0 1 17.7 20H7"/></svg>Like</span><span class="ab"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg>Comment</span><span class="ab"><svg viewBox="0 0 24 24"><path d="M4 12V9a3 3 0 0 1 3-3h11l-3-3M20 12v3a3 3 0 0 1-3 3H6l3 3"/></svg>Repost</span><span class="ab"><svg viewBox="0 0 24 24"><path d="M21 3 3 10l7 3 3 7z"/></svg>Send</span></div></div><div class="panel post fb" id="p-fb" hidden><div class="ph"><div class="av" aria-hidden="true">TC</div><div class="who"><b>Timothy Castillon</b><small>Just now · 🌐</small></div></div><div class="cap">The weather looks calm this week, and the planet is still warming. 🌊
 
 But 91% of the extra heat (1971–2018) went into the ocean, not the air, so its effects unfold over centuries. And 46% of the CO₂ we emitted in 2010–2019 stayed in the atmosphere.
 
-Therefore the choices made in the coming years shape what our kids inherit. Swipe for the plain-English version. Which card surprised you? <span class="tag">#ClimateLiteracy #EverydayScience</span>
+Therefore the choices made in the coming years shape what our kids inherit. What would you want your community to prepare for first? <span class="tag">#ClimateLiteracy #EverydayScience</span>
 
-Independent sample, not an IPCC product.</div>
-        <div id="fb-slot"></div>
-        <div class="stats"><span>👍❤️ <span data-likes="212">212</span></span><span>56 comments · 88 shares</span></div>
-        <div class="acts-bar">
-          <button class="ab" data-like><svg viewBox="0 0 24 24"><path d="M7 11v9H4v-9zM7 11l4-8c1.5 0 2.5 1 2.2 2.6L12.7 9H19a2 2 0 0 1 2 2.4l-1.3 7A2 2 0 0 1 17.7 20H7"/></svg>Like</button>
-          <button class="ab"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg>Comment</button>
-          <button class="ab"><svg viewBox="0 0 24 24"><path d="M21 3 3 10l7 3 3 7z"/></svg>Share</button>
-        </div>
-      </div>
+Independent sample, not an IPCC product.</div><img class="pimg" src="social-assets/facebook-post.png" alt="The weather looks calm. The planet is still warming. 91% of the extra heat from 1971 to 2018 went into the ocean, not the air." width="1080" height="1350" loading="lazy"><div class="stats"><span>👍❤️ 212</span><span>56 comments · 88 shares</span></div><div class="acts-bar"><span class="ab"><svg viewBox="0 0 24 24"><path d="M7 11v9H4v-9zM7 11l4-8c1.5 0 2.5 1 2.2 2.6L12.7 9H19a2 2 0 0 1 2 2.4l-1.3 7A2 2 0 0 1 17.7 20H7"/></svg>Like</span><span class="ab"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg>Comment</span><span class="ab"><svg viewBox="0 0 24 24"><path d="M4 12V9a3 3 0 0 1 3-3h11l-3-3M20 12v3a3 3 0 0 1-3 3H6l3 3"/></svg>Share</span><span class="ab"><svg viewBox="0 0 24 24"><path d="M21 3 3 10l7 3 3 7z"/></svg>Send</span></div></div><div class="panel post xpost" id="p-x" hidden><div class="ph"><div class="av" aria-hidden="true">TC</div><div class="who"><b>Timothy Castillon</b><small>@tcastillon · now</small></div></div><div class="cap" id="xcap">Most of the extra heat we've trapped is in the ocean, not the air.
 
-      <!-- X -->
-      <div class="panel post xpost" id="p-x" hidden>
-        <div class="ph">
-          <div class="av" aria-hidden="true">TC</div>
-          <div class="who"><b>Timothy Castillon</b><small>@tcastillon · now</small></div>
-        </div>
-        <div class="cap" id="xcap" data-a="Under 280 characters">Weather is this week's forecast. Climate is the pattern over decades.
+🌊 91% of the excess heat (1971–2018) went into the ocean
+💨 46% of CO₂ emitted in 2010–2019 stayed in the air
 
-🌊 91% of Earth's excess heat (1971–2018, ~435 ZJ) went into the ocean.
-💨 46% of CO₂ emitted in 2010–2019 stayed in the air.
+What climate question do you want answered without jargon?</div><img class="ximg" src="social-assets/x-post.png" alt="Two stats: 91% of Earth's excess heat went into the ocean (1971 to 2018); 46% of CO2 emitted in 2010 to 2019 stayed in the air." width="1600" height="900" loading="lazy"><div class="ctr"><span id="chars"></span><span>Source: IPCC AR6 WGI</span></div><div class="acts-bar"><span class="ab"><svg viewBox="0 0 24 24"><path d="M12 20s-8-5-8-11a4.5 4.5 0 0 1 8-2.5A4.5 4.5 0 0 1 20 9c0 6-8 11-8 11z"/></svg>934</span><span class="ab"><svg viewBox="0 0 24 24"><path d="M4 12V9a3 3 0 0 1 3-3h11l-3-3M20 12v3a3 3 0 0 1-3 3H6l3 3"/></svg>212</span><span class="ab"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg>47</span></div></div><div class="panel post ig" id="p-ig" hidden><div class="ph"><div class="av" aria-hidden="true">TC</div><div class="who"><b>tcastillon</b><small>Independent sample</small></div></div><img class="pimg" src="social-assets/instagram-post.png" alt="Illustration of a jagged weather line rising along a straight climate trend line. Illustration only, not data." width="1080" height="1350" loading="lazy"><div class="igbar"><svg viewBox="0 0 24 24"><path d="M12 20s-8-5-8-11a4.5 4.5 0 0 1 8-2.5A4.5 4.5 0 0 1 20 9c0 6-8 11-8 11z"/></svg><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg><svg viewBox="0 0 24 24"><path d="M21 3 3 10l7 3 3 7z"/></svg></div><div class="iglikes">1,204 likes</div><div class="cap"><b>tcastillon</b> Weather is this week's forecast. Climate is the pattern over decades. 🌡️
 
-👇 What climate question do you want answered without jargon?</div>
-        <div class="xcard" data-a="One-glance visual"><div><span class="big" data-count="91">0</span><span class="big">%</span><small>of excess heat went into the ocean</small></div><div><span class="big" data-count="46">0</span><span class="big">%</span><small>of emitted CO₂ stayed in the air</small></div></div>
-        <div class="ctr"><span id="chars"></span><span>Source: IPCC AR6 WGI</span></div>
-        <div class="acts-bar">
-          <button class="ab" data-like><svg viewBox="0 0 24 24"><path d="M12 20s-8-5-8-11a4.5 4.5 0 0 1 8-2.5A4.5 4.5 0 0 1 20 9c0 6-8 11-8 11z"/></svg><span data-likes="934">934</span></button>
-          <button class="ab"><svg viewBox="0 0 24 24"><path d="M4 12V9a3 3 0 0 1 3-3h11l-3-3M20 12v3a3 3 0 0 1-3 3H6l3 3"/></svg>212</button>
-          <button class="ab"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg>47</button>
-        </div>
-      </div>
-    
-      <!-- Reel -->
-      <div class="panel reel" id="p-reel" hidden>
-        <div class="phone" id="phone" aria-label="Short video preview, 15 seconds, 5 scenes">
-          <div class="rbars" id="rbars"></div>
-          <div class="rhead"><span class="av">TC</span><div><b>Timothy Castillon</b><small>Independent sample · not IPCC</small></div></div>
-          <div class="scene" id="scene" aria-live="polite"></div>
-          <button class="rtap l" id="rprev" aria-label="Previous scene"></button>
-          <button class="rtap r" id="rnext" aria-label="Next scene"></button>
-          <div class="rsrc" id="rsrc"></div>
-        </div>
-        <div class="rctl"><button class="sw" id="rplay" aria-pressed="false">Pause</button><button class="sw" id="rrep">Replay</button><span class="rt">15 sec · 5 scenes · tap the sides to skip</span></div>
-      </div>
-    </div>
+One cold day doesn't cancel a warming trend, and one hot day doesn't prove it. The pattern is what the IPCC assesses: surface temperature was already +1.09°C in 2011–2020 vs 1850–1900.
 
-    <aside class="side">
-      <h3>Why this post is built this way</h3>
-      <ul>
-        <li>The cover states the finding and a question, so the swipe has a reason.</li>
-        <li>One idea per card; every card shows its source line.</li>
-        <li>Interactive elements let readers test the number (tap a bar, pick a scenario) instead of just reading it.</li>
-        <li>The caption's first two lines work even if nobody taps “…more”.</li>
-        <li>The reel puts pause, replay and skip in the reader's hands, as the style guide advises for animation.</li>
-      </ul>
-      <button class="sw" id="anat" aria-pressed="false">Show post anatomy</button>
-      <p class="note">Engagement numbers and the handle are placeholders for layout only. Sources: IPCC AR6 WGI (SPM A.4.1, Table SPM.1, Ch. 5 Table 5.1). Published findings only.</p>
-      <p class="note" style="margin-top:.6rem;border:0;padding-top:0">Photos: cover supplied by the author; waves at Lysekil by W.Carter, Wikimedia Commons, CC BY-SA 4.0; cement plant by Anthony Maw, harbour by Tarek Badr, wildfire by Matt Palmer and gathering by Markus Spiske, via Unsplash (Unsplash License). Before publishing, swap in your own authentic photos of local people, as the handbook advises.</p>
-    </aside>
-  </div>
-</div></section>
+Save this for the next time someone says “but it snowed today.”
 
-<!-- Carousel (moved between LinkedIn and Facebook) -->
-<div id="carwrap" hidden>
-<div class="car" id="car" aria-roledescription="carousel" aria-label="Climate explainer carousel" tabindex="0" data-a="5-slide carousel">
-  <div class="cnt" id="cnt">1 / 5</div>
-  <button class="nb prev" aria-label="Previous slide">‹</button>
-  <button class="nb next" aria-label="Next slide">›</button>
-  <div class="track" id="track">
-    <div class="slide s1 on"><span class="em2" aria-hidden="true">🌊</span><div class="top">IPCC WORKING GROUP I · PHYSICAL SCIENCE BASIS</div>
-      <h4>91% of excess heat goes into the ocean. 46% of emitted CO₂ stays in the air.</h4>
-      <p class="q">How do we help decision-makers feel the urgency of slow-moving ocean commitments before impacts become irreversible?</p>
-      <div class="swipe">Swipe for the plain-English version ›</div>
-      <div class="src">Sources: IPCC WGI AR6 (SPM, Ch. 5, Ch. 7)</div></div>
+What climate question do you want answered in plain English?
 
-    <div class="slide"><span class="em2" aria-hidden="true">🚰</span><div class="top">THE SINK ANALOGY</div>
-      <h4>Think of CO₂ like water in a sink with a small drain</h4>
-      <p class="b">Humans emitted roughly 40 Gt of CO₂ a year (2010–2019). Land and ocean drains took just over half.</p>
-      <div class="bar" data-bar='[["💨 In the air",46,"#e2c68c","≈18 Gt a year stays in the atmosphere and builds up, like a sink filling."],["🌳 Land",31,"#8fc7a5","≈12 Gt a year is absorbed by land sinks."],["🌊 Ocean",23,"#6fb1dd","≈9 Gt a year is absorbed by ocean sinks."]]'></div>
-      <div class="read">Tap a segment.</div>
-      <div class="src">IPCC AR6 Ch. 5 / Table 5.1. Gt values are approximate shares of 40 Gt.</div></div>
+<span class="tag">#ClimateLiteracy #ScienceCommunication #IPCC</span>
 
-    <div class="slide"><span class="em2" aria-hidden="true">🌡️</span><div class="top">WHY THE OCEAN MATTERS</div>
-      <div class="big">~435 ZJ</div>
-      <h4>The ocean is Earth's giant shock absorber</h4>
-      <p class="b">Excess heat gained between 1971 and 2018. Water holds so much heat that ocean warming and sea-level rise continue for centuries.</p>
-      <div class="bar" data-bar='[["🌊 Ocean",91,"#6fb1dd","91%: absorbed by the ocean."],["🌳 Land",5,"#8fc7a5","5%: warmed the land."],["🧊 Ice",3,"#d6e6f2","3%: melted the cryosphere."],["💨 Air",1,"#e2c68c","1%: warmed the atmosphere directly."]]'></div>
-      <div class="read">Tap a segment.</div>
-      <div class="src">IPCC AR6 SPM A.4.1</div></div>
-
-    <div class="slide"><span class="em2" aria-hidden="true">🧭</span><div class="top">CHOICES SHAPE THE OUTCOME</div>
-      <h4>Future warming isn't set in stone. It's a choice.</h4>
-      <p class="b">Observed warming was already +1.09°C in 2011–2020 vs 1850–1900 (marked in white). Pick a pathway to 2081–2100:</p>
-      <div class="chips" data-chips='[["Very low",1.4,"#00ADCF","SSP1-1.9"],["Low",1.8,"#173C66","SSP1-2.6"],["Intermediate",2.7,"#F79420","SSP2-4.5"],["High",3.6,"#E71D25","SSP3-7.0"],["Very high",4.4,"#951B1E","SSP5-8.5"]]'></div>
-      <div><div class="therm"><u style="left:calc((1.09 - 0.5)/4.5*100%)"></u><i id="mk"></i></div><div class="scale"><span>0.5°C</span><span>5°C</span></div></div>
-      <div class="read" id="tread">Tap a scenario.</div>
-      <div class="src">IPCC AR6 Table SPM.1 (best estimates, vs 1850–1900)</div></div>
-
-    <div class="slide"><span class="em2" aria-hidden="true">🤝</span><div class="top">WHAT YOU CAN DO &amp; ASK</div>
-      <h4>Three practical ways non-scientists can engage</h4>
-      <div class="acts">
-        <button class="act" aria-expanded="false">🌦️ Spot weather vs climate<span>Weather is this week's heat or rain. Climate is the pattern over decades.</span></button>
-        <button class="act" aria-expanded="false">🗣️ Ask leaders how risk is planned<span>Try: “How are heat, flood and supply-chain risks in our plans?”</span></button>
-        <button class="act" aria-expanded="false">📣 Share a clear explainer<span>Lead with a human story, then the number. Skip the jargon.</span></button>
-      </div>
-      <div class="src">Independent sample based on published IPCC AR6 WGI findings; not an official IPCC publication.</div></div>
-  </div>
-</div>
-<div class="dots" id="dots"></div>
-</div>
+Independent sample, not an IPCC product.</div></div></div><aside class="side"><h3 id="sh"></h3><p id="st"></p><div class="dl" id="sd"></div><p class="note">Engagement numbers and the handle are placeholders for layout only. Sources: IPCC AR6 WGI (SPM A.4.1, Table SPM.1, Ch. 5 Table 5.1). Published findings only.</p></aside></div></div></section>
 
 <section id="brand"><div class="wrap">
   <p class="k2">Branding</p>
   <h2>One look across every post</h2>
-  <p class="sub">The brand is deliberately independent. It borrows the IPCC's accessibility rules for data colour, but never its logo, wordmark or typefaces, so no reader mistakes it for an official product.</p>
-  <div class="logoblk">
-    <h3 class="bh">Logo <small>(a speech bubble holding waves: science in plain words. “Plain Climate” is a placeholder name)</small></h3>
-    <div class="lgrow">
-      <div class="lgcard"><svg class="lg" width="64" height="64" role="img" aria-label="Logo mark"><use href="#lgm"/></svg><div class="wm"><b>Plain Climate</b><small>Independent science communication</small></div></div>
-      <div class="lgcard nv"><svg class="lg dk" width="64" height="64" role="img" aria-label="Logo mark, reversed"><use href="#lgm"/></svg><div class="wm"><b>Plain Climate</b><small>Independent science communication</small></div></div>
-      <div class="lgcard sz"><svg class="lg" width="48" height="48" aria-hidden="true"><use href="#lgm"/></svg><svg class="lg" width="32" height="32" aria-hidden="true"><use href="#lgm"/></svg><svg class="lg" width="20" height="20" aria-hidden="true"><use href="#lgm"/></svg><small>Reads down to favicon size</small></div>
-    </div>
-    <p class="lgn">Keep clear space equal to the bubble's tail on all sides. Never add “IPCC” or “WGI” to the mark, never use the IPCC logo beside it, and never recolour the waves. The files <b>logo-mark.svg</b> and <b>logo-lockup.svg</b> are included.</p>
-  </div>
+  <p class="sub">One consistent look across every post. It borrows the IPCC's accessibility rules for data colour, but not its logo or typefaces, and every sample is labelled as independent.</p>
   <div class="bgrid">
     <div>
       <h3 class="bh">Palette <small>(click a swatch to copy it)</small></h3>
@@ -473,31 +308,53 @@ Independent sample, not an IPCC product.</div>
       <h3 class="bh">Card templates</h3>
       <div class="tpl">
         <div class="tp"><i class="b1"></i><b>Cover</b><small>Finding + question</small></div>
-        <div class="tp"><i class="b2"></i><b>Explain</b><small>Analogy + tap</small></div>
+        <div class="tp"><i class="b2"></i><b>Explain</b><small>Analogy + chart</small></div>
         <div class="tp"><i class="b3"></i><b>Number</b><small>One figure + split</small></div>
         <div class="tp"><i class="b4"></i><b>Action</b><small>What you can do</small></div>
       </div>
     </div>
   </div>
   <div class="rules">
-    <div class="card"><h3>Do</h3><p>Keep a gold top bar, a sources line on every card and the “independent sample” label on the last card. Use one message per card.</p></div>
-    <div class="card"><h3>Don't</h3><p>Don't use the IPCC logo or wordmark, red and green together, rainbow scales, or icons that rely on one culture, such as wheat and tractors for farming.</p></div>
+    <div class="card"><h3>Do</h3><p>Keep a gold top bar, a sources line on every card, “IPCC Working Group I” in the footer and the “independent sample” label on the last card. Use one message per card.</p></div>
+    <div class="card"><h3>Don't</h3><p>Don't use the IPCC logo, red and green together, rainbow scales, or icons that rely on one culture, such as wheat and tractors for farming.</p></div>
     <div class="card"><h3>If this became official</h3><p>Switch to the TSU's visual identity, Arial or Frutiger for figure text, and the IPCC colour files, and route posts through the WGI communications team.</p></div>
   </div>
 </div></section>
+
+
+<section class="tcx" aria-labelledby="tcxHeading">
+  <div class="tcx-wrap">
+    <div class="tcx-note">
+      <p class="tcx-k">Process note</p>
+      <h2 id="tcxHeading">How I built this</h2>
+      <ul>
+      <li>The strategy was checked against three public WGI documents: the guidance note on communicating with the media and the public, the Climate Outreach handbook for IPCC authors, and the WGI visual style guide. The source review table shows what I kept, updated or added.</li>
+      <li>Each post opens with a plain analogy, then the number, then the source. The analogy never replaces the figure.</li>
+      <li>Uncertainty stays in the post. Where the report gives a range or a confidence level, the card says it in everyday words.</li>
+      <li>Posts stay on what the physical science says. They don’t recommend policy, which keeps them inside Working Group I’s remit.</li>
+      <li>This is not official, and no IPCC author has reviewed it. A real post would go through the TSU communications team and an author check first.</li>
+      </ul>
+    </div>
+    <aside class="tcx-disc" role="note" aria-label="Disclaimer">
+      <p class="tcx-k">Disclaimer</p>
+      <p>Prepared as a <strong>sample for a job application</strong> to the IPCC Working Group I Technical Support Unit (Communication Officer role). It is independent work by Timothy Castillon.</p><p>It is not an official IPCC product and has not been reviewed or endorsed by the IPCC, its Working Group I TSU, or any organisation named on the page. The IPCC is named only to identify the source material.</p>
+    </aside>
+  </div>
+</section>
 
 <footer><p>© 2026 <span>Timothy Earl Mateo Castillon</span>. All rights reserved.</p></footer>
 
 <script>
 (function(){
-  var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
-  var car=$('#car'),track=$('#track'),slides=$$('.slide',track),n=slides.length,i=0,dots=$('#dots');
-  slides.forEach(function(_,k){var b=document.createElement('button');b.className='dot';b.setAttribute('aria-label','Go to slide '+(k+1));b.onclick=function(){go(k)};dots.appendChild(b)});
+  var $=function(q,r){return (r||document).querySelector(q)},$$=function(q,r){return Array.prototype.slice.call((r||document).querySelectorAll(q))};
+  // LinkedIn carousel (native feeds swipe through still pages)
+  var car=$('#car'),track=$('#track'),pages=$$('img',track),n=pages.length,i=0,dots=$('#dots');
+  pages.forEach(function(_,k){var b=document.createElement('button');b.className='dot';b.setAttribute('aria-label','Go to card '+(k+1));b.onclick=function(){go(k)};dots.appendChild(b)});
   function go(k){
     i=Math.max(0,Math.min(n-1,k));
     track.style.transform='translateX(-'+i*100+'%)';
-    slides.forEach(function(s,j){s.classList.toggle('on',j===i);s.setAttribute('aria-hidden',j!==i)});
-    $$('.dot').forEach(function(d,j){j===i?d.setAttribute('aria-current','true'):d.removeAttribute('aria-current')});
+    pages.forEach(function(p,j){p.setAttribute('aria-hidden',j!==i)});
+    $$('.dot',dots).forEach(function(d,j){j===i?d.setAttribute('aria-current','true'):d.removeAttribute('aria-current')});
     $('#cnt').textContent=(i+1)+' / '+n;
     $('.prev').disabled=i===0;$('.next').disabled=i===n-1;
   }
@@ -505,56 +362,34 @@ Independent sample, not an IPCC product.</div>
   car.addEventListener('keydown',function(e){if(e.key==='ArrowRight')go(i+1);if(e.key==='ArrowLeft')go(i-1)});
   var x0=null;
   car.addEventListener('pointerdown',function(e){x0=e.clientX});
-  car.addEventListener('pointerup',function(e){if(x0!==null){var d=e.clientX-x0;if(Math.abs(d)>45&&!e.target.closest('.seg,.chip,.act'))go(i+(d<0?1:-1));x0=null}});
+  car.addEventListener('pointerup',function(e){if(x0!==null){var d=e.clientX-x0;if(Math.abs(d)>45)go(i+(d<0?1:-1));x0=null}});
+  go(0);
 
-  // segmented bars
-  $$('[data-bar]').forEach(function(bar){
-    var d=JSON.parse(bar.dataset.bar),read=bar.parentNode.querySelector('.read');
-    d.forEach(function(r){
-      var b=document.createElement('button');b.className='seg';b.style.setProperty('--w',r[1]+'%');b.style.background=r[2];
-      b.textContent=r[1]>=8?r[1]+'%':'';b.setAttribute('aria-label',r[0]+' '+r[1]+'%');b.setAttribute('aria-pressed','false');
-      b.onclick=function(){$$('.seg',bar).forEach(function(s){s.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');read.textContent=r[0]+' · '+r[3]};
-      bar.appendChild(b);
-    });
-  });
-  // scenarios
-  var ch=$('[data-chips]'),cd=JSON.parse(ch.dataset.chips),mk=$('#mk'),tr=$('#tread');
-  cd.forEach(function(r){
-    var b=document.createElement('button');b.className='chip';b.textContent=r[0];b.setAttribute('aria-pressed','false');
-    b.onclick=function(){$$('.chip').forEach(function(c){c.setAttribute('aria-pressed','false');c.style.background='';c.style.color='';c.style.borderColor=''});b.setAttribute('aria-pressed','true');b.style.background=r[2];b.style.borderColor='#fff';b.style.color=/^#(00AD|F794)/.test(r[2])?'#001228':'#fff';mk.style.background=r[2];
-      mk.style.left='calc('+((r[1]-0.5)/4.5*100)+'% - .5cqw)';tr.textContent=r[3]+' · '+r[0]+' emissions: about +'+r[1]+'°C by 2081–2100, about '+(r[1]-1.09).toFixed(1)+'°C more than today.'};
-    ch.appendChild(b);
-  });
-  mk.style.left='-2%';
-  $$('.act').forEach(function(a){a.onclick=function(){a.setAttribute('aria-expanded',a.getAttribute('aria-expanded')!=='true')}});
-
-  // caption expand, likes
+  // caption "...more"
   $$('[data-more]').forEach(function(b){b.onclick=function(){b.closest('.cap').classList.add('open')}});
-  $$('[data-like]').forEach(function(b){b.onclick=function(){
-    var on=b.classList.toggle('liked'),c=b.closest('.post').querySelector('[data-likes]');
-    if(on){var po=b.closest('.post'),pr=po.getBoundingClientRect(),br=b.getBoundingClientRect(),E=['❤️','👍','💡','🌊','✨','🌍'];for(var q=0;q<5;q++){var f=document.createElement('span');f.className='fly';f.textContent=E[Math.floor(Math.random()*E.length)];f.style.left=(br.left-pr.left+10+q*9)+'px';f.style.top=(br.top-pr.top-8)+'px';f.style.animationDelay=(q*70)+'ms';po.appendChild(f);(function(n){setTimeout(function(){n.remove()},1300)})(f)}}
-    c.textContent=(+c.dataset.likes)+(on?1:0);
-    if(b.querySelector('[data-likes]'))b.querySelector('[data-likes]').textContent=(+c.dataset.likes)+(on?1:0);
-  }});
 
-  // tabs + carousel move
-  var wrap=$('#carwrap');
+  // platform tabs
+  var INFO={
+    li:{h:'LinkedIn: carousel for professionals',t:'Five cards, one idea each, every card sourced. Upload the PDF as a document post and it appears as a swipeable carousel.',f:[['Download carousel (PDF)','social-assets/linkedin-carousel.pdf']]},
+    fb:{h:'Facebook: one image, one question',t:'A calm-weather hook, one number and a question for the community. A single image reads fast in the feed and travels well into groups.',f:[['Download image (PNG)','social-assets/facebook-post.png']]},
+    x:{h:'X: one stat card',t:'Two numbers that read in a second, with a short post. The reply can link to the LinkedIn carousel for the full story.',f:[['Download image (PNG)','social-assets/x-post.png']]},
+    ig:{h:'Instagram: one illustration',t:'One concept made easy to save and share. The image is marked as an illustration, not data.',f:[['Download image (PNG)','social-assets/instagram-post.png']]}
+  };
   function show(p){
-    $$('.tab').forEach(function(t){t.setAttribute('aria-selected',t.dataset.p===p)});
-    ['li','fb','x','reel'].forEach(function(k){$('#p-'+k).hidden=k!==p});
-    if(p==='li'||p==='fb'){var slot=$('#'+p+'-slot');slot.appendChild(car);slot.appendChild(dots);go(i)}
-    else if(p==='x')countUp();
-    if(p==='reel'){rshow(0);rplay(!matchMedia('(prefers-reduced-motion: reduce)').matches)}else rplay(false);
+    $$('#ptabs .tab').forEach(function(t){t.setAttribute('aria-selected',t.dataset.p===p)});
+    ['li','fb','x','ig'].forEach(function(k){$('#p-'+k).hidden=k!==p});
+    var d=INFO[p];$('#sh').textContent=d.h;$('#st').textContent=d.t;
+    $('#sd').innerHTML=d.f.map(function(f){return '<a class="sw" href="'+f[1]+'" download>'+f[0]+'</a>'}).join('');
   }
-  $$('.tab').forEach(function(t){t.onclick=function(){show(t.dataset.p)}});
-  function countUp(){$$('[data-count]').forEach(function(e){var t=+e.dataset.count,s=null;
-    function f(ts){if(!s)s=ts;var k=Math.min(1,(ts-s)/900);e.textContent=Math.round(t*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(f)}requestAnimationFrame(f)})}
-  var cap=$('#xcap').textContent;$('#chars').textContent=cap.length+' / 280 characters';
-  $('#anat').onclick=function(){var on=document.body.classList.toggle('anat');this.setAttribute('aria-pressed',on);this.textContent=on?'Hide post anatomy':'Show post anatomy'};
+  $$('#ptabs .tab').forEach(function(t){t.onclick=function(){show(t.dataset.p)}});
+  $('#chars').textContent=$('#xcap').textContent.length+' / 280 characters';
 
+  // source-review filter
   $$('#rv .tab').forEach(function(t){t.onclick=function(){
     $$('#rv .tab').forEach(function(x){x.setAttribute('aria-selected',x===t)});
     $$('.rv').forEach(function(c){c.hidden=t.dataset.f!=='all'&&c.dataset.k!==t.dataset.f})}});
+
+  // colour swatches
   function lum(h){var c=[1,3,5].map(function(k){var v=parseInt(h.substr(k,2),16)/255;return v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4)});return .2126*c[0]+.7152*c[1]+.0722*c[2]}
   function cr(a,b){var x=lum(a),y=lum(b);return ((Math.max(x,y)+.05)/(Math.min(x,y)+.05))}
   function sw(box,list){list.forEach(function(r){var b=document.createElement('button'),w=cr(r[1],'#ffffff'),k=cr(r[1],'#0b1420'),fg=w>=k?'#fff':'#0b1420';
@@ -564,54 +399,6 @@ Independent sample, not an IPCC product.</div>
   sw('#sws',[['Navy','#002147'],['Gold','#AB7D2C'],['Soft gold','#E2C68C'],['Ink','#0B1420'],['Fog','#F4F2EE'],['Ocean blue','#70A0CD']]);
   sw('#ssp',[['SSP1-1.9','#00ADCF'],['SSP1-2.6','#173C66'],['SSP2-4.5','#F79420'],['SSP3-7.0','#E71D25'],['SSP5-8.5','#951B1E']]);
 
-  var R=[
-    {e:'🌊',b:'91',u:'%',t:'of the extra heat went into the ocean',src:'IPCC AR6 SPM A.4.1 · 1971–2018',bg:'linear-gradient(170deg,#0b3a6b,#001228)'},
-    {e:'💨',b:'46',u:'%',t:'of the CO₂ we emitted stayed in the air',src:'IPCC AR6 Ch. 5 · 2010–2019',bg:'linear-gradient(170deg,#3a3320,#0b1420)'},
-    {e:'🚰',t:'Like a sink with a small drain',s:'The tap runs faster than the drain, so the water level rises.',sink:1,src:'Analogy: sink and drain',bg:'linear-gradient(170deg,#0b2a52,#001228)'},
-    {e:'🌡️',b:'+1.09',u:'°C',t:'warmer already (2011–2020 vs 1850–1900)',s:'Where we land by 2100 depends on emissions pathways.',src:'IPCC AR6 SPM · Table SPM.1',bg:'linear-gradient(170deg,#4a1f1c,#0b1420)'},
-    {e:'🤝',t:'What climate term should we explain in plain English?',s:'Tell us below. Independent sample, not an IPCC product.',src:'Based on published IPCC AR6 WGI findings',bg:'linear-gradient(170deg,#173C66,#001228)'}
-  ],ri=0,rtm=0,rtimer=null,RD=3000,rbars=$('#rbars');
-  rbars.innerHTML=R.map(function(){return '<i><u></u></i>'}).join('');
-  function rshow(k){
-    ri=Math.max(0,Math.min(R.length-1,k));rtm=0;var r=R[ri],sc=$('#scene');
-    sc.style.setProperty('--bg',r.bg);
-    sc.innerHTML='<div class="re">'+r.e+'</div>'+(r.b?'<div class="rb"><span data-n="'+r.b+'">'+r.b+'</span>'+r.u+'</div>':'')+'<div class="rt2">'+r.t+'</div>'+(r.sink?'<div class="sink"><div class="wat"></div></div>':'')+(r.s?'<div class="rs">'+r.s+'</div>':'');
-    $('#rsrc').textContent=r.src;rbg();
-    $$('#rbars u').forEach(function(u,j){u.style.width=j<ri?'100%':'0%'});
-    var n=$('[data-n]',sc);if(n&&/^\d+$/.test(n.dataset.n)){var t=+n.dataset.n,st=null;(function f(ts){if(!st)st=ts;var q=Math.min(1,(ts-st)/900);n.textContent=Math.round(t*(1-Math.pow(1-q,3)));if(q<1)requestAnimationFrame(f)})(performance.now())}
-  }
-  function rplay(on){
-    clearInterval(rtimer);rtimer=null;var b=$('#rplay');b.textContent=on?'Pause':'Play';b.setAttribute('aria-pressed',on);
-    if(on){rtimer=setInterval(function(){rtm+=100;$$('#rbars u')[ri].style.width=Math.min(100,rtm/RD*100)+'%';
-      if(rtm>=RD){if(ri===R.length-1){rplay(false);b.textContent='Play again'}else rshow(ri+1)}},100)}
-  }
-  $('#rplay').onclick=function(){if(!rtimer&&ri===R.length-1&&rtm>=RD)rshow(0);rplay(!rtimer)};
-  $('#rrep').onclick=function(){rshow(0);rplay(true)};
-  $('#rprev').onclick=function(){rshow(ri-1)};$('#rnext').onclick=function(){rshow(ri+1)};
-
-  /* Photo layer. Each URL loads in the background; if it fails or is offline the gradient stays.
-     To use your own photos, change the paths in PH (for example 'images/community-solar.jpg'). */
-  var PH={
-    cover:'social-cover.png',
-    cascade:'https://commons.wikimedia.org/wiki/Special:FilePath/Cascading_waves_at_Kallbadhuset_Lysekil.jpg?width=1200',
-    smoke:'https://images.unsplash.com/photo-1728919723462-9c7a7428f86d?fm=jpg&q=60&w=1200&auto=format&fit=crop',
-    harbor:'https://images.unsplash.com/photo-1618337805185-e7d8f468a29d?fm=jpg&q=60&w=1200&auto=format&fit=crop',
-    fire:'https://images.unsplash.com/photo-1615092296061-e2ccfeb2f3d6?fm=jpg&q=60&w=1200&auto=format&fit=crop',
-    people:'https://images.unsplash.com/photo-1570095378004-ce65d6c2d5bb?fm=jpg&q=60&w=1200&auto=format&fit=crop'
-  },LOADED={};
-  function ov(c,a,b){return 'linear-gradient(180deg,rgba('+c+','+a+'),rgba('+c+','+b+'))'}
-  var SL=[null,
-    {u:PH.smoke,o:ov('0,18,40',.5,.93),pos:'center'},
-    {u:PH.harbor,o:ov('0,18,40',.4,.9),pos:'center'},
-    {u:PH.fire,o:ov('60,24,20',.5,.93),pos:'center'},
-    {u:PH.people,o:ov('0,33,71',.55,.93),pos:'center'}];
-  var RB=[{u:PH.harbor,o:ov('0,30,60',.35,.85),pos:'center'},{u:PH.smoke,o:ov('20,16,8',.5,.9),pos:'center'},
-    {u:PH.cascade,o:ov('0,18,40',.4,.88),pos:'center'},{u:PH.fire,o:ov('60,24,20',.5,.9),pos:'center'},{u:PH.people,o:ov('0,33,71',.5,.9),pos:'center'}];
-  function setBg(el,c){if(c&&LOADED[c.u]){el.style.backgroundImage=c.o+',url("'+c.u+'")';el.style.backgroundSize='cover';el.style.backgroundPosition='center,'+c.pos;el.style.backgroundRepeat='no-repeat'}
-    else{el.style.backgroundImage='';el.style.backgroundSize='';el.style.backgroundPosition=''}}
-  function rbg(){setBg($('#scene'),RB[ri])}
-  function applyPhotos(){slides.forEach(function(el,k){if(SL[k])setBg(el,SL[k])});rbg()}
-  Object.keys(PH).forEach(function(k){var u=PH[k],im=new Image();im.onload=function(){LOADED[u]=1;applyPhotos()};im.src=u});
   /* Profile photo: put my_picture.png next to this file. If it is missing, the TC initials stay. */
   (function(){var im=new Image();im.onload=function(){document.documentElement.classList.add('has-photo')};im.src='my_picture.png'})();
   show('li');

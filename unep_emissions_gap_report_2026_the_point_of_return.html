@@ -145,6 +145,61 @@
       }
     }
   </style>
+
+<style id="tcx-process-css">
+  .tcx { background:#f4f2ee; color:#0b1420; font-family:'Inter',system-ui,sans-serif; padding:3.5rem 5vw; border-top:1px solid #e1ddd4; line-height:1.65; position:relative; z-index:1; width:100%; }
+  .tcx *, .tcx *::before, .tcx *::after { box-sizing:border-box; }
+  .tcx-wrap { max-width:1200px; margin:0 auto; display:grid; gap:1.5rem; grid-template-columns:1.35fr 1fr; align-items:start; }
+  @media (max-width:860px){ .tcx-wrap{ grid-template-columns:1fr; } }
+  .tcx-k { font-family:'Space Mono',monospace; font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:#ab7d2c; margin-bottom:.5rem; }
+  .tcx-note { background:#fff; border:1px solid #e1ddd4; border-top:3px solid #ab7d2c; border-radius:8px; padding:1.6rem 1.7rem; }
+  .tcx-note h2 { font-family:'DM Serif Display',Georgia,serif; font-weight:400; font-size:1.5rem; line-height:1.25; margin-bottom:.9rem; color:#0b1420; }
+  .tcx-note ul { list-style:none; display:grid; gap:.75rem; }
+  .tcx-note li { position:relative; padding-left:1.4rem; font-size:.9rem; color:#3b434d; }
+  .tcx-note li::before { content:''; position:absolute; left:0; top:.6em; width:.5rem; height:.5rem; border-radius:50%; background:#ab7d2c; }
+  .tcx-disc { background:#002147; color:#fff; border-radius:12px; border-left:5px solid #ab7d2c; padding:1.6rem 1.7rem; box-shadow:0 16px 40px rgba(0,33,71,.18); }
+  .tcx-disc .tcx-k { color:#e2c68c; }
+  .tcx-disc p { font-size:.9rem; color:rgba(255,255,255,.88); }
+  .tcx-disc p + p { margin-top:.7rem; font-size:.82rem; color:rgba(255,255,255,.7); }
+</style>
+
+<meta name="robots" content="noindex, nofollow, noarchive" />
+<meta name="googlebot" content="noindex, nofollow" />
+<style id="tcx-protect-css">
+  html, body { -webkit-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; }
+  input, textarea, select, [contenteditable="true"] { -webkit-user-select: text; user-select: text; }
+  img { -webkit-user-drag: none; user-drag: none; }
+</style>
+<script id="tcx-protect-js">
+  /* Deterrence only. It stops casual saving and copying, not a determined person. */
+  (function () {
+    var msg = 'Application sample by Timothy Castillon. Source download is disabled.';
+    function toast() {
+      var t = document.getElementById('tcxToast');
+      if (!t) {
+        t = document.createElement('div');
+        t.id = 'tcxToast'; t.setAttribute('role', 'status');
+        t.style.cssText = 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:99999;background:#002147;color:#fff;font:500 13px/1.4 Inter,system-ui,sans-serif;padding:10px 16px;border-radius:8px;border-bottom:3px solid #ab7d2c;box-shadow:0 8px 24px rgba(0,0,0,.25);opacity:0;transition:opacity .2s;pointer-events:none;max-width:90vw;text-align:center';
+        document.body.appendChild(t);
+      }
+      t.textContent = msg; t.style.opacity = '1';
+      clearTimeout(t._h); t._h = setTimeout(function () { t.style.opacity = '0'; }, 2200);
+    }
+    document.addEventListener('contextmenu', function (e) { e.preventDefault(); toast(); });
+    document.addEventListener('dragstart', function (e) { if (e.target && e.target.tagName === 'IMG') e.preventDefault(); });
+    document.addEventListener('keydown', function (e) {
+      var k = (e.key || '').toLowerCase();
+      var mod = e.ctrlKey || e.metaKey;
+      var block =
+        e.key === 'F12' ||
+        (mod && e.shiftKey && (k === 'i' || k === 'j' || k === 'c')) ||   /* DevTools */
+        (e.metaKey && e.altKey && (k === 'i' || k === 'j' || k === 'c' || k === 'u')) || /* Mac DevTools / source (Option changes the key on some layouts) */
+        (mod && (k === 'u' || k === 's' || k === 'p'));                   /* view source, save, print */
+      if (block) { e.preventDefault(); toast(); }
+    });
+  })();
+</script>
+
 </head>
 <body class="atmospheric-bg min-h-screen flex flex-col selection:bg-sky-500/30 selection:text-sky-200">
 
@@ -273,6 +328,27 @@
       </button>
     </div>
   </footer>
+
+
+<section class="tcx" aria-labelledby="tcxHeading">
+  <div class="tcx-wrap">
+    <div class="tcx-note">
+      <p class="tcx-k">Process note</p>
+      <h2 id="tcxHeading">How I built this</h2>
+      <ul>
+      <li>The numbers come from the UNEP Emissions Gap Report 2026. I kept UNEP’s own wording on overshoot, and on what is projected versus what is only pledged.</li>
+      <li>This is UNEP material, not Working Group I. Emissions pathways sit closer to mitigation than to physical science, so the deck labels its source and does not present these as WGI findings.</li>
+      <li>Projections appear as scenarios or ranges. I avoid wording that turns them into forecasts.</li>
+      <li>Colours are chosen to stay readable for colour-blind viewers and on a projector. There are no red-green pairs, and meaning never depends on colour alone.</li>
+      <li>Neither UNEP nor the IPCC has reviewed this. For a real launch I would ask the report authors to check every number on every slide.</li>
+      </ul>
+    </div>
+    <aside class="tcx-disc" role="note" aria-label="Disclaimer">
+      <p class="tcx-k">Disclaimer</p>
+      <p>Prepared as a <strong>sample for a job application</strong> to the IPCC Working Group I Technical Support Unit (Communication Officer role). It is independent work by Timothy Castillon.</p><p>It is not an official IPCC product and has not been reviewed or endorsed by the IPCC, its Working Group I TSU, or any organisation named on the page. The IPCC is named only to identify the source material.</p>
+    </aside>
+  </div>
+</section>
 
   <!-- Toast / Status Banner (replaces alert/confirm cleanly) -->
   <div id="statusToast" class="fixed bottom-20 right-5 z-50 hidden max-w-sm px-4 py-3 rounded-xl bg-[#001733]/95 border border-sky-300/40 text-xs text-white shadow-xl"></div>

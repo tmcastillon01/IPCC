@@ -470,7 +470,83 @@
       font-size: 0.7rem;
       color: var(--ink-secondary);
     }
+
+    /* ─── ATLAS LINK STRATEGY ─────────────────────────────── */
+    .atlas { border-top: 1px solid var(--border-hairline); padding-top: 1.4rem; margin-bottom: 1.6rem; }
+    .atlas-intro { display: grid; grid-template-columns: 1fr; gap: 1.25rem; margin-bottom: 1.25rem; align-items: start; }
+    .atlas .card .lead { font-size: .95rem; color: var(--ink-primary); font-weight: 500; line-height: 1.6; }
+    .atlas-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: .75rem; margin-top: .6rem; }
+    .atlas-link { display: flex; flex-direction: column; gap: .2rem; padding: .85rem 1rem; border: 1px solid var(--border); border-radius: var(--radius); background: #fff; transition: border-color .2s, transform .2s; min-height: 44px; }
+    .atlas-link:hover { border-color: var(--gold); transform: translateY(-2px); }
+    .atlas-link b { font-family: 'Space Mono', monospace; font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--sage); font-weight: 400; }
+    .atlas-link span { font-size: .84rem; color: #3b434d; line-height: 1.5; }
+    .atlas-link em { font-style: normal; font-family: 'Space Mono', monospace; font-size: .68rem; color: var(--gold); overflow-wrap: anywhere; }
+    .atlas-lines { display: grid; gap: .8rem; margin-top: .4rem; }
+    .atlas-lines blockquote { border-left: 3px solid var(--gold); background: var(--sage-lt); padding: .75rem 1rem; border-radius: 0 var(--radius) var(--radius) 0; font-size: .86rem; line-height: 1.6; color: var(--ink-primary); }
+    .atlas-lines blockquote small { display: block; font-family: 'Space Mono', monospace; font-size: .64rem; letter-spacing: .1em; text-transform: uppercase; color: var(--sage); margin-bottom: .25rem; }
+    .atlas-note { margin-top: .9rem; font-size: .8rem; color: var(--ink-secondary); line-height: 1.6; }
+    .atlas-jump { margin-top: .9rem; font-size: .85rem; }
+    .atlas-jump a { color: var(--sage); text-decoration: underline; text-underline-offset: 3px; font-weight: 500; }
+    .atlas-jump a:hover { color: var(--gold); }
+    .atlas .src td:first-child { white-space: normal; }
+    .atlas .src td { min-width: 150px; }
+    @media (min-width: 900px) { .atlas-intro { grid-template-columns: 1.1fr 1fr; } }
   </style>
+
+<style id="tcx-process-css">
+  .tcx { background:#f4f2ee; color:#0b1420; font-family:'Inter',system-ui,sans-serif; padding:3.5rem 5vw; border-top:1px solid #e1ddd4; line-height:1.65; position:relative; z-index:1; width:100%; }
+  .tcx *, .tcx *::before, .tcx *::after { box-sizing:border-box; }
+  .tcx-wrap { max-width:1200px; margin:0 auto; display:grid; gap:1.5rem; grid-template-columns:1.35fr 1fr; align-items:start; }
+  @media (max-width:860px){ .tcx-wrap{ grid-template-columns:1fr; } }
+  .tcx-k { font-family:'Space Mono',monospace; font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:#ab7d2c; margin-bottom:.5rem; }
+  .tcx-note { background:#fff; border:1px solid #e1ddd4; border-top:3px solid #ab7d2c; border-radius:8px; padding:1.6rem 1.7rem; }
+  .tcx-note h2 { font-family:'DM Serif Display',Georgia,serif; font-weight:400; font-size:1.5rem; line-height:1.25; margin-bottom:.9rem; color:#0b1420; }
+  .tcx-note ul { list-style:none; display:grid; gap:.75rem; }
+  .tcx-note li { position:relative; padding-left:1.4rem; font-size:.9rem; color:#3b434d; }
+  .tcx-note li::before { content:''; position:absolute; left:0; top:.6em; width:.5rem; height:.5rem; border-radius:50%; background:#ab7d2c; }
+  .tcx-disc { background:#002147; color:#fff; border-radius:12px; border-left:5px solid #ab7d2c; padding:1.6rem 1.7rem; box-shadow:0 16px 40px rgba(0,33,71,.18); }
+  .tcx-disc .tcx-k { color:#e2c68c; }
+  .tcx-disc p { font-size:.9rem; color:rgba(255,255,255,.88); }
+  .tcx-disc p + p { margin-top:.7rem; font-size:.82rem; color:rgba(255,255,255,.7); }
+</style>
+
+<meta name="robots" content="noindex, nofollow, noarchive" />
+<meta name="googlebot" content="noindex, nofollow" />
+<style id="tcx-protect-css">
+  html, body { -webkit-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; }
+  input, textarea, select, [contenteditable="true"] { -webkit-user-select: text; user-select: text; }
+  img { -webkit-user-drag: none; user-drag: none; }
+</style>
+<script id="tcx-protect-js">
+  /* Deterrence only. It stops casual saving and copying, not a determined person. */
+  (function () {
+    var msg = 'Application sample by Timothy Castillon. Source download is disabled.';
+    function toast() {
+      var t = document.getElementById('tcxToast');
+      if (!t) {
+        t = document.createElement('div');
+        t.id = 'tcxToast'; t.setAttribute('role', 'status');
+        t.style.cssText = 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:99999;background:#002147;color:#fff;font:500 13px/1.4 Inter,system-ui,sans-serif;padding:10px 16px;border-radius:8px;border-bottom:3px solid #ab7d2c;box-shadow:0 8px 24px rgba(0,0,0,.25);opacity:0;transition:opacity .2s;pointer-events:none;max-width:90vw;text-align:center';
+        document.body.appendChild(t);
+      }
+      t.textContent = msg; t.style.opacity = '1';
+      clearTimeout(t._h); t._h = setTimeout(function () { t.style.opacity = '0'; }, 2200);
+    }
+    document.addEventListener('contextmenu', function (e) { e.preventDefault(); toast(); });
+    document.addEventListener('dragstart', function (e) { if (e.target && e.target.tagName === 'IMG') e.preventDefault(); });
+    document.addEventListener('keydown', function (e) {
+      var k = (e.key || '').toLowerCase();
+      var mod = e.ctrlKey || e.metaKey;
+      var block =
+        e.key === 'F12' ||
+        (mod && e.shiftKey && (k === 'i' || k === 'j' || k === 'c')) ||   /* DevTools */
+        (e.metaKey && e.altKey && (k === 'i' || k === 'j' || k === 'c' || k === 'u')) || /* Mac DevTools / source (Option changes the key on some layouts) */
+        (mod && (k === 'u' || k === 's' || k === 'p'));                   /* view source, save, print */
+      if (block) { e.preventDefault(); toast(); }
+    });
+  })();
+</script>
+
 </head>
 <body>
   <nav>
@@ -496,6 +572,8 @@
         <div class="ar7-badge">
           <strong>AR7 context:</strong> The WGI Technical Support Unit is hosted by Université Paris-Saclay. Lead Author Meetings so far: <em>Paris (Dec 2025, joint with WGII and WGIII)</em>, <em>Santiago (Apr 2026)</em> and <em>Arusha (Nov 2026)</em>. The Co-Chairs propose delivering the report in <em>2028</em>; the Panel has not yet agreed the date. The figures mapped below are AR6 outputs.
         </div>
+
+        <p class="atlas-jump"><a href="#atlas">New: how to point people to the IPCC WGI Interactive Atlas ↓</a></p>
 
         <div class="controls-bar">
           <div class="controls-left">
@@ -668,6 +746,85 @@
       </footer>
     </section>
 
+
+    <section class="atlas" id="atlas" aria-labelledby="atlasHeading">
+      <div class="sec-head"><h2 id="atlasHeading">The IPCC WGI Interactive Atlas</h2><span>how to point people to it, whoever they are</span></div>
+
+      <div class="atlas-intro">
+        <article class="card">
+          <h3>What it is</h3>
+          <p class="lead">Pick a place, pick a warming level from +1.5°C to +4°C, and see what the assessment’s data says changes.</p>
+          <p>The Atlas is the IPCC’s online tool for exploring the observed and projected climate information behind the Working Group I contribution to AR6. It handles both maps and time series, and it includes a regional synthesis for Climatic Impact-Drivers (CIDs). Its home page offers temperature and precipitation as the two starting variables.</p>
+          <p>It sits next to this observatory. The observatory gives you the three headline numbers. The Atlas lets you go and look at your own region.</p>
+        </article>
+        <article class="card">
+          <h3>Is it for everybody?</h3>
+          <p>It is open to anyone on the IPCC website. In practice it is built for people who already read maps, scenarios and uncertainty without effort. Scientists, analysts and technical staff can open it and start working.</p>
+          <p>Most other people need a guide: someone who says where to click first and what a number does and does not mean. That is the job of the link and the sentence around it, so the strategy below is about the front door, not the tool.</p>
+        </article>
+      </div>
+
+      <div class="about-grid">
+        <article class="card wide">
+          <h3>Four front doors, one tool</h3>
+          <div class="tbl-wrap">
+            <table class="src">
+              <thead><tr><th>Who</th><th>Where to send them</th><th>What the message does</th><th>Watch out for</th></tr></thead>
+              <tbody>
+                <tr><td>Scientists, authors, data users</td><td>The Atlas, then the Atlas GitHub repository and the IPCC Data Distribution Centre.</td><td>Names the dataset, the region set (IPCC-WGI reference regions, v4) and the licence, so they can reuse the data straight away.</td><td>Credit the data providers listed in the repository and say the data is CC BY 4.0.</td></tr>
+                <tr><td>Policy staff, observers, focal points</td><td>The Atlas, opened on a region they work on.</td><td>One sentence on what changes between two warming levels in that region. It says plainly that this is physical science, not an impacts assessment.</td><td>Don’t turn a regional result into a local forecast or a policy recommendation.</td></tr>
+                <tr><td>Journalists and editors</td><td>The Atlas, plus the IPCC copyright page.</td><td>Gives them something to explore and tells them early that exported figures belong to the IPCC.</td><td>Quote the warming level and scenario. Link back rather than repost cropped images.</td></tr>
+                <tr><td>General public, students, teachers</td><td>The Atlas, from a post or explainer that starts with one place and one question.</td><td>Keeps the first click simple: choose your region, move the warming level, watch the map change.</td><td>Don’t leave people alone with uncertainty. Add one line on what a range means.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Links to use</h3>
+          <div class="atlas-links">
+            <a class="atlas-link" href="https://interactive-atlas.ipcc.ch/" target="_blank" rel="noopener"><b>Atlas</b><span>The interactive tool itself.</span><em>interactive-atlas.ipcc.ch</em></a>
+            <a class="atlas-link" href="https://github.com/IPCC-WG1/Atlas" target="_blank" rel="noopener"><b>Atlas on GitHub</b><span>Data sources, acknowledgements, regional dataset, error reports.</span><em>github.com/IPCC-WG1/Atlas</em></a>
+            <a class="atlas-link" href="https://www.ipcc-data.org/" target="_blank" rel="noopener"><b>IPCC Data Distribution Centre</b><span>Long-term home of the final gridded dataset.</span><em>ipcc-data.org</em></a>
+            <a class="atlas-link" href="https://www.ipcc.ch/copyright" target="_blank" rel="noopener"><b>IPCC copyright</b><span>Rules for reusing IPCC figures.</span><em>ipcc.ch/copyright</em></a>
+          </div>
+          <p class="atlas-note">Please check these links before sharing. The Atlas home page also carries its own “License, data and citation” page, which has the exact citation wording.</p>
+        </article>
+
+        <article class="card">
+          <h3>Link lines I would write</h3>
+          <div class="atlas-lines">
+            <blockquote><small>Public post</small>Pick a place. Switch from +1.5°C to +3°C. Watch how the temperature map changes. Explore it in the IPCC WGI Interactive Atlas: [link]</blockquote>
+            <blockquote><small>Note to editors</small>The maps and data behind the Working Group I contribution to AR6 are open in the IPCC Interactive Atlas [link]. Exported figures are IPCC property; see ipcc.ch/copyright before reuse.</blockquote>
+            <blockquote><small>Technical readers</small>Monthly temperature and precipitation, averaged over the IPCC-WGI reference regions (v4), are in the Atlas GitHub repository under CC BY 4.0 [link].</blockquote>
+          </div>
+        </article>
+
+        <article class="card wide">
+          <h3>Licence at a glance</h3>
+          <div class="tbl-wrap">
+            <table class="src">
+              <thead><tr><th>What</th><th>Licence</th><th>What it means in practice</th></tr></thead>
+              <tbody>
+                <tr><td>Figures exported from the Atlas (PNG, PDF)</td><td>Property of the IPCC, protected by intellectual property law.</td><td>Link to the Atlas instead of reposting. Check ipcc.ch/copyright before any reuse.</td></tr>
+                <tr><td>Data downloaded from the Atlas (NetCDF, GeoTIFF)</td><td>Creative Commons Attribution 4.0 International (CC BY 4.0), under the IPCC-DDC framework.</td><td>Reuse is allowed with credit.</td></tr>
+                <tr><td>Final harmonised monthly gridded dataset</td><td>CC BY 4.0. Preserved long term and openly available from the IPCC-DDC catalogue.</td><td>Reuse is allowed with credit.</td></tr>
+                <tr><td>Regionally aggregated dataset: monthly precipitation and near-surface temperature averaged over the IPCC-WGI reference regions (v4)</td><td>CC BY 4.0, available from the Atlas GitHub repository.</td><td>Reuse is allowed with credit.</td></tr>
+                <tr><td>Data sources and acknowledgements</td><td>Listed in the Atlas GitHub repository.</td><td>Credit the data providers named there.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="src-note">This summary follows the Atlas licence text. The IPCC pages are the authority, and they win if anything here differs.</p>
+        </article>
+
+        <article class="card wide">
+          <h3>Read with care</h3>
+          <p>This page links to the Atlas. It does not reproduce Atlas maps or figures, and it does not use the IPCC logo. The Atlas shows physical climate information from Working Group I. Questions about impacts and adaptation belong to Working Group II, and questions about mitigation to Working Group III.</p>
+          <p>Warming levels (+1.5°C, +2°C, +3°C, +4°C) are not forecasts of when a level will be reached. They describe what the data shows once that level has been reached.</p>
+        </article>
+      </div>
+    </section>
+
     <section class="about" aria-labelledby="aboutHeading">
       <div class="sec-head"><h2 id="aboutHeading">Why it matters, and where it comes from</h2><span>every number can be traced</span></div>
       <div class="about-grid">
@@ -702,6 +859,27 @@
     </section>
 
   </div>
+
+
+<section class="tcx" aria-labelledby="tcxHeading">
+  <div class="tcx-wrap">
+    <div class="tcx-note">
+      <p class="tcx-k">Process note</p>
+      <h2 id="tcxHeading">How I built this</h2>
+      <ul>
+      <li>Every figure traces to AR6 Working Group I. The sources table names the chapter or Summary for Policymakers paragraph, so a reviewer can check a number in a minute.</li>
+      <li>Numbers keep their ranges. +2.7°C for SSP2-4.5 always travels with its very likely range of +2.1°C to +3.5°C.</li>
+      <li>I use the IPCC’s calibrated words (high confidence, very likely) only where the report uses them, and I don’t strengthen them for effect.</li>
+      <li>The AR7 details were checked against ipcc.ch pages in November 2026. The 2028 delivery date is shown as the Co-Chairs’ proposal, because the Panel had not agreed it.</li>
+      <li>Nobody at the IPCC has reviewed this. In real work each figure would go to the relevant chapter team or the TSU before it went public.</li>
+      </ul>
+    </div>
+    <aside class="tcx-disc" role="note" aria-label="Disclaimer">
+      <p class="tcx-k">Disclaimer</p>
+      <p>Prepared as a <strong>sample for a job application</strong> to the IPCC Working Group I Technical Support Unit (Communication Officer role). It is independent work by Timothy Castillon.</p><p>It is not an official IPCC product and has not been reviewed or endorsed by the IPCC, its Working Group I TSU, or any organisation named on the page. The IPCC is named only to identify the source material.</p>
+    </aside>
+  </div>
+</section>
 
   <footer class="site-footer">
     <p>© 2026 <span>Timothy Earl Mateo Castillon</span>. All rights reserved.</p>

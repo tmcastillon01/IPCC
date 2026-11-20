@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="robots" content="noindex, nofollow" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Sample Work – Timothy Castillon | IPCC WGI Application</title>
-  <meta name="description" content="Sample work prepared for the Communication Officer role in the IPCC Working Group I Technical Support Unit: three interactive HTML builds and two writing samples." />
+  <meta name="description" content="Sample work prepared for the Communication Officer role in the IPCC Working Group I Technical Support Unit: four communication builds and two writing samples." />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     /* ─── TOKENS (shared across all pages) ───────────────────── */
@@ -130,6 +129,22 @@
       .sample-title { font-size: 1.2rem; }
     }
 
+
+    /* ─── PHOTO CARDS ────────────────────────────────────────── */
+    .card.has-media { padding: 0; overflow: hidden; }
+    .card.has-media .body { padding: 1.5rem 1.6rem 1.7rem; display: flex; flex-direction: column; gap: .9rem; flex: 1; }
+    .media { position: relative; margin: 0; aspect-ratio: 16 / 9; background: linear-gradient(135deg, var(--sage), #0b3a6b); overflow: hidden; }
+    .media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease; }
+    .card:hover .media img { transform: scale(1.03); }
+    .media::after { content: ''; position: absolute; inset: auto 0 0 0; height: 45%; background: linear-gradient(to top, rgba(0,33,71,.55), transparent); pointer-events: none; }
+    .media figcaption { position: absolute; left: .8rem; bottom: .55rem; z-index: 2; font-family: 'Space Mono', monospace; font-size: .62rem; letter-spacing: .06em; color: rgba(255,255,255,.9); }
+    .media figcaption a { text-decoration: underline; text-underline-offset: 2px; }
+    .media.noimg::before { content: attr(data-label); position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; padding: 1rem; font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--gold-lt); }
+    .btn[aria-disabled="true"] { opacity: .5; pointer-events: none; }
+    .notice { display: flex; gap: .8rem; align-items: flex-start; margin-top: 2rem; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18); border-left: 4px solid var(--gold); border-radius: var(--radius); padding: .9rem 1.1rem; max-width: 70ch; font-size: .86rem; color: rgba(255,255,255,.85); line-height: 1.6; }
+    .notice strong { color: var(--gold-lt); font-weight: 600; }
+    .intro-band { margin-top: -0.5rem; }
+
     /* ─── FOOTER ─────────────────────────────────────────────── */
     footer {
       background: var(--sage); color: rgba(255,255,255,0.45); text-align: center;
@@ -137,13 +152,68 @@
     }
     footer span { color: var(--gold); }
   </style>
+
+<style id="tcx-process-css">
+  .tcx { background:#f4f2ee; color:#0b1420; font-family:'Inter',system-ui,sans-serif; padding:3.5rem 5vw; border-top:1px solid #e1ddd4; line-height:1.65; position:relative; z-index:1; width:100%; }
+  .tcx *, .tcx *::before, .tcx *::after { box-sizing:border-box; }
+  .tcx-wrap { max-width:1200px; margin:0 auto; display:grid; gap:1.5rem; grid-template-columns:1.35fr 1fr; align-items:start; }
+  @media (max-width:860px){ .tcx-wrap{ grid-template-columns:1fr; } }
+  .tcx-k { font-family:'Space Mono',monospace; font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:#ab7d2c; margin-bottom:.5rem; }
+  .tcx-note { background:#fff; border:1px solid #e1ddd4; border-top:3px solid #ab7d2c; border-radius:8px; padding:1.6rem 1.7rem; }
+  .tcx-note h2 { font-family:'DM Serif Display',Georgia,serif; font-weight:400; font-size:1.5rem; line-height:1.25; margin-bottom:.9rem; color:#0b1420; }
+  .tcx-note ul { list-style:none; display:grid; gap:.75rem; }
+  .tcx-note li { position:relative; padding-left:1.4rem; font-size:.9rem; color:#3b434d; }
+  .tcx-note li::before { content:''; position:absolute; left:0; top:.6em; width:.5rem; height:.5rem; border-radius:50%; background:#ab7d2c; }
+  .tcx-disc { background:#002147; color:#fff; border-radius:12px; border-left:5px solid #ab7d2c; padding:1.6rem 1.7rem; box-shadow:0 16px 40px rgba(0,33,71,.18); }
+  .tcx-disc .tcx-k { color:#e2c68c; }
+  .tcx-disc p { font-size:.9rem; color:rgba(255,255,255,.88); }
+  .tcx-disc p + p { margin-top:.7rem; font-size:.82rem; color:rgba(255,255,255,.7); }
+</style>
+
+<meta name="robots" content="noindex, nofollow, noarchive" />
+<meta name="googlebot" content="noindex, nofollow" />
+<style id="tcx-protect-css">
+  html, body { -webkit-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; }
+  input, textarea, select, [contenteditable="true"] { -webkit-user-select: text; user-select: text; }
+  img { -webkit-user-drag: none; user-drag: none; }
+</style>
+<script id="tcx-protect-js">
+  /* Deterrence only. It stops casual saving and copying, not a determined person. */
+  (function () {
+    var msg = 'Application sample by Timothy Castillon. Source download is disabled.';
+    function toast() {
+      var t = document.getElementById('tcxToast');
+      if (!t) {
+        t = document.createElement('div');
+        t.id = 'tcxToast'; t.setAttribute('role', 'status');
+        t.style.cssText = 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:99999;background:#002147;color:#fff;font:500 13px/1.4 Inter,system-ui,sans-serif;padding:10px 16px;border-radius:8px;border-bottom:3px solid #ab7d2c;box-shadow:0 8px 24px rgba(0,0,0,.25);opacity:0;transition:opacity .2s;pointer-events:none;max-width:90vw;text-align:center';
+        document.body.appendChild(t);
+      }
+      t.textContent = msg; t.style.opacity = '1';
+      clearTimeout(t._h); t._h = setTimeout(function () { t.style.opacity = '0'; }, 2200);
+    }
+    document.addEventListener('contextmenu', function (e) { e.preventDefault(); toast(); });
+    document.addEventListener('dragstart', function (e) { if (e.target && e.target.tagName === 'IMG') e.preventDefault(); });
+    document.addEventListener('keydown', function (e) {
+      var k = (e.key || '').toLowerCase();
+      var mod = e.ctrlKey || e.metaKey;
+      var block =
+        e.key === 'F12' ||
+        (mod && e.shiftKey && (k === 'i' || k === 'j' || k === 'c')) ||   /* DevTools */
+        (e.metaKey && e.altKey && (k === 'i' || k === 'j' || k === 'c' || k === 'u')) || /* Mac DevTools / source (Option changes the key on some layouts) */
+        (mod && (k === 'u' || k === 's' || k === 'p'));                   /* view source, save, print */
+      if (block) { e.preventDefault(); toast(); }
+    });
+  })();
+</script>
+
 </head>
 <body>
   <nav>
     <a class="nav-logo" href="index.html" aria-label="Timothy Castillon – main portfolio"><span class="nav-mark" aria-hidden="true">TC</span><span>Timothy Castillon</span></a>
     <ul class="nav-links">
-      <li><a href="#interactive">Interactive Outputs</a></li>
-      <li><a href="#writing">Writing Samples</a></li>
+      <li><a href="#interactive">Outreach Systems</a></li>
+      <li><a href="#writing">Editorial &amp; Press</a></li>
     </ul>
     <a class="nav-cta" href="index.html">← Main Portfolio</a>
   </nav>
@@ -151,37 +221,67 @@
   <header class="hero">
     <p class="hero-eyebrow">Sample Work · IPCC WGI Application</p>
     <h1 class="hero-name">Sample Climate &amp; Science <em>Communications</em></h1>
-    <p class="hero-lead">Work prepared for the Communication Officer role in the IPCC Working Group I Technical Support Unit: three interactive HTML builds and two writing samples. None of it is official IPCC or UNEP material.</p>
+    <p class="hero-lead">Work prepared for the Communication Officer role in the IPCC Working Group I Technical Support Unit: four communication builds and two writing samples. None of it is official IPCC or UNEP material.</p>
+    <div class="notice" role="note"><span><strong>Sample for a job application.</strong> Prepared for the IPCC Working Group I Technical Support Unit (Communication Officer). Independent work, not reviewed or endorsed by the IPCC.</span></div>
   </header>
 
   <section id="interactive">
     <div class="wrap">
-      <p class="section-eyebrow">💻 Interactive HTML Outputs</p>
-      <h2 class="section-title">Interactive Builds</h2>
-      <p class="section-sub">Standalone pages built from published climate-science reports and designed to be explored rather than read.</p>
+      <p class="section-eyebrow">Science-to-policy &amp; public outreach systems</p>
+      <h2 class="section-title">Communicating Working Group I</h2>
+      <p class="section-sub">Interactive tools, briefing decks and cross-platform communication packages designed to translate WGI assessment findings for policymakers, media and the public.</p>
       <div class="grid">
-        <article class="card">
-          <span class="tag">Output 01 · Interactive Observatory</span>
-          <h3 class="title">IPCC Working Group I: The Physical Science Basis</h3>
-          <p class="desc">Interactive planetary radiative spectrum exploring Earth’s energy imbalance (~435 ZJ), carbon sink partitioning, SSP warming pathways, and AR7 milestones.</p>
-          <div class="file">ipcc-wgi-observatory.html</div>
-          <a class="btn" href="ipcc-wgi-observatory.html">Open IPCC WGI Observatory →</a>
+        <article class="card has-media">
+          <figure class="media" data-label="Stakeholder &amp; public literacy">
+            <img src="https://images.unsplash.com/photo-1552799446-159ba9523315?auto=format&fit=crop&w=1200&q=70" alt="A crowd at a climate march holding hand-drawn signs, one showing the Earth" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg');this.remove()">
+            <figcaption>Photo: <a href="https://unsplash.com/photos/ycW4YxhrWHM" target="_blank" rel="noopener">Li-An Lim</a> / Unsplash</figcaption>
+          </figure>
+          <div class="body">
+            <span class="tag">Output 01 · WGI science literacy &amp; exploration</span>
+            <h3 class="title">Communicating WGI Work: The Physical Science Basis</h3>
+            <p class="desc">An interactive entry point that translates core WGI concepts for non-specialist audiences, observer organisations and policy briefings: Earth’s energy imbalance (~435 ZJ), carbon sink partitioning, SSP warming pathways and AR7 milestones. It also includes a link strategy for the IPCC WGI Interactive Atlas.</p>
+            <div class="file">ipcc-wgi-observatory.html</div>
+            <a class="btn" href="ipcc-wgi-observatory.html">Open the WGI Observatory →</a>
+          </div>
         </article>
-
-        <article class="card">
-          <span class="tag">Output 02 · Interactive Slide Deck</span>
-          <h3 class="title">UNEP Emissions Gap Report 2026: The Point of Return</h3>
-          <p class="desc">Seven-slide interactive presentation examining 1.5°C overshoot, 2025 emissions (58.4 GtCO₂e), NDCs 3.0 gaps, cost of delay, and cross-media color craft.</p>
-          <div class="file">unep_emissions_gap_report_2026_the_point_of_return.html</div>
-          <a class="btn" href="unep_emissions_gap_report_2026_the_point_of_return.html">Open Emissions Gap Deck →</a>
+        <article class="card has-media">
+          <figure class="media" data-label="High-level briefings">
+            <img src="https://unsplash.com/photos/k0Jo8m6DO6k/download?force=true&w=1200" alt="A man on a phone call in front of a wall of national flags arranged in a circle" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg');this.remove()">
+            <figcaption>Photo: <a href="https://unsplash.com/photos/k0Jo8m6DO6k" target="_blank" rel="noopener">Markus Krisetya</a> / Unsplash</figcaption>
+          </figure>
+          <div class="body">
+            <span class="tag">Output 02 · Stakeholder &amp; launch briefings</span>
+            <h3 class="title">Executive &amp; Media Briefing Deck: Emissions &amp; 1.5°C Pathways</h3>
+            <p class="desc">A seven-slide interactive presentation modelled on UN and IPCC launch and UNFCCC side-event briefings. It turns dense assessment metrics (58.4 GtCO₂e, NDC gaps, the cost of delay) into clear visual narratives with accessible colour standards. Modelled on UNEP Emissions Gap data.</p>
+            <div class="file">unep_emissions_gap_report_2026_the_point_of_return.html</div>
+            <a class="btn" href="unep_emissions_gap_report_2026_the_point_of_return.html">Open the briefing deck →</a>
+          </div>
         </article>
-
-        <article class="card">
-          <span class="tag">Output 03 · Social Media Package</span>
-          <h3 class="title">Climate Science for Non-Scientists: Strategy, Interactive Carousel &amp; Branding</h3>
-          <p class="desc">Platform strategy reviewed against three IPCC WGI documents, a swipeable LinkedIn carousel with tappable data, Facebook and X variants, and a brand system with accessible data colours.</p>
-          <div class="file">social-media-package.html</div>
-          <a class="btn" href="social-media-package.html">Open Social Media Package →</a>
+        <article class="card has-media">
+          <figure class="media" data-label="Multi-channel strategy">
+            <img src="https://images.unsplash.com/photo-1701672887538-ba47e1073514?auto=format&fit=crop&w=1200&q=70" alt="Yellow sticky notes marked with hashtag symbols on a desk" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg');this.remove()">
+            <figcaption>Photo: <a href="https://unsplash.com/photos/AE737dzknTg" target="_blank" rel="noopener">Walls.io</a> / Unsplash</figcaption>
+          </figure>
+          <div class="body">
+            <span class="tag">Output 03 · Digital campaigns &amp; channel strategy</span>
+            <h3 class="title">Multi-Platform Rollout: Strategy, Carousels &amp; Brand Craft</h3>
+            <p class="desc">An end-to-end social and digital rollout reviewed against WGI reference documents. It pairs platform strategy (LinkedIn, Bluesky and legacy channels) with tappable data carousels, audience-perception framing and colour-accessible templates built to work alongside design teams.</p>
+            <div class="file">social-media-package.html</div>
+            <a class="btn" href="social-media-package.html">Open the rollout package →</a>
+          </div>
+        </article>
+        <article class="card has-media">
+          <figure class="media" data-label="Calendar sample">
+            <img src="https://images.unsplash.com/photo-1642618598178-52eb00dc544d?auto=format&fit=crop&w=1200&q=70" alt="A wall calendar page showing a month with its dates" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg');this.remove()">
+            <figcaption>Photo: <a href="https://unsplash.com/photos/XWTrHfOoMqw" target="_blank" rel="noopener">Behnam Norouzi</a> / Unsplash</figcaption>
+          </figure>
+          <div class="body">
+            <span class="tag">Output 04 · Calendar sample</span>
+            <h3 class="title">WGI Communications &amp; Social Media Calendar</h3>
+            <p class="desc">A sample editorial and social calendar showing how blog, social, press and event content could be planned around WGI and AR7 milestones, with each entry tied to a channel, an audience and a job.</p>
+            <div class="file">ipcc_wgi_tsu_comms_social_media_calendar.html</div>
+            <a class="btn" href="ipcc_wgi_tsu_comms_social_media_calendar.html">Open the calendar →</a>
+          </div>
         </article>
       </div>
     </div>
@@ -189,27 +289,48 @@
 
   <section id="writing">
     <div class="wrap">
-      <p class="section-eyebrow">✍️ Writing Samples</p>
-      <h2 class="section-title">Writing Samples for This Application</h2>
-      <p class="section-sub">Two pieces written for this role, based on a published WGI finding. Click the box to open both.</p>
+      <p class="section-eyebrow">Editorial, press &amp; author support</p>
+      <h2 class="section-title">Writing &amp; Media Samples for AR7</h2>
+      <p class="section-sub">Editorial pieces and press materials that show WGI scope discipline (physical science kept apart from impacts), blog-ready storytelling and readiness for a global media audience. Click the box to open both.</p>
       <a class="sample-box" href="Castillon_SampleWorks_IPCC.pdf" target="_blank" rel="noopener">
-        <div class="sample-flag">Writing samples only · not official IPCC documents</div>
+        <div class="sample-flag">Sample writing for a job application · not official IPCC documents</div>
         <div class="sample-cols">
           <div class="sample-col">
-            <div class="sample-kind">📝 Sample 1 · Explainer</div>
-            <div class="sample-title">The Ice Above the Trail</div>
-            <p class="sample-desc">For general readers and web audiences. Opens at the Vinicunca trail, explains the melt using IPCC terms, and separates Working Group I (physical science) from Working Group II (impacts). Sources cited.</p>
+            <div class="sample-kind">Sample 01 · WGI blog &amp; public explainer</div>
+            <div class="sample-title">The Ice Above the Trail: Translating WGI Cryosphere Science</div>
+            <p class="sample-desc">Written in the style of a WGI blog feature or public FAQ. It opens on the Vinicunca trail to ground the physical climate science for international readers, uses calibrated IPCC terminology, and keeps a strict line between Working Group I and Working Group II.</p>
           </div>
           <div class="sample-col">
-            <div class="sample-kind">📰 Sample 2 · Mock Press Release</div>
-            <div class="sample-title">What the IPCC says about the vanishing ice of the tropical Andes</div>
-            <p class="sample-desc">For journalists and news desks. A short wire-style release with notes to editors. The spokesperson quote is a placeholder.</p>
+            <div class="sample-kind">Sample 02 · Press release, pitch &amp; spokesperson brief</div>
+            <div class="sample-title">Media Package: Vanishing Ice of the Tropical Andes</div>
+            <p class="sample-desc">An embargo-style wire release for international science desks, with calibrated headline framing, structured notes to editors, key talking points and spokesperson quote scaffolding, ready for WGI author and Bureau media prep.</p>
           </div>
         </div>
         <span class="sample-cta">Open the sample works (PDF) <span aria-hidden="true">→</span></span>
       </a>
     </div>
   </section>
+
+
+<section class="tcx" aria-labelledby="tcxHeading">
+  <div class="tcx-wrap">
+    <div class="tcx-note">
+      <p class="tcx-k">Process note</p>
+      <h2 id="tcxHeading">How these samples were built</h2>
+      <ul>
+      <li>I run the same four checks on every piece: trace the number to its source, keep the report’s confidence language, check it sits inside Working Group I scope, and label clearly what is mine.</li>
+      <li>Sources sit on the page, not in my notes. Anyone reviewing a build can follow a figure back to the chapter or summary it came from.</li>
+      <li>The ice explainer cites WGI for the physical finding and points to Working Group II for what it means for people on the ground, so the boundary stays visible to readers.</li>
+      <li>None of this has been through expert review. The routine I would follow in the TSU is: draft, send each claim and number to the relevant author, revise, then sign-off before anything is published.</li>
+      <li>Every page carries a sample label and a disclaimer, so none of it can be mistaken for official IPCC material.</li>
+      </ul>
+    </div>
+    <aside class="tcx-disc" role="note" aria-label="Disclaimer">
+      <p class="tcx-k">Disclaimer</p>
+      <p>Prepared as a <strong>sample for a job application</strong> to the IPCC Working Group I Technical Support Unit (Communication Officer role). It is independent work by Timothy Castillon.</p><p>It is not an official IPCC product and has not been reviewed or endorsed by the IPCC, its Working Group I TSU, or any organisation named on the page. The IPCC is named only to identify the source material.</p>
+    </aside>
+  </div>
+</section>
 
   <footer>
     <p>© 2026 <span>Timothy Earl Mateo Castillon</span>. All rights reserved.</p>

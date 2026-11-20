@@ -1,0 +1,2083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Output 04 · IPCC WGI Comms &amp; Social Media Calendar – Timothy Castillon</title>
+  <meta name="description" content="Sample editorial and social media calendar prepared by Timothy Castillon for the Communication Officer role in the IPCC Working Group I Technical Support Unit." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── PORTFOLIO DESIGN TOKENS (100% COORDINATED) ──────────── */
+    :root {
+      --ink:     #0b1420;
+      --fog:     #f4f2ee;
+      --white:   #ffffff;
+      --sage:    #002147;
+      --sage-lt: #e9edf3;
+      --gold:    #ab7d2c;
+      --gold-lt: #e2c68c;
+      --muted:   #656b76;
+      --border:  #e1ddd4;
+      --radius:  8px;
+      --nav-h:   64px;
+    }
+
+    /* ─── RESET & BASE ───────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    body {
+      background: var(--fog);
+      color: var(--ink);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.65;
+      overflow-x: clip;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font-family: inherit; }
+
+    /* ─── FIXED PORTFOLIO NAVBAR ─────────────────────────────── */
+    .portfolio-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0 3vw;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sage);
+      white-space: nowrap;
+    }
+    .nav-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px; height: 34px;
+      flex-shrink: 0;
+      background: var(--sage);
+      color: var(--white);
+      border-radius: 9px;
+      box-shadow: 0 3px 0 var(--gold);
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+    .nav-center-badge {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sage);
+      background: var(--sage-lt);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .nav-cta {
+      flex-shrink: 0;
+      white-space: nowrap;
+      font-size: 0.76rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.45rem 1.1rem;
+      border: 1px solid var(--sage);
+      border-radius: var(--radius);
+      color: var(--sage);
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-cta:hover {
+      background: var(--sage);
+      color: var(--white);
+    }
+    @media (max-width: 820px) {
+      .nav-center-badge { display: none; }
+      .nav-logo span:last-child { display: none; }
+    }
+
+    /* ─── MAIN SPLIT LAYOUT ──────────────────────────────────── */
+    .split-shell {
+      padding-top: var(--nav-h);
+      display: grid;
+      grid-template-columns: 380px minmax(0, 1fr);
+      flex: 1;
+      min-height: 100vh;
+    }
+    @media (max-width: 1060px) {
+      .split-shell {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ─── LEFT CONTEXT SIDEBAR ───────────────────────────────── */
+    .context-sidebar {
+      background: var(--white);
+      border-right: 1px solid var(--border);
+      border-top: 3px solid var(--gold);
+      padding: 2rem 1.75rem 2.5rem;
+      position: sticky;
+      top: var(--nav-h);
+      height: calc(100vh - var(--nav-h));
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    @media (max-width: 1060px) {
+      .context-sidebar {
+        position: static;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+    }
+    .sidebar-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .sidebar-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.75rem;
+      line-height: 1.18;
+      color: var(--ink);
+      font-weight: 400;
+    }
+    .disclaimer-box {
+      background: var(--sage-lt);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 0.85rem 1rem;
+      font-size: 0.82rem;
+      color: var(--ink);
+      line-height: 1.55;
+    }
+    .disclaimer-box strong {
+      color: var(--sage);
+      font-weight: 600;
+    }
+    .sidebar-copy {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .sidebar-card-note {
+      background: var(--fog);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.9rem 1rem;
+      font-size: 0.82rem;
+      color: var(--ink);
+      line-height: 1.55;
+    }
+    .sidebar-card-note-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.67rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 0.35rem;
+      display: block;
+      font-weight: 700;
+    }
+    .sample-quick-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      margin-top: 0.6rem;
+    }
+    .sample-jump-btn {
+      width: 100%;
+      text-align: left;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      border-radius: 6px;
+      padding: 0.5rem 0.7rem;
+      font-size: 0.78rem;
+      color: var(--sage);
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .sample-jump-btn:hover {
+      background: var(--sage);
+      color: var(--white);
+      border-color: var(--sage);
+    }
+
+    /* Pillar Filter Group */
+    .filter-section {
+      border-top: 1px solid var(--border);
+      padding-top: 1.1rem;
+    }
+    .filter-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+    .pill-btn {
+      font-size: 0.74rem;
+      font-weight: 500;
+      padding: 0.35rem 0.72rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+    }
+    .pill-btn:hover {
+      transform: translateY(-1px);
+    }
+    .pill-btn.active {
+      box-shadow: 0 0 0 2px var(--white), 0 0 0 4px var(--sage);
+    }
+    .pill-all { background: var(--white); color: var(--ink); }
+    .pill-ar7 { background: var(--sage); color: var(--white); border-color: var(--sage); }
+    .pill-un { background: var(--gold); color: var(--white); border-color: var(--gold); }
+    .pill-coparent { background: var(--sage-lt); color: var(--sage); border-color: var(--sage); }
+    .pill-author { background: var(--gold-lt); color: var(--ink); border-color: var(--gold); }
+
+    /* ─── RIGHT WORKSPACE ────────────────────────────────────── */
+    .workspace-area {
+      background: var(--fog);
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      position: relative;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    /* Subtle Diagonal Deterrence Watermark */
+    .watermark-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 15;
+      overflow: hidden;
+      opacity: 0.032;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: space-around;
+      justify-content: space-around;
+      gap: 4rem;
+      transform: rotate(-18deg) scale(1.2);
+    }
+    .watermark-text {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sage);
+      white-space: nowrap;
+    }
+
+    /* Workspace Toolbar */
+    .workspace-toolbar {
+      background: var(--sage);
+      color: var(--white);
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.85rem;
+      border-bottom: 2px solid var(--gold);
+      position: relative;
+      z-index: 20;
+    }
+    .toolbar-left {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .workspace-heading {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--white);
+    }
+    .applicant-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-lt);
+      border: 1px solid rgba(226, 198, 140, 0.35);
+      background: rgba(255, 255, 255, 0.06);
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+    }
+    .view-toggle {
+      display: inline-flex;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 3px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+    }
+    .view-btn {
+      font-size: 0.76rem;
+      font-weight: 500;
+      padding: 0.38rem 0.85rem;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .view-btn.active {
+      background: var(--white);
+      color: var(--sage);
+      font-weight: 600;
+    }
+
+    /* ─── BOARD VIEW (TRELLO-STYLE COLUMNS) ─────────────────── */
+    .board-container {
+      padding: 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.15rem;
+      overflow-x: auto;
+      flex: 1;
+      position: relative;
+      z-index: 20;
+    }
+    .board-container::-webkit-scrollbar { height: 10px; }
+    .board-container::-webkit-scrollbar-track { background: rgba(0, 33, 71, 0.07); border-radius: 6px; }
+    .board-container::-webkit-scrollbar-thumb { background: rgba(0, 33, 71, 0.26); border-radius: 6px; }
+
+    .trello-list {
+      width: 288px;
+      flex-shrink: 0;
+      background: var(--sage-lt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      display: flex;
+      flex-direction: column;
+      max-height: calc(100vh - 165px);
+    }
+    @media (max-width: 1060px) {
+      .trello-list { max-height: 620px; }
+    }
+    .list-header {
+      padding: 0.85rem 1rem 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+    .list-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+    .list-count {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--sage);
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 0.1rem 0.5rem;
+      border-radius: 999px;
+    }
+    .list-cards {
+      padding: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      overflow-y: auto;
+    }
+    .list-cards::-webkit-scrollbar { width: 5px; }
+    .list-cards::-webkit-scrollbar-thumb { background: rgba(0, 33, 71, 0.2); border-radius: 4px; }
+
+    /* Trello Card */
+    .t-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--sage);
+      border-radius: var(--radius);
+      padding: 0.9rem;
+      cursor: pointer;
+      transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      box-shadow: 0 2px 6px rgba(11, 20, 32, 0.05);
+    }
+    .t-card.is-sample {
+      border-top: 3px solid var(--gold);
+      background: linear-gradient(to bottom, rgba(226, 198, 140, 0.14), var(--white) 42%);
+    }
+    .t-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(0, 33, 71, 0.12);
+      border-color: var(--gold);
+    }
+    .t-card-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    .t-pill {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.16rem 0.48rem;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+    .t-pill-ar7 { background: var(--sage); color: var(--white); }
+    .t-pill-un { background: var(--gold); color: var(--white); }
+    .t-pill-coparent { background: var(--sage-lt); color: var(--sage); border: 1px solid rgba(0, 33, 71, 0.2); }
+    .t-pill-author { background: var(--gold-lt); color: var(--ink); }
+    .t-pill-sample { background: var(--ink); color: var(--gold-lt); }
+
+    .t-card-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.05rem;
+      line-height: 1.28;
+      color: var(--ink);
+      font-weight: 400;
+    }
+    .t-card-excerpt {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .t-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding-top: 0.45rem;
+      border-top: 1px solid var(--fog);
+      margin-top: 0.15rem;
+    }
+    .t-date-badge {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.66rem;
+      padding: 0.18rem 0.5rem;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .t-date-scheduled {
+      background: var(--sage-lt);
+      color: var(--sage);
+    }
+    .t-date-approved {
+      background: var(--gold-lt);
+      color: var(--ink);
+      font-weight: 700;
+    }
+    .t-meta-right {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    .t-attach-count {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.66rem;
+      color: var(--muted);
+    }
+    .t-avatar {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--sage);
+      color: var(--white);
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.65rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--gold);
+    }
+
+    /* ─── CALENDAR VIEW ──────────────────────────────────────── */
+    .calendar-container {
+      padding: 1.5rem;
+      display: none;
+      flex-direction: column;
+      gap: 1.1rem;
+      position: relative;
+      z-index: 20;
+    }
+    .calendar-container.active {
+      display: flex;
+    }
+    .cal-header-bar {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--gold);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .cal-month-heading {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.45rem;
+      color: var(--ink);
+      font-weight: 400;
+    }
+    .cal-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .cal-select {
+      background: var(--fog);
+      border: 1px solid var(--border);
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 0.45rem 0.85rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+    }
+    .cal-grid-wrap {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow-x: auto;
+    }
+    .cal-weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(110px, 1fr));
+      background: var(--sage-lt);
+      border-bottom: 1px solid var(--border);
+    }
+    .cal-weekday {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--sage);
+      text-align: center;
+      padding: 0.6rem 0.25rem;
+      font-weight: 700;
+    }
+    .cal-days-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(110px, 1fr));
+    }
+    .cal-cell {
+      min-height: 112px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      background: var(--white);
+    }
+    .cal-cell:nth-child(7n) { border-right: none; }
+    .cal-cell.is-empty { background: var(--fog); opacity: 0.6; }
+    .cal-day-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+    .cal-cell.has-event .cal-day-num {
+      color: var(--sage);
+      font-weight: 700;
+    }
+    .cal-event-chip {
+      width: 100%;
+      text-align: left;
+      background: var(--sage);
+      color: var(--white);
+      border: none;
+      border-left: 3px solid var(--gold);
+      border-radius: 5px;
+      padding: 0.38rem 0.5rem;
+      font-size: 0.72rem;
+      line-height: 1.3;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .cal-event-chip.is-sample {
+      background: var(--gold);
+      color: var(--white);
+      border-left-color: var(--sage);
+    }
+    .cal-event-chip:hover {
+      background: var(--ink);
+    }
+
+    /* ─── GPC-STYLE TRELLO CARD MODAL ────────────────────────── */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(11, 20, 32, 0.68);
+      backdrop-filter: blur(3px);
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 2rem 1rem;
+      overflow-y: auto;
+    }
+    .modal-backdrop.open {
+      display: flex;
+    }
+    .modal-card {
+      background: var(--white);
+      width: 100%;
+      max-width: 920px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 28px 65px rgba(11, 20, 32, 0.38);
+      margin: auto;
+    }
+
+    /* Top Cover Header (Matches GPC Screenshot) */
+    .modal-cover {
+      position: relative;
+      height: 155px;
+      background: var(--sage);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 3px solid var(--gold);
+      overflow: hidden;
+    }
+    .modal-cover-center {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(226, 198, 140, 0.3);
+      border-radius: var(--radius);
+      padding: 1rem 1.75rem;
+      text-align: center;
+      color: var(--white);
+      max-width: 420px;
+      z-index: 2;
+    }
+    .modal-cover-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-lt);
+      margin-bottom: 0.35rem;
+    }
+    .modal-cover-sub {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--white);
+    }
+    .modal-list-pill {
+      position: absolute;
+      top: 14px; left: 16px;
+      background: var(--white);
+      color: var(--sage);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.3rem 0.7rem;
+      border-radius: 5px;
+      z-index: 3;
+    }
+    .modal-close-btn {
+      position: absolute;
+      top: 14px; right: 16px;
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: var(--white);
+      color: var(--ink);
+      border: none;
+      font-size: 1.2rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+      transition: background 0.15s, color 0.15s;
+    }
+    .modal-close-btn:hover {
+      background: var(--gold);
+      color: var(--white);
+    }
+
+    /* Modal Two-Column Body */
+    .modal-body-grid {
+      display: grid;
+      grid-template-columns: 1.55fr 1fr;
+    }
+    @media (max-width: 820px) {
+      .modal-body-grid { grid-template-columns: 1fr; }
+    }
+    .modal-main-col {
+      padding: 1.75rem 2rem;
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      gap: 1.45rem;
+    }
+    .modal-title-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    .status-check-circle {
+      margin-top: 0.35rem;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      border: 2px solid var(--sage);
+      background: var(--white);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      font-size: 0.75rem;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .status-check-circle.approved {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+    .modal-title-text {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.55rem;
+      line-height: 1.22;
+      color: var(--ink);
+      font-weight: 400;
+    }
+    .modal-sublist-line {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+    .modal-sublist-line span {
+      text-decoration: underline;
+      color: var(--sage);
+      font-weight: 500;
+    }
+
+    /* Metadata Row (Members, Due Date, Labels) */
+    .modal-meta-row {
+      padding-left: 2.1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .meta-block-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+    .member-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: var(--fog);
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.65rem 0.25rem 0.3rem;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .member-chip-circle {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: var(--sage);
+      color: var(--white);
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.7rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .due-date-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--fog);
+      border: 1px solid var(--border);
+      padding: 0.32rem 0.7rem;
+      border-radius: 6px;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.74rem;
+      color: var(--ink);
+    }
+    .status-toggle-tag {
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.66rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+    }
+    .status-toggle-tag.scheduled {
+      background: var(--sage-lt);
+      color: var(--sage);
+    }
+    .status-toggle-tag.approved {
+      background: var(--gold);
+      color: var(--white);
+    }
+
+    /* Description & Copy Box */
+    .modal-section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.55rem;
+    }
+    .modal-section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      color: var(--ink);
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+    .copy-sample-btn {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: var(--sage);
+      color: var(--white);
+      border: none;
+      padding: 0.38rem 0.75rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .copy-sample-btn:hover {
+      background: var(--gold);
+    }
+    .modal-desc-wrap {
+      padding-left: 2.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .modal-textarea {
+      width: 100%;
+      min-height: 130px;
+      background: var(--fog);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.9rem 1rem;
+      font-size: 0.88rem;
+      line-height: 1.65;
+      color: var(--ink);
+      resize: vertical;
+      -webkit-user-select: text;
+      user-select: text;
+    }
+    .modal-textarea:focus {
+      outline: none;
+      border-color: var(--sage);
+      background: var(--white);
+    }
+    .coord-callout {
+      background: var(--sage-lt);
+      border-left: 3px solid var(--sage);
+      padding: 0.65rem 0.85rem;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.78rem;
+      color: var(--sage);
+      line-height: 1.5;
+    }
+
+    /* Attachments */
+    .attachments-grid {
+      padding-left: 2.1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 0.65rem;
+    }
+    .attachment-item {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: var(--fog);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.6rem 0.75rem;
+    }
+    .att-badge {
+      background: var(--sage);
+      color: var(--gold-lt);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.66rem;
+      font-weight: 700;
+      padding: 0.45rem 0.55rem;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .att-info {
+      min-width: 0;
+    }
+    .att-name {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--ink);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .att-meta {
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    /* Right Activity Column */
+    .modal-side-col {
+      background: var(--fog);
+      border-left: 1px solid var(--border);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    @media (max-width: 820px) {
+      .modal-side-col {
+        border-left: none;
+        border-top: 1px solid var(--border);
+      }
+    }
+    .activity-heading {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.08rem;
+      color: var(--ink);
+      font-weight: 400;
+    }
+    .comment-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.6rem;
+    }
+    .comment-input {
+      width: 100%;
+      border: none;
+      font-size: 0.8rem;
+      color: var(--ink);
+      resize: none;
+      outline: none;
+      background: transparent;
+      -webkit-user-select: text;
+      user-select: text;
+    }
+    .comment-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 0.4rem;
+    }
+    .comment-save-btn {
+      background: var(--sage);
+      color: var(--white);
+      border: none;
+      border-radius: 5px;
+      padding: 0.32rem 0.75rem;
+      font-size: 0.74rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .comment-save-btn:hover {
+      background: var(--gold);
+    }
+    .activity-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      max-height: 310px;
+      overflow-y: auto;
+    }
+    .activity-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      font-size: 0.78rem;
+      line-height: 1.45;
+    }
+    .act-avatar {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: var(--sage);
+      color: var(--white);
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.68rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .act-bubble {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.5rem 0.65rem;
+      margin-top: 0.25rem;
+      color: var(--ink);
+    }
+    .act-time {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.64rem;
+      color: var(--muted);
+      display: block;
+      margin-top: 0.15rem;
+    }
+
+    /* Toast */
+    .toast-banner {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 300;
+      background: var(--sage);
+      color: var(--white);
+      border-left: 4px solid var(--gold);
+      padding: 0.7rem 1.1rem;
+      border-radius: var(--radius);
+      font-size: 0.8rem;
+      box-shadow: 0 12px 28px rgba(11, 20, 32, 0.25);
+      opacity: 0;
+      transform: translateY(16px);
+      pointer-events: none;
+      transition: opacity 0.25s, transform 0.25s;
+    }
+    .toast-banner.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--sage);
+      color: rgba(255, 255, 255, 0.55);
+      text-align: center;
+      padding: 1.5rem 5vw;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      position: relative;
+      z-index: 20;
+    }
+    footer span { color: var(--gold); }
+  </style>
+
+<style id="tcx-process-css">
+  .tcx { background:#f4f2ee; color:#0b1420; font-family:'Inter',system-ui,sans-serif; padding:3.5rem 5vw; border-top:1px solid #e1ddd4; line-height:1.65; position:relative; z-index:1; width:100%; }
+  .tcx *, .tcx *::before, .tcx *::after { box-sizing:border-box; }
+  .tcx-wrap { max-width:1200px; margin:0 auto; display:grid; gap:1.5rem; grid-template-columns:1.35fr 1fr; align-items:start; }
+  @media (max-width:860px){ .tcx-wrap{ grid-template-columns:1fr; } }
+  .tcx-k { font-family:'Space Mono',monospace; font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:#ab7d2c; margin-bottom:.5rem; }
+  .tcx-note { background:#fff; border:1px solid #e1ddd4; border-top:3px solid #ab7d2c; border-radius:8px; padding:1.6rem 1.7rem; }
+  .tcx-note h2 { font-family:'DM Serif Display',Georgia,serif; font-weight:400; font-size:1.5rem; line-height:1.25; margin-bottom:.9rem; color:#0b1420; }
+  .tcx-note ul { list-style:none; display:grid; gap:.75rem; }
+  .tcx-note li { position:relative; padding-left:1.4rem; font-size:.9rem; color:#3b434d; }
+  .tcx-note li::before { content:''; position:absolute; left:0; top:.6em; width:.5rem; height:.5rem; border-radius:50%; background:#ab7d2c; }
+  .tcx-disc { background:#002147; color:#fff; border-radius:12px; border-left:5px solid #ab7d2c; padding:1.6rem 1.7rem; box-shadow:0 16px 40px rgba(0,33,71,.18); }
+  .tcx-disc .tcx-k { color:#e2c68c; }
+  .tcx-disc p { font-size:.9rem; color:rgba(255,255,255,.88); }
+  .tcx-disc p + p { margin-top:.7rem; font-size:.82rem; color:rgba(255,255,255,.7); }
+</style>
+
+<meta name="robots" content="noindex, nofollow, noarchive" />
+<meta name="googlebot" content="noindex, nofollow" />
+<style id="tcx-protect-css">
+  html, body { -webkit-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; }
+  input, textarea, select, [contenteditable="true"] { -webkit-user-select: text; user-select: text; }
+  img { -webkit-user-drag: none; user-drag: none; }
+</style>
+<script id="tcx-protect-js">
+  /* Deterrence only. It stops casual saving and copying, not a determined person. */
+  (function () {
+    var msg = 'Application sample by Timothy Castillon. Source download is disabled.';
+    function toast() {
+      var t = document.getElementById('tcxToast');
+      if (!t) {
+        t = document.createElement('div');
+        t.id = 'tcxToast'; t.setAttribute('role', 'status');
+        t.style.cssText = 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:99999;background:#002147;color:#fff;font:500 13px/1.4 Inter,system-ui,sans-serif;padding:10px 16px;border-radius:8px;border-bottom:3px solid #ab7d2c;box-shadow:0 8px 24px rgba(0,0,0,.25);opacity:0;transition:opacity .2s;pointer-events:none;max-width:90vw;text-align:center';
+        document.body.appendChild(t);
+      }
+      t.textContent = msg; t.style.opacity = '1';
+      clearTimeout(t._h); t._h = setTimeout(function () { t.style.opacity = '0'; }, 2200);
+    }
+    document.addEventListener('contextmenu', function (e) { e.preventDefault(); toast(); });
+    document.addEventListener('dragstart', function (e) { if (e.target && e.target.tagName === 'IMG') e.preventDefault(); });
+    document.addEventListener('keydown', function (e) {
+      var k = (e.key || '').toLowerCase();
+      var mod = e.ctrlKey || e.metaKey;
+      var block =
+        e.key === 'F12' ||
+        (mod && e.shiftKey && (k === 'i' || k === 'j' || k === 'c')) ||   /* DevTools */
+        (e.metaKey && e.altKey && (k === 'i' || k === 'j' || k === 'c' || k === 'u')) || /* Mac DevTools / source (Option changes the key on some layouts) */
+        (mod && (k === 'u' || k === 's' || k === 'p'));                   /* view source, save, print */
+      if (block) { e.preventDefault(); toast(); }
+    });
+  })();
+</script>
+
+</head>
+<body>
+
+  <!-- FIXED PORTFOLIO NAVBAR -->
+  <nav class="portfolio-nav" aria-label="Primary navigation">
+    <a class="nav-logo" href="index.html" aria-label="Timothy Castillon – main portfolio">
+      <span class="nav-mark" aria-hidden="true">TC</span>
+      <span>Timothy Castillon</span>
+    </a>
+    <span class="nav-center-badge">Output 04 · Editorial &amp; Social Calendar</span>
+    <a class="nav-cta" href="science-comms.html">← Back to Sample Work</a>
+  </nav>
+
+  <!-- TWO-COLUMN SPLIT SHELL -->
+  <div class="split-shell">
+
+    <!-- LEFT CONTEXT SIDEBAR -->
+    <aside class="context-sidebar" aria-label="Calendar overview and editorial notes">
+      <div>
+        <p class="sidebar-eyebrow">Output 04 · Editorial Calendar</p>
+        <h1 class="sidebar-title">IPCC WGI Comms &amp; Social Media Calendar</h1>
+      </div>
+
+      <div class="disclaimer-box" role="note">
+        <strong>Applicant Sample Only:</strong> Prepared solely for the IPCC Working Group I Technical Support Unit Communication Officer application. Not an official IPCC, WMO, or UNEP document.
+      </div>
+
+      <p class="sidebar-copy">
+        This proposed editorial board bridges internal <strong>AR7 assessment cycle milestones</strong> (Lead Author Meetings, Second Order Draft review windows, and plenary timelines) with recurring <strong>UN physical science observances</strong> across the year.
+      </p>
+
+      <div class="sidebar-card-note">
+        <span class="sidebar-card-note-label">Two Complete Sample Posts Included</span>
+        To illustrate tone, calibrated uncertainty phrasing, and visual packaging without clutter, two dates contain full sample copy and asset specs while all other dates hold clean editable placeholders:
+        <div class="sample-quick-links">
+          <button type="button" class="sample-jump-btn" onclick="openCardModal('q1_glaciers')">
+            <span>01 · Mar 21: World Day for Glaciers</span>
+            <span>Open →</span>
+          </button>
+          <button type="button" class="sample-jump-btn" onclick="openCardModal('q2_sod')">
+            <span>02 · Jun 01: WGI SOD Expert Review</span>
+            <span>Open →</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="sidebar-card-note">
+        <span class="sidebar-card-note-label">Inter-Agency Coordination Note</span>
+        In practice, all scheduled posts, messaging, and joint campaigns would be coordinated closely with the <strong>IPCC Secretariat</strong>, <strong>Working Groups II &amp; III</strong>, and co-parent bodies (<strong>WMO</strong> and <strong>UNEP</strong>) to ensure unified terminology and strictly policy-neutral framing (<em>“policy-relevant, never policy-prescriptive”</em>).
+      </div>
+
+      <div class="filter-section">
+        <span class="filter-label">Filter Calendar by Pillar</span>
+        <div class="filter-pills">
+          <button type="button" class="pill-btn pill-all active" data-filter="all" onclick="setFilter('all')">All Cards</button>
+          <button type="button" class="pill-btn pill-ar7" data-filter="ar7" onclick="setFilter('ar7')">AR7 Cycle</button>
+          <button type="button" class="pill-btn pill-un" data-filter="un" onclick="setFilter('un')">UN Observance</button>
+          <button type="button" class="pill-btn pill-coparent" data-filter="coparent" onclick="setFilter('coparent')">Co-Parent Sync</button>
+          <button type="button" class="pill-btn pill-author" data-filter="author" onclick="setFilter('author')">Author Spotlight</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT INTERACTIVE WORKSPACE -->
+    <main class="workspace-area" id="protectedWorkspace">
+
+      <!-- Faint Diagonal Deterrence Watermark -->
+      <div class="watermark-overlay" aria-hidden="true">
+        <span class="watermark-text">Timothy Castillon · IPCC WGI Application Sample</span>
+        <span class="watermark-text">Timothy Castillon · IPCC WGI Application Sample</span>
+        <span class="watermark-text">Timothy Castillon · IPCC WGI Application Sample</span>
+        <span class="watermark-text">Timothy Castillon · IPCC WGI Application Sample</span>
+        <span class="watermark-text">Timothy Castillon · IPCC WGI Application Sample</span>
+        <span class="watermark-text">Timothy Castillon · IPCC WGI Application Sample</span>
+      </div>
+
+      <!-- Workspace Header Bar -->
+      <div class="workspace-toolbar">
+        <div class="toolbar-left">
+          <h2 class="workspace-heading">Editorial Board &amp; Rollout Schedule</h2>
+          <span class="applicant-tag">© Timothy Castillon · Application Sample</span>
+        </div>
+
+        <div class="view-toggle" role="tablist" aria-label="Workspace view switcher">
+          <button type="button" id="btnBoardView" class="view-btn active" onclick="switchView('board')">Board View</button>
+          <button type="button" id="btnCalendarView" class="view-btn" onclick="switchView('calendar')">Calendar View</button>
+        </div>
+      </div>
+
+      <!-- BOARD VIEW -->
+      <div id="boardContainer" class="board-container"></div>
+
+      <!-- CALENDAR VIEW -->
+      <div id="calendarContainer" class="calendar-container">
+        <div class="cal-header-bar">
+          <div>
+            <h3 id="calMonthHeading" class="cal-month-heading">March 2027</h3>
+            <p style="font-size: 0.78rem; color: var(--muted);">Select any scheduled card on the grid to inspect sample copy or placeholder notes.</p>
+          </div>
+          <div class="cal-controls">
+            <label for="calMonthSelect" style="font-family: 'Space Mono', monospace; font-size: 0.7rem; text-transform: uppercase; color: var(--muted);">Month:</label>
+            <select id="calMonthSelect" class="cal-select" onchange="renderCalendar()">
+              <option value="2027-02">February 2027</option>
+              <option value="2027-03" selected>March 2027 (Sample Post 01)</option>
+              <option value="2027-04">April 2027</option>
+              <option value="2027-05">May 2027 (LAM4)</option>
+              <option value="2027-06">June 2027 (Sample Post 02)</option>
+              <option value="2027-09">September 2027</option>
+              <option value="2027-10">October 2027</option>
+              <option value="2027-11">November 2027 (COP32)</option>
+              <option value="2027-12">December 2027</option>
+              <option value="2028-02">February 2028 (FGD)</option>
+              <option value="2028-06">June 2028 (Report Launch)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="cal-grid-wrap">
+          <div class="cal-weekdays">
+            <div class="cal-weekday">Mon</div>
+            <div class="cal-weekday">Tue</div>
+            <div class="cal-weekday">Wed</div>
+            <div class="cal-weekday">Thu</div>
+            <div class="cal-weekday">Fri</div>
+            <div class="cal-weekday">Sat</div>
+            <div class="cal-weekday">Sun</div>
+          </div>
+          <div id="calDaysGrid" class="cal-days-grid"></div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- GPC-STYLE TRELLO CARD MODAL -->
+  <div id="cardModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle" onclick="if(event.target===this) closeCardModal()">
+    <div class="modal-card" onclick="event.stopPropagation()">
+
+      <!-- Cover Header -->
+      <div class="modal-cover">
+        <span id="modalListPill" class="modal-list-pill">Q1 · Jan – Mar</span>
+        <div class="modal-cover-center">
+          <div id="modalCoverEyebrow" class="modal-cover-eyebrow">IPCC Working Group I · Sample</div>
+          <div id="modalCoverSub" class="modal-cover-sub">Editorial &amp; Social Media Card</div>
+        </div>
+        <button type="button" class="modal-close-btn" onclick="closeCardModal()" aria-label="Close card modal">&times;</button>
+      </div>
+
+      <!-- Two-Column Trello Body -->
+      <div class="modal-body-grid">
+
+        <!-- Left Main Column -->
+        <div class="modal-main-col">
+          <div class="modal-title-row">
+            <button type="button" id="modalStatusCircle" class="status-check-circle" onclick="toggleCardStatus()" title="Toggle Scheduled / Approved status" aria-label="Toggle status">✓</button>
+            <div>
+              <h2 id="modalTitle" class="modal-title-text">Card Title</h2>
+              <p class="modal-sublist-line">in list <span id="modalSublistText">Q1 · Jan – Mar</span></p>
+            </div>
+          </div>
+
+          <!-- Members, Due Date & Labels -->
+          <div class="modal-meta-row">
+            <div>
+              <div class="meta-block-label">Owner</div>
+              <div class="member-chip">
+                <span class="member-chip-circle">TC</span>
+                <span>Timothy Castillon (Applicant)</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="meta-block-label">Target Date &amp; Status</div>
+              <div class="due-date-pill">
+                <span id="modalDateDisplay">Mar 21, 2027</span>
+                <button type="button" id="modalStatusTag" class="status-toggle-tag scheduled" onclick="toggleCardStatus()">Scheduled</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Description / Post Copy -->
+          <div>
+            <div class="modal-section-head">
+              <h3 class="modal-section-title">Description &amp; Post Copy</h3>
+              <button type="button" id="btnCopySample" class="copy-sample-btn" onclick="copySampleText()">Copy Sample Text</button>
+            </div>
+            <div class="modal-desc-wrap">
+              <textarea id="modalTextarea" class="modal-textarea" oninput="updateCardCopy(this.value)"></textarea>
+              <div class="coord-callout">
+                <strong>Coordination Note:</strong> Final copy, visual assets, and release timing would be cleared with the WGI TSU Head, IPCC Secretariat, and co-parent comms teams (WMO/UNEP) prior to publication.
+              </div>
+            </div>
+          </div>
+
+          <!-- Attachments -->
+          <div>
+            <div class="modal-section-head">
+              <h3 class="modal-section-title">Planned Assets &amp; Attachments</h3>
+            </div>
+            <div id="modalAttachments" class="attachments-grid"></div>
+          </div>
+        </div>
+
+        <!-- Right Activity Column -->
+        <div class="modal-side-col">
+          <h4 class="activity-heading">Comments and activity</h4>
+
+          <div class="comment-box">
+            <textarea id="newCommentInput" class="comment-input" rows="2" placeholder="Add a review note or comment..."></textarea>
+            <div class="comment-actions">
+              <button type="button" class="comment-save-btn" onclick="addComment()">Save</button>
+            </div>
+          </div>
+
+          <div id="modalActivityList" class="activity-list"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toastBanner" class="toast-banner" role="status" aria-live="polite">Sample post copy copied to clipboard.</div>
+
+
+<section class="tcx" aria-labelledby="tcxHeading">
+  <div class="tcx-wrap">
+    <div class="tcx-note">
+      <p class="tcx-k">Process note</p>
+      <h2 id="tcxHeading">How I built this</h2>
+      <ul>
+      <li>Each entry pairs a channel with a job (reach, explain, invite questions), so the calendar reads as a plan and not just a list of posts.</li>
+      <li>Anything tied to AR7 dates comes from public IPCC pages. Dates that are only proposed are labelled as proposed.</li>
+      <li>Science content stays inside Working Group I scope. Impacts and mitigation topics are left to WGII and WGIII, or shown as pointers.</li>
+      <li>Any entry that carries a number would be checked by the relevant author before it was scheduled.</li>
+      </ul>
+    </div>
+    <aside class="tcx-disc" role="note" aria-label="Disclaimer">
+      <p class="tcx-k">Disclaimer</p>
+      <p>Prepared as a <strong>sample for a job application</strong> to the IPCC Working Group I Technical Support Unit (Communication Officer role). It is independent work by Timothy Castillon.</p><p>It is not an official IPCC product and has not been reviewed or endorsed by the IPCC, its Working Group I TSU, or any organisation named on the page. The IPCC is named only to identify the source material.</p>
+    </aside>
+  </div>
+</section>
+
+  <footer>
+    <p>© 2026 <span>Timothy Earl Mateo Castillon</span> · Sample Work Prepared for IPCC Working Group I Application.</p>
+  </footer>
+
+  <script>
+    // =========================================================================
+    // 1. LISTS, PILLARS & EDITORIAL DATA
+    // =========================================================================
+    const LISTS = [
+      { id: 'sops', title: 'SOPs & Guardrails' },
+      { id: 'q1',   title: 'Q1 · Jan – Mar' },
+      { id: 'q2',   title: 'Q2 · Apr – Jun' },
+      { id: 'q3',   title: 'Q3 · Jul – Sep' },
+      { id: 'q4',   title: 'Q4 · Oct – Dec' },
+      { id: 'h28',  title: '2028 Horizon' }
+    ];
+
+    const PILLARS = {
+      ar7:      { label: 'AR7 Cycle',        cls: 't-pill-ar7' },
+      un:       { label: 'UN Observance',    cls: 't-pill-un' },
+      coparent: { label: 'Co-Parent Sync',   cls: 't-pill-coparent' },
+      author:   { label: 'Author Spotlight', cls: 't-pill-author' }
+    };
+
+    const CARDS = [
+      // --- SOPs & Guardrails ---
+      {
+        id: 'sop_neutrality',
+        listId: 'sops',
+        title: 'Editorial Guardrail: Policy-Relevant, Never Policy-Prescriptive',
+        date: '',
+        dateLabel: 'Ongoing Standard',
+        status: 'Approved',
+        pillars: ['ar7', 'coparent'],
+        isSample: false,
+        coverTag: 'TSU Comms Protocol',
+        description: '[Placeholder — Internal TSU Editorial Checklist]\n\n• Verify all social copy uses calibrated IPCC uncertainty language.\n• Ensure strict policy neutrality (policy-relevant, never policy-prescriptive).\n• Confirm embargo compliance during draft review windows and align terminology with IPCC Secretariat, WGII, WGIII, WMO, and UNEP.',
+        attachments: [
+          { badge: 'SOP', name: 'Placeholder_WGI_Style_Checklist.pdf', meta: 'Internal TSU Reference' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added this editorial guardrail to SOPs & Guardrails', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+      {
+        id: 'sop_coord',
+        listId: 'sops',
+        title: 'Inter-Agency & Co-Parent Comms Alignment Workflow',
+        date: '',
+        dateLabel: 'T-14 Days Pre-Launch',
+        status: 'Scheduled',
+        pillars: ['coparent'],
+        isSample: false,
+        coverTag: 'Coordination Protocol',
+        description: '[Placeholder — Sample Post Copy & Workflow]\n\nStandard T-14 day coordination protocol with IPCC Secretariat (Geneva), WMO, and UNEP comms focal points to synchronize joint observances, shared graphics, and cross-tagging.',
+        attachments: [
+          { badge: 'DOC', name: 'Placeholder_CoParent_Signoff_Matrix.docx', meta: 'Workflow Template' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added this workflow card to SOPs & Guardrails', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+
+      // --- Q1 · Jan – Mar ---
+      {
+        id: 'q1_women',
+        listId: 'q1',
+        title: 'International Day of Women and Girls in Science',
+        date: '2027-02-11',
+        dateLabel: 'Feb 11, 2027',
+        status: 'Scheduled',
+        pillars: ['author', 'un'],
+        isSample: false,
+        coverTag: 'Feb 11 · Author Spotlight',
+        description: '[Placeholder — Sample Post Copy]\n\nSpotlight card featuring female Coordinating Lead Authors, Lead Authors, and Chapter Scientists across Working Group I. Final quotes and portraits to be coordinated with WGI TSU and IPCC Secretariat.',
+        attachments: [
+          { badge: 'IMG', name: 'Placeholder_Author_Quote_Card.png', meta: '1080×1350 Social Asset' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added this card to Q1 · Jan – Mar', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+      {
+        id: 'q1_glaciers',
+        listId: 'q1',
+        title: 'World Day for Glaciers — Cryosphere & Sea-Level Rise Explainer',
+        date: '2027-03-21',
+        dateLabel: 'Mar 21, 2027',
+        status: 'Approved',
+        pillars: ['un', 'coparent'],
+        isSample: true,
+        coverTag: 'Sample Post 01 · Mar 21, 2027',
+        description: 'Glaciers are critical indicators of Earth’s changing energy balance. On #WorldDayForGlaciers, explore what #IPCC physical science tells us about mountain glacier mass loss, Greenland and Antarctic ice-sheet dynamics, and committed global sea-level rise.\n\nExplore regional cryosphere data in the WGI Interactive Atlas: https://interactive-atlas.ipcc.ch\n\n#ClimateScience #Cryosphere #AR7 @WMO @UNESCO',
+        attachments: [
+          { badge: 'PNG', name: 'WGI_Glacier_MassBalance_16x9.png', meta: 'Sample Social Visual · Approved WGI Data' },
+          { badge: 'PDF', name: 'WGI_Cryosphere_FAQ_Brief.pdf', meta: 'Spokesperson & Terminology Sheet' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'Verified calibrated uncertainty wording against published WGI cryosphere findings and noted WMO/UNESCO co-tagging.', time: 'Sample Review Note', isComment: true },
+          { user: 'Timothy Castillon', text: 'added Sample Post 01 to Q1 · Jan – Mar', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+      {
+        id: 'q1_water',
+        listId: 'q1',
+        title: 'World Water Day — Intensifying Hydrological Cycle',
+        date: '2027-03-22',
+        dateLabel: 'Mar 22, 2027',
+        status: 'Scheduled',
+        pillars: ['un'],
+        isSample: false,
+        coverTag: 'Mar 22 · UN Observance',
+        description: '[Placeholder — Sample Post Copy]\n\nConnect WGI physical science on atmospheric moisture capacity, extreme precipitation events, and regional drought mechanisms. Coordinated with WMO hydrological comms.',
+        attachments: [
+          { badge: 'IMG', name: 'Placeholder_Hydrological_Cycle.png', meta: '16:9 Explainer Graphic' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added this card to Q1 · Jan – Mar', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+      {
+        id: 'q1_met',
+        listId: 'q1',
+        title: 'World Meteorological Day — Co-Brand Campaign with WMO',
+        date: '2027-03-23',
+        dateLabel: 'Mar 23, 2027',
+        status: 'Scheduled',
+        pillars: ['coparent', 'un'],
+        isSample: false,
+        coverTag: 'Mar 23 · Co-Parent Sync',
+        description: '[Placeholder — Sample Post Copy]\n\nJoint co-parent campaign with the World Meteorological Organization (WMO) highlighting climate observations, attribution science, and physical climate baselines.',
+        attachments: [
+          { badge: 'IMG', name: 'Placeholder_WMO_IPCC_CoBrand.png', meta: 'Joint Social Card' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added this card to Q1 · Jan – Mar', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+
+      // --- Q2 · Apr – Jun ---
+      {
+        id: 'q2_earth',
+        listId: 'q2',
+        title: 'International Mother Earth Day (Earth Day)',
+        date: '2027-04-22',
+        dateLabel: 'Apr 22, 2027',
+        status: 'Scheduled',
+        pillars: ['un'],
+        isSample: false,
+        coverTag: 'Apr 22 · UN Observance',
+        description: '[Placeholder — Sample Post Copy]\n\nPublic-facing visual explainer translating Earth’s energy imbalance and atmospheric greenhouse gas concentrations into accessible physical metrics.',
+        attachments: [
+          { badge: 'IMG', name: 'Placeholder_Earth_Energy_Balance.png', meta: 'Carousel Asset' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added this card to Q2 · Apr – Jun', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+      {
+        id: 'q2_lam4',
+        listId: 'q2',
+        title: 'WGI Fourth Lead Author Meeting (LAM4)',
+        date: '2027-05-15',
+        dateLabel: 'May 2027 (TBC)',
+        status: 'Scheduled',
+        pillars: ['ar7', 'author'],
+        isSample: false,
+        coverTag: 'May 2027 · AR7 Cycle',
+        description: '[Placeholder — Sample Post Copy]\n\nOn-site author video interviews, behind-the-scenes photography, and host-institution outreach coordinated with the IPCC Secretariat.',
+        attachments: [
+          { badge: 'PDF', name: 'Placeholder_LAM4_Media_Plan.pdf', meta: 'Event Comms Runbook' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added this card to Q2 · Apr – Jun', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+      {
+        id: 'q2_sod',
+        listId: 'q2',
+        title: 'WGI Second Order Draft (SOD) Expert & Government Review Opens',
+        date: '2027-06-01',
+        dateLabel: 'Jun 01, 2027',
+        status: 'Approved',
+        pillars: ['ar7'],
+        isSample: true,
+        coverTag: 'Sample Post 02 · AR7 Review Milestone',
+        description: 'Rigorous peer review is the cornerstone of every #IPCC assessment. Registration is now open for qualified scientific experts to review the Second Order Draft of the Working Group I #AR7 report.\n\nLearn how our multi-stage review process safeguards scientific integrity and register as an expert reviewer: https://www.ipcc.ch/working-group/wg1/\n\n#ClimateScience #PeerReview #PhysicalScience',
+        attachments: [
+          { badge: 'PNG', name: 'IPCC_MultiStage_Review_Infographic.png', meta: 'Sample Process Diagram' },
+          { badge: 'PDF', name: 'SOD_Reviewer_Registration_Guide.pdf', meta: 'TSU Outreach Flyer' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'Drafted to emphasize scientific rigor and confidentiality rules; to be released in lockstep with IPCC Secretariat official announcement.', time: 'Sample Review Note', isComment: true },
+          { user: 'Timothy Castillon', text: 'added Sample Post 02 to Q2 · Apr – Jun', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+      {
+        id: 'q2_env',
+        listId: 'q2',
+        title: 'World Environment Day — Co-Brand Sync with UNEP',
+        date: '2027-06-05',
+        dateLabel: 'Jun 05, 2027',
+        status: 'Scheduled',
+        pillars: ['coparent', 'un'],
+        isSample: false,
+        coverTag: 'Jun 05 · Co-Parent Sync',
+        description: '[Placeholder — Sample Post Copy]\n\nCo-branding opportunity with the UN Environment Programme (UNEP) spotlighting carbon cycle feedbacks and land-atmosphere interactions.',
+        attachments: [
+          { badge: 'IMG', name: 'Placeholder_UNEP_IPCC_Card.png', meta: 'Co-Branded Graphic' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added this card to Q2 · Apr – Jun', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+      {
+        id: 'q2_oceans',
+        listId: 'q2',
+        title: 'World Oceans Day — Ocean Heat Content & Marine Heatwaves',
+        date: '2027-06-08',
+        dateLabel: 'Jun 08, 2027',
+        status: 'Scheduled',
+        pillars: ['un'],
+        isSample: false,
+        coverTag: 'Jun 08 · UN Observance',
+        description: '[Placeholder — Sample Post Copy]\n\nHighlight WGI physical oceanography findings: ocean heat uptake (~90% of excess energy), marine heatwave frequency, and ocean acidification.',
+        attachments: [
+          { badge: 'IMG', name: 'Placeholder_Ocean_Heat_Chart.png', meta: 'Data Visual Card' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added this card to Q2 · Apr – Jun', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+      {
+        id: 'q2_bonn',
+        listId: 'q2',
+        title: 'UNFCCC Bonn Climate Change Conference (SB66)',
+        date: '2027-06-14',
+        dateLabel: 'Jun 14, 2027',
+        status: 'Scheduled',
+        pillars: ['coparent', 'ar7'],
+        isSample: false,
+        coverTag: 'Jun 2027 · UNFCCC SB66',
+        description: '[Placeholder — Sample Post Copy]\n\nSupport WGI Co-Chairs and TSU at the SBSTA Research and Systematic Observation (RSO) dialogue and delegate briefings.',
+        attachments: [
+          { badge: 'PDF', name: 'Placeholder_SB66_Briefing_Note.pdf', meta: 'Delegate Comms Kit' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added this card to Q2 · Apr – Jun', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+
+      // --- Q3 · Jul – Sep ---
+      {
+        id: 'q3_ozone',
+        listId: 'q3',
+        title: 'International Day for the Preservation of the Ozone Layer',
+        date: '2027-09-16',
+        dateLabel: 'Sep 16, 2027',
+        status: 'Scheduled',
+        pillars: ['un'],
+        isSample: false,
+        coverTag: 'Sep 16 · UN Observance',
+        description: '[Placeholder — Sample Post Copy]\n\nConnect WGI atmospheric chemistry chapters, radiative forcing mechanics, and stratospheric ozone recovery observations.',
+        attachments: [
+          { badge: 'IMG', name: 'Placeholder_Radiative_Forcing.png', meta: 'Explainer Card' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added this card to Q3 · Jul – Sep', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+
+      // --- Q4 · Oct – Dec ---
+      {
+        id: 'q4_drr',
+        listId: 'q4',
+        title: 'International Day for Disaster Risk Reduction — Climate Extremes',
+        date: '2027-10-13',
+        dateLabel: 'Oct 13, 2027',
+        status: 'Scheduled',
+        pillars: ['un'],
+        isSample: false,
+        coverTag: 'Oct 13 · UN Observance',
+        description: '[Placeholder — Sample Post Copy]\n\nSpotlight WGI chapter on weather and climate extremes (heatwaves, heavy precipitation, and compound events) in coordination with WGII.',
+        attachments: [
+          { badge: 'IMG', name: 'Placeholder_Extremes_Summary.png', meta: 'Social Graphic' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added this card to Q4 · Oct – Dec', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+      {
+        id: 'q4_cities',
+        listId: 'q4',
+        title: 'World Cities Day — Urban Climate & Special Report Link',
+        date: '2027-10-31',
+        dateLabel: 'Oct 31, 2027',
+        status: 'Scheduled',
+        pillars: ['un', 'coparent'],
+        isSample: false,
+        coverTag: 'Oct 31 · UN Observance',
+        description: '[Placeholder — Sample Post Copy]\n\nCross-working-group hook connecting urban heat island physics with the AR7 Special Report on Climate Change and Cities.',
+        attachments: [
+          { badge: 'IMG', name: 'Placeholder_Urban_Heat_Visual.png', meta: 'Cross-WG Social Card' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added this card to Q4 · Oct – Dec', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+      {
+        id: 'q4_cop32',
+        listId: 'q4',
+        title: 'UNFCCC COP32 Outreach & Joint IPCC Science Pavilion',
+        date: '2027-11-08',
+        dateLabel: 'Nov 2027 (TBC)',
+        status: 'Scheduled',
+        pillars: ['ar7', 'coparent'],
+        isSample: false,
+        coverTag: 'Nov 2027 · COP32',
+        description: '[Placeholder — Sample Post Copy]\n\nDaily IPCC Pavilion programming, WGI Co-Chair press briefings, and physical science inputs feeding into the Second Global Stocktake (GST-2).',
+        attachments: [
+          { badge: 'PDF', name: 'Placeholder_COP32_Pavilion_Runbook.pdf', meta: 'Joint IPCC/WMO/UNEP Schedule' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added this card to Q4 · Oct – Dec', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+      {
+        id: 'q4_mountain',
+        listId: 'q4',
+        title: 'International Mountain Day — Snowpack & High-Mountain Cryosphere',
+        date: '2027-12-11',
+        dateLabel: 'Dec 11, 2027',
+        status: 'Scheduled',
+        pillars: ['un'],
+        isSample: false,
+        coverTag: 'Dec 11 · UN Observance',
+        description: '[Placeholder — Sample Post Copy]\n\nYear-end feature on high-mountain snow cover, permafrost thaw, and mountain water tower observations.',
+        attachments: [
+          { badge: 'IMG', name: 'Placeholder_Mountain_Snowpack.png', meta: 'Social Card' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added this card to Q4 · Oct – Dec', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+
+      // --- 2028 Horizon ---
+      {
+        id: 'h28_fgd',
+        listId: 'h28',
+        title: 'WGI Final Government Distribution (FGD) & Embargo Prep',
+        date: '2028-02-15',
+        dateLabel: 'Early 2028 (TBC)',
+        status: 'Scheduled',
+        pillars: ['ar7'],
+        isSample: false,
+        coverTag: '2028 Horizon · Embargoed',
+        description: '[Placeholder — Sample Post Copy]\n\nStrict embargo period: finalize Summary for Policymakers (SPM) figures, press release, FAQs, and Interactive Atlas updates with IPCC Secretariat.',
+        attachments: [
+          { badge: 'PDF', name: 'Placeholder_FGD_Embargo_Protocol.pdf', meta: 'Restricted TSU Document' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added this card to 2028 Horizon', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+      {
+        id: 'h28_launch',
+        listId: 'h28',
+        title: 'WGI AR7 Approval Plenary & Global Report Launch',
+        date: '2028-06-15',
+        dateLabel: 'Mid-2028 (TBC)',
+        status: 'Scheduled',
+        pillars: ['ar7', 'coparent'],
+        isSample: false,
+        coverTag: '2028 Horizon · Flagship Launch',
+        description: '[Placeholder — Sample Post Copy]\n\nFlagship global press conference, Summary for Policymakers (SPM) publication, regional media briefings, and full digital rollout with WMO and UNEP.',
+        attachments: [
+          { badge: 'ZIP', name: 'Placeholder_AR7_WGI_Global_PressKit.zip', meta: 'Launch Package' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added this card to 2028 Horizon', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      }
+    ];
+
+    // =========================================================================
+    // 2. APPLICATION STATE & RENDERING
+    // =========================================================================
+    let currentFilter = 'all';
+    let activeCardId = null;
+
+    function renderBoard() {
+      const board = document.getElementById('boardContainer');
+      board.innerHTML = '';
+
+      LISTS.forEach(list => {
+        const filteredCards = CARDS.filter(c => {
+          const inList = c.listId === list.id;
+          const matchesFilter = currentFilter === 'all' || c.pillars.includes(currentFilter);
+          return inList && matchesFilter;
+        });
+
+        const col = document.createElement('section');
+        col.className = 'trello-list';
+        col.setAttribute('aria-label', list.title);
+
+        col.innerHTML = `
+          <div class="list-header">
+            <h3 class="list-title">${list.title}</h3>
+            <span class="list-count">${filteredCards.length}</span>
+          </div>
+          <div class="list-cards">
+            ${filteredCards.map(card => renderBoardCard(card)).join('')}
+          </div>
+        `;
+        board.appendChild(col);
+      });
+    }
+
+    function renderBoardCard(card) {
+      const isApproved = card.status === 'Approved';
+      return `
+        <article class="t-card ${card.isSample ? 'is-sample' : ''}" onclick="openCardModal('${card.id}')" tabindex="0" onkeydown="if(event.key==='Enter') openCardModal('${card.id}')">
+          <div class="t-card-pills">
+            ${card.isSample ? `<span class="t-pill t-pill-sample">Sample Post</span>` : ''}
+            ${card.pillars.map(pKey => {
+              const p = PILLARS[pKey];
+              return p ? `<span class="t-pill ${p.cls}">${p.label}</span>` : '';
+            }).join('')}
+          </div>
+
+          <h4 class="t-card-title">${card.title}</h4>
+          <p class="t-card-excerpt">${card.description.replace(/\n+/g, ' ')}</p>
+
+          <div class="t-card-footer">
+            <span class="t-date-badge ${isApproved ? 't-date-approved' : 't-date-scheduled'}">
+              ${isApproved ? '✓' : '◷'} ${card.dateLabel}
+            </span>
+            <div class="t-meta-right">
+              <span class="t-attach-count">📎 ${card.attachments.length}</span>
+              <span class="t-avatar" title="Timothy Castillon">TC</span>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    // =========================================================================
+    // 3. CALENDAR VIEW RENDERER
+    // =========================================================================
+    function renderCalendar() {
+      const monthStr = document.getElementById('calMonthSelect').value;
+      const [year, month] = monthStr.split('-').map(Number);
+
+      const firstDate = new Date(year, month - 1, 1);
+      document.getElementById('calMonthHeading').textContent = firstDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+
+      const startWeekday = (firstDate.getDay() + 6) % 7;
+      const daysInMonth = new Date(year, month, 0).getDate();
+
+      const grid = document.getElementById('calDaysGrid');
+      grid.innerHTML = '';
+
+      for (let i = 0; i < startWeekday; i++) {
+        grid.innerHTML += `<div class="cal-cell is-empty"></div>`;
+      }
+
+      for (let day = 1; day <= daysInMonth; day++) {
+        const iso = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        const dayCards = CARDS.filter(c => c.date === iso && (currentFilter === 'all' || c.pillars.includes(currentFilter)));
+
+        grid.innerHTML += `
+          <div class="cal-cell ${dayCards.length ? 'has-event' : ''}">
+            <span class="cal-day-num">${day}</span>
+            ${dayCards.map(c => `
+              <button type="button" class="cal-event-chip ${c.isSample ? 'is-sample' : ''}" onclick="openCardModal('${c.id}')">
+                ${c.isSample ? '★ ' : ''}${c.title}
+              </button>
+            `).join('')}
+          </div>
+        `;
+      }
+    }
+
+    // =========================================================================
+    // 4. INTERACTIVE GPC-STYLE CARD MODAL
+    // =========================================================================
+    function openCardModal(cardId) {
+      activeCardId = cardId;
+      const card = CARDS.find(c => c.id === cardId);
+      if (!card) return;
+
+      const listObj = LISTS.find(l => l.id === card.listId);
+      const listName = listObj ? listObj.title : 'IPCC WGI';
+
+      document.getElementById('modalListPill').textContent = listName;
+      document.getElementById('modalSublistText').textContent = listName;
+      document.getElementById('modalCoverEyebrow').textContent = card.coverTag || 'IPCC Working Group I · Sample';
+      document.getElementById('modalCoverSub').textContent = card.isSample ? 'Complete Sample Social Media Post' : 'Placeholder Editorial Card';
+      document.getElementById('modalTitle').textContent = card.title;
+      document.getElementById('modalDateDisplay').textContent = card.dateLabel;
+      document.getElementById('modalTextarea').value = card.description;
+
+      const copyBtn = document.getElementById('btnCopySample');
+      copyBtn.style.display = card.isSample ? 'inline-block' : 'none';
+
+      updateModalStatusUI(card.status);
+
+      document.getElementById('modalAttachments').innerHTML = card.attachments.map(att => `
+        <div class="attachment-item">
+          <span class="att-badge">${att.badge}</span>
+          <div class="att-info">
+            <div class="att-name">${att.name}</div>
+            <div class="att-meta">${att.meta}</div>
+          </div>
+        </div>
+      `).join('');
+
+      renderActivityList(card);
+      document.getElementById('cardModal').classList.add('open');
+    }
+
+    function updateModalStatusUI(status) {
+      const circle = document.getElementById('modalStatusCircle');
+      const tag = document.getElementById('modalStatusTag');
+      if (status === 'Approved') {
+        circle.classList.add('approved');
+        tag.className = 'status-toggle-tag approved';
+        tag.textContent = 'Approved';
+      } else {
+        circle.classList.remove('approved');
+        tag.className = 'status-toggle-tag scheduled';
+        tag.textContent = 'Scheduled';
+      }
+    }
+
+    function toggleCardStatus() {
+      const card = CARDS.find(c => c.id === activeCardId);
+      if (!card) return;
+      card.status = card.status === 'Approved' ? 'Scheduled' : 'Approved';
+      card.activity.unshift({
+        user: 'Reviewer',
+        text: `marked this card as ${card.status}`,
+        time: 'Just now',
+        isComment: false
+      });
+      updateModalStatusUI(card.status);
+      renderActivityList(card);
+      renderBoard();
+      renderCalendar();
+    }
+
+    function updateCardCopy(val) {
+      const card = CARDS.find(c => c.id === activeCardId);
+      if (!card) return;
+      card.description = val;
+    }
+
+    function renderActivityList(card) {
+      const container = document.getElementById('modalActivityList');
+      container.innerHTML = card.activity.map(item => `
+        <div class="activity-item">
+          <span class="act-avatar">${item.user.slice(0, 2).toUpperCase()}</span>
+          <div style="flex: 1; min-width: 0;">
+            ${item.isComment ? `
+              <div><strong>${item.user}</strong></div>
+              <div class="act-bubble">${item.text}</div>
+              <span class="act-time">${item.time}</span>
+            ` : `
+              <div><strong>${item.user}</strong> ${item.text}</div>
+              <span class="act-time">${item.time}</span>
+            `}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function addComment() {
+      const input = document.getElementById('newCommentInput');
+      const text = input.value.trim();
+      if (!text) return;
+      const card = CARDS.find(c => c.id === activeCardId);
+      if (!card) return;
+
+      card.activity.unshift({
+        user: 'Reviewer',
+        text,
+        time: 'Just now',
+        isComment: true
+      });
+      input.value = '';
+      renderActivityList(card);
+    }
+
+    function closeCardModal() {
+      document.getElementById('cardModal').classList.remove('open');
+      activeCardId = null;
+    }
+
+    // =========================================================================
+    // 5. NAVIGATION, FILTERS & DETERRENCE HELPERS
+    // =========================================================================
+    function switchView(mode) {
+      const board = document.getElementById('boardContainer');
+      const cal = document.getElementById('calendarContainer');
+      const btnB = document.getElementById('btnBoardView');
+      const btnC = document.getElementById('btnCalendarView');
+
+      if (mode === 'board') {
+        board.style.display = 'flex';
+        cal.classList.remove('active');
+        btnB.classList.add('active');
+        btnC.classList.remove('active');
+      } else {
+        board.style.display = 'none';
+        cal.classList.add('active');
+        btnC.classList.add('active');
+        btnB.classList.remove('active');
+        renderCalendar();
+      }
+    }
+
+    function setFilter(pillar) {
+      currentFilter = pillar;
+      document.querySelectorAll('.pill-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.filter === pillar);
+      });
+      renderBoard();
+      renderCalendar();
+    }
+
+    function copySampleText() {
+      const textarea = document.getElementById('modalTextarea');
+      textarea.select();
+      document.execCommand('copy');
+      showToast('Sample post copy copied to clipboard.');
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastBanner');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    // Subtle right-click deterrence on the protected workspace
+    document.getElementById('protectedWorkspace').addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+      showToast('© Timothy Castillon · Application Sample');
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeCardModal();
+    });
+
+    window.onload = function () {
+      renderBoard();
+      renderCalendar();
+    };
+  </script>
+</body>
+</html>
