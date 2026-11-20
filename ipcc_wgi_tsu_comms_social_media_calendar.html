@@ -1200,6 +1200,19 @@
     .trello-list { width: 82vw; }
   }
 </style>
+
+<style id="tc-sidebar-short">
+  .context-sidebar{gap:.9rem;padding:1.4rem 1.4rem 1.5rem}
+  .context-sidebar .sidebar-title{font-size:1.5rem}
+  .context-sidebar .sidebar-copy{font-size:.92rem;line-height:1.5;color:var(--ink)}
+  .context-sidebar .sidebar-card-note{padding:.75rem .85rem}
+  .context-sidebar .sample-quick-links{margin-top:.35rem}
+  .sidebar-more{border:1px solid var(--border);border-radius:var(--radius);background:var(--fog);font-size:.85rem;line-height:1.5;color:var(--ink)}
+  .sidebar-more summary{cursor:pointer;padding:.65rem .85rem;min-height:44px;display:flex;align-items:center;font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--sage)}
+  .sidebar-more p{padding:0 .85rem .75rem}
+  .sidebar-disc{font-size:.78rem;line-height:1.45;color:var(--muted)}
+  .sidebar-disc strong{color:var(--sage);font-weight:600}
+</style>
 </head>
 <body>
 
@@ -1223,17 +1236,23 @@
         <h1 class="sidebar-title">IPCC WGI Comms &amp; Social Media Calendar</h1>
       </div>
 
-      <div class="disclaimer-box" role="note">
-        <strong>Applicant Sample Only:</strong> Prepared solely for the IPCC Working Group I Technical Support Unit Communication Officer application. Not an official IPCC, WMO, or UNEP document.
-      </div>
-
       <p class="sidebar-copy">
-        This proposed editorial board bridges internal <strong>AR7 assessment cycle milestones</strong> (Lead Author Meetings, Second Order Draft review windows, and plenary timelines) with recurring <strong>UN physical science observances</strong> across the year.
+        A proposed year-round board linking <strong>AR7 milestones</strong> with <strong>UN science observances</strong>.
       </p>
 
+      <div class="filter-section">
+        <span class="filter-label">Filter by pillar</span>
+        <div class="filter-pills">
+          <button type="button" class="pill-btn pill-all active" data-filter="all" onclick="setFilter('all')">All Cards</button>
+          <button type="button" class="pill-btn pill-ar7" data-filter="ar7" onclick="setFilter('ar7')">AR7 Cycle</button>
+          <button type="button" class="pill-btn pill-un" data-filter="un" onclick="setFilter('un')">UN Observance</button>
+          <button type="button" class="pill-btn pill-coparent" data-filter="coparent" onclick="setFilter('coparent')">Co-Parent Sync</button>
+          <button type="button" class="pill-btn pill-author" data-filter="author" onclick="setFilter('author')">Author Spotlight</button>
+        </div>
+      </div>
+
       <div class="sidebar-card-note">
-        <span class="sidebar-card-note-label">Two Complete Sample Posts Included</span>
-        To illustrate tone, calibrated uncertainty phrasing, and visual packaging without clutter, two dates contain full sample copy and asset specs while all other dates hold clean editable placeholders:
+        <span class="sidebar-card-note-label">Two full sample posts</span>
         <div class="sample-quick-links">
           <button type="button" class="sample-jump-btn" onclick="openCardModal('q1_glaciers')">
             <span>01 · Mar 21: World Day for Glaciers</span>
@@ -1246,26 +1265,13 @@
         </div>
       </div>
 
-      <div class="sidebar-card-note">
-        <span class="sidebar-card-note-label">Timing Note · AR7</span>
-        As of 20 November 2026 the Panel has not agreed an AR7 work plan. Its 65th session (Addis Ababa, 12–16 October 2026) ended without a decision on the Working Group timeline. Dates for 2027–2028 review stages, Lead Author Meetings and approval plenaries are therefore <strong>proposed and marked TBC</strong>. UN observance dates are fixed.
-      </div>
+      <details class="sidebar-more">
+        <summary>Notes</summary>
+        <p><strong>AR7 dates are proposed (TBC).</strong> No AR7 work plan was agreed as of 20 Nov 2026. UN observance dates are fixed.</p>
+        <p>Posts would be coordinated with the IPCC Secretariat, WGII, WGIII, WMO and UNEP: <em>policy-relevant, never policy-prescriptive.</em></p>
+      </details>
 
-      <div class="sidebar-card-note">
-        <span class="sidebar-card-note-label">Inter-Agency Coordination Note</span>
-        In practice, all scheduled posts, messaging, and joint campaigns would be coordinated closely with the <strong>IPCC Secretariat</strong>, <strong>Working Groups II &amp; III</strong>, and co-parent bodies (<strong>WMO</strong> and <strong>UNEP</strong>) to ensure unified terminology and strictly policy-neutral framing (<em>“policy-relevant, never policy-prescriptive”</em>).
-      </div>
-
-      <div class="filter-section">
-        <span class="filter-label">Filter Calendar by Pillar</span>
-        <div class="filter-pills">
-          <button type="button" class="pill-btn pill-all active" data-filter="all" onclick="setFilter('all')">All Cards</button>
-          <button type="button" class="pill-btn pill-ar7" data-filter="ar7" onclick="setFilter('ar7')">AR7 Cycle</button>
-          <button type="button" class="pill-btn pill-un" data-filter="un" onclick="setFilter('un')">UN Observance</button>
-          <button type="button" class="pill-btn pill-coparent" data-filter="coparent" onclick="setFilter('coparent')">Co-Parent Sync</button>
-          <button type="button" class="pill-btn pill-author" data-filter="author" onclick="setFilter('author')">Author Spotlight</button>
-        </div>
-      </div>
+      <p class="sidebar-disc"><strong>Applicant sample only.</strong> Not an official IPCC, WMO or UNEP document.</p>
     </aside>
 
     <!-- RIGHT INTERACTIVE WORKSPACE -->
