@@ -161,7 +161,26 @@
       padding: 2rem 5vw calc(2rem + env(safe-area-inset-bottom)); font-size: 0.8rem; letter-spacing: 0.04em;
     }
     footer span { color: var(--gold); }
-  </style>
+  
+/* ── BRAND v2: compact cards with images ── */
+.hero{padding:calc(var(--nav-h) + 2.2rem) 5vw 2rem}
+.hero-name{margin-bottom:.7rem}
+.hero-lead{font-size:.98rem;line-height:1.65}
+.notice{margin-top:1.1rem;background:none;border:0;border-left:3px solid var(--gold);border-radius:0;padding:.1rem 0 .1rem .9rem;font-size:.82rem}
+section{padding:2.8rem 5vw}
+.section-sub{margin-bottom:1.2rem}
+.grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:1rem}
+.media{aspect-ratio:16/6.5}
+.media figcaption{font-size:.55rem}
+.card.has-media .body{padding:.9rem 1rem 1.1rem;gap:.45rem}
+.card .tag{font-size:.62rem}
+.card .title{font-size:1.08rem;line-height:1.25}
+.card .desc{font-size:.82rem;line-height:1.5}
+.card .btn{min-height:38px;padding:.5rem .9rem;font-size:.8rem}
+.sample-box{padding:1.6rem 1.8rem;border-radius:0;box-shadow:none;border:0}
+.sample-cols{margin-bottom:1rem}
+@media(max-width:640px){.media{aspect-ratio:16/6}}
+</style>
 
 <style id="tcx-process-css">
   .tcx { background:#f4f2ee; color:#0b1420; font-family:'Inter',system-ui,sans-serif; padding:3.5rem 5vw; border-top:1px solid #e1ddd4; line-height:1.65; position:relative; z-index:1; width:100%; }
@@ -178,6 +197,10 @@
   .tcx-disc .tcx-k { color:#e2c68c; }
   .tcx-disc p { font-size:.9rem; color:rgba(255,255,255,.88); }
   .tcx-disc p + p { margin-top:.7rem; font-size:.82rem; color:rgba(255,255,255,.7); }
+
+.tcx{padding:2.4rem 5vw}
+.tcx .tcx-note{background:none!important;border:0!important;border-top:3px solid #ab7d2c!important;border-radius:0!important;box-shadow:none!important;padding:1.2rem 0 0!important}
+.tcx .tcx-disc{border-radius:0!important;box-shadow:none!important}
 </style>
 
 <meta name="robots" content="noindex, nofollow, noarchive" />
@@ -250,7 +273,6 @@
             <span class="tag">Output 01 · WGI science literacy &amp; exploration</span>
             <h3 class="title">Communicating WGI Work: The Physical Science Basis</h3>
             <p class="desc">What WGI actually does, explained in three visuals: where the extra heat goes, where our CO₂ goes and how warm it could get. Built so anyone can follow it.</p>
-            <div class="file">ipcc-wgi-observatory.html</div>
             <a class="btn" href="ipcc-wgi-observatory.html">Open the WGI Observatory →</a>
           </div>
         </article>
@@ -263,7 +285,6 @@
             <span class="tag">Output 02 · Stakeholder &amp; launch briefings</span>
             <h3 class="title">Executive &amp; Media Briefing Deck: Emissions &amp; 1.5°C Pathways</h3>
             <p class="desc">A seven-slide briefing deck that turns dense emissions and 1.5°C numbers into clear visuals. Modelled on UNEP Emissions Gap data.</p>
-            <div class="file">unep_emissions_gap_report_2026_the_point_of_return.html</div>
             <a class="btn" href="unep_emissions_gap_report_2026_the_point_of_return.html">Open the briefing deck →</a>
           </div>
         </article>
@@ -276,7 +297,6 @@
             <span class="tag">Output 03 · Digital campaigns &amp; channel strategy</span>
             <h3 class="title">Multi-Platform Rollout: Strategy, Carousels &amp; Brand Craft</h3>
             <p class="desc">A short strategy for non-science audiences, plus ready-to-post samples for LinkedIn, Facebook, X and Instagram, and a brand guide.</p>
-            <div class="file">social-media-package.html</div>
             <a class="btn" href="social-media-package.html">Open the rollout package →</a>
           </div>
         </article>
@@ -289,7 +309,6 @@
             <span class="tag">Output 04 · Calendar sample</span>
             <h3 class="title">WGI Communications &amp; Social Media Calendar</h3>
             <p class="desc">A sample calendar planning blog, social, press and event content around WGI and AR7 milestones.</p>
-            <div class="file">ipcc_wgi_tsu_comms_social_media_calendar.html</div>
             <a class="btn" href="ipcc_wgi_tsu_comms_social_media_calendar.html">Open the calendar →</a>
           </div>
         </article>
