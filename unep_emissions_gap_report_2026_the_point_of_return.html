@@ -40,7 +40,7 @@
   </script>
 
   <style>
-    /* Custom scientific & editorial styling anchored in Oxford Blue (#002147) */
+    /* Custom scientific & editorial styling */
     /* ── Shared site tokens & nav (same as the main portfolio) ── */
     :root { --sage:#002147; --gold:#ab7d2c; --gold-lt:#e2c68c; --muted:#656b76; --border:#e1ddd4; --radius:8px; --nav-h:64px; }
     body { padding-top: var(--nav-h); }
@@ -78,7 +78,7 @@
       overflow-x: hidden;
     }
 
-    /* Oxford Blue (#002147) atmospheric field with subtle climate signal gradients */
+    /* Atmospheric field with subtle climate signal gradients */
     .atmospheric-bg {
       background-color: #002147;
       background-image:
@@ -217,7 +217,7 @@
   <header class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-3 flex flex-col gap-3">
     <div class="flex flex-wrap items-center justify-between gap-3">
       <div class="flex items-center gap-3">
-        <!-- Custom SVG Emblem: Overshoot & Return Curve on Oxford Blue -->
+        <!-- Custom SVG Emblem: Overshoot & Return Curve -->
         <div class="w-10 h-10 rounded-xl bg-[#001733] border border-sky-300/35 flex items-center justify-center shadow-lg shadow-black/40 shrink-0" aria-hidden="true">
           <svg class="w-6 h-6" viewBox="0 0 32 32" fill="none">
             <line x1="3" y1="19" x2="29" y2="19" stroke="#38bdf8" stroke-width="1.4" stroke-dasharray="2.5 2.5" opacity="0.75" />
@@ -229,7 +229,7 @@
           <div class="flex items-center gap-2 flex-wrap">
             <span class="font-mono text-xs uppercase tracking-widest text-[#e2c68c] font-semibold">UNEP Emissions Gap Report 2026</span>
             <span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-200 border border-rose-400/35">17th Edition</span>
-            <span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-sky-400/15 text-sky-200 border border-sky-300/30">Oxford Blue · Science × Art × Media</span>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-sky-400/15 text-sky-200 border border-sky-300/30">Briefing deck · sample</span>
           </div>
           <p class="text-xs sm:text-sm text-sky-100/80">The Point of Return — Urgent emissions cuts needed to come back from overshoot of 1.5°C</p>
         </div>
@@ -357,7 +357,6 @@
     /**
      * UNEP Emissions Gap Report 2026: "The Point of Return"
      * Interactive Presentation Engine & Data Visualizations
-     * Anchored on Oxford Blue (#002147) with Science × Art × Media Philosophy & ICC / IPCC Color Standards.
      */
 
     const SLIDE_META = [
@@ -367,13 +366,13 @@
       { shortTitle: '04 · Trajectories & Delay', badge: 'Cost of Delay' },
       { shortTitle: '05 · GST Scorecard', badge: '2035 & 2040' },
       { shortTitle: '06 · What Works', badge: 'Policy Evidence' },
-      { shortTitle: '07 · Science × Art × Media', badge: 'ICC & Visual Craft' },
+      { shortTitle: '07 · Briefing Notes', badge: 'Using the Numbers' },
     ];
 
     const SLIDE_NOTES = [
       {
         takeaway: 'Limiting warming to 1.5°C with no or limited overshoot (<0.1°C) is no longer possible; exceedance is now unavoidable. Minimizing peak warming and returning to ≤1.5°C by 2100 via the lowest possible overshoot pathway (~1.7–1.8°C peak, ~50% return chance) requires ~320 GtCO₂ of net carbon dioxide removal over the century.',
-        speaker: 'Emphasize that overshoot is a scientific reality rather than a license to give up. Anchored on Oxford Blue (#002147), our visual framing pairs cool glacial cyan with measured crimson-amber overshoot signals so urgency feels clear and grounded rather than sensationalized.'
+        speaker: 'Emphasize that overshoot is a scientific reality rather than a license to give up. Say the number and its range first, and keep the tone factual rather than alarmed.'
       },
       {
         takeaway: 'Global GHG emissions in 2025 reached 58.4 GtCO₂e (±5.5), virtually unchanged (-0.1 GtCO₂e, within uncertainty) from the revised 2024 estimate of 58.5 GtCO₂e. While growth slowed from 1.7%/yr (1990–2016) to 0.8%/yr (2016–2025), fossil CO₂ (~40 GtCO₂e, 68% share), F-gases (+8.6%), and N₂O (+1.2%) kept rising, offset by lower LULUCF emissions (~4.1 GtCO₂e, down ~0.5 GtCO₂e on lower wildfires).',
@@ -385,7 +384,7 @@
       },
       {
         takeaway: 'Continuing current policies puts warming at ~2.8°C (66% chance) by 2100—compared with 2.7°C (unconditional NDCs), 2.6°C (conditional NDCs), and 2.1°C (conditional NDCs + all net-zero pledges, still ~0.25°C higher peak than lowest 1.5°C overshoot). Every 5 years at current emissions adds ~200 GtCO₂ and ~0.1°C more peak warming. Lowest overshoot demands cuts of 18% by 2030, 45% by 2035, and 69% by 2040 vs 2025 (~5.7%/yr average cut 2025–2035), reaching net-zero CO₂ around 2050.',
-        speaker: 'Use the interactive delay & trajectory toggle to show how inaction compounds. Even all net-zero pledges paired with conditional NDCs stop around 2.1°C—underscoring why near-term 2030 and 2035 steep reductions (~5.7%/yr) and ~2050 net-zero CO₂ are non-negotiable for returning to 1.5°C.'
+        speaker: 'Use the interactive delay & trajectory toggle to show how inaction compounds. Even all net-zero pledges paired with conditional NDCs stop around 2.1°C—which is why the report’s lowest-overshoot pathway needs steep cuts by 2030 and 2035 (about 5.7% a year) and net-zero CO₂ around 2050.'
       },
       {
         takeaway: 'Clean technologies have surged since 2015: renewable power capacity grew 3x faster than 2015 projections, solar PV 7x faster, EVs reached ~25% of passenger car sales in 2025, and renewables passed coal in global electricity generation (33.8% vs 33.0%). Yet absolute energy CO₂, road transport, and non-CO₂/methane emissions are trending upward, fossil subsidies reached ~$920B in 2024 (up from ~$660B in 2018), and deforestation decline needs >10x acceleration to hit zero by 2030.',
@@ -393,11 +392,11 @@
       },
       {
         takeaway: 'Empirical evidence shows policy matters: 63 major structural emission shifts (>5–13% below counterfactual) coincided with policy adoption or strengthening, and a meta-analysis of 220 causal policy evaluations found electricity policies averaged ~9% reductions and economic instruments 5–13%. Impact depends on design, sequencing, enforcement, and coherent policy mixes—paired with stronger evaluation capacity, especially in developing economies.',
-        speaker: 'Close on actionable governance: well-crafted regulations, carbon pricing/economic instruments, and targeted incentives deliver measurable cuts when sequenced coherently without conflicting subsidies—and building independent ex-post evaluation capacity in developing economies is vital to scale what works.'
+        speaker: 'Close on what the evidence says about policy design: well-crafted regulations, carbon pricing/economic instruments, and targeted incentives deliver measurable cuts when sequenced coherently without conflicting subsidies—and building independent ex-post evaluation capacity in developing economies is vital to scale what works.'
       },
       {
-        takeaway: 'Bridging climate science, art, and media turns complex carbon math into shared public clarity: Science supplies rigorous baselines, carbon budgets, and trajectory physics; minimalist climate Art (inspired by warming stripes and visual storytelling) sparks immediate human resonance; and Media & visual systems—calibrated with ICC color profile consistency and IPCC perceptually uniform/diverging palettes on Oxford Blue (#002147)—preserve accuracy without rainbow distortion.',
-        speaker: 'Note that "IICC" can refer either to International Color Consortium (ICC) color management and perceptual accuracy across displays, print, and broadcast media, or to climate visual standards aligned with IPCC perceptually uniform/diverging palettes. Anchoring on Oxford Blue (#002147) with cool-to-warm signal accents keeps charts color-blind safe, legible, and free of rainbow distortion.'
+        takeaway: 'Not every number in this deck is the same kind of number. 58.4 GtCO₂e is an estimate with a range, about 2.8°C is a projection, 2.6–2.7°C is where pledges lead, and the 18% / 45% / 69% cuts are what the lowest-overshoot pathway requires. Saying which kind you are quoting keeps a briefing accurate.',
+        speaker: 'Walk the four boxes left to right. Then take the three questions: is 1.5°C lost, have emissions peaked, and did the 2030 gap really narrow. Remind the room that this is UNEP’s assessment of targets and policies, not an IPCC finding, and that the IPCC assesses physical science (WGI) and mitigation (WGIII) separately.'
       }
     ];
 
@@ -410,7 +409,6 @@
       slide4DelayYears: 0,        // 0, 5, 10 years delay
       slide5View: 'momentum',     // 'momentum' | 'headwinds'
       slide6Sector: 'all',        // 'all' | 'power' | 'pricing'
-      slide7Pillar: 'triad',      // 'triad' | 'icc-ipcc' | 'stripes'
     };
 
     let activeChart = null;
@@ -433,7 +431,7 @@
     }
 
     /* =========================================================================
-       SLIDE RENDERERS (7 Slides on Oxford Blue #002147)
+       SLIDE RENDERERS (7 slides)
        ========================================================================= */
 
     function renderSlide1() {
@@ -456,7 +454,7 @@
             </h1>
 
             <p class="text-sm sm:text-base text-sky-100/90 leading-relaxed max-w-2xl">
-              Limiting warming to <strong class="text-white">1.5°C with no or limited overshoot (&lt;0.1°C) is no longer possible</strong>. Because exceedance cannot be avoided, minimizing peak warming and returning to <strong class="text-sky-300">&le;1.5°C by 2100</strong> is now the central scientific and policy imperative—communicated here with scientific precision, visual artistry, and Oxford Blue clarity.
+              Limiting warming to <strong class="text-white">1.5°C with no or limited overshoot (&lt;0.1°C) is no longer possible</strong>. Because exceedance cannot be avoided, minimizing peak warming and returning to <strong class="text-sky-300">&le;1.5°C by 2100</strong> is now the question the report puts at the centre: how small and how short can the overshoot be kept?
             </p>
 
             <!-- Interactive Mode Toggle -->
@@ -515,7 +513,7 @@
                 <span class="font-mono text-xs px-2 py-0.5 rounded bg-sky-400/20 text-sky-200">2020 → 2100</span>
               </div>
 
-              <!-- Crisp Custom SVG Diagram on Deep Oxford Navy -->
+              <!-- Custom SVG diagram -->
               <svg viewBox="0 0 440 270" class="w-full h-auto rounded-lg bg-[#001733] border border-sky-200/20" role="img" aria-label="Temperature overshoot and return schematic">
                 <line x1="48" y1="52" x2="412" y2="52" stroke="rgba(251,113,133,0.3)" stroke-dasharray="4 4" />
                 <text x="10" y="56" fill="#fda4af" font-size="10" font-family="Space Mono">1.8°C</text>
@@ -1024,168 +1022,55 @@
       `;
     }
 
-    /* New Slide 7: Philosophy & Visual Craft — Bridging Climate Science, Art & Media */
+    /* Slide 7: Briefing notes — how to present these numbers */
     function renderSlide7() {
-      const pillar = appState.slide7Pillar;
-
+      const kinds = [
+        { name: 'Estimated', val: '58.4 GtCO₂e', note: '2025 emissions, ±5.5. Slightly below the revised 2024 figure, but within the uncertainty.', cls: 'border-sky-300/40 text-sky-200' },
+        { name: 'Projected', val: '~2.8°C', note: 'Warming by 2100 under current policies, with a 66% chance.', cls: 'border-amber-300/40 text-amber-200' },
+        { name: 'Pledged', val: '2.6–2.7°C', note: 'Where full implementation of NDCs leads (conditional and unconditional).', cls: 'border-sky-300/40 text-sky-200' },
+        { name: 'Required', val: '−18 / −45 / −69%', note: 'Cuts by 2030 / 2035 / 2040 vs 2025 on the lowest-overshoot pathway.', cls: 'border-rose-300/40 text-rose-200' },
+      ];
+      const qa = [
+        { q: 'Is 1.5°C lost?', a: 'Limiting warming to 1.5°C with no or limited overshoot is no longer possible. The lowest-overshoot pathway peaks at about 1.7–1.8°C and returns to 1.5°C or below by 2100 with roughly a 50% chance. It also relies on about 320 GtCO₂ of net removal.' },
+        { q: 'Have emissions peaked?', a: 'Too early to say. The 2025 estimate is close to 2024, but the uncertainty range is wider than the change.' },
+        { q: 'Did the 2030 gap really narrow?', a: 'It did on paper. The slide 3 note explains why: mostly US withdrawal from the Paris Agreement and harmonised historical data, not stronger policy.' },
+      ];
       return `
         <div class="space-y-6">
-          <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 border-b border-sky-200/15 pb-4">
-            <div>
-              <span class="font-mono text-xs uppercase tracking-widest text-[#e2c68c] font-semibold">Philosophy &amp; Visual Craft</span>
-              <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">
-                Bridging Climate Science, Art &amp; Media on Oxford Blue
-              </h2>
-              <p class="text-xs sm:text-sm text-sky-100/85 mt-1 max-w-3xl">
-                Turning gigatonnes and overshoot physics into clear, human-centered visual communication—anchored by <strong class="text-white">Oxford Blue (#002147)</strong>, <strong class="text-sky-300">ICC</strong> color profile consistency, and <strong class="text-amber-300">IPCC</strong> perceptually uniform/diverging palettes without rainbow distortion.
-              </p>
-            </div>
-
-            <div class="flex items-center gap-2 shrink-0 flex-wrap">
-              <button
-                type="button"
-                onclick="setSlide7Pillar('triad')"
-                class="px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition cursor-pointer border ${
-                  pillar === 'triad'
-                    ? 'bg-[#ab7d2c]/35 text-white border-[#e2c68c]'
-                    : 'bg-[#001733]/80 text-sky-200/75 border-sky-200/15 hover:text-white'
-                }"
-              >
-                Science × Art × Media
-              </button>
-              <button
-                type="button"
-                onclick="setSlide7Pillar('icc-ipcc')"
-                class="px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition cursor-pointer border ${
-                  pillar === 'icc-ipcc'
-                    ? 'bg-amber-400/25 text-amber-200 border-amber-300'
-                    : 'bg-[#001733]/80 text-sky-200/75 border-sky-200/15 hover:text-white'
-                }"
-              >
-                ICC &amp; IPCC Color Standards
-              </button>
-              <button
-                type="button"
-                onclick="setSlide7Pillar('stripes')"
-                class="px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition cursor-pointer border ${
-                  pillar === 'stripes'
-                    ? 'bg-rose-500/25 text-rose-200 border-rose-300'
-                    : 'bg-[#001733]/80 text-sky-200/75 border-sky-200/15 hover:text-white'
-                }"
-              >
-                Minimalist Art &amp; Contrast
-              </button>
-            </div>
+          <div class="border-b border-sky-200/15 pb-4">
+            <span class="font-mono text-xs uppercase tracking-widest text-[#e2c68c] font-semibold">Briefing notes</span>
+            <h2 class="font-serif text-3xl sm:text-4xl text-white mt-1 leading-tight">Presenting the gap without overstating it</h2>
+            <p class="text-sm sm:text-base text-sky-100/85 mt-2 max-w-3xl">Four kinds of number appear in this deck. Say which kind you are quoting, and the audience will not mix them up.</p>
           </div>
 
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-            <!-- Left 7 Columns: Triad & Visual System Breakdown -->
-            <div class="lg:col-span-7 space-y-4">
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <div class="glass-subpanel p-4 border-t-4 border-t-sky-400">
-                  <div class="font-mono text-xs uppercase text-sky-300 font-semibold">01 · Climate Science</div>
-                  <h3 class="text-sm font-bold text-white mt-1">Rigor &amp; Truth</h3>
-                  <p class="text-xs text-sky-100/85 mt-1.5 leading-relaxed">
-                    Establishes 58.4 GtCO₂e baselines, 1.7–1.8°C overshoot peaks, ~320 GtCO₂ net CDR, and 2035/2040 gaps without softening uncertainty or delay penalties.
-                  </p>
-                </div>
+          <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+            ${kinds.map(k => `
+              <div class="rounded-2xl bg-[#062d5c]/70 border ${k.cls.split(' ')[0]} p-4">
+                <div class="font-mono text-[11px] uppercase tracking-widest ${k.cls.split(' ')[1]}">${k.name}</div>
+                <div class="font-serif text-2xl text-white mt-1">${k.val}</div>
+                <p class="text-xs sm:text-sm text-sky-100/80 mt-2 leading-relaxed">${k.note}</p>
+              </div>`).join('')}
+          </div>
 
-                <div class="glass-subpanel p-4 border-t-4 border-t-rose-400">
-                  <div class="font-mono text-xs uppercase text-rose-300 font-semibold">02 · Minimalist Art</div>
-                  <h3 class="text-sm font-bold text-white mt-1">Felt Human Scale</h3>
-                  <p class="text-xs text-sky-100/85 mt-1.5 leading-relaxed">
-                    Draws inspiration from warming stripes and clean visual storytelling so abstract gigatonnes and overshoot curves register immediately at human scale.
-                  </p>
-                </div>
-
-                <div class="glass-subpanel p-4 border-t-4 border-t-amber-300">
-                  <div class="font-mono text-xs uppercase text-amber-300 font-semibold">03 · Media &amp; Systems</div>
-                  <h3 class="text-sm font-bold text-white mt-1">Accessible Clarity</h3>
-                  <p class="text-xs text-sky-100/85 mt-1.5 leading-relaxed">
-                    Carries briefings, journalism, and interactive decks across screens with high contrast, clear hierarchy, and zero sensationalist distortion.
-                  </p>
-                </div>
-              </div>
-
-              <!-- ICC & IPCC Color Standard Box -->
-              <div class="glass-subpanel p-4 sm:p-5 bg-[#001733]/90">
-                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-                  <span class="font-mono text-xs uppercase tracking-wider text-amber-300 font-semibold">
-                    Color Governance · ICC Precision &amp; IPCC Perceptual Uniformity
-                  </span>
-                  <span class="font-mono text-xs text-sky-200/80">No Rainbow Distortion</span>
-                </div>
-                <p class="text-xs sm:text-sm text-sky-100/90 leading-relaxed">
-                  In cross-media production, <strong class="text-white">IICC</strong> can refer to <strong class="text-sky-300">International Color Consortium (ICC)</strong> color profile accuracy across monitors, projection, and print, or to climate visual standards aligned with <strong class="text-amber-300">IPCC perceptually uniform/diverging palettes</strong>. Pairing <strong class="text-white">Oxford Blue (#002147)</strong> as a calm, authoritative canvas with cool glacial cyan and measured warming amber/crimson keeps thresholds color-blind safe and emotionally resonant.
-                </p>
+          <div class="grid gap-4 lg:grid-cols-5">
+            <div class="lg:col-span-3 rounded-2xl bg-[#001733]/80 border border-sky-200/15 p-5">
+              <div class="font-mono text-[11px] uppercase tracking-widest text-[#e2c68c] mb-3">Questions to expect</div>
+              <div class="space-y-4">
+                ${qa.map(x => `
+                  <div>
+                    <div class="text-white font-semibold text-sm sm:text-base">${x.q}</div>
+                    <p class="text-xs sm:text-sm text-sky-100/80 mt-1 leading-relaxed">${x.a}</p>
+                  </div>`).join('')}
               </div>
             </div>
-
-            <!-- Right 5 Columns: Live Oxford Blue Swatch & Minimalist Stripe/Overshoot Strip -->
-            <div class="lg:col-span-5 glass-subpanel p-4 sm:p-5 space-y-4">
-              <div class="flex items-center justify-between">
-                <span class="font-mono text-xs uppercase tracking-wider text-sky-200/85">
-                  Visual Palette &amp; Overshoot Stripe Motif
-                </span>
-                <span class="font-mono text-xs px-2 py-0.5 rounded bg-[#001733] text-sky-300 border border-sky-200/20">#002147</span>
+            <div class="lg:col-span-2 space-y-4">
+              <div class="rounded-2xl bg-[#062d5c]/70 border border-sky-200/15 p-5">
+                <div class="font-mono text-[11px] uppercase tracking-widest text-[#e2c68c] mb-2">Know whose number it is</div>
+                <p class="text-xs sm:text-sm text-sky-100/80 leading-relaxed">This is a UNEP assessment of where countries’ targets and policies lead. It is not an IPCC finding. IPCC Working Group I assesses the physical climate science, and Working Group III assesses mitigation. Name the source on every slide you reuse.</p>
               </div>
-
-              <!-- Minimalist Climate-to-Overshoot Stripe Band (inspired by warming stripes & return path) -->
-              <div class="rounded-xl overflow-hidden border border-sky-200/25 bg-[#001733] p-3">
-                <div class="text-[11px] font-mono text-sky-200/80 mb-2 flex justify-between">
-                  <span>1850s Cool/Baseline</span>
-                  <span>Peak Overshoot (1.7–1.8°C)</span>
-                  <span>2100 Return (&le;1.5°C)</span>
-                </div>
-                <div class="grid grid-cols-12 h-10 rounded-md overflow-hidden" role="img" aria-label="Minimalist climate trajectory stripe motif">
-                  <div class="bg-[#0284c7]"></div>
-                  <div class="bg-[#0ea5e9]"></div>
-                  <div class="bg-[#38bdf8]"></div>
-                  <div class="bg-[#7dd3fc]"></div>
-                  <div class="bg-[#fde047]"></div>
-                  <div class="bg-[#fbbf24]"></div>
-                  <div class="bg-[#fb923c]"></div>
-                  <div class="bg-[#fb7185]"></div>
-                  <div class="bg-[#f43f5e]"></div>
-                  <div class="bg-[#fb923c]"></div>
-                  <div class="bg-[#38bdf8]"></div>
-                  <div class="bg-[#34d399]"></div>
-                </div>
-                <p class="text-[11px] text-sky-100/75 mt-2">
-                  Sequential/diverging cool-to-warm encoding avoids rainbow hue cliffs and highlights the return arc toward &le;1.5°C by 2100.
-                </p>
-              </div>
-
-              <!-- Core Swatch Chips -->
-              <div class="grid grid-cols-2 gap-2.5 text-xs font-mono">
-                <div class="p-2.5 rounded-lg bg-[#002147] border border-sky-200/25 flex items-center gap-2.5">
-                  <span class="w-5 h-5 rounded-md bg-[#002147] border border-white/60 shrink-0"></span>
-                  <div>
-                    <div class="text-white font-semibold">Oxford Blue</div>
-                    <div class="text-[10px] text-sky-200/70">#002147 · RGB 0,33,71</div>
-                  </div>
-                </div>
-                <div class="p-2.5 rounded-lg bg-[#001733] border border-sky-200/20 flex items-center gap-2.5">
-                  <span class="w-5 h-5 rounded-md bg-[#38bdf8] shrink-0"></span>
-                  <div>
-                    <div class="text-white font-semibold">Glacial Cyan</div>
-                    <div class="text-[10px] text-sky-200/70">#38BDF8 · Target/Clean</div>
-                  </div>
-                </div>
-                <div class="p-2.5 rounded-lg bg-[#001733] border border-sky-200/20 flex items-center gap-2.5">
-                  <span class="w-5 h-5 rounded-md bg-[#fb7185] shrink-0"></span>
-                  <div>
-                    <div class="text-white font-semibold">Overshoot Rose</div>
-                    <div class="text-[10px] text-sky-200/70">#FB7185 · Gap/Peak</div>
-                  </div>
-                </div>
-                <div class="p-2.5 rounded-lg bg-[#001733] border border-sky-200/20 flex items-center gap-2.5">
-                  <span class="w-5 h-5 rounded-md bg-[#fbbf24] shrink-0"></span>
-                  <div>
-                    <div class="text-white font-semibold">Signal Amber</div>
-                    <div class="text-[10px] text-sky-200/70">#FBBF24 · CDR/Caution</div>
-                  </div>
-                </div>
+              <div class="rounded-2xl bg-[#062d5c]/70 border border-sky-200/15 p-5">
+                <div class="font-mono text-[11px] uppercase tracking-widest text-[#e2c68c] mb-2">Make it readable for everyone</div>
+                <p class="text-xs sm:text-sm text-sky-100/80 leading-relaxed">Label lines and bars directly so colour is never the only clue. Avoid red and green side by side, and check the slides in greyscale and on a projector before a briefing.</p>
               </div>
             </div>
           </div>
@@ -1194,7 +1079,7 @@
     }
 
     /* =========================================================================
-       CHART.JS INITIALIZATION PER SLIDE (High Contrast on Oxford Blue)
+       CHART.JS INITIALIZATION PER SLIDE (high contrast)
        ========================================================================= */
 
     function initChartForSlide(index) {
@@ -1634,10 +1519,6 @@
       renderPresentation();
     }
 
-    function setSlide7Pillar(pillar) {
-      appState.slide7Pillar = pillar;
-      renderPresentation();
-    }
 
     function toggleNotesDrawer(forceState) {
       appState.notesOpen = typeof forceState === 'boolean' ? forceState : !appState.notesOpen;

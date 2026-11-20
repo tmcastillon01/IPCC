@@ -207,6 +207,21 @@
   })();
 </script>
 
+
+<style id="tc-one-row">
+  /* Outputs: one row on every screen size */
+  #interactive .wrap { max-width: 1360px; }
+  #interactive .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.1rem; align-items: stretch; }
+  #interactive .card .title { font-size: 1.2rem; }
+  #interactive .card .desc { font-size: .84rem; }
+  #interactive .card .tag { line-height: 1.5; }
+  .swipe-hint { display: none; font-family: 'Space Mono', monospace; font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: -1.5rem 0 1rem; }
+  @media (max-width: 1100px) {
+    #interactive .grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1rem; padding: .25rem 0 1rem; -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
+    #interactive .card { flex: 0 0 min(80vw, 340px); scroll-snap-align: start; }
+    .swipe-hint { display: block; }
+  }
+</style>
 </head>
 <body>
   <nav>
@@ -230,6 +245,7 @@
       <p class="section-eyebrow">Science-to-policy &amp; public outreach systems</p>
       <h2 class="section-title">Communicating Working Group I</h2>
       <p class="section-sub">Interactive tools, briefing decks and cross-platform communication packages designed to translate WGI assessment findings for policymakers, media and the public.</p>
+      <p class="swipe-hint" aria-hidden="true">Swipe to see all four outputs →</p>
       <div class="grid">
         <article class="card has-media">
           <figure class="media" data-label="Stakeholder &amp; public literacy">

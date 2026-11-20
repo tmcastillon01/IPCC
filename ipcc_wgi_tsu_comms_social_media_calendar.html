@@ -1176,6 +1176,30 @@
   })();
 </script>
 
+
+<style id="tc-compact-board">
+  /* Compact layout: a contained board instead of a full-screen app */
+  :root { --board-h: min(600px, calc(100vh - 150px)); }
+  .split-shell { max-width: 1320px; margin: 0 auto; width: 100%; min-height: 0; align-items: start; gap: 1.5rem;
+    grid-template-columns: minmax(300px, 380px) minmax(0, 1fr); padding: calc(var(--nav-h) + 1.5rem) 1.5rem 2.5rem; }
+  .context-sidebar { position: static; height: auto; overflow: visible; border: 1px solid var(--border); border-top: 3px solid var(--gold); border-radius: 12px; }
+  .workspace-area { position: sticky; top: calc(var(--nav-h) + 1rem); height: var(--board-h); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 14px 36px rgba(0,33,71,.12); }
+  .board-container { padding: 1rem; overflow: auto; min-height: 0; align-items: stretch; }
+  .trello-list { width: 260px; max-height: none; }
+  .workspace-toolbar { padding: .7rem 1rem; }
+  .workspace-heading { font-size: 1.1rem; }
+  @media (max-width: 1060px) {
+    .split-shell { grid-template-columns: 1fr; padding: calc(var(--nav-h) + 1rem) 1rem 2rem; }
+    .workspace-area { position: relative; top: 0; height: min(560px, 75vh); }
+    .context-sidebar { border-right: 1px solid var(--border); }
+    .trello-list { width: 240px; }
+  }
+  @media (max-width: 560px) {
+    .split-shell { padding-left: .6rem; padding-right: .6rem; gap: 1rem; }
+    .workspace-area { height: min(520px, 78vh); border-radius: 10px; }
+    .trello-list { width: 82vw; }
+  }
+</style>
 </head>
 <body>
 
@@ -1220,6 +1244,11 @@
             <span>Open →</span>
           </button>
         </div>
+      </div>
+
+      <div class="sidebar-card-note">
+        <span class="sidebar-card-note-label">Timing Note · AR7</span>
+        As of 20 November 2026 the Panel has not agreed an AR7 work plan. Its 65th session (Addis Ababa, 12–16 October 2026) ended without a decision on the Working Group timeline. Dates for 2027–2028 review stages, Lead Author Meetings and approval plenaries are therefore <strong>proposed and marked TBC</strong>. UN observance dates are fixed.
       </div>
 
       <div class="sidebar-card-note">
@@ -1580,14 +1609,14 @@
       },
       {
         id: 'q2_lam4',
-        listId: 'q2',
+        listId: 'q3',
         title: 'WGI Fourth Lead Author Meeting (LAM4)',
-        date: '2027-05-15',
-        dateLabel: 'May 2027 (TBC)',
+        date: '2027-07-26',
+        dateLabel: 'Mid-2027 (TBC)',
         status: 'Scheduled',
         pillars: ['ar7', 'author'],
         isSample: false,
-        coverTag: 'May 2027 · AR7 Cycle',
+        coverTag: 'Mid-2027 · AR7 Cycle',
         description: '[Placeholder — Sample Post Copy]\n\nOn-site author video interviews, behind-the-scenes photography, and host-institution outreach coordinated with the IPCC Secretariat.',
         attachments: [
           { badge: 'PDF', name: 'Placeholder_LAM4_Media_Plan.pdf', meta: 'Event Comms Runbook' }
@@ -1601,7 +1630,7 @@
         listId: 'q2',
         title: 'WGI Second Order Draft (SOD) Expert & Government Review Opens',
         date: '2027-06-01',
-        dateLabel: 'Jun 01, 2027',
+        dateLabel: 'May–Jun 2027 (TBC)',
         status: 'Approved',
         pillars: ['ar7'],
         isSample: true,
@@ -1653,11 +1682,29 @@
         ]
       },
       {
+        id: 'q2_drought',
+        listId: 'q2',
+        title: 'World Day to Combat Desertification and Drought — Land & Water',
+        date: '2027-06-17',
+        dateLabel: 'Jun 17, 2027',
+        status: 'Scheduled',
+        pillars: ['un'],
+        isSample: false,
+        coverTag: 'Jun 17 · UN Observance',
+        description: '[Placeholder — Sample Post Copy]\n\nExplain what WGI assesses about soil moisture, drought and regional drying trends. Keep impacts on people and land use as a pointer to Working Group II.',
+        attachments: [
+          { badge: 'IMG', name: 'Placeholder_Drought_Regional_Map.png', meta: 'Data Visual Card' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added this card to Q2 · Apr – Jun', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+      {
         id: 'q2_bonn',
         listId: 'q2',
         title: 'UNFCCC Bonn Climate Change Conference (SB66)',
         date: '2027-06-14',
-        dateLabel: 'Jun 14, 2027',
+        dateLabel: 'Jun 2027 (TBC)',
         status: 'Scheduled',
         pillars: ['coparent', 'ar7'],
         isSample: false,
@@ -1771,7 +1818,7 @@
         listId: 'h28',
         title: 'WGI Final Government Distribution (FGD) & Embargo Prep',
         date: '2028-02-15',
-        dateLabel: 'Early 2028 (TBC)',
+        dateLabel: 'Late 2027 – early 2028 (TBC)',
         status: 'Scheduled',
         pillars: ['ar7'],
         isSample: false,
@@ -1787,9 +1834,9 @@
       {
         id: 'h28_launch',
         listId: 'h28',
-        title: 'WGI AR7 Approval Plenary & Global Report Launch',
+        title: 'WGI AR7 Approval Plenary & Global Report Launch (timing not yet agreed)',
         date: '2028-06-15',
-        dateLabel: 'Mid-2028 (TBC)',
+        dateLabel: 'Spring–mid 2028 (TBC)',
         status: 'Scheduled',
         pillars: ['ar7', 'coparent'],
         isSample: false,
