@@ -83,7 +83,17 @@
     .section-sub { color: var(--muted); font-size: 1rem; max-width: 58ch; margin-bottom: 2.5rem; }
 
     /* ─── OUTPUT CARDS ───────────────────────────────────────── */
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 1.5rem; }
+    .grid > .card { min-width: 0; }
+    @media (max-width: 640px) {
+      .grid { grid-template-columns: minmax(0, 1fr); gap: 1.1rem; overflow: visible; }
+      .card.has-media .body { padding: 1.1rem 1.1rem 1.3rem; gap: .65rem; }
+      .media { aspect-ratio: 16 / 8; }
+      .title { font-size: 1.2rem; }
+      .desc { font-size: .92rem; }
+      .file { font-size: .66rem; }
+      .btn { width: 100%; }
+    }
     .card {
       background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--gold);
       border-radius: var(--radius); padding: 1.8rem; display: flex; flex-direction: column; gap: 0.9rem;
@@ -207,21 +217,6 @@
   })();
 </script>
 
-
-<style id="tc-one-row">
-  /* Outputs: one row on every screen size */
-  #interactive .wrap { max-width: 1360px; }
-  #interactive .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.1rem; align-items: stretch; }
-  #interactive .card .title { font-size: 1.2rem; }
-  #interactive .card .desc { font-size: .84rem; }
-  #interactive .card .tag { line-height: 1.5; }
-  .swipe-hint { display: none; font-family: 'Space Mono', monospace; font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: -1.5rem 0 1rem; }
-  @media (max-width: 1100px) {
-    #interactive .grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1rem; padding: .25rem 0 1rem; -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
-    #interactive .card { flex: 0 0 min(80vw, 340px); scroll-snap-align: start; }
-    .swipe-hint { display: block; }
-  }
-</style>
 </head>
 <body>
   <nav>
@@ -244,8 +239,7 @@
     <div class="wrap">
       <p class="section-eyebrow">Science-to-policy &amp; public outreach systems</p>
       <h2 class="section-title">Communicating Working Group I</h2>
-      <p class="section-sub">Interactive tools, briefing decks and cross-platform communication packages designed to translate WGI assessment findings for policymakers, media and the public.</p>
-      <p class="swipe-hint" aria-hidden="true">Swipe to see all four outputs →</p>
+      <p class="section-sub">Four samples that translate WGI findings for policymakers, media and the public.</p>
       <div class="grid">
         <article class="card has-media">
           <figure class="media" data-label="Stakeholder &amp; public literacy">
@@ -255,7 +249,7 @@
           <div class="body">
             <span class="tag">Output 01 · WGI science literacy &amp; exploration</span>
             <h3 class="title">Communicating WGI Work: The Physical Science Basis</h3>
-            <p class="desc">An interactive entry point that translates core WGI concepts for non-specialist audiences, observer organisations and policy briefings: Earth’s energy imbalance (~435 ZJ), carbon sink partitioning, SSP warming pathways and AR7 milestones. It also includes a link strategy for the IPCC WGI Interactive Atlas.</p>
+            <p class="desc">What WGI actually does, explained in three visuals: where the extra heat goes, where our CO₂ goes and how warm it could get. Built so anyone can follow it.</p>
             <div class="file">ipcc-wgi-observatory.html</div>
             <a class="btn" href="ipcc-wgi-observatory.html">Open the WGI Observatory →</a>
           </div>
@@ -268,7 +262,7 @@
           <div class="body">
             <span class="tag">Output 02 · Stakeholder &amp; launch briefings</span>
             <h3 class="title">Executive &amp; Media Briefing Deck: Emissions &amp; 1.5°C Pathways</h3>
-            <p class="desc">A seven-slide interactive presentation modelled on UN and IPCC launch and UNFCCC side-event briefings. It turns dense assessment metrics (58.4 GtCO₂e, NDC gaps, the cost of delay) into clear visual narratives with accessible colour standards. Modelled on UNEP Emissions Gap data.</p>
+            <p class="desc">A seven-slide briefing deck that turns dense emissions and 1.5°C numbers into clear visuals. Modelled on UNEP Emissions Gap data.</p>
             <div class="file">unep_emissions_gap_report_2026_the_point_of_return.html</div>
             <a class="btn" href="unep_emissions_gap_report_2026_the_point_of_return.html">Open the briefing deck →</a>
           </div>
@@ -281,7 +275,7 @@
           <div class="body">
             <span class="tag">Output 03 · Digital campaigns &amp; channel strategy</span>
             <h3 class="title">Multi-Platform Rollout: Strategy, Carousels &amp; Brand Craft</h3>
-            <p class="desc">An end-to-end social and digital rollout reviewed against WGI reference documents. It pairs platform strategy (LinkedIn, Bluesky and legacy channels) with tappable data carousels, audience-perception framing and colour-accessible templates built to work alongside design teams.</p>
+            <p class="desc">A short strategy for non-science audiences, plus ready-to-post samples for LinkedIn, Facebook, X and Instagram, and a brand guide.</p>
             <div class="file">social-media-package.html</div>
             <a class="btn" href="social-media-package.html">Open the rollout package →</a>
           </div>
@@ -294,7 +288,7 @@
           <div class="body">
             <span class="tag">Output 04 · Calendar sample</span>
             <h3 class="title">WGI Communications &amp; Social Media Calendar</h3>
-            <p class="desc">A sample editorial and social calendar showing how blog, social, press and event content could be planned around WGI and AR7 milestones, with each entry tied to a channel, an audience and a job.</p>
+            <p class="desc">A sample calendar planning blog, social, press and event content around WGI and AR7 milestones.</p>
             <div class="file">ipcc_wgi_tsu_comms_social_media_calendar.html</div>
             <a class="btn" href="ipcc_wgi_tsu_comms_social_media_calendar.html">Open the calendar →</a>
           </div>

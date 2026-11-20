@@ -9,58 +9,77 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
-  <style>
-    :root {
-      --bg-paper: #f4f2ee;
-      --sage: #002147;
-      --sage-lt: #e9edf3;
-      --gold: #ab7d2c;
-      --gold-lt: #e2c68c;
-      --nav-h: 64px;
-      --radius: 8px;
-      --border: #e1ddd4;
-      --bg-card: #e9edf3;
-      --ink-primary: #0b1420;
-      --ink-secondary: #5b626d;
-      --ink-muted: #76828C;
-      --border-hairline: rgba(11, 20, 32, 0.14);
-
-      /* Earth System Reservoir Palette */
-      --ocean-blue: #1D5D8F;
-      --land-emerald: #2F7D63;
-      --cryo-ice: #5FA8C8;
-      --atmos-amber: #D9822B;
-
-      /* Temperature & SSP Spectrum Palette */
-      --obs-slate: #435768;
-      --ssp119-teal: #2B8A8E;
-      --ssp245-ochre: #D97B29;
-      --ssp585-crimson: #B8332A;
-
-      /* Radiative Flux & Solar Core */
-      --solar-gold: #e2c68c;
-      --beam-copper: #ab7d2c;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background-color: var(--bg-paper);
-      color: var(--ink-primary);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      padding-top: var(--nav-h);
-      line-height: 1.5;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-
-    html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
-    a { color: inherit; text-decoration: none; }
+<style>
+:root{--paper:#f4f2ee;--sage:#002147;--sage-lt:#e9edf3;--gold:#ab7d2c;--gold-lt:#e2c68c;--nav-h:64px;--radius:8px;--border:#e1ddd4;--ink:#0b1420;--ink2:#5b626d;
+--ocean:#1D5D8F;--land:#2F7D63;--ice:#5FA8C8;--air:#D9822B;--slate:#435768;--t1:#2B8A8E;--t2:#D97B29;--t3:#B8332A}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;padding-top:var(--nav-h);line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.shell{max-width:1040px;margin:0 auto;padding:2.2rem 5vw 1rem}
+.tag{font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+h1{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(2rem,6.5vw,3.3rem);line-height:1.08;color:var(--sage);margin:.5rem 0 .8rem}
+.lead{font-size:clamp(1.05rem,2.6vw,1.25rem);color:#2f3742;max-width:46rem}
+h2{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(1.5rem,4.5vw,2rem);color:var(--sage);line-height:1.15}
+.sec{margin-top:2.8rem}.sec>p.sub{color:var(--ink2);margin:.4rem 0 1.3rem;max-width:44rem}
+/* flow */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;counter-reset:s;list-style:none}
+.flow li{counter-increment:s;background:#fff;border:1px solid var(--border);border-top:3px solid var(--gold);border-radius:var(--radius);padding:1rem 1rem 1.1rem;position:relative}
+.flow li::before{content:counter(s);display:flex;align-items:center;justify-content:center;width:1.9rem;height:1.9rem;border-radius:50%;background:var(--sage);color:#fff;font-family:'DM Serif Display',serif;margin-bottom:.6rem}
+.flow b{display:block;font-size:.98rem;color:var(--sage);margin-bottom:.2rem}.flow span{font-size:.86rem;color:#3b434d}
+.nums{display:flex;flex-wrap:wrap;gap:.6rem 1.8rem;margin-top:1.1rem;padding:.9rem 1.1rem;background:var(--sage);color:#fff;border-radius:var(--radius);border-left:5px solid var(--gold)}
+.nums div{font-size:.82rem;color:rgba(255,255,255,.8)}.nums b{display:block;font-family:'DM Serif Display',serif;font-weight:400;font-size:1.5rem;color:var(--gold-lt);line-height:1.1}
+/* question cards */
+.q{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.4rem clamp(1rem,3vw,1.8rem);margin-top:1.1rem}
+.q .n{font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.q h3{font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(1.3rem,4vw,1.7rem);color:var(--sage);margin:.15rem 0 .35rem;line-height:1.2}
+.q p.say{color:#3b434d;font-size:.98rem;max-width:40rem}
+.q .vis{margin-top:1.1rem;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.4rem;align-items:center}
+.src{font-family:'Space Mono',monospace;font-size:.68rem;color:var(--ink2);margin-top:1rem}
+/* heat grid */
+.grid10{display:grid;grid-template-columns:repeat(10,1fr);gap:3px;max-width:340px;width:100%;margin:0 auto}
+.grid10 i{aspect-ratio:1;border-radius:3px;background:#d9dde3;transition:opacity .2s,transform .2s}
+.grid10.f i{opacity:.18}.grid10.f i.on{opacity:1;transform:scale(1.05)}
+.keys{display:grid;gap:.5rem}
+.key{display:flex;align-items:center;gap:.7rem;width:100%;text-align:left;background:var(--paper);border:1px solid var(--border);border-radius:8px;padding:.6rem .8rem;font:inherit;color:inherit;cursor:pointer;min-height:44px}
+.key[aria-pressed=true]{border-color:var(--sage);background:#fff;box-shadow:0 0 0 1px var(--sage)}
+.key .sw{width:14px;height:14px;border-radius:3px;flex-shrink:0}.key b{font-family:'DM Serif Display',serif;font-weight:400;font-size:1.35rem;margin-left:auto;color:var(--sage)}
+.key span.t{font-size:.9rem}
+/* tub */
+.tubwrap{max-width:300px;width:100%;margin:0 auto}
+.tap{text-align:center;font-size:.82rem;color:var(--ink2);margin-bottom:.3rem}
+.tap b{color:var(--ink)}
+.tub{position:relative;height:190px;border:3px solid var(--sage);border-top:0;border-radius:0 0 28px 28px;overflow:hidden;background:#fff}
+.tub .w{position:absolute;left:0;right:0;bottom:0;height:8%;background:var(--air);opacity:.85;transition:height 1.6s cubic-bezier(.2,.7,.2,1)}
+.tub.go .w{height:46%}
+.tub .lbl{position:absolute;left:0;right:0;bottom:calc(46% + 8px);text-align:center;font-size:.8rem;font-weight:600;color:var(--sage)}
+.drain{display:flex;gap:.5rem;margin-top:.7rem}
+.drain div{flex:1;border-radius:8px;padding:.5rem .6rem;font-size:.8rem;color:#fff;line-height:1.3}
+.drain b{display:block;font-family:'DM Serif Display',serif;font-weight:400;font-size:1.3rem}
+/* warming */
+.th{display:grid;gap:.55rem}
+.row{display:grid;grid-template-columns:7.2rem minmax(0,1fr);gap:.7rem;align-items:center;width:100%;text-align:left;background:none;border:0;font:inherit;color:inherit;cursor:pointer;padding:.25rem 0;min-height:44px}
+.row .nm{font-size:.84rem;line-height:1.25;color:var(--ink2)}.row .nm b{display:block;color:var(--ink);font-weight:600}
+.row .tr{position:relative;height:30px;background:var(--sage-lt);border-radius:6px;overflow:hidden}
+.row .bar{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:6px;transition:width 1s cubic-bezier(.2,.7,.2,1);display:flex;align-items:center;justify-content:flex-end;padding-right:.5rem;color:#fff;font-weight:700;font-size:.85rem;white-space:nowrap}
+.row[aria-pressed=true] .tr{outline:2px solid var(--sage)}
+.readout{margin-top:.9rem;padding:.8rem 1rem;background:var(--sage);color:#fff;border-radius:8px;border-left:4px solid var(--gold);font-size:.92rem;min-height:4.2rem}
+.readout b{color:var(--gold-lt)}
+/* timeline */
+.tl{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;list-style:none;position:relative}
+.tl li{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:.9rem 1rem;font-size:.86rem;position:relative}
+.tl li b{display:block;font-family:'DM Serif Display',serif;font-weight:400;font-size:1.25rem;color:var(--sage)}
+.tl li.nx{border-style:dashed;border-color:var(--gold)}
+.note{margin-top:.9rem;font-size:.82rem;color:var(--ink2)}
+.cta{display:inline-block;margin-top:.9rem;padding:.65rem 1.1rem;border:1px solid var(--sage);border-radius:8px;color:var(--sage);font-size:.85rem;font-weight:600}
+.cta:hover{background:var(--sage);color:#fff}
+details.srcs{margin-top:2rem;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.2rem}
+details.srcs summary{cursor:pointer;font-weight:600;color:var(--sage);min-height:32px}
+details.srcs ul{margin-top:.7rem;padding-left:1.1rem;font-size:.85rem;color:#3b434d;display:grid;gap:.4rem}
+details.srcs a{color:var(--sage);text-decoration:underline}
+@media(max-width:760px){.flow,.tl{grid-template-columns:1fr 1fr}.q .vis{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:420px){.flow,.tl{grid-template-columns:1fr}.row{grid-template-columns:5.6rem minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
     /* shared nav + footer (same as the rest of the portfolio) */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0 5vw; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
     .nav-logo { display: inline-flex; align-items: center; gap: 0.75rem; font-family: 'Space Mono', monospace; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); white-space: nowrap; }
@@ -70,429 +89,7 @@
     @media (max-width: 700px) { .nav-logo span:last-child { display: none; } }
     .site-footer { background: var(--sage); color: rgba(255,255,255,0.45); text-align: center; padding: 2rem 5vw calc(2rem + env(safe-area-inset-bottom)); font-size: 0.8rem; letter-spacing: 0.04em; }
     .site-footer span { color: var(--gold); }
-
-    /* ---------- reading guide, takeaways, relevance, sources ---------- */
-    .guide, .about { border-top: 1px solid var(--border-hairline); padding-top: 1.4rem; margin-bottom: 1.6rem; }
-    .sec-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.65rem; margin-bottom: 1.1rem; }
-    .sec-head h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: 1.45rem; font-weight: 400; color: var(--ink-primary); }
-    .sec-head span { font-family: 'DM Serif Display', Georgia, serif; font-style: italic; font-size: 1.05rem; color: var(--ink-secondary); }
-    .guide-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; align-items: start; }
-    @media (min-width: 900px) { .guide-grid { grid-template-columns: 1.35fr 1fr; gap: 2rem; } }
-    .guide-steps { list-style: none; counter-reset: step; display: grid; gap: 0.95rem; }
-    .guide-steps li { counter-increment: step; position: relative; padding-left: 2.5rem; font-size: 0.9rem; line-height: 1.6; color: var(--ink-primary); }
-    .guide-steps li::before { content: counter(step); position: absolute; left: 0; top: 0.05rem; width: 1.75rem; height: 1.75rem; border-radius: 50%; background: var(--sage); color: #fff; font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
-    .guide-steps strong { font-weight: 600; }
-    .takeaway { background: var(--sage); color: #fff; border-radius: 12px; border-left: 5px solid var(--gold); padding: 1.4rem 1.5rem; box-shadow: 0 16px 40px rgba(0,33,71,0.18); }
-    .takeaway-label { display: flex; align-items: center; gap: 0.5rem; font-family: 'Space Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-lt); margin-bottom: 0.65rem; }
-    .takeaway-label i { width: 8px; height: 8px; border-radius: 50%; background: var(--gold-lt); display: inline-block; }
-    .takeaway-text { font-size: 1rem; font-weight: 500; line-height: 1.6; }
-    .watch { margin-top: 1.1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.22); }
-    .watch h3 { font-family: 'Space Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-lt); font-weight: 400; margin-bottom: 0.5rem; }
-    .watch ul { list-style: none; display: grid; gap: 0.55rem; font-size: 0.82rem; color: rgba(255,255,255,0.85); line-height: 1.55; }
-    .watch li { padding-left: 1rem; position: relative; }
-    .watch li::before { content: '–'; position: absolute; left: 0; color: var(--gold-lt); }
-    .about-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
-    @media (min-width: 900px) { .about-grid { grid-template-columns: 1fr 1fr; } }
-    .card { background: #fff; border: 1px solid var(--border); border-top: 3px solid var(--gold); border-radius: var(--radius); padding: 1.4rem 1.5rem; }
-    .card.wide { grid-column: 1 / -1; }
-    .card h3 { font-family: 'DM Serif Display', Georgia, serif; font-size: 1.25rem; font-weight: 400; margin-bottom: 0.5rem; color: var(--ink-primary); }
-    .card p { font-size: 0.88rem; line-height: 1.7; color: #3b434d; }
-    .card p + p { margin-top: 0.6rem; }
-    .tbl-wrap { overflow-x: auto; margin-top: 0.4rem; }
-    table.src { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 0.8rem; }
-    .src th { text-align: left; font-family: 'Space Mono', monospace; font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 400; color: var(--sage); padding: 0.5rem 0.8rem 0.5rem 0; border-bottom: 1px solid var(--border-hairline); }
-    .src td { padding: 0.7rem 0.8rem 0.7rem 0; vertical-align: top; border-bottom: 1px solid var(--border-hairline); line-height: 1.55; color: #3b434d; }
-    .src td:first-child { color: var(--ink-primary); font-weight: 600; white-space: nowrap; }
-    .src a { color: var(--sage); text-decoration: underline; text-underline-offset: 2px; }
-    .src a:hover { color: var(--gold); }
-    .src-note { margin-top: 0.9rem; font-size: 0.78rem; color: var(--ink-secondary); line-height: 1.6; }
-    .plain-lead { font-size: 0.95rem; color: var(--ink-primary); line-height: 1.6; }
-
-    .font-serif-editorial {
-      font-family: 'DM Serif Display', Georgia, serif;
-    }
-
-    .page-shell {
-      max-width: 1320px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem 2.75rem;
-    }
-
-    @media (min-width: 768px) {
-      .page-shell {
-        padding: 2.75rem 3rem 3.25rem;
-      }
-    }
-
-    .header-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-      padding-bottom: 1.25rem;
-      border-bottom: 1px solid var(--border-hairline);
-    }
-
-    @media (min-width: 1024px) {
-      .header-grid {
-        grid-template-columns: 1.05fr 1.15fr;
-        gap: 2.5rem;
-        align-items: start;
-      }
-    }
-
-    .eyebrow-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--ink-secondary);
-      margin-bottom: 0.55rem;
-    }
-
-    .eyebrow-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: var(--beam-copper);
-    }
-
-    h1.main-title {
-      font-family: 'DM Serif Display', Georgia, serif;
-      font-size: clamp(2rem, 3.6vw, 3.15rem);
-      font-weight: 400;
-      line-height: 1.06;
-      letter-spacing: 0;
-      color: var(--ink-primary);
-    }
-
-    .subtitle {
-      font-family: 'DM Serif Display', Georgia, serif;
-      font-style: italic;
-      font-size: clamp(1.08rem, 1.55vw, 1.38rem);
-      color: var(--ink-secondary);
-      margin-top: 0.5rem;
-      line-height: 1.32;
-    }
-
-    .header-narrative {
-      font-size: 0.84rem;
-      color: #0b1420;
-      line-height: 1.58;
-    }
-
-    .header-narrative p + p {
-      margin-top: 0.65rem;
-    }
-
-    .ar7-badge {
-      display: inline-block;
-      margin-top: 0.7rem;
-      padding: 0.45rem 0.75rem;
-      background: rgba(11, 20, 32, 0.045);
-      border-left: 2px solid var(--beam-copper);
-      border-radius: 0 6px 6px 0;
-      font-size: 0.75rem;
-      color: var(--ink-secondary);
-      line-height: 1.45;
-    }
-
-    .controls-bar {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.85rem;
-      margin-top: 1.1rem;
-    }
-
-    .controls-left {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.55rem;
-    }
-
-    .btn-synthesize {
-      appearance: none;
-      background: #FFFFFF;
-      color: var(--ink-primary);
-      border: 1px solid var(--sage);
-      border-radius: var(--radius);
-      padding: 0.52rem 1.15rem;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 500;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.48rem;
-      box-shadow: 0 2px 8px rgba(11, 20, 32, 0.05);
-      transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .btn-synthesize:hover {
-      border-color: var(--ink-primary);
-      transform: translateY(-1px);
-      box-shadow: 0 5px 14px rgba(11, 20, 32, 0.09);
-    }
-
-    .btn-synthesize.is-active {
-      background: var(--sage);
-      color: #fff;
-      border-color: var(--sage);
-    }
-
-    .ssp-filter-group {
-      display: inline-flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.35rem;
-      background: var(--sage-lt);
-      padding: 0.25rem;
-      border-radius: var(--radius);
-      border: 1px solid var(--border-hairline);
-    }
-
-    .ssp-pill {
-      appearance: none;
-      background: transparent;
-      border: none;
-      border-radius: 6px;
-      padding: 0.3rem 0.68rem;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.69rem;
-      color: var(--ink-secondary);
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .ssp-pill:hover {
-      color: var(--ink-primary);
-      background: rgba(255, 255, 255, 0.6);
-    }
-
-    .ssp-pill.active {
-      background: var(--sage);
-      color: #fff;
-      font-weight: 700;
-      box-shadow: 0 1px 4px rgba(11, 20, 32, 0.08);
-    }
-
-    .status-caption {
-      font-family: 'DM Serif Display', Georgia, serif;
-      font-style: italic;
-      font-size: 0.85rem;
-      color: var(--ink-secondary);
-    }
-
-    .observatory-stage {
-      position: relative;
-      width: 100%;
-      margin: 0.85rem 0 1.25rem;
-      border-radius: 16px;
-      overflow: hidden;
-    }
-
-    canvas#observatoryCanvas {
-      display: block;
-      width: 100%;
-      height: auto;
-      cursor: crosshair;
-      touch-action: manipulation;
-    }
-
-    .editorial-tooltip {
-      position: fixed;
-      z-index: 50;
-      pointer-events: none;
-      opacity: 0;
-      transform: translateY(4px);
-      transition: opacity 0.16s ease, transform 0.16s ease;
-      background: rgba(11, 20, 32, 0.96);
-      color: #f4f2ee;
-      padding: 0.75rem 0.95rem;
-      border-radius: 10px;
-      max-width: 295px;
-      box-shadow: 0 12px 28px rgba(15, 22, 28, 0.22);
-      border: 1px solid rgba(244, 242, 238, 0.14);
-      backdrop-filter: blur(6px);
-    }
-
-    .editorial-tooltip.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .tooltip-kicker {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.64rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: #e2c68c;
-      margin-bottom: 0.2rem;
-    }
-
-    .tooltip-title {
-      font-family: 'DM Serif Display', Georgia, serif;
-      font-size: 1.02rem;
-      font-weight: 500;
-      line-height: 1.25;
-      color: #FFFFFF;
-    }
-
-    .tooltip-metric {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.78rem;
-      color: #D6E1E8;
-      margin-top: 0.3rem;
-      padding-top: 0.3rem;
-      border-top: 1px solid rgba(244, 242, 238, 0.12);
-    }
-
-    .tooltip-desc {
-      font-size: 0.74rem;
-      color: #B8C4CC;
-      margin-top: 0.28rem;
-      line-height: 1.4;
-    }
-
-    .legend-section {
-      border-top: 1px solid var(--border-hairline);
-      padding-top: 1.4rem;
-    }
-
-    .legend-header {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      gap: 0.65rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .legend-header h2 {
-      font-family: 'DM Serif Display', Georgia, serif;
-      font-size: 1.45rem;
-      font-weight: 400;
-      color: var(--ink-primary);
-    }
-
-    .legend-header span {
-      font-family: 'DM Serif Display', Georgia, serif;
-      font-style: italic;
-      font-size: 1.05rem;
-      color: var(--ink-secondary);
-    }
-
-    .legend-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-
-    @media (min-width: 640px) {
-      .legend-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 1080px) {
-      .legend-grid {
-        grid-template-columns: 1.15fr 0.9fr 1.35fr 0.95fr 1.15fr;
-        gap: 1.4rem;
-      }
-    }
-
-    .legend-col {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .legend-col-title {
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--ink-primary);
-    }
-
-    .legend-col-desc {
-      font-size: 0.72rem;
-      color: var(--ink-secondary);
-      margin-top: 0.2rem;
-      line-height: 1.4;
-    }
-
-    .legend-graphic {
-      margin-top: 0.75rem;
-      min-height: 76px;
-      display: flex;
-      align-items: center;
-    }
-
-    .swatch-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.65rem;
-      align-items: flex-start;
-    }
-
-    .swatch-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      min-width: 48px;
-    }
-
-    .swatch-label {
-      font-size: 0.65rem;
-      font-weight: 600;
-      color: var(--ink-primary);
-      margin-top: 0.25rem;
-    }
-
-    .swatch-sub {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.6rem;
-      color: var(--ink-secondary);
-    }
-
-    .colophon {
-      margin-top: 1.5rem;
-      padding-top: 0.85rem;
-      border-top: 1px solid var(--border-hairline);
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 0.6rem;
-      font-size: 0.7rem;
-      color: var(--ink-secondary);
-    }
-
-    /* ─── ATLAS LINK STRATEGY ─────────────────────────────── */
-    .atlas { border-top: 1px solid var(--border-hairline); padding-top: 1.4rem; margin-bottom: 1.6rem; }
-    .atlas-intro { display: grid; grid-template-columns: 1fr; gap: 1.25rem; margin-bottom: 1.25rem; align-items: start; }
-    .atlas .card .lead { font-size: .95rem; color: var(--ink-primary); font-weight: 500; line-height: 1.6; }
-    .atlas-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: .75rem; margin-top: .6rem; }
-    .atlas-link { display: flex; flex-direction: column; gap: .2rem; padding: .85rem 1rem; border: 1px solid var(--border); border-radius: var(--radius); background: #fff; transition: border-color .2s, transform .2s; min-height: 44px; }
-    .atlas-link:hover { border-color: var(--gold); transform: translateY(-2px); }
-    .atlas-link b { font-family: 'Space Mono', monospace; font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--sage); font-weight: 400; }
-    .atlas-link span { font-size: .84rem; color: #3b434d; line-height: 1.5; }
-    .atlas-link em { font-style: normal; font-family: 'Space Mono', monospace; font-size: .68rem; color: var(--gold); overflow-wrap: anywhere; }
-    .atlas-lines { display: grid; gap: .8rem; margin-top: .4rem; }
-    .atlas-lines blockquote { border-left: 3px solid var(--gold); background: var(--sage-lt); padding: .75rem 1rem; border-radius: 0 var(--radius) var(--radius) 0; font-size: .86rem; line-height: 1.6; color: var(--ink-primary); }
-    .atlas-lines blockquote small { display: block; font-family: 'Space Mono', monospace; font-size: .64rem; letter-spacing: .1em; text-transform: uppercase; color: var(--sage); margin-bottom: .25rem; }
-    .atlas-note { margin-top: .9rem; font-size: .8rem; color: var(--ink-secondary); line-height: 1.6; }
-    .atlas-jump { margin-top: .9rem; font-size: .85rem; }
-    .atlas-jump a { color: var(--sage); text-decoration: underline; text-underline-offset: 3px; font-weight: 500; }
-    .atlas-jump a:hover { color: var(--gold); }
-    .atlas .src td:first-child { white-space: normal; }
-    .atlas .src td { min-width: 150px; }
-    @media (min-width: 900px) { .atlas-intro { grid-template-columns: 1.1fr 1fr; } }
-  </style>
-
+</style>
 <style id="tcx-process-css">
   .tcx { background:#f4f2ee; color:#0b1420; font-family:'Inter',system-ui,sans-serif; padding:3.5rem 5vw; border-top:1px solid #e1ddd4; line-height:1.65; position:relative; z-index:1; width:100%; }
   .tcx *, .tcx *::before, .tcx *::after { box-sizing:border-box; }
@@ -546,320 +143,103 @@
     });
   })();
 </script>
-
 </head>
 <body>
-  <nav>
-    <a class="nav-logo" href="index.html" aria-label="Timothy Castillon – main portfolio"><span class="nav-mark" aria-hidden="true">TC</span><span>Timothy Castillon</span></a>
-    <a class="nav-cta" href="science-comms.html">← Sample Work</a>
-  </nav>
-  <div class="page-shell">
-    <header class="header-grid">
-      <div>
-        <div class="eyebrow-tag">
-          <span class="eyebrow-dot"></span>
-          <span>IPCC Working Group I · Technical Support Unit Observatory</span>
-        </div>
-        <h1 class="main-title">IPCC Working Group I:<br />The Physical Science Basis</h1>
-        <p class="subtitle">Synthesizing Earth System Energy, Carbon &amp; Warming Trajectories (AR6 Outputs &amp; AR7 Cycle)</p>
-      </div>
 
-      <div class="header-narrative">
-        <p class="plain-lead"><strong>In plain terms:</strong> three questions the IPCC answers about the physical climate. Where does the extra heat go? Where does our CO₂ go? How warm could it get? Each answer is drawn as a circle of small shapes you can count.</p>
-        <p>
-          Each <strong>planetary radiative lens</strong> encodes a foundational quantitative pillar of the IPCC Working Group I physical science assessment. Every individual spectral prism represents <strong>1% of Earth’s excess energy or anthropogenic CO₂ flux</strong>, or <strong>0.1°C of projected surface warming</strong>, while luminous radiative flux beams trace the physical coupling across reservoirs.
-        </p>
-        <div class="ar7-badge">
-          <strong>AR7 context:</strong> The WGI Technical Support Unit is hosted by Université Paris-Saclay. Lead Author Meetings so far: <em>Paris (Dec 2025, joint with WGII and WGIII)</em>, <em>Santiago (Apr 2026)</em> and <em>Arusha (Nov 2026)</em>. The Co-Chairs propose delivering the report in <em>2028</em>; the Panel has not yet agreed the date. The figures mapped below are AR6 outputs.
-        </div>
+<nav>
+  <a class="nav-logo" href="index.html" aria-label="Timothy Castillon – main portfolio"><span class="nav-mark" aria-hidden="true">TC</span><span>Timothy Castillon</span></a>
+  <a class="nav-cta" href="science-comms.html">← Sample Work</a>
+</nav>
+<main class="shell">
+  <p class="tag">IPCC Working Group I · Independent sample</p>
+  <h1>What does IPCC Working Group I actually do?</h1>
+  <p class="lead">It reads the world's climate science, checks it, and writes down what we know for sure. Governments then use that as their shared facts.</p>
 
-        <p class="atlas-jump"><a href="#atlas">New: how to point people to the IPCC WGI Interactive Atlas ↓</a></p>
+  <section class="sec" aria-labelledby="h-how">
+    <h2 id="h-how">How a report gets made</h2>
+    <p class="sub">The IPCC does not run its own experiments. It is more like the world's most careful editor.</p>
+    <ol class="flow">
+      <li><b>Scientists publish</b><span>Thousands of studies on oceans, ice, air and carbon.</span></li>
+      <li><b>Authors weigh it up</b><span>Experts from around the world read it all and judge how sure we can be.</span></li>
+      <li><b>Reviewers check it</b><span>Other experts and governments comment on every draft.</span></li>
+      <li><b>Governments approve</b><span>They agree the summary line by line, so everyone trusts it.</span></li>
+    </ol>
+    <div class="nums" aria-label="AR6 Working Group I in numbers">
+      <div><b>234</b>authors</div><div><b>66</b>countries</div><div><b>14,000+</b>studies assessed</div>
+    </div>
+    <p class="note">Working Group I covers the physical science: what is changing, how fast, and why. Group II covers impacts and Group III covers solutions.</p>
+  </section>
 
-        <div class="controls-bar">
-          <div class="controls-left">
-            <button id="synthesizeBtn" class="btn-synthesize" type="button" aria-pressed="false">
-              <span>✦ Synthesize Earth System</span>
-            </button>
+  <section class="sec" aria-labelledby="h-q">
+    <h2 id="h-q">Three questions it answers</h2>
+    <p class="sub">The numbers below come from the latest finished report, AR6. Tap the buttons to explore.</p>
 
-            <div class="ssp-filter-group" role="group" aria-label="Highlight SSP Temperature Pathway">
-              <button class="ssp-pill active" data-ssp="all" type="button">All Scenarios</button>
-              <button class="ssp-pill" data-ssp="obs" type="button">Observed +1.09°C</button>
-              <button class="ssp-pill" data-ssp="ssp119" type="button">SSP1-1.9</button>
-              <button class="ssp-pill" data-ssp="ssp245" type="button">SSP2-4.5</button>
-              <button class="ssp-pill" data-ssp="ssp585" type="button">SSP5-8.5</button>
-            </div>
-          </div>
-
-          <span id="statusCaption" class="status-caption">Decomposed reservoirs · 296 spectral units</span>
+    <article class="q">
+      <p class="n">Question 1</p>
+      <h3>Where did the extra heat go?</h3>
+      <p class="say">Gases from our fuel and farming act like a blanket. The extra heat has to go somewhere. Mostly, it goes into the ocean.</p>
+      <div class="vis">
+        <div class="grid10" id="heat" role="img" aria-label="100 squares showing where extra heat went: 91 ocean, 5 land, 3 ice, 1 air"></div>
+        <div class="keys" id="heatkeys">
+          <button class="key" data-k="ocean" aria-pressed="false"><span class="sw" style="background:var(--ocean)"></span><span class="t">Ocean</span><b>91%</b></button>
+          <button class="key" data-k="land" aria-pressed="false"><span class="sw" style="background:var(--land)"></span><span class="t">Land</span><b>5%</b></button>
+          <button class="key" data-k="ice" aria-pressed="false"><span class="sw" style="background:var(--ice)"></span><span class="t">Ice melting</span><b>3%</b></button>
+          <button class="key" data-k="air" aria-pressed="false"><span class="sw" style="background:var(--air)"></span><span class="t">Air</span><b>1%</b></button>
         </div>
       </div>
-    </header>
+      <p class="src">1 square = 1% of the extra heat, 1971–2018. Source: AR6 WGI Ch. 7, Table 7.1</p>
+    </article>
 
-    <main class="observatory-stage">
-      <canvas id="observatoryCanvas" role="img" aria-label="Interactive visualization of three IPCC AR6 findings: where Earth’s extra heat goes (91% ocean), where emitted CO₂ goes (46% stays in the air), and projected warming under three emissions pathways. A text summary follows below the chart."></canvas>
-    </main>
-
-
-    <section class="guide" aria-labelledby="guideHeading">
-      <div class="sec-head"><h2 id="guideHeading">How to read it</h2><span>four steps, about thirty seconds</span></div>
-      <div class="guide-grid">
-        <ol class="guide-steps">
-          <li><strong>Find the three lenses.</strong> Each large circle answers one question: where Earth’s extra heat goes (left), where our CO₂ goes (right), and how warm the planet gets (bottom).</li>
-          <li><strong>Count the prisms.</strong> Every small coloured shape is one unit. On the heat and carbon lenses one prism is 1% of the total, so 91 blue prisms means 91%. On the temperature lens one prism is 0.1°C.</li>
-          <li><strong>Match colour to place.</strong> Blue is ocean, green is land, pale blue is ice, orange is air. On the temperature lens, colour marks the emissions pathway, from teal (very low) to crimson (very high).</li>
-          <li><strong>Hover or tap for the evidence.</strong> Every prism, lens and probe opens a note with its number and where it comes from. Press <em>Synthesize Earth System</em> to merge the three lenses, and use the scenario buttons to isolate one warming pathway.</li>
-        </ol>
-        <aside class="takeaway" aria-label="Key takeaway">
-          <div class="takeaway-label"><i></i>Key takeaway</div>
-          <p class="takeaway-text">The ocean holds 91% of the extra heat, nearly half of our CO₂ stays in the air, and the emissions pathway we follow decides whether 2081–2100 sits near +1.4°C or +4.4°C.</p>
-          <div class="watch">
-            <h3>Read with care</h3>
-            <ul>
-              <li>The observed ring (+1.09°C) is measured data for 2011–2020. The other rings are projections for 2081–2100.</li>
-              <li>Every number is a best estimate with a range. SSP2-4.5, for example, is +2.7°C, very likely between +2.1°C and +3.5°C.</li>
-              <li>The centre circles show totals, not prisms. The heat total is about 435 ZJ, so 1% is roughly 4.35 ZJ.</li>
-              <li>The orbiting probes are context about the AR7 process and tools. They are not measurements.</li>
-            </ul>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="legend-section" aria-labelledby="legendHeading">
-      <div class="legend-header">
-        <h2 id="legendHeading">Legend</h2>
-        <span>how to read the observatory</span>
-      </div>
-
-      <div class="legend-grid">
-        <div class="legend-col">
-          <div>
-            <div class="legend-col-title">Core aperture diameter</div>
-            <div class="legend-col-desc">proportional to physical reservoir magnitude or radiative forcing scale</div>
-          </div>
-          <div class="legend-graphic">
-            <svg width="205" height="76" viewBox="0 0 205 76" aria-hidden="true">
-              <circle cx="40" cy="38" r="32" fill="#e2c68c" fill-opacity="0.24" stroke="#ab7d2c" stroke-width="1.1" />
-              <circle cx="40" cy="46" r="24" fill="#e2c68c" fill-opacity="0.42" stroke="#ab7d2c" stroke-width="1.1" />
-              <circle cx="40" cy="53" r="17" fill="#e2c68c" fill-opacity="0.68" stroke="#ab7d2c" stroke-width="1.1" />
-
-              <line x1="40" y1="6" x2="94" y2="6" stroke="#5b626d" stroke-width="0.8" stroke-dasharray="2 2" />
-              <text x="98" y="10" font-family="Space Mono, monospace" font-size="9.5" fill="#0b1420">~435 ZJ Heat Gain</text>
-
-              <line x1="40" y1="22" x2="94" y2="22" stroke="#5b626d" stroke-width="0.8" stroke-dasharray="2 2" />
-              <text x="98" y="26" font-family="Space Mono, monospace" font-size="9.5" fill="#0b1420">40 GtCO₂/yr Flux</text>
-
-              <line x1="40" y1="36" x2="94" y2="36" stroke="#5b626d" stroke-width="0.8" stroke-dasharray="2 2" />
-              <text x="98" y="40" font-family="Space Mono, monospace" font-size="9.5" fill="#0b1420">+4.4°C Max Scale</text>
-            </svg>
-          </div>
+    <article class="q">
+      <p class="n">Question 2</p>
+      <h3>Where does our CO₂ go?</h3>
+      <p class="say">Picture a bathtub with the tap on full and a drain that is too small. Land and ocean drain just over half. The rest stays in the air and the water level keeps rising.</p>
+      <div class="vis">
+        <div class="tubwrap">
+          <div class="tap">Tap: <b>CO₂ we emit each year</b></div>
+          <div class="tub" id="tub" role="img" aria-label="Bathtub filled to 46 percent, showing the share of CO2 that stays in the air"><div class="w"></div><div class="lbl">46% stays in the air</div></div>
+          <div class="drain"><div style="background:var(--land)"><b>31%</b>soaked up by land</div><div style="background:var(--ocean)"><b>23%</b>soaked up by ocean</div></div>
         </div>
-
-        <div class="legend-col">
-          <div>
-            <div class="legend-col-title">Spectral prism unit</div>
-            <div class="legend-col-desc">discrete quantum of energy, carbon flux, or surface warming</div>
-          </div>
-          <div class="legend-graphic">
-            <svg width="175" height="64" viewBox="0 0 175 64" aria-hidden="true">
-              <polygon points="22,8 28,28 22,34 16,28" fill="#1D5D8F" stroke="#f4f2ee" stroke-width="1" />
-              <line x1="33" y1="21" x2="50" y2="21" stroke="#5b626d" stroke-width="0.8" />
-              <text x="54" y="19" font-family="Space Mono, monospace" font-size="9.5" fill="#0b1420">= 1% energy / CO₂</text>
-              <text x="54" y="32" font-family="Space Mono, monospace" font-size="9.5" fill="#5b626d">= 0.1°C warming</text>
-            </svg>
-          </div>
-        </div>
-
-        <div class="legend-col">
-          <div>
-            <div class="legend-col-title">Spectrum encoding</div>
-            <div class="legend-col-desc">Earth system sinks (Energy &amp; Carbon) and SSP warming pathways</div>
-          </div>
-          <div class="legend-graphic">
-            <div class="swatch-row">
-              <div class="swatch-item">
-                <svg width="16" height="24" viewBox="0 0 16 24"><polygon points="8,2 13,15 8,21 3,15" fill="#1D5D8F" /></svg>
-                <span class="swatch-label">Ocean</span>
-                <span class="swatch-sub">91% / 23%</span>
-              </div>
-              <div class="swatch-item">
-                <svg width="16" height="24" viewBox="0 0 16 24"><polygon points="8,2 13,15 8,21 3,15" fill="#2F7D63" /></svg>
-                <span class="swatch-label">Land</span>
-                <span class="swatch-sub">5% / 31%</span>
-              </div>
-              <div class="swatch-item">
-                <svg width="16" height="24" viewBox="0 0 16 24"><polygon points="8,2 13,15 8,21 3,15" fill="#5FA8C8" /></svg>
-                <span class="swatch-label">Ice</span>
-                <span class="swatch-sub">3% cryo</span>
-              </div>
-              <div class="swatch-item">
-                <svg width="16" height="24" viewBox="0 0 16 24"><polygon points="8,2 13,15 8,21 3,15" fill="#D9822B" /></svg>
-                <span class="swatch-label">Atmos.</span>
-                <span class="swatch-sub">1% / 46%</span>
-              </div>
-              <div class="swatch-item">
-                <svg width="16" height="24" viewBox="0 0 16 24"><polygon points="8,2 13,15 8,21 3,15" fill="#B8332A" /></svg>
-                <span class="swatch-label">SSP5-8.5</span>
-                <span class="swatch-sub">+4.4°C</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="legend-col">
-          <div>
-            <div class="legend-col-title">Orbital TSU probes</div>
-            <div class="legend-col-desc">6 key IPCC WGI TSU platforms &amp; AR7 assessment milestones</div>
-          </div>
-          <div class="legend-graphic">
-            <svg width="175" height="58" viewBox="0 0 175 58" aria-hidden="true">
-              <g transform="translate(28, 28) rotate(-25)">
-                <rect x="-15" y="-3.5" width="9" height="7" rx="1" fill="#1D5D8F" stroke="#0b1420" stroke-width="1" />
-                <rect x="6" y="-3.5" width="9" height="7" rx="1" fill="#1D5D8F" stroke="#0b1420" stroke-width="1" />
-                <circle cx="0" cy="0" r="4.2" fill="#e2c68c" stroke="#0b1420" stroke-width="1.1" />
-                <path d="M -3 6 Q 0 9 3 6" fill="none" stroke="#ab7d2c" stroke-width="1.1" />
-              </g>
-              <text x="54" y="25" font-family="Inter, sans-serif" font-size="10" font-weight="500" fill="#0b1420">AR7 LAMs &amp; Atlas</text>
-              <text x="54" y="38" font-family="Space Mono, monospace" font-size="9" fill="#5b626d">Hover to inspect</text>
-            </svg>
-          </div>
-        </div>
-
-        <div class="legend-col">
-          <div>
-            <div class="legend-col-title">Radiative flux beams</div>
-            <div class="legend-col-desc">links between lenses, each carrying a paraphrased AR6 finding</div>
-          </div>
-          <div class="legend-graphic">
-            <svg width="190" height="58" viewBox="0 0 190 58" aria-hidden="true">
-              <path d="M 8 40 Q 95 22 182 40" fill="none" stroke="#ab7d2c" stroke-width="7" opacity="0.14" stroke-linecap="round" />
-              <path d="M 8 40 Q 95 22 182 40" fill="none" stroke="#ab7d2c" stroke-width="1.3" stroke-dasharray="3 4" />
-              <text x="95" y="18" text-anchor="middle" font-family="DM Serif Display, Georgia, serif" font-style="italic" font-size="11" fill="#0b1420">headline finding</text>
-            </svg>
-          </div>
+        <div>
+          <p class="say"><b>Why it matters:</b> what stays in the air keeps trapping heat. That is why the water level, not just the tap, is what scientists watch.</p>
         </div>
       </div>
+      <p class="src">Share of annual CO₂ emissions, 2010–2019. Source: AR6 WGI Ch. 5, Table 5.1</p>
+    </article>
 
-      <footer class="colophon">
-        <span>Sources and limits are listed in the section below. Independent communication sample, not an official IPCC product.</span>
-        <span class="font-serif-editorial" style="font-style: italic;">Hover or tap any prism, lens or probe for its source.</span>
-      </footer>
-    </section>
+    <article class="q">
+      <p class="n">Question 3</p>
+      <h3>How warm could it get?</h3>
+      <p class="say">It depends on the choices the world makes. Scientists compare a few "what if" paths. Tap one to see where it ends up by 2100.</p>
+      <div class="th" id="th"></div>
+      <div class="readout" id="ro" aria-live="polite"></div>
+      <p class="src">Warming against 1850–1900. Future values: 2081–2100 best estimate. Source: AR6 WGI SPM, Table SPM.1</p>
+    </article>
+  </section>
 
+  <section class="sec" aria-labelledby="h-next">
+    <h2 id="h-next">What is happening now</h2>
+    <p class="sub">A new report, AR7, is being written. The Working Group I team is hosted by Université Paris-Saclay.</p>
+    <ol class="tl">
+      <li><b>Dec 2025</b>Authors meet in Paris</li>
+      <li><b>Apr 2026</b>Authors meet in Santiago</li>
+      <li><b>Nov 2026</b>Authors meet in Arusha</li>
+      <li class="nx"><b>2028?</b>Proposed delivery. The Panel has not agreed the date yet.</li>
+    </ol>
+    <a class="cta" href="https://interactive-atlas.ipcc.ch/" target="_blank" rel="noopener">Explore your region in the IPCC Interactive Atlas →</a>
+  </section>
 
-    <section class="atlas" id="atlas" aria-labelledby="atlasHeading">
-      <div class="sec-head"><h2 id="atlasHeading">The IPCC WGI Interactive Atlas</h2><span>how to point people to it, whoever they are</span></div>
-
-      <div class="atlas-intro">
-        <article class="card">
-          <h3>What it is</h3>
-          <p class="lead">Pick a place, pick a warming level from +1.5°C to +4°C, and see what the assessment’s data says changes.</p>
-          <p>The Atlas is the IPCC’s online tool for exploring the observed and projected climate information behind the Working Group I contribution to AR6. It handles both maps and time series, and it includes a regional synthesis for Climatic Impact-Drivers (CIDs). Its home page offers temperature and precipitation as the two starting variables.</p>
-          <p>It sits next to this observatory. The observatory gives you the three headline numbers. The Atlas lets you go and look at your own region.</p>
-        </article>
-        <article class="card">
-          <h3>Is it for everybody?</h3>
-          <p>It is open to anyone on the IPCC website. In practice it is built for people who already read maps, scenarios and uncertainty without effort. Scientists, analysts and technical staff can open it and start working.</p>
-          <p>Most other people need a guide: someone who says where to click first and what a number does and does not mean. That is the job of the link and the sentence around it, so the strategy below is about the front door, not the tool.</p>
-        </article>
-      </div>
-
-      <div class="about-grid">
-        <article class="card wide">
-          <h3>Four front doors, one tool</h3>
-          <div class="tbl-wrap">
-            <table class="src">
-              <thead><tr><th>Who</th><th>Where to send them</th><th>What the message does</th><th>Watch out for</th></tr></thead>
-              <tbody>
-                <tr><td>Scientists, authors, data users</td><td>The Atlas, then the Atlas GitHub repository and the IPCC Data Distribution Centre.</td><td>Names the dataset, the region set (IPCC-WGI reference regions, v4) and the licence, so they can reuse the data straight away.</td><td>Credit the data providers listed in the repository and say the data is CC BY 4.0.</td></tr>
-                <tr><td>Policy staff, observers, focal points</td><td>The Atlas, opened on a region they work on.</td><td>One sentence on what changes between two warming levels in that region. It says plainly that this is physical science, not an impacts assessment.</td><td>Don’t turn a regional result into a local forecast or a policy recommendation.</td></tr>
-                <tr><td>Journalists and editors</td><td>The Atlas, plus the IPCC copyright page.</td><td>Gives them something to explore and tells them early that exported figures belong to the IPCC.</td><td>Quote the warming level and scenario. Link back rather than repost cropped images.</td></tr>
-                <tr><td>General public, students, teachers</td><td>The Atlas, from a post or explainer that starts with one place and one question.</td><td>Keeps the first click simple: choose your region, move the warming level, watch the map change.</td><td>Don’t leave people alone with uncertainty. Add one line on what a range means.</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3>Links to use</h3>
-          <div class="atlas-links">
-            <a class="atlas-link" href="https://interactive-atlas.ipcc.ch/" target="_blank" rel="noopener"><b>Atlas</b><span>The interactive tool itself.</span><em>interactive-atlas.ipcc.ch</em></a>
-            <a class="atlas-link" href="https://github.com/IPCC-WG1/Atlas" target="_blank" rel="noopener"><b>Atlas on GitHub</b><span>Data sources, acknowledgements, regional dataset, error reports.</span><em>github.com/IPCC-WG1/Atlas</em></a>
-            <a class="atlas-link" href="https://www.ipcc-data.org/" target="_blank" rel="noopener"><b>IPCC Data Distribution Centre</b><span>Long-term home of the final gridded dataset.</span><em>ipcc-data.org</em></a>
-            <a class="atlas-link" href="https://www.ipcc.ch/copyright" target="_blank" rel="noopener"><b>IPCC copyright</b><span>Rules for reusing IPCC figures.</span><em>ipcc.ch/copyright</em></a>
-          </div>
-          <p class="atlas-note">Please check these links before sharing. The Atlas home page also carries its own “License, data and citation” page, which has the exact citation wording.</p>
-        </article>
-
-        <article class="card">
-          <h3>Link lines I would write</h3>
-          <div class="atlas-lines">
-            <blockquote><small>Public post</small>Pick a place. Switch from +1.5°C to +3°C. Watch how the temperature map changes. Explore it in the IPCC WGI Interactive Atlas: [link]</blockquote>
-            <blockquote><small>Note to editors</small>The maps and data behind the Working Group I contribution to AR6 are open in the IPCC Interactive Atlas [link]. Exported figures are IPCC property; see ipcc.ch/copyright before reuse.</blockquote>
-            <blockquote><small>Technical readers</small>Monthly temperature and precipitation, averaged over the IPCC-WGI reference regions (v4), are in the Atlas GitHub repository under CC BY 4.0 [link].</blockquote>
-          </div>
-        </article>
-
-        <article class="card wide">
-          <h3>Licence at a glance</h3>
-          <div class="tbl-wrap">
-            <table class="src">
-              <thead><tr><th>What</th><th>Licence</th><th>What it means in practice</th></tr></thead>
-              <tbody>
-                <tr><td>Figures exported from the Atlas (PNG, PDF)</td><td>Property of the IPCC, protected by intellectual property law.</td><td>Link to the Atlas instead of reposting. Check ipcc.ch/copyright before any reuse.</td></tr>
-                <tr><td>Data downloaded from the Atlas (NetCDF, GeoTIFF)</td><td>Creative Commons Attribution 4.0 International (CC BY 4.0), under the IPCC-DDC framework.</td><td>Reuse is allowed with credit.</td></tr>
-                <tr><td>Final harmonised monthly gridded dataset</td><td>CC BY 4.0. Preserved long term and openly available from the IPCC-DDC catalogue.</td><td>Reuse is allowed with credit.</td></tr>
-                <tr><td>Regionally aggregated dataset: monthly precipitation and near-surface temperature averaged over the IPCC-WGI reference regions (v4)</td><td>CC BY 4.0, available from the Atlas GitHub repository.</td><td>Reuse is allowed with credit.</td></tr>
-                <tr><td>Data sources and acknowledgements</td><td>Listed in the Atlas GitHub repository.</td><td>Credit the data providers named there.</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="src-note">This summary follows the Atlas licence text. The IPCC pages are the authority, and they win if anything here differs.</p>
-        </article>
-
-        <article class="card wide">
-          <h3>Read with care</h3>
-          <p>This page links to the Atlas. It does not reproduce Atlas maps or figures, and it does not use the IPCC logo. The Atlas shows physical climate information from Working Group I. Questions about impacts and adaptation belong to Working Group II, and questions about mitigation to Working Group III.</p>
-          <p>Warming levels (+1.5°C, +2°C, +3°C, +4°C) are not forecasts of when a level will be reached. They describe what the data shows once that level has been reached.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="about" aria-labelledby="aboutHeading">
-      <div class="sec-head"><h2 id="aboutHeading">Why it matters, and where it comes from</h2><span>every number can be traced</span></div>
-      <div class="about-grid">
-        <article class="card">
-          <h3>Why these three findings</h3>
-          <p>Working Group I assesses the physical science of climate change: what is happening, how fast, and why. These three findings answer the questions people ask first. Where is the heat? Where does our carbon end up? How much warming do different emissions choices lead to?</p>
-          <p>AR6 is the current published assessment. AR7 is being written now and will update these answers, which is why the observatory also shows the AR7 milestones.</p>
-        </article>
-        <article class="card">
-          <h3>What this page is, and is not</h3>
-          <p>It is an independent communication sample: an attempt to make three headline findings readable at a glance while keeping every number traceable.</p>
-          <p>It is not an official IPCC product and has not been reviewed by the IPCC. Figures are rounded to whole prisms. Follow the links below for full ranges and confidence levels.</p>
-        </article>
-        <article class="card wide">
-          <h3>Sources</h3>
-          <div class="tbl-wrap">
-            <table class="src">
-              <thead><tr><th>What you see</th><th>Value shown</th><th>Where it comes from (IPCC AR6 WGI)</th></tr></thead>
-              <tbody>
-                <tr><td>Heat lens</td><td>About 435 ZJ gained, 1971–2018 (282 ZJ in 1971–2006 plus 152 ZJ in 2006–2018). Split: 91% ocean, 5% land, 3% ice, 1% atmosphere.</td><td>Chapter 7, §7.2.2 and Table 7.1; Summary for Policymakers A.4.1. <a href="https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-7/" target="_blank" rel="noopener">Chapter 7</a></td></tr>
-                <tr><td>Carbon lens</td><td>Of 10.9 PgC per year (about 40 GtCO₂), 2010–2019: 46% stayed in the air, 31% went to land, 23% to the ocean.</td><td>Chapter 5, §5.2, Table 5.1. <a href="https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-5/" target="_blank" rel="noopener">Chapter 5</a></td></tr>
-                <tr><td>Observed warming</td><td>+1.09°C in 2011–2020 compared with 1850–1900.</td><td>Summary for Policymakers A.1.2. <a href="https://www.ipcc.ch/report/ar6/wg1/chapter/summary-for-policymakers" target="_blank" rel="noopener">Summary for Policymakers</a></td></tr>
-                <tr><td>Projected warming</td><td>Best estimates for 2081–2100: +1.4°C (SSP1-1.9), +2.7°C (SSP2-4.5), +4.4°C (SSP5-8.5), against 1850–1900.</td><td>Summary for Policymakers, Table SPM.1.</td></tr>
-                <tr><td>Beams</td><td>Three headline findings, paraphrased rather than quoted.</td><td>Summary for Policymakers D.1 and A.2.2; Chapter 9. <a href="https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-9/" target="_blank" rel="noopener">Chapter 9</a></td></tr>
-                <tr><td>AR7 probes</td><td>Lead Author Meeting dates and places, the expert review window, and the status of the timeline.</td><td><a href="https://www.ipcc.ch/report/seventh-assessment-report-working-group-i/" target="_blank" rel="noopener">IPCC: AR7 Working Group I</a> · <a href="https://www.ipcc.ch/2026/11/02/ipcc-ar7-wgi-lam3-arusha-tanzania/" target="_blank" rel="noopener">Arusha meeting</a> · <a href="https://www.ipcc.ch/2026/10/29/ipcc-65/" target="_blank" rel="noopener">IPCC-65</a></td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="src-note">AR7 details were checked against IPCC pages in November 2026 and may change. The 2028 date is the Co-Chairs’ proposal, and the Panel had not agreed it at IPCC-65.</p>
-        </article>
-      </div>
-    </section>
-
-  </div>
-
+  <details class="srcs">
+    <summary>Sources and checks</summary>
+    <ul>
+      <li>Heat: about 435 ZJ gained 1971–2018; 91% ocean, 5% land, 3% ice, 1% air. <a href="https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-7/" target="_blank" rel="noopener">AR6 Chapter 7</a></li>
+      <li>Carbon: 10.9 PgC a year (about 40 GtCO₂), 2010–2019; 46% air, 31% land, 23% ocean. <a href="https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-5/" target="_blank" rel="noopener">AR6 Chapter 5</a></li>
+      <li>Warming: +1.09°C in 2011–2020; 2081–2100 best estimates +1.4°C (SSP1-1.9), +2.7°C (SSP2-4.5), +4.4°C (SSP5-8.5). <a href="https://www.ipcc.ch/report/ar6/wg1/chapter/summary-for-policymakers" target="_blank" rel="noopener">Summary for Policymakers</a></li>
+      <li>AR7 dates: <a href="https://www.ipcc.ch/report/seventh-assessment-report-working-group-i/" target="_blank" rel="noopener">IPCC AR7 WGI</a>, checked November 2026 and may change.</li>
+      <li>Independent communication sample, not an IPCC product. Figures are rounded.</li>
+    </ul>
+  </details>
+</main>
 
 <section class="tcx" aria-labelledby="tcxHeading">
   <div class="tcx-wrap">
@@ -880,728 +260,41 @@
     </aside>
   </div>
 </section>
-
-  <footer class="site-footer">
-    <p>© 2026 <span>Timothy Earl Mateo Castillon</span>. All rights reserved.</p>
-  </footer>
-
-  <div id="tooltip" class="editorial-tooltip" role="tooltip">
-    <div id="tooltipKicker" class="tooltip-kicker"></div>
-    <div id="tooltipTitle" class="tooltip-title"></div>
-    <div id="tooltipMetric" class="tooltip-metric"></div>
-    <div id="tooltipDesc" class="tooltip-desc"></div>
-  </div>
-
-  <script>
-    (function () {
-      const canvas = document.getElementById('observatoryCanvas');
-      const ctx = canvas.getContext('2d');
-
-      const synthesizeBtn = document.getElementById('synthesizeBtn');
-      const statusCaption = document.getElementById('statusCaption');
-      const sspPills = document.querySelectorAll('.ssp-pill');
-
-      const tooltipEl = document.getElementById('tooltip');
-      const tooltipKicker = document.getElementById('tooltipKicker');
-      const tooltipTitle = document.getElementById('tooltipTitle');
-      const tooltipMetric = document.getElementById('tooltipMetric');
-      const tooltipDesc = document.getElementById('tooltipDesc');
-
-      const LOGICAL_W = 1280;
-      const LOGICAL_H = 680;
-      let dpr = Math.min(window.devicePixelRatio || 1, 2);
-
-      let isSynthesized = false;
-      let synthProgress = 0;
-      let activeSspFilter = 'all';
-      let hoveredEntity = null;
-      let animTime = 0;
-
-      const PILLARS = [
-        {
-          id: 'energy',
-          kicker: 'PILLAR I · SPM A.4.1 & CH. 7',
-          title: "Earth's Energy Imbalance",
-          subtitle: '1971–2018 Total Heat Gain: ~435 ZJ (282 + 152)',
-          metricSummary: '91% Ocean · 5% Land · 3% Ice · 1% Atmosphere',
-          description: 'Accumulated excess energy trapped in the climate system due to anthropogenic radiative forcing, dominated by ocean heat uptake.',
-          cx: 330,
-          cy: 255,
-          coreRadius: 48,
-          coreLabel: '~435 ZJ',
-          coreSub: '1971–2018',
-          labelAlign: 'right',
-          labelOffset: { x: -158, y: -92 },
-          rings: [
-            {
-              counts: [24, 34, 42],
-              segments: [
-                { key: 'ocean', label: 'Ocean Warming', count: 91, color: '#1D5D8F', unitText: '1% of Earth energy gain (~4.35 ZJ)', citation: 'WGI AR6 Ch. 7 (§7.2.2, Table 7.1) and SPM A.4.1: Oceans absorbed 91% of excess heat between 1971 and 2018.' },
-                { key: 'land', label: 'Land Warming', count: 5, color: '#2F7D63', unitText: '1% of Earth energy gain (~4.35 ZJ)', citation: 'WGI AR6 Ch. 7 (§7.2.2, Table 7.1) and SPM A.4.1: Continental land masses absorbed 5% of excess trapped energy.' },
-                { key: 'ice', label: 'Cryosphere Ice Loss', count: 3, color: '#5FA8C8', unitText: '1% of Earth energy gain (~4.35 ZJ)', citation: 'WGI AR6 Ch. 7 (§7.2.2, Table 7.1) and SPM A.4.1: Melting ice sheets, glaciers, and sea ice absorbed 3% of heat gain.' },
-                { key: 'atmos', label: 'Atmosphere Warming', count: 1, color: '#D9822B', unitText: '1% of Earth energy gain (~4.35 ZJ)', citation: 'WGI AR6 Ch. 7 (§7.2.2, Table 7.1) and SPM A.4.1: Atmospheric warming accounts for 1% of total Earth energy gain.' }
-              ]
-            }
-          ]
-        },
-        {
-          id: 'carbon',
-          kicker: 'PILLAR II · CH. 5 & TABLE 5.1',
-          title: 'Anthropogenic Carbon Partitioning',
-          subtitle: '2010–2019 Mean CO₂ Sink Share',
-          metricSummary: '46% Atmosphere · 31% Land · 23% Ocean',
-          description: 'Partitioning of cumulative anthropogenic CO₂ emissions (~40 GtCO₂/yr) across natural land and ocean carbon sinks versus atmospheric accumulation.',
-          cx: 950,
-          cy: 265,
-          coreRadius: 41,
-          coreLabel: '40 GtCO₂',
-          coreSub: 'per year',
-          labelAlign: 'left',
-          labelOffset: { x: 152, y: -88 },
-          rings: [
-            {
-              counts: [24, 34, 42],
-              segments: [
-                { key: 'atmos', label: 'Atmosphere Accumulation', count: 46, color: '#D9822B', unitText: '1% of anthropogenic CO₂ emissions', citation: 'WGI AR6 Ch. 5 (§5.2, Table 5.1): 46% of emitted CO₂ remained in the atmosphere (2010–2019).' },
-                { key: 'land', label: 'Land Carbon Sink', count: 31, color: '#2F7D63', unitText: '1% of anthropogenic CO₂ emissions', citation: 'WGI AR6 Ch. 5 (§5.2, Table 5.1): Terrestrial ecosystems absorbed 31% of anthropogenic CO₂.' },
-                { key: 'ocean', label: 'Ocean Carbon Sink', count: 23, color: '#1D5D8F', unitText: '1% of anthropogenic CO₂ emissions', citation: 'WGI AR6 Ch. 5 (§5.2, Table 5.1): Global oceans absorbed 23% of anthropogenic CO₂.' }
-              ]
-            }
-          ]
-        },
-        {
-          id: 'warming',
-          kicker: 'PILLAR III · SPM A.1.2 & TABLE SPM.1',
-          title: 'Global Surface Temperature',
-          subtitle: 'vs. 1850–1900 · observed 2011–2020, projected 2081–2100 (1 prism = 0.1°C)',
-          metricSummary: 'Obs +1.09°C · SSP1-1.9 +1.4°C · SSP2-4.5 +2.7°C · SSP5-8.5 +4.4°C',
-          description: 'Assessed best-estimate global surface temperature change relative to 1850–1900 across Shared Socioeconomic Pathways (SSPs).',
-          cx: 640,
-          cy: 485,
-          coreRadius: 34,
-          coreLabel: '1850–1900',
-          coreSub: 'Baseline',
-          labelAlign: 'right',
-          labelOffset: { x: -165, y: 42 },
-          isMultiBand: true,
-          bands: [
-            { sspKey: 'obs', label: 'Observed (2011–2020)', valueText: '+1.09°C', count: 11, radius: 56, color: '#435768', citation: 'WGI AR6 SPM.A.1.2: Global surface temperature was 1.09°C higher in 2011–2020 than 1850–1900.' },
-            { sspKey: 'ssp119', label: 'Very Low Emissions (SSP1-1.9)', valueText: '+1.4°C', count: 14, radius: 78, color: '#2B8A8E', citation: 'WGI AR6 Table SPM.1: Very low GHG emissions (SSP1-1.9) best estimate +1.4°C by 2081–2100.' },
-            { sspKey: 'ssp245', label: 'Intermediate Emissions (SSP2-4.5)', valueText: '+2.7°C', count: 27, radius: 100, color: '#D97B29', citation: 'WGI AR6 Table SPM.1: Intermediate GHG emissions (SSP2-4.5) best estimate +2.7°C by 2081–2100.' },
-            { sspKey: 'ssp585', label: 'Very High Emissions (SSP5-8.5)', valueText: '+4.4°C', count: 44, radius: 122, color: '#B8332A', citation: 'WGI AR6 Table SPM.1: Very high GHG emissions (SSP5-8.5) best estimate +4.4°C by 2081–2100.' }
-          ]
-        }
-      ];
-
-      const FLUX_BEAMS = [
-        { id: 'beam-energy-carbon', p0: { x: 472, y: 185 }, p1: { x: 640, y: 105 }, p2: { x: 812, y: 192 }, quote: 'Each tonne of CO₂ adds to warming', textOffsetY: -12, citation: 'Paraphrase of IPCC WGI AR6 SPM D.1: a near-linear relationship between cumulative CO₂ emissions and the warming they cause.' },
-        { id: 'beam-energy-warming', p0: { x: 375, y: 398 }, p1: { x: 425, y: 475 }, p2: { x: 492, y: 492 }, quote: 'Stratification: about twice the earlier estimate', textOffsetY: 18, citation: 'Paraphrase of IPCC WGI AR6 Ch. 9: upper-ocean (0–200 m) stratification rose 4.9 ± 1.5% from 1970 to 2018, about twice the earlier (SROCC) estimate.' },
-        { id: 'beam-carbon-warming', p0: { x: 788, y: 492 }, p1: { x: 858, y: 472 }, p2: { x: 908, y: 398 }, quote: 'Fastest 50-year warming in 2,000 years', textOffsetY: 18, citation: 'Paraphrase of IPCC WGI AR6 SPM A.2.2: global surface temperature has risen faster since 1970 than in any other 50-year period in at least 2,000 years.' }
-      ];
-
-      const PROBES = [
-        { id: 'probe-paris', label: 'Dec 2025 · 1st LAM Paris', kicker: 'AR7 WGI MILESTONE #1', metric: 'Paris, France · 1–5 Dec 2025 · joint WGI, WGII, WGIII', desc: 'First Lead Author Meeting of the AR7 cycle, and the first ever held jointly by all three Working Groups.', baseX: 155, baseY: 120, orbitRx: 14, orbitRy: 9, speed: 0.55, phase: 0.2 },
-        { id: 'probe-santiago', label: 'Apr 2026 · 2nd LAM Santiago', kicker: 'AR7 WGI MILESTONE #2', metric: 'Santiago, Chile · 20–24 Apr 2026 · First Order Draft', desc: 'Second Lead Author Meeting, advancing the first draft. Expert review of the draft ran from 10 August to 2 October 2026.', baseX: 640, baseY: 66, orbitRx: 18, orbitRy: 8, speed: 0.48, phase: 1.7 },
-        { id: 'probe-arusha', label: 'Nov 2026 · 3rd LAM Arusha', kicker: 'AR7 WGI MILESTONE #3', metric: 'Arusha, Tanzania · 2–6 Nov 2026 · after First Order Draft review', desc: 'Third Lead Author Meeting, where authors work through the expert review comments on the First Order Draft.', baseX: 1125, baseY: 125, orbitRx: 14, orbitRy: 10, speed: 0.52, phase: 3.1 },
-        { id: 'probe-launch', label: '2028? · AR7 WGI (proposed)', kicker: 'AR7 WGI TIMELINE · NOT YET AGREED', metric: 'Co-Chairs propose 2028 · Panel has not agreed a date', desc: 'The Co-Chairs’ work plan foresees the three Working Group reports in 2028, but the Panel did not agree the timeline at IPCC-65 (Oct 2026). The AR7 Synthesis Report is due in 2029.', baseX: 1140, baseY: 465, orbitRx: 15, orbitRy: 11, speed: 0.44, phase: 4.4 },
-        { id: 'probe-atlas', label: 'WGI Interactive Atlas', kicker: 'TSU DIGITAL INFRASTRUCTURE', metric: 'FAIR Data & Regional Synthesis Tool', desc: 'Interactive spatial and temporal synthesis of observed datasets and climate model projections curated by the WGI TSU.', baseX: 150, baseY: 460, orbitRx: 16, orbitRy: 10, speed: 0.5, phase: 5.2 },
-        { id: 'probe-cmip', label: 'CMIP6 / CMIP7 Ensemble', kicker: 'EARTH SYSTEM MODELING', metric: 'Coupled Model Intercomparison Project', desc: 'Coordinated multi-model climate simulations. AR6 assessed equilibrium climate sensitivity at 3°C (likely 2.5–4°C) using several lines of evidence, not models alone.', baseX: 640, baseY: 282, orbitRx: 22, orbitRy: 11, speed: 0.6, phase: 2.4 }
-      ];
-
-      const allPrisms = [];
-
-      function buildPrisms() {
-        allPrisms.length = 0;
-
-        [PILLARS[0], PILLARS[1]].forEach((pillar, pIdx) => {
-          const ringDef = pillar.rings[0];
-          const unitList = [];
-          ringDef.segments.forEach((seg) => {
-            for (let i = 0; i < seg.count; i++) unitList.push(seg);
-          });
-
-          let cursor = 0;
-          ringDef.counts.forEach((countInRing, rIdx) => {
-            const radius = pillar.coreRadius + 22 + rIdx * 23;
-            const step = (Math.PI * 2) / countInRing;
-            const startAngle = -Math.PI / 2 + (rIdx % 2 === 1 ? step / 2 : 0);
-
-            for (let i = 0; i < countInRing; i++) {
-              const seg = unitList[cursor++];
-              const theta = startAngle + i * step;
-              const hx = pillar.cx + Math.cos(theta) * radius;
-              const hy = pillar.cy + Math.sin(theta) * radius;
-
-              const synthRadius = pIdx === 0 ? 158 + rIdx * 17 : 212 + rIdx * 17;
-              const synthTheta = theta + (pIdx === 0 ? 0 : 0.14);
-              const sx = 640 + Math.cos(synthTheta) * synthRadius;
-              const sy = 340 + Math.sin(synthTheta) * synthRadius;
-
-              allPrisms.push({
-                pillarId: pillar.id,
-                sspKey: 'none',
-                label: seg.label,
-                color: seg.color,
-                unitText: seg.unitText,
-                citation: seg.citation,
-                kicker: pillar.kicker,
-                hx, hy,
-                hAngle: theta + Math.PI / 2,
-                sx, sy,
-                sAngle: synthTheta + Math.PI / 2,
-                x: hx, y: hy,
-                angle: theta + Math.PI / 2,
-                size: 1.0
-              });
-            }
-          });
-        });
-
-        const tempPillar = PILLARS[2];
-        tempPillar.bands.forEach((band, bIdx) => {
-          const step = (Math.PI * 2) / band.count;
-          const startAngle = -Math.PI / 2;
-
-          for (let i = 0; i < band.count; i++) {
-            const theta = startAngle + i * step;
-            const hx = tempPillar.cx + Math.cos(theta) * band.radius;
-            const hy = tempPillar.cy + Math.sin(theta) * band.radius;
-
-            const synthRadius = 62 + bIdx * 19;
-            const sx = 640 + Math.cos(theta) * synthRadius;
-            const sy = 340 + Math.sin(theta) * synthRadius;
-
-            allPrisms.push({
-              pillarId: tempPillar.id,
-              sspKey: band.sspKey,
-              label: `${band.label} (${band.valueText})`,
-              color: band.color,
-              unitText: '1 spectral prism = +0.1°C surface warming vs. 1850–1900',
-              citation: band.citation,
-              kicker: tempPillar.kicker,
-              hx, hy,
-              hAngle: theta + Math.PI / 2,
-              sx, sy,
-              sAngle: theta + Math.PI / 2,
-              x: hx, y: hy,
-              angle: theta + Math.PI / 2,
-              size: 0.92
-            });
-          }
-        });
-      }
-
-      buildPrisms();
-
-      function resizeCanvas() {
-        dpr = Math.min(window.devicePixelRatio || 1, 2);
-        canvas.width = LOGICAL_W * dpr;
-        canvas.height = LOGICAL_H * dpr;
-      }
-
-      window.addEventListener('resize', resizeCanvas);
-      resizeCanvas();
-
-      function lerp(a, b, t) {
-        return a + (b - a) * t;
-      }
-
-      function easeInOutCubic(t) {
-        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-      }
-
-      function drawCurvedText(text, p0, p1, p2, offsetY, alpha) {
-        if (alpha <= 0.02) return;
-        ctx.save();
-        ctx.globalAlpha = alpha;
-        ctx.font = 'italic 400 13.5px "DM Serif Display", Georgia, serif';
-        ctx.fillStyle = '#26323B';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-
-        const steps = 60;
-        const pts = [];
-        let totalLen = 0;
-        let prev = p0;
-
-        for (let i = 0; i <= steps; i++) {
-          const t = i / steps;
-          const mt = 1 - t;
-          const x = mt * mt * p0.x + 2 * mt * t * p1.x + t * t * p2.x;
-          const y = mt * mt * p0.y + 2 * mt * t * p1.y + t * t * p2.y;
-          totalLen += Math.hypot(x - prev.x, y - prev.y);
-          pts.push({ x, y, len: totalLen });
-          prev = { x, y };
-        }
-
-        const textWidth = ctx.measureText(text).width;
-        let currentDist = (totalLen - textWidth) / 2;
-
-        for (let c = 0; c < text.length; c++) {
-          const ch = text[c];
-          const chW = ctx.measureText(ch).width;
-          const targetDist = currentDist + chW / 2;
-
-          let idx = 1;
-          while (idx < pts.length - 1 && pts[idx].len < targetDist) idx++;
-          const a = pts[idx - 1];
-          const b = pts[idx];
-          const segRatio = b.len === a.len ? 0 : (targetDist - a.len) / (b.len - a.len);
-          const px = lerp(a.x, b.x, segRatio);
-          const py = lerp(a.y, b.y, segRatio);
-          const angle = Math.atan2(b.y - a.y, b.x - a.x);
-
-          ctx.save();
-          ctx.translate(px, py);
-          ctx.rotate(angle);
-          ctx.fillText(ch, 0, offsetY);
-          ctx.restore();
-
-          currentDist += chW;
-        }
-        ctx.restore();
-      }
-
-      function drawSpectralPrism(x, y, angle, color, scale, alpha, isHighlighted) {
-        ctx.save();
-        ctx.translate(x, y);
-        ctx.rotate(angle);
-        ctx.scale(scale, scale);
-        ctx.globalAlpha = alpha;
-
-        ctx.beginPath();
-        ctx.moveTo(0, -10.5);
-        ctx.lineTo(5.2, 1.5);
-        ctx.lineTo(0, 7.5);
-        ctx.lineTo(-5.2, 1.5);
-        ctx.closePath();
-
-        ctx.fillStyle = color;
-        ctx.fill();
-
-        ctx.lineWidth = isHighlighted ? 1.8 : 1.05;
-        ctx.strokeStyle = isHighlighted ? '#0b1420' : '#f4f2ee';
-        ctx.stroke();
-
-        ctx.beginPath();
-        ctx.moveTo(0, -8.5);
-        ctx.lineTo(0, 5.5);
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
-        ctx.lineWidth = 0.7;
-        ctx.stroke();
-
-        ctx.restore();
-      }
-
-      function drawPlanetaryCore(cx, cy, radius, title, sub, alpha) {
-        if (alpha <= 0.02) return;
-        ctx.save();
-        ctx.globalAlpha = alpha;
-
-        const halo = ctx.createRadialGradient(cx, cy, radius * 0.4, cx, cy, radius * 1.45);
-        halo.addColorStop(0, 'rgba(226, 161, 54, 0.25)');
-        halo.addColorStop(1, 'rgba(226, 161, 54, 0)');
-        ctx.fillStyle = halo;
-        ctx.beginPath();
-        ctx.arc(cx, cy, radius * 1.45, 0, Math.PI * 2);
-        ctx.fill();
-
-        const grad = ctx.createRadialGradient(cx - radius * 0.25, cy - radius * 0.25, 4, cx, cy, radius);
-        grad.addColorStop(0, '#F5C96B');
-        grad.addColorStop(0.68, '#e2c68c');
-        grad.addColorStop(1, '#C47E22');
-
-        ctx.beginPath();
-        ctx.arc(cx, cy, radius, 0, Math.PI * 2);
-        ctx.fillStyle = grad;
-        ctx.fill();
-
-        ctx.lineWidth = 2.2;
-        ctx.strokeStyle = '#f4f2ee';
-        ctx.stroke();
-
-        ctx.beginPath();
-        ctx.arc(cx, cy, radius - 5.5, 0, Math.PI * 2);
-        ctx.lineWidth = 0.75;
-        ctx.strokeStyle = 'rgba(11, 20, 32, 0.25)';
-        ctx.stroke();
-
-        ctx.fillStyle = '#0b1420';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.font = '700 11.9px "Space Mono", monospace';
-        ctx.fillText(title, cx, cy - 6);
-
-        ctx.font = '500 9.5px "Inter", sans-serif';
-        ctx.fillStyle = 'rgba(11, 20, 32, 0.82)';
-        ctx.fillText(sub, cx, cy + 8);
-
-        ctx.restore();
-      }
-
-      function drawSatelliteProbe(x, y, headingAngle, label, isHovered) {
-        ctx.save();
-        ctx.translate(x, y);
-
-        const pulse = (Math.sin(animTime * 2.4 + x * 0.02) + 1) * 0.5;
-        ctx.beginPath();
-        ctx.arc(0, 0, 14 + pulse * 5, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(171, 125, 44, ${0.28 - pulse * 0.18})`;
-        ctx.lineWidth = 1;
-        ctx.stroke();
-
-        ctx.save();
-        ctx.rotate(headingAngle);
-
-        ctx.fillStyle = isHovered ? '#2B8A8E' : '#1D5D8F';
-        ctx.strokeStyle = '#0b1420';
-        ctx.lineWidth = 1.1;
-
-        ctx.beginPath();
-        ctx.roundRect(-18, -4.5, 10, 9, 1.5);
-        ctx.fill();
-        ctx.stroke();
-
-        ctx.beginPath();
-        ctx.roundRect(8, -4.5, 10, 9, 1.5);
-        ctx.fill();
-        ctx.stroke();
-
-        ctx.strokeStyle = 'rgba(244, 242, 238, 0.55)';
-        ctx.lineWidth = 0.65;
-        ctx.beginPath();
-        ctx.moveTo(-13, -4.5);
-        ctx.lineTo(-13, 4.5);
-        ctx.moveTo(13, -4.5);
-        ctx.lineTo(13, 4.5);
-        ctx.stroke();
-
-        ctx.beginPath();
-        ctx.arc(0, 0, 5.2, 0, Math.PI * 2);
-        ctx.fillStyle = '#e2c68c';
-        ctx.fill();
-        ctx.strokeStyle = '#0b1420';
-        ctx.lineWidth = 1.2;
-        ctx.stroke();
-
-        ctx.beginPath();
-        ctx.arc(0, 6.5, 3.8, Math.PI * 1.15, Math.PI * 1.85);
-        ctx.strokeStyle = '#ab7d2c';
-        ctx.lineWidth = 1.3;
-        ctx.stroke();
-
-        ctx.restore();
-
-        ctx.font = `${isHovered ? '700' : '400'} 9.5px "Space Mono", monospace`;
-        const textW = ctx.measureText(label).width;
-        const padX = 7;
-        const boxW = textW + padX * 2;
-        const boxH = 18;
-
-        ctx.fillStyle = isHovered ? '#0b1420' : 'rgba(244, 242, 238, 0.88)';
-        ctx.strokeStyle = isHovered ? '#0b1420' : 'rgba(11, 20, 32, 0.2)';
-        ctx.lineWidth = 0.9;
-        ctx.beginPath();
-        ctx.roundRect(-boxW / 2, 13, boxW, boxH, 9);
-        ctx.fill();
-        ctx.stroke();
-
-        ctx.fillStyle = isHovered ? '#f4f2ee' : '#0b1420';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(label, 0, 22);
-
-        ctx.restore();
-      }
-
-      function render(timestamp) {
-        animTime = timestamp * 0.001;
-
-        const targetSynth = isSynthesized ? 1 : 0;
-        synthProgress += (targetSynth - synthProgress) * 0.075;
-        if (Math.abs(targetSynth - synthProgress) < 0.0005) synthProgress = targetSynth;
-        const easeT = easeInOutCubic(synthProgress);
-
-        ctx.save();
-        ctx.scale(dpr, dpr);
-        ctx.clearRect(0, 0, LOGICAL_W, LOGICAL_H);
-
-        ctx.save();
-        ctx.strokeStyle = 'rgba(11, 20, 32, 0.065)';
-        ctx.lineWidth = 1;
-        ctx.setLineDash([3, 6]);
-        ctx.beginPath();
-        ctx.ellipse(640, 340, 540, 265, 0, 0, Math.PI * 2);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(60, 340);
-        ctx.lineTo(1220, 340);
-        ctx.moveTo(640, 30);
-        ctx.lineTo(640, 650);
-        ctx.stroke();
-        ctx.restore();
-
-        const decomposedAlpha = 1 - easeT;
-        if (decomposedAlpha > 0.01) {
-          FLUX_BEAMS.forEach((beam, idx) => {
-            ctx.save();
-            ctx.globalAlpha = decomposedAlpha;
-
-            ctx.beginPath();
-            ctx.moveTo(beam.p0.x, beam.p0.y);
-            ctx.quadraticCurveTo(beam.p1.x, beam.p1.y, beam.p2.x, beam.p2.y);
-            ctx.strokeStyle = 'rgba(171, 125, 44, 0.11)';
-            ctx.lineWidth = 14;
-            ctx.lineCap = 'round';
-            ctx.stroke();
-
-            ctx.beginPath();
-            ctx.moveTo(beam.p0.x, beam.p0.y);
-            ctx.quadraticCurveTo(beam.p1.x, beam.p1.y, beam.p2.x, beam.p2.y);
-            ctx.strokeStyle = 'rgba(171, 125, 44, 0.62)';
-            ctx.lineWidth = 1.4;
-            ctx.setLineDash([4, 6]);
-            ctx.lineDashOffset = -animTime * 16 + idx * 10;
-            ctx.stroke();
-            ctx.restore();
-
-            drawCurvedText(beam.quote, beam.p0, beam.p1, beam.p2, beam.textOffsetY, decomposedAlpha);
-          });
-        }
-
-        if (easeT > 0.01) {
-          ctx.save();
-          ctx.globalAlpha = easeT;
-
-          [62, 81, 100, 119, 158, 175, 192, 212, 229, 246].forEach((r, i) => {
-            ctx.beginPath();
-            ctx.arc(640, 340, r, 0, Math.PI * 2);
-            ctx.strokeStyle = i < 4 ? 'rgba(184, 51, 42, 0.14)' : 'rgba(29, 93, 143, 0.14)';
-            ctx.lineWidth = 0.85;
-            ctx.setLineDash([2, 5]);
-            ctx.stroke();
-          });
-
-          drawPlanetaryCore(640, 340, 44, 'EARTH SYSTEM', 'Coupled Model', easeT);
-
-          ctx.font = '600 13px "Inter", sans-serif';
-          ctx.fillStyle = '#0b1420';
-          ctx.textAlign = 'left';
-          ctx.fillText('Coupled Energy–Carbon–Temperature Observatory', 60, 74);
-          ctx.font = 'italic 400 13px "DM Serif Display", Georgia, serif';
-          ctx.fillStyle = '#5b626d';
-          ctx.fillText('Inner rings: +0.1°C warming pathways · Middle rings: 435 ZJ heat uptake · Outer rings: CO₂ sink partitioning', 60, 94);
-
-          ctx.restore();
-        }
-
-        PILLARS.forEach((pillar) => {
-          if (decomposedAlpha > 0.01) {
-            ctx.save();
-            ctx.globalAlpha = decomposedAlpha;
-
-            if (pillar.isMultiBand) {
-              pillar.bands.forEach((b) => {
-                ctx.beginPath();
-                ctx.arc(pillar.cx, pillar.cy, b.radius, 0, Math.PI * 2);
-                ctx.strokeStyle = 'rgba(11, 20, 32, 0.09)';
-                ctx.lineWidth = 0.9;
-                ctx.stroke();
-              });
-            } else {
-              [0, 1, 2].forEach((rIdx) => {
-                const r = pillar.coreRadius + 22 + rIdx * 23;
-                ctx.beginPath();
-                ctx.arc(pillar.cx, pillar.cy, r, 0, Math.PI * 2);
-                ctx.strokeStyle = 'rgba(11, 20, 32, 0.08)';
-                ctx.lineWidth = 0.9;
-                ctx.stroke();
-              });
-            }
-
-            drawPlanetaryCore(pillar.cx, pillar.cy, pillar.coreRadius, pillar.coreLabel, pillar.coreSub, decomposedAlpha);
-
-            const lx = pillar.cx + pillar.labelOffset.x;
-            const ly = pillar.cy + pillar.labelOffset.y;
-
-            ctx.textAlign = pillar.labelAlign;
-            ctx.font = '700 9.5px "Space Mono", monospace';
-            ctx.fillStyle = '#ab7d2c';
-            ctx.fillText(pillar.kicker, lx, ly - 18);
-
-            ctx.font = '400 17.5px "DM Serif Display", Georgia, serif';
-            ctx.fillStyle = '#0b1420';
-            ctx.fillText(pillar.title, lx, ly);
-
-            ctx.font = '500 11px "Inter", sans-serif';
-            ctx.fillStyle = '#5b626d';
-            ctx.fillText(pillar.subtitle, lx, ly + 16);
-
-            ctx.font = '400 10.0px "Space Mono", monospace';
-            ctx.fillStyle = '#2E3A44';
-            ctx.fillText(pillar.metricSummary, lx, ly + 32);
-
-            ctx.restore();
-          }
-        });
-
-        allPrisms.forEach((prism, idx) => {
-          const breathe = Math.sin(animTime * 1.4 + idx * 0.13) * 1.2;
-          const baseX = lerp(prism.hx, prism.sx, easeT);
-          const baseY = lerp(prism.hy, prism.sy, easeT);
-          const angle = lerp(prism.hAngle, prism.sAngle, easeT);
-
-          const radialDirX = Math.cos(angle - Math.PI / 2);
-          const radialDirY = Math.sin(angle - Math.PI / 2);
-
-          prism.x = baseX + radialDirX * breathe;
-          prism.y = baseY + radialDirY * breathe;
-          prism.angle = angle;
-
-          let alpha = 1;
-          if (activeSspFilter !== 'all') {
-            if (prism.pillarId === 'warming') {
-              alpha = prism.sspKey === activeSspFilter ? 1 : 0.16;
-            } else {
-              alpha = 0.26;
-            }
-          }
-
-          const isHovered = hoveredEntity && hoveredEntity.type === 'prism' && hoveredEntity.data === prism;
-          const scale = isHovered ? prism.size * 1.38 : prism.size;
-
-          drawSpectralPrism(prism.x, prism.y, prism.angle, prism.color, scale, alpha, isHovered);
-        });
-
-        PROBES.forEach((probe) => {
-          const t = animTime * probe.speed + probe.phase;
-          const px = probe.baseX + Math.cos(t) * probe.orbitRx;
-          const py = probe.baseY + Math.sin(t) * probe.orbitRy;
-          probe.currentX = px;
-          probe.currentY = py;
-
-          const isHovered = hoveredEntity && hoveredEntity.type === 'probe' && hoveredEntity.data === probe;
-          const heading = Math.sin(t) * 0.25 - 0.35;
-
-          drawSatelliteProbe(px, py, heading, probe.label, isHovered);
-        });
-
-        ctx.restore();
-        requestAnimationFrame(render);
-      }
-
-      function getLogicalCoords(clientX, clientY) {
-        const rect = canvas.getBoundingClientRect();
-        return {
-          x: ((clientX - rect.left) / rect.width) * LOGICAL_W,
-          y: ((clientY - rect.top) / rect.height) * LOGICAL_H
-        };
-      }
-
-      function updateHover(clientX, clientY) {
-        const pt = getLogicalCoords(clientX, clientY);
-        let found = null;
-
-        for (let i = 0; i < PROBES.length; i++) {
-          const p = PROBES[i];
-          if (Math.hypot(pt.x - p.currentX, pt.y - p.currentY) < 24) {
-            found = { type: 'probe', data: p, kicker: p.kicker, title: p.label, metric: p.metric, desc: p.desc };
-            break;
-          }
-        }
-
-        if (!found) {
-          let minDist = 13;
-          for (let i = 0; i < allPrisms.length; i++) {
-            const pr = allPrisms[i];
-            const d = Math.hypot(pt.x - pr.x, pt.y - pr.y);
-            if (d < minDist) {
-              minDist = d;
-              found = { type: 'prism', data: pr, kicker: pr.kicker, title: pr.label, metric: pr.unitText, desc: pr.citation };
-            }
-          }
-        }
-
-        if (!found && synthProgress < 0.5) {
-          for (let i = 0; i < PILLARS.length; i++) {
-            const pil = PILLARS[i];
-            if (Math.hypot(pt.x - pil.cx, pt.y - pil.cy) <= pil.coreRadius + 6) {
-              found = { type: 'core', data: pil, kicker: pil.kicker, title: pil.title, metric: pil.metricSummary, desc: pil.description };
-              break;
-            }
-          }
-        }
-
-        if (!found && synthProgress < 0.5) {
-          for (let i = 0; i < FLUX_BEAMS.length; i++) {
-            const b = FLUX_BEAMS[i];
-            const midX = 0.25 * b.p0.x + 0.5 * b.p1.x + 0.25 * b.p2.x;
-            const midY = 0.25 * b.p0.y + 0.5 * b.p1.y + 0.25 * b.p2.y;
-            if (Math.hypot(pt.x - midX, pt.y - midY) < 42) {
-              found = { type: 'beam', data: b, kicker: 'IPCC WGI HEADLINE STATEMENT', title: b.quote, metric: 'Cross-Reservoir Physical Coupling', desc: b.citation };
-              break;
-            }
-          }
-        }
-
-        hoveredEntity = found;
-
-        if (found) {
-          canvas.style.cursor = 'pointer';
-          tooltipKicker.textContent = found.kicker;
-          tooltipTitle.textContent = found.title;
-          tooltipMetric.textContent = found.metric;
-          tooltipDesc.textContent = found.desc;
-
-          tooltipEl.classList.add('visible');
-
-          const pad = 16;
-          const rect = tooltipEl.getBoundingClientRect();
-          let tx = clientX + pad;
-          let ty = clientY + pad;
-          if (tx + rect.width > window.innerWidth - 12) tx = clientX - rect.width - pad;
-          if (ty + rect.height > window.innerHeight - 12) ty = clientY - rect.height - pad;
-          tooltipEl.style.left = `${tx}px`;
-          tooltipEl.style.top = `${ty}px`;
-        } else {
-          canvas.style.cursor = 'crosshair';
-          tooltipEl.classList.remove('visible');
-        }
-      }
-
-      canvas.addEventListener('mousemove', (e) => updateHover(e.clientX, e.clientY));
-      canvas.addEventListener('mouseleave', () => {
-        hoveredEntity = null;
-        tooltipEl.classList.remove('visible');
-      });
-      canvas.addEventListener('touchstart', (e) => {
-        if (e.touches && e.touches[0]) updateHover(e.touches[0].clientX, e.touches[0].clientY);
-      }, { passive: true });
-
-      synthesizeBtn.addEventListener('click', () => {
-        isSynthesized = !isSynthesized;
-        synthesizeBtn.classList.toggle('is-active', isSynthesized);
-        synthesizeBtn.setAttribute('aria-pressed', String(isSynthesized));
-
-        if (isSynthesized) {
-          synthesizeBtn.innerHTML = '<span>↺ Decompose Reservoirs</span>';
-          statusCaption.textContent = 'Unified Earth System coupling · 296 spectral units';
-        } else {
-          synthesizeBtn.innerHTML = '<span>✦ Synthesize Earth System</span>';
-          statusCaption.textContent = 'Decomposed reservoirs · 296 spectral units';
-        }
-      });
-
-      sspPills.forEach((pill) => {
-        pill.addEventListener('click', () => {
-          sspPills.forEach((p) => p.classList.remove('active'));
-          pill.classList.add('active');
-          activeSspFilter = pill.dataset.ssp;
-        });
-      });
-
-      requestAnimationFrame(render);
-    })();
-  </script>
+<footer class="site-footer"><p>© 2026 <span>Timothy Earl Mateo Castillon</span>. All rights reserved.</p></footer>
+
+<script>
+(function(){
+  /* Q1 heat grid */
+  var g=document.getElementById('heat'),seq=[],map={ocean:91,land:5,ice:3,air:1};
+  Object.keys(map).forEach(function(k){for(var i=0;i<map[k];i++)seq.push(k)});
+  var cols={ocean:'#1D5D8F',land:'#2F7D63',ice:'#5FA8C8',air:'#D9822B'};
+  seq.forEach(function(k){var e=document.createElement('i');e.style.background=cols[k];e.dataset.k=k;g.appendChild(e)});
+  var keys=document.querySelectorAll('#heatkeys .key'),cur=null;
+  keys.forEach(function(b){b.addEventListener('click',function(){
+    cur=cur===b.dataset.k?null:b.dataset.k;
+    g.classList.toggle('f',!!cur);
+    g.querySelectorAll('i').forEach(function(e){e.classList.toggle('on',e.dataset.k===cur)});
+    keys.forEach(function(x){x.setAttribute('aria-pressed',x.dataset.k===cur)});
+  })});
+  /* Q2 tub fills when scrolled into view */
+  var tub=document.getElementById('tub');
+  if('IntersectionObserver' in window){new IntersectionObserver(function(en,o){en.forEach(function(e){if(e.isIntersecting){tub.classList.add('go');o.disconnect()}})},{threshold:.5}).observe(tub)}else tub.classList.add('go');
+  /* Q3 warming paths */
+  var D=[
+   {id:'now',n:'Today',s:'2011–2020',v:1.09,c:'#435768',t:'<b>+1.09°C</b> so far. This is measured, not predicted.'},
+   {id:'low',n:'Emissions fall fast',s:'SSP1-1.9',v:1.4,c:'#2B8A8E',t:'<b>+1.4°C</b> (likely range 1.0 to 1.8). Emissions reach net zero around mid-century.'},
+   {id:'mid',n:'Middle road',s:'SSP2-4.5',v:2.7,c:'#D97B29',t:'<b>+2.7°C</b> (likely range 2.1 to 3.5). Emissions stay about where they are for decades.'},
+   {id:'high',n:'Emissions keep rising',s:'SSP5-8.5',v:4.4,c:'#B8332A',t:'<b>+4.4°C</b> (likely range 3.3 to 5.7). Emissions roughly double by 2050.'}];
+  var th=document.getElementById('th'),ro=document.getElementById('ro'),rows=[];
+  D.forEach(function(d,i){
+    var b=document.createElement('button');b.className='row';b.setAttribute('aria-pressed','false');
+    b.innerHTML='<span class="nm"><b>'+d.n+'</b>'+d.s+'</span><span class="tr"><span class="bar" style="background:'+d.c+'">+'+d.v.toFixed(1)+'°C</span></span>';
+    b.addEventListener('click',function(){sel(i)});th.appendChild(b);rows.push(b)});
+  function sel(i){rows.forEach(function(r,j){r.setAttribute('aria-pressed',j===i)});ro.innerHTML=D[i].t}
+  function grow(){rows.forEach(function(r,i){r.querySelector('.bar').style.width=(D[i].v/5*100)+'%'})}
+  if('IntersectionObserver' in window){new IntersectionObserver(function(en,o){en.forEach(function(e){if(e.isIntersecting){grow();o.disconnect()}})},{threshold:.3}).observe(th)}else grow();
+  sel(2);
+})();
+</script>
 </body>
 </html>
